@@ -25,6 +25,7 @@ ASAP.
 
 ### Dev
 * Converted "while each" loops to `foreach`.
+* Migrated `mysql` functions to `mysqli`.
 
 #### 1.27.1
 * Converted all files to utf-8.

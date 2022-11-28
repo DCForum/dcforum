@@ -7,8 +7,8 @@ I've created this repository for a few reasons:
 I was active on several DCForum based boards during the early 2000's,    
 And it is very nostalgic to me, I wish to bring it back to life,  
 I have no commercial plans for the outcome of this project.  
-DCFroum was a commercial project but in its last stages was released under GPL license.
-I maid several attempts to find the original owner of the right (DC Scripts), But I did have much success.  
+DCFroum was a commercial project but in its last stages was released under GPL license.  
+I maid several attempts to find the original owner of the rights (DC Scripts), But I did have much success.  
 If you have claims to any of the rights related to this project (code, artwork, trademarks, etc.)   
 Please create a [github issue](https://github.com/DCForum/dcforum/issues/new) with your claim and I will address it ASAP. 
 

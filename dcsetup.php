@@ -58,11 +58,11 @@ define("DB_PASSWORD","db_password");
 
 // URL of ROOT_DIR - defined in dcboard and dcadmin.php
 // It is the URL of DCF+ folder (default, dc)
-define ("ROOT_URL","http://www.yourdomain.com/dc");
+define ("ROOT_URL","http://dcforum.test/");
 
 // Cookie domain - this is your root domain name without "www"
 // Note the "." in front of yourdomain
-define ("COOKIE_DOMAIN",".yourdomain.com");
+define ("COOKIE_DOMAIN",".dcforum.test");
 
 // Forum title as it will appear in the title bar of the browser
 define("DCFTITLE","Forum title");
@@ -128,8 +128,8 @@ define("USER_URL",ROOT_URL . "/user_files");
 // Temp directory - this directory must set to 777
 define("TEMP_DIR",ROOT_DIR . "/temp_files");
 
-// DB directory
-define("DB_DIR",MYSQL_DB_DIR . "/" . DB_NAME);
+// DB directory / TODO what is this
+//define("DB_DIR",MYSQL_DB_DIR . "/" . DB_NAME);
 
 // define Image URL
 define("IMAGE_DIR", ROOT_DIR . "/images");

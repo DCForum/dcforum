@@ -24,10 +24,14 @@ ASAP.
 ### Changelog
 
 ### Dev
+
 * Converted "while each" loops to `foreach`.
 * Migrated `mysql` functions to `mysqli`.
+* Migrated `define` statements to `const`.
+* Renamed `dcsetup.php` to `dcsetup.example.php` and added to gitignore. 
 
 #### 1.27.1
+
 * Converted all files to utf-8.
 
 #### --- Original readme file converted to markdown ---

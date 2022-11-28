@@ -28,7 +28,8 @@ ASAP.
 * Converted "while each" loops to `foreach`.
 * Migrated `mysql` functions to `mysqli`.
 * Migrated `define` statements to `const`.
-* Renamed `dcsetup.php` to `dcsetup.example.php` and added to gitignore. 
+* Renamed `dcsetup.php` to `dcsetup.example.php` and added to gitignore.
+* Added `dd` and `dump` functions to `dclib.php`.
 
 #### 1.27.1
 

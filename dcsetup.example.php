@@ -45,7 +45,7 @@
 // Define database-specific constants
 // DB_HOST is the hostname of your dB...if your db resides on the same
 // server as the web server, then it is localhost
-const DB_HOST = "db_host";
+const DB_HOST = "localhost";
 
 // database name
 const DB_NAME = "db_name";

@@ -33,11 +33,11 @@
 $in['lang']['page_title'] = "Obtenir un nouveau mot de passe"; //Retrieve a new password
 $in['lang']['page_header'] = "Obtenir un mot de passe"; //Retrieve new password
 
-$in['lang']['e_blank_username'] = "Le champ nom de membre ne peut pas être vide"; //Your username cannot be blank
+$in['lang']['e_blank_username'] = "Le champ nom de membre ne peut pas Ãªtre vide"; //Your username cannot be blank
 
-$in['lang']['e_blank_email'] = "Le champ courriel ne peut pas être vide"; //Your email address cannot be blank
+$in['lang']['e_blank_email'] = "Le champ courriel ne peut pas Ãªtre vide"; //Your email address cannot be blank
 $in['lang']['e_invalid_email'] = "Votre adresse de courriel est invalide"; //Your  email address has incorrect syntax
-$in['lang']['e_header'] = "Il y a des erreurs dans votre requête:"; //There were following errors in your request:
+$in['lang']['e_header'] = "Il y a des erreurs dans votre requÃªte:"; //There were following errors in your request:
 
 $in['lang']['e_no_match'] = "Il n'y a pas de membre inscrit sous ce nom et ce courriel.
 	Veuillez essayer encore ou contacter l'administrateur du forum.";

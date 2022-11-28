@@ -30,10 +30,10 @@
 
 // main function poll
 
-$in['lang']['e_guest'] = "Vous devez être membre pour d&eacute;marrer un sondage"; //You must be a registered user to start poll.
+$in['lang']['e_guest'] = "Vous devez Ãªtre membre pour d&eacute;marrer un sondage"; //You must be a registered user to start poll.
 
-$in['lang']['e_subject_blank'] = "Le champ question ne peut pas être vide"; //Question field must not be blank
-$in['lang']['e_name_blank'] = "Le champ nom ne peut pas être vide. Veuillez inscrire votre nom"; //Name must not be left blank.  Please submit your name
+$in['lang']['e_subject_blank'] = "Le champ question ne peut pas Ãªtre vide"; //Question field must not be blank
+$in['lang']['e_name_blank'] = "Le champ nom ne peut pas Ãªtre vide. Veuillez inscrire votre nom"; //Name must not be left blank.  Please submit your name
 
 $in['lang']['e_name_invalid'] = "Votre nom contient des caract&egrave;res invalides"; //Your name contains non-word characters
 $in['lang']['e_name_long'] = "Le champ nom est trop long. Le maximum de caract&egrave;res permis est ";

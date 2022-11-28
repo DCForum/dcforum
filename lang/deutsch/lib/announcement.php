@@ -31,16 +31,16 @@
 
 // function announcement
 
-$in['lang']['page_title'] = "Ankündigungen";
+$in['lang']['page_title'] = "AnkÃ¼ndigungen";
 
-$in['lang']['page_header'] = "Ankündigungen ansehen";
+$in['lang']['page_header'] = "AnkÃ¼ndigungen ansehen";
 
-$in['lang']['more'] = "Weitere Ankündigungen";
+$in['lang']['more'] = "Weitere AnkÃ¼ndigungen";
 
-$in['lang']['list'] = "Liste der Ankündigungen";
+$in['lang']['list'] = "Liste der AnkÃ¼ndigungen";
 
 // function show_announcement
 
-$in['lang']['no_such_announcement'] = "Keine solche Ankündigungen";
+$in['lang']['no_such_announcement'] = "Keine solche AnkÃ¼ndigungen";
 
 ?>

@@ -50,6 +50,6 @@ $in['lang']['tree_listing'] = "Anzeige aller Foren als Baumstruktur";
 
 $in['lang']['forum'] = "Forum";
 $in['lang']['topics'] = "Themen";
-$in['lang']['messages'] = "Beiträge";
+$in['lang']['messages'] = "BeitrÃ¤ge";
 
 ?>

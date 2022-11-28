@@ -55,8 +55,8 @@ $in['lang']['sort_by_1'] = "Classer par date"; //Sort by date
 $in['lang']['sort_by_2'] = "Classer par nom"; //Sort by name
 $in['lang']['sort_by_3'] = "Classer par nombre de messages post&eacute;s"; //Sort by posts
 
-$in['lang']['icon_desc'] = "Icône descriptif"; //Icon description
-$in['lang']['missing'] = "Un icône manquant pr&egrave;s du nom<br />
+$in['lang']['icon_desc'] = "IcÃ´ne descriptif"; //Icon description
+$in['lang']['missing'] = "Un icÃ´ne manquant pr&egrave;s du nom<br />
 	indique que le membre a d&eacute;sactiv&eacute; cette option.";
 //Missing icons next to the username <br />
 //indicate that the user has disabled that option."

@@ -31,6 +31,6 @@
 
 $in['lang']['page_title'] = "Quitter session..."; //Login out...
 $in['lang']['page_header'] = "Fermeture en cours... veuillez patienter"; //Logging out in progress...please wait
-$in['lang']['no_refresh'] = "Si cette page ne se rafraîchit pas, cliquez ici."; //If this page does not refresh, please click here.
+$in['lang']['no_refresh'] = "Si cette page ne se rafraÃ®chit pas, cliquez ici."; //If this page does not refresh, please click here.
 
 ?>

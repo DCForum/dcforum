@@ -43,12 +43,12 @@ $in['lang']['no_match'] = "Deine Suche brachte kein Ergebnis. Bitte nochmal vers
 $in['lang']['advanced_help'] = "
          <p>Das Forum mit dem erweiterten Formular durchsuchen</p>
          <ol>
-         <li> Gib ein oder mehrere Suchbegriffe ein. Bei mehreren Suchbegriffen müssen die einzelnen Wörter durch ein Leerzeichen getrennt sein.</li>
-         <li> Bestimme deine Suchkriterien. Wähle \"Wort\" wenn die Suchbegriffe als ganzes Wort zutreffen sollen. Andernfalls wähle \"Schema\" wenn die Suchbegriffe als Teile von Wörtern gefunden werden sollen.</li>
-         <li> Wenn du mehr als einen Suchbegriff angegeben hast, bestimme die Suchlogik. Bei einer logischen \"Oder\" Verknüpfung erhälst du die Themen, in denen mindestens einer der Suchbegriffe auftaucht. Bei einer logischen \"Und\" Verknüpfung erhälst du die Themen, in denen deine Suchbegriffe komplett vorkommen.</li>
-         <li> Wähle eine Forengruppe oder ein Forum zum durchsuchen. Bei einer Forengruppe werden auch die Foren darin durchsucht HINWEIS: Eine Einschränkung auf bestimmte Foren ist schneller.</li>
-         <li> Wenn du rekursiv suchen lassen möchtest, wähle hier \"Ja\" aus.</li>
-         <li> Bestimme ein spezielles Feld das du durchsuchen lassen möchtest.</li>
+         <li> Gib ein oder mehrere Suchbegriffe ein. Bei mehreren Suchbegriffen mÃ¼ssen die einzelnen WÃ¶rter durch ein Leerzeichen getrennt sein.</li>
+         <li> Bestimme deine Suchkriterien. WÃ¤hle \"Wort\" wenn die Suchbegriffe als ganzes Wort zutreffen sollen. Andernfalls wÃ¤hle \"Schema\" wenn die Suchbegriffe als Teile von WÃ¶rtern gefunden werden sollen.</li>
+         <li> Wenn du mehr als einen Suchbegriff angegeben hast, bestimme die Suchlogik. Bei einer logischen \"Oder\" VerknÃ¼pfung erhÃ¤lst du die Themen, in denen mindestens einer der Suchbegriffe auftaucht. Bei einer logischen \"Und\" VerknÃ¼pfung erhÃ¤lst du die Themen, in denen deine Suchbegriffe komplett vorkommen.</li>
+         <li> WÃ¤hle eine Forengruppe oder ein Forum zum durchsuchen. Bei einer Forengruppe werden auch die Foren darin durchsucht HINWEIS: Eine EinschrÃ¤nkung auf bestimmte Foren ist schneller.</li>
+         <li> Wenn du rekursiv suchen lassen mÃ¶chtest, wÃ¤hle hier \"Ja\" aus.</li>
+         <li> Bestimme ein spezielles Feld das du durchsuchen lassen mÃ¶chtest.</li>
          <li> Gib den Zeitraum der Themen an, in denen gesucht werden soll.</li>
          <li> Leg fest, wieviele Ergebnisse pro Seite angezeigt werden sollen.</li>
          </ol> ";
@@ -56,9 +56,9 @@ $in['lang']['advanced_help'] = "
 $in['lang']['simple_help'] = "
       <p>Das Forum mit dem einfachen Formular durchsuchen</p>
          <ol>
-         <li> Gib ein oder mehrere Suchbegriffe ein. Bei mehreren Suchbegriffen müssen die einzelnen Wörter durch ein Leerzeichen getrennt sein.</li>
-         <li> Die einfache Suche benutzt eine logische \"Oder\" Verknüpfung. Wenn du eine logische \"Und\" Verknüpfung nutzen möchtest, ruf bitte das erweitere Suchformular auf.</li>
-         <li> In der einfachen Suche werden der Betreff und der Beitrag nach den Suchbegriffen durchsucht. Die Suche bezieht sich auf alle Foren. Für eine schnellere, gezieltere Suche solltest du das erweiterte Suchformular aufrufen.</li>
+         <li> Gib ein oder mehrere Suchbegriffe ein. Bei mehreren Suchbegriffen mÃ¼ssen die einzelnen WÃ¶rter durch ein Leerzeichen getrennt sein.</li>
+         <li> Die einfache Suche benutzt eine logische \"Oder\" VerknÃ¼pfung. Wenn du eine logische \"Und\" VerknÃ¼pfung nutzen mÃ¶chtest, ruf bitte das erweitere Suchformular auf.</li>
+         <li> In der einfachen Suche werden der Betreff und der Beitrag nach den Suchbegriffen durchsucht. Die Suche bezieht sich auf alle Foren. FÃ¼r eine schnellere, gezieltere Suche solltest du das erweiterte Suchformular aufrufen.</li>
          </ol> ";
 
 
@@ -100,7 +100,7 @@ $in['lang']['sf_logic'] = "Suchlogik";
 $in['lang']['sf_which_forum'] = "In welchen Foren suchen?";
 $in['lang']['sf_children'] = "Wenn anwendbar, untergeordnete Foren rekursiv durchsuchen?";
 $in['lang']['sf_which_field'] = "In welchen Feldern suchen?";
-$in['lang']['sf_days'] = "Über welchen Zeitraum suchen?";
+$in['lang']['sf_days'] = "Ãœber welchen Zeitraum suchen?";
 $in['lang']['sf_pages'] = "Anzahl der Ergebnisse pro Seite";
 $in['lang']['sf_button'] = "Jetzt suchen!";
 

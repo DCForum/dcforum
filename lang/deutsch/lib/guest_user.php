@@ -28,25 +28,25 @@
 //
 
 // main function
-$in['lang']['page_title'] = "Gastmenü";
-$in['lang']['page_header'] = "Gastmenü";
+$in['lang']['page_title'] = "GastmenÃ¼";
+$in['lang']['page_header'] = "GastmenÃ¼";
 
 $in['lang']['e_date_limit'] = "Der Anzeigezeitraum muss eine Zahl sein";
-$in['lang']['e_time_zone'] = "Ungültige Zeitzone";
-$in['lang']['e_name'] = "Ungültige Schreibweise im Namen";
-$in['lang']['e_header'] = "Ungültige Formulardaten";
+$in['lang']['e_time_zone'] = "UngÃ¼ltige Zeitzone";
+$in['lang']['e_name'] = "UngÃ¼ltige Schreibweise im Namen";
+$in['lang']['e_header'] = "UngÃ¼ltige Formulardaten";
 
 $in['lang']['ok_mesg'] = "Deine Einstellungen wurden gespeichert.";
-$in['lang']['inst_mesg'] = "Du kannst folgende Optionen einstellen. Diese Einstellungen werden nur für deinen<br />
+$in['lang']['inst_mesg'] = "Du kannst folgende Optionen einstellen. Diese Einstellungen werden nur fÃ¼r deinen<br />
                             momentan genutzten Browser gespeichert. Wenn du einen anderen Browser benutzt oder  <br />
-                            diesen zwischenzeitlich beendest, werden die Einstellungen nicht berücksichtig.";
+                            diesen zwischenzeitlich beendest, werden die Einstellungen nicht berÃ¼cksichtig.";
 
 
 $in['lang']['name'] = "Dein Name";
 $in['lang']['language'] = "Sprache";
 $in['lang']['time_zone'] = "Deine Zeitzone";
 $in['lang']['topic_days'] = "Anzeigezeitraum";
-$in['lang']['layout_style'] = "Anzeigestil von Beiträgen";
+$in['lang']['layout_style'] = "Anzeigestil von BeitrÃ¤gen";
 $in['lang']['button'] = "Einstellungen speichern";
 
 ?>

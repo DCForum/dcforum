@@ -34,7 +34,7 @@ $in['lang']['edit_disabled'] = "Du kannst diesen Beitrag nicht bearbeiten, weil
 $in['lang']['no_edit'] = "Du kannst diesen Beitrag nicht bearbeiten, weil 
              der Zeitraum zum Bearbeiten abgelaufen ist.";
 
-$in['lang']['e_blank_subject'] = "FEHLER: Betreff und Beitrag dürfen nicht leer sein";
+$in['lang']['e_blank_subject'] = "FEHLER: Betreff und Beitrag dÃ¼rfen nicht leer sein";
 
 
 ?>

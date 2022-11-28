@@ -38,26 +38,26 @@ $in['lang']['calendar_links'] = "Kalender-Links";
 $in['lang']['page_info_1'] = "Deine momentane Zeitzone ist";
 $in['lang']['page_info_2'] = "Alle Zeiten beziehen sich auf deine eingestellte Zeitzone.";
 
-$in['lang']['page_info_add'] = "Vervollständige das Formular um ein neues Ereignis hinzuzufügen.";
+$in['lang']['page_info_add'] = "VervollstÃ¤ndige das Formular um ein neues Ereignis hinzuzufÃ¼gen.";
 
 $in['lang']['page_info_edit'] = "Bearbeite im folgenden Formular die Informationen des Ereignisses. Sobald du fertig damit bist sende dieses Formular ab.";
 
 $in['lang']['e_title'] = "Der Titel darf nicht leer sein";
-$in['lang']['e_event_type'] = "Ereignistyp ist ungültig";
-$in['lang']['e_month'] = "Datum (Monat) ist ungültig";
-$in['lang']['e_day'] = "Datum (Tag) ist ungültig";
-$in['lang']['e_year'] = "Datum (Jahr) ist ungültig";
-$in['lang']['e_event_option'] = "Option für tägliches Ereignis ist ungültig";
-$in['lang']['e_start_hour'] = "Startzeit (Stunde) ist ungültig";
-$in['lang']['e_start_minute'] = "Startzeit (Minute) ist ungültig";
-$in['lang']['e_event_duration_hour'] = "Dauer (Stunde) ist ungültig";
-$in['lang']['e_event_duration_minute'] = "Dauer (Minute) ist ungültig";
-$in['lang']['e_sharing'] = "Gemeinsamer Modus ist ungültig";
-$in['lang']['e_repeat'] = "Wiederholungsmarkierung ist ungültig";
-$in['lang']['e_end_option'] = "Option für Enddatum ist ungültig";
-$in['lang']['e_end_month'] = "Enddatum (Monat) ist ungültig";
-$in['lang']['e_end_day'] =  "Enddatum (Tag) ist ungültig";
-$in['lang']['e_end_year'] = "Enddatum (Jahr) ist ungültig";
+$in['lang']['e_event_type'] = "Ereignistyp ist ungÃ¼ltig";
+$in['lang']['e_month'] = "Datum (Monat) ist ungÃ¼ltig";
+$in['lang']['e_day'] = "Datum (Tag) ist ungÃ¼ltig";
+$in['lang']['e_year'] = "Datum (Jahr) ist ungÃ¼ltig";
+$in['lang']['e_event_option'] = "Option fÃ¼r tÃ¤gliches Ereignis ist ungÃ¼ltig";
+$in['lang']['e_start_hour'] = "Startzeit (Stunde) ist ungÃ¼ltig";
+$in['lang']['e_start_minute'] = "Startzeit (Minute) ist ungÃ¼ltig";
+$in['lang']['e_event_duration_hour'] = "Dauer (Stunde) ist ungÃ¼ltig";
+$in['lang']['e_event_duration_minute'] = "Dauer (Minute) ist ungÃ¼ltig";
+$in['lang']['e_sharing'] = "Gemeinsamer Modus ist ungÃ¼ltig";
+$in['lang']['e_repeat'] = "Wiederholungsmarkierung ist ungÃ¼ltig";
+$in['lang']['e_end_option'] = "Option fÃ¼r Enddatum ist ungÃ¼ltig";
+$in['lang']['e_end_month'] = "Enddatum (Monat) ist ungÃ¼ltig";
+$in['lang']['e_end_day'] =  "Enddatum (Tag) ist ungÃ¼ltig";
+$in['lang']['e_end_year'] = "Enddatum (Jahr) ist ungÃ¼ltig";
 
 $in['lang']['ok_mesg_posted'] = "Dein Ereignis wurde eingetragen.";
 $in['lang']['ok_mesg_updated'] = "Dein Ereignis wurde aktualisiert.";
@@ -72,16 +72,16 @@ $in['lang']['e_cancel'] = "Du hast dich entschieden, diese Aktion abzubrechen.<b
               Kein Ereignis wurde aus der Kalender-Datenbank entfernt.";
 
 
-$in['lang']['ok_mesg_deleted'] = "Das ausgewählte Ereignis wurde aus der Kalender-Datenbank entfernt.";
+$in['lang']['ok_mesg_deleted'] = "Das ausgewÃ¤hlte Ereignis wurde aus der Kalender-Datenbank entfernt.";
 
-$in['lang']['confirm_header'] = "Folgende Ereignisse willst du löschen.";
-$in['lang']['confirm_again'] = "Bist du dir sicher, dass du das möchtest?";
+$in['lang']['confirm_header'] = "Folgende Ereignisse willst du lÃ¶schen.";
+$in['lang']['confirm_again'] = "Bist du dir sicher, dass du das mÃ¶chtest?";
 
-$in['lang']['button_go'] = "Ja, ausgewählte Ereignisse löschen";
+$in['lang']['button_go'] = "Ja, ausgewÃ¤hlte Ereignisse lÃ¶schen";
 $in['lang']['button_cancel'] = "Nein, diese Aktion abbrechen";
 
 // calendar_lib.php
-$in['lang']['reset'] = "Formular zurücksetzen";
+$in['lang']['reset'] = "Formular zurÃ¼cksetzen";
 
 // AM or PM time
 $in['lang']['am'] = " AM";
@@ -93,7 +93,7 @@ $in['lang']['and'] = "und";
 $in['lang']['time'] = "Zeit";
 $in['lang']['date'] = "Datum";
 $in['lang']['events'] = "Ereignisse";
-$in['lang']['allday_events'] = "Tägliche Ereignisse";
+$in['lang']['allday_events'] = "TÃ¤gliche Ereignisse";
 
 $in['lang']['today'] = "Heute";
 $in['lang']['this_week'] = "Diese Woche";
@@ -105,7 +105,7 @@ $in['lang']['year'] = "Jahr";
 $in['lang']['events_list'] = "Ereigniss-Listen";
 $in['lang']['event_type'] = "Ereigniss-Typ";
 
-$in['lang']['add'] = "Hinzufügen";
+$in['lang']['add'] = "HinzufÃ¼gen";
 
 $in['lang']['sun'] = "Sonntag";
 $in['lang']['mon'] = "Montag";
@@ -124,7 +124,7 @@ $in['lang']['title_note'] = 'Titel/Notiz';
 $in['lang']['sharing'] = 'Gemeinsame Benutzung';
 
 $in['lang']['this_repeat'] = "Dieses Ereignis wiederholt sich";
-$in['lang']['no_end'] = "Es gibt kein Enddatum für dieses Ereignis.";
+$in['lang']['no_end'] = "Es gibt kein Enddatum fÃ¼r dieses Ereignis.";
 $in['lang']['repeat_until'] = "Dieses Ereignis wiederholt sich solange bis";
 
 // Follwing two text are used in one sentence
@@ -141,7 +141,7 @@ $in['lang']['update_event'] = "Update event";
 $in['lang']['fields'] = "Felder";
 $in['lang']['form'] = "Formular";
 
-$in['lang']['this_is_an_all_day_event'] = "Dies ist ein tägliches Ereignis";
+$in['lang']['this_is_an_all_day_event'] = "Dies ist ein tÃ¤gliches Ereignis";
 $in['lang']['start_at'] = "Start um";
 $in['lang']['duration'] = "Dauer";
 $in['lang']['title'] = "Titel";
@@ -162,11 +162,11 @@ $in['lang']['until_end_date'] = "bis (aber nicht inclusive)";
 
 $in['lang']['viewing_event'] = "Ereignis-ID ansehen";
 $in['lang']['no_such_event'] = "Kein solches Ereignis";
-$in['lang']['cannot_view_event'] = "Du kannst das ausgewählte Ereignis nicht ansehen";
+$in['lang']['cannot_view_event'] = "Du kannst das ausgewÃ¤hlte Ereignis nicht ansehen";
 $in['lang']['viewing_event'] = "Ereignis-ID ansehen";
 $in['lang']['viewing_event'] = "Ereignis-ID ansehen";
 $in['lang']['edit_event'] = "Ereignis bearbeiten";
-$in['lang']['delete_event'] = "Ereignis löschen";
+$in['lang']['delete_event'] = "Ereignis lÃ¶schen";
 $in['lang']['event_date'] = "Ereignis-Datum";
 $in['lang']['from'] = "Von";
 $in['lang']['to'] = "an";

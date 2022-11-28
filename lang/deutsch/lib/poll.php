@@ -35,7 +35,7 @@ $in['lang']['e_guest'] = "Du musst ein registrierter User sein, um ein Abstimmun
 $in['lang']['e_subject_blank'] = "Das Abstimmungsthema darf nicht leer sein";
 $in['lang']['e_name_blank'] = "Der Name darf nicht leer sein. Bitte trag deinen Namen ein";
 
-$in['lang']['e_name_invalid'] = "Dein Name enth‰lt unzul‰ssuge Zeichen";
+$in['lang']['e_name_invalid'] = "Dein Name enth√§lt unzul√§ssuge Zeichen";
 $in['lang']['e_name_long'] = "Das Namensfeld ist zu lang. Das erlaubte Maximum an Zeichen ist";
 
 $in['lang']['e_name_dup'] = "Der von dir eingegebene Name wird von einem registrierten User benutzt ... bitte gib einen anderen Namen an";

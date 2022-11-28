@@ -106,7 +106,7 @@ $in['lang']['preference_form_mesg'] = "Modifier les informations suivantes pour 
 $in['lang']['forum_subscription_updated'] = "Votre liste d'abonnements au forum a &eacute;t&eacute; mise &agrave; jour.."; //Your list of forum subscription has been updated.
 
 $in['lang']['forum_subscription_form'] = "S&eacute;lectionner les forums auxquels vous voulez vous abonner en cochant
-		la case &agrave; gauche.<br />Si la case est d&eacute;j&agrave; coch&eacute;e, c'est que vous êtes d&eacute;j&agrave; abonn&eacute;.<br />
+		la case &agrave; gauche.<br />Si la case est d&eacute;j&agrave; coch&eacute;e, c'est que vous Ãªtes d&eacute;j&agrave; abonn&eacute;.<br />
 		Vous pouvez alors vous d&eacute;sabonner en enlevant le crochet de la case.";
 //Select forums you wish to subscribe to by clicking on the
 //checkbox on the left.<br />If the box is already checked, then
@@ -140,7 +140,7 @@ $in['lang']['subject'] = "Sujet"; //Subject
 $in['lang']['author'] = "Auteur"; //Author
 $in['lang']['last_date'] = "Date de derni&egrave;re modification"; //Last modified date
 $in['lang']['topic_form_button'] = "Effacer les discussions s&eacute;lectionn&eacute;es"; //Delete selected topics
-$in['lang']['empty_topic_subscription'] = "Vous n'êtes abonn&eacute; &agrave; aucune discussion."; //You are not subscribed to any topics.
+$in['lang']['empty_topic_subscription'] = "Vous n'Ãªtes abonn&eacute; &agrave; aucune discussion."; //You are not subscribed to any topics.
 
 // function bookmark
 $in['lang']['bookmark_updated'] = "Vos signets ont &eacute;t&eacute; mis &agrave; jour"; //Your bookmark list has been updated
@@ -159,16 +159,16 @@ $in['lang']['empty_bookmark'] = "Aucun signet d'enregistr&eacute;."; //You do no
 
 
 // function inbox
-$in['lang']['reading_message_inbox'] = "Lire les messages dans votre boîte de r&eacute;ception"; //Reading messages in your inbox
+$in['lang']['reading_message_inbox'] = "Lire les messages dans votre boÃ®te de r&eacute;ception"; //Reading messages in your inbox
 $in['lang']['from'] = "De"; //From
 $in['lang']['date'] = "Date"; //Date
 $in['lang']['dalete'] = "Supprimer"; //Delete
 $in['lang']['reply'] = "R&eacute;pondre"; //Reply
 
-$in['lang']['inbox_marked'] = "Le message reçu a &eacute;t&eacute; marqu&eacute; lu"; //Your inbox message have been marked as read.
-$in['lang']['inbox_updated'] = "Votre boîte de r&eacute;ception a &eacute;t&eacute; mise &agrave; jour"; //Your inbox list has been updated.
+$in['lang']['inbox_marked'] = "Le message reÃ§u a &eacute;t&eacute; marqu&eacute; lu"; //Your inbox message have been marked as read.
+$in['lang']['inbox_updated'] = "Votre boÃ®te de r&eacute;ception a &eacute;t&eacute; mise &agrave; jour"; //Your inbox list has been updated.
 
-$in['lang']['inbox_desc'] = "Voici les messages qui sont dans votre boîte de r&eacute;ception.<br />
+$in['lang']['inbox_desc'] = "Voici les messages qui sont dans votre boÃ®te de r&eacute;ception.<br />
 	Pour voir un message, cliquez sur son sujet.<br />
 	Pour supprimer les vieux messages, cochez les messages concern&eacute;s et soumettre ce formulaire.";
 //Following is the list of message you have in your inbox.<br />
@@ -179,7 +179,7 @@ $in['lang']['inbox_desc'] = "Voici les messages qui sont dans votre boîte de r&e
 $in['lang']['click_to_mark_inbox'] = "Cliquez ici pour marquer le message lu"; //Click here to mark inbox messages as read
 $in['lang']['sender'] = "Exp&eacute;diteur"; //Sender
 $in['lang']['inbox_form_button'] = "Supprimer les messages s&eacute;lectionn&eacute;s"; //Delete selected messages
-$in['lang']['empty_inbox'] = "Votre boîte de r&eacute;ception est vide."; //You do not have any entries in your inbox.
+$in['lang']['empty_inbox'] = "Votre boÃ®te de r&eacute;ception est vide."; //You do not have any entries in your inbox.
 
 
 // function buddy_list
@@ -208,7 +208,7 @@ $in['lang']['dh_preference'] = "Modifier vos pr&eacute;f&eacute;rences"; //Edit 
 $in['lang']['dh_forum'] = "Abonnement au forum"; //Forum Subscription
 $in['lang']['dh_topic'] = "Abonnement &agrave; la discussion"; //Topic Subscription
 $in['lang']['dh_bookmark'] = "Signets"; //Bookmarks
-$in['lang']['dh_inbox'] = "Boîte de r&eacute;ception"; //Inbox
+$in['lang']['dh_inbox'] = "BoÃ®te de r&eacute;ception"; //Inbox
 $in['lang']['dh_buddy'] = "Liste des copains"; //Buddy list
 
 $in['lang']['dh_account_desc'] = "Utiliser cette option pour modifier votre nom et adresse de courriel."; //Use this option to change your name and email address.
@@ -225,10 +225,10 @@ $in['lang']['dh_buddy_desc'] = "Liste de vos copains"; //List of your buddies
 $in['lang']['invalid_user_id'] = "Id de membre invalide"; //Invalid user ID
 $in['lang']['you_are_trying'] = "Vous essayez de vous envoyer un message"; //You are trying to send a message to yourself
 $in['lang']['no_such_user'] = "Ce membre n'existe pas"; //No such user
-$in['lang']['send_mesg_error'] = "Il y a des erreurs dans votre requête"; //There were errors in your request
+$in['lang']['send_mesg_error'] = "Il y a des erreurs dans votre requÃªte"; //There were errors in your request
 $in['lang']['empty_subject'] = "Champ du sujet vide"; //Empty subject field
 $in['lang']['empty_message'] = "Champ du message vide"; //Empty message field
-$in['lang']['mesg_subect'] = "Vous avez reçu un message de"; //You have following message from
+$in['lang']['mesg_subect'] = "Vous avez reÃ§u un message de"; //You have following message from
 $in['lang']['subject'] = "Sujet"; //Subject
 $in['lang']['message'] = "Message"; //Message
 $in['lang']['ok_mesg'] = "Votre message a &eacute;t&eacute; envoy&eacute;"; //Your message was sent!

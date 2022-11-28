@@ -38,9 +38,9 @@ $in['lang']['e_already'] = "Vous ne pouvez ajouter ce membre car il est d&eacute
 //You cannot add this user to your buddy list
 //because this user is already in your list.
 
-$in['lang']['e_self'] = "Vous ne pouvez vous ajouter vous-même &agrave; votre liste"; //You cannot add yourself to your buddy list.
+$in['lang']['e_self'] = "Vous ne pouvez vous ajouter vous-mÃªme &agrave; votre liste"; //You cannot add yourself to your buddy list.
 
-$in['lang']['e_no_such_user'] = "Votre requête ne peut être ex&eacute;cut&eacute;e car ce membre n'existe pas";
+$in['lang']['e_no_such_user'] = "Votre requÃªte ne peut Ãªtre ex&eacute;cut&eacute;e car ce membre n'existe pas";
 //Your request could not be completed because
 //there is no such user in our database.
 

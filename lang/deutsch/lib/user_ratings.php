@@ -33,13 +33,13 @@ $in['lang']['page_title'] = "Userbewertungen ansehen";
 $in['lang']['header'] = "Userbewertungen ansehen";
 $in['lang']['click_on_user'] = "Klick auf einen Usernamen um Details zu den Bewertungen anzusehen.";
 
-$in['lang']['invalid_syntax'] = "Ungültige Syntax";
-$in['lang']['invalid_syntax_mesg'] = "Der gewählte Index ist syntaktisch falsch. Bitte wähle 
+$in['lang']['invalid_syntax'] = "UngÃ¼ltige Syntax";
+$in['lang']['invalid_syntax_mesg'] = "Der gewÃ¤hlte Index ist syntaktisch falsch. Bitte wÃ¤hle 
 							nur Elemente aus der Indextabelle aus oder gib einen Suchbegriff 
-							ein, der nur Buchstaben oder Zahlen enthält.";
+							ein, der nur Buchstaben oder Zahlen enthÃ¤lt.";
 
-$in['lang']['invalid_id'] = "Ungültige User-ID";
-$in['lang']['invalid_id_mesg'] = "Die gewählte User-ID ist ungültig. Stell bitte sicher, dass die User-ID nur Zahlen enthält.";
+$in['lang']['invalid_id'] = "UngÃ¼ltige User-ID";
+$in['lang']['invalid_id_mesg'] = "Die gewÃ¤hlte User-ID ist ungÃ¼ltig. Stell bitte sicher, dass die User-ID nur Zahlen enthÃ¤lt.";
 
 $in['lang']['list_mesg'] = "Um Userbewertungen anzuzeigen, klick auf einen Index in der Indextabelle auf der linken Seite.<br />
              Du kannst auch die Suchfunktion unter der Indextabelle benutzen.";
@@ -47,10 +47,10 @@ $in['lang']['list_mesg'] = "Um Userbewertungen anzuzeigen, klick auf einen Index
 // function view_rating
 $in['lang']['no_rating'] = "Keine solche Userbewerung";
 $in['lang']['disabled_rating__mesg'] = "Dieser User nimmt nicht an den Userbewertungen teil.";
-$in['lang']['no_user_rating'] = "Es gibt keine Bewertungen für den ausgewählten User. Bitte stell sicher, dass die User-ID richtig ist.";
+$in['lang']['no_user_rating'] = "Es gibt keine Bewertungen fÃ¼r den ausgewÃ¤hlten User. Bitte stell sicher, dass die User-ID richtig ist.";
 
 $in['lang']['inactive_user'] = "Inaktiver User";
-$in['lang']['rating_for'] = "Bewertungsinformationen für";
+$in['lang']['rating_for'] = "Bewertungsinformationen fÃ¼r";
 $in['lang']['feedbacks'] = "Gesamtzahl der Beurteilungen";
 $in['lang']['total_score'] = "Gesamtwertung";
 $in['lang']['points'] = "Punkte";

@@ -100,13 +100,13 @@ $in['lang']['delete'] =            'Supprimer'; //Delete
 $in['lang']['hide'] =              'Cacher'; //Hide
 $in['lang']['move'] =              'D&eacute;placer'; //Move
 
-$in['lang']['confirm_unpin'] =     'Êtes-vous certain de vouloir D&Eacute;PINGLER cette discussion?'; //Are you sure you want to UNPIN this topic?
-$in['lang']['confirm_pin'] =       'Êtes-vous certain de vouloir &Eacute;PINGLER cette discussion?'; //Are you sure you want to PIN this topic?
-$in['lang']['confirm_lock'] =      'Êtes vous certain de vouloir VERROUILLER cette discussion?'; //Are you sure you want to LOCK this topic?
-$in['lang']['confirm_unlock'] =    'Êtes-vous certain de vouloir D&Eacute;VERROUILLER cette discussion?'; //Are you sure you want to UNLOCK this topic?
-$in['lang']['confirm_delete'] =    'Êtes-vous certain de vouloir SUPPRIMER cette discussion?'; //Are you sure you want to DELETE this topic?
-$in['lang']['confirm_hide'] =      'Êtes-vous certain de vouloir CACHER cette discussion?'; //Are you sure you want to HIDE this topic?
-$in['lang']['confirm_move'] =      'Êtes-vous certain de vouloir D&Eacute;PLACER cette discussion?'; //Are you sure you want to MOVE this topic?
+$in['lang']['confirm_unpin'] =     'ÃŠtes-vous certain de vouloir D&Eacute;PINGLER cette discussion?'; //Are you sure you want to UNPIN this topic?
+$in['lang']['confirm_pin'] =       'ÃŠtes-vous certain de vouloir &Eacute;PINGLER cette discussion?'; //Are you sure you want to PIN this topic?
+$in['lang']['confirm_lock'] =      'ÃŠtes vous certain de vouloir VERROUILLER cette discussion?'; //Are you sure you want to LOCK this topic?
+$in['lang']['confirm_unlock'] =    'ÃŠtes-vous certain de vouloir D&Eacute;VERROUILLER cette discussion?'; //Are you sure you want to UNLOCK this topic?
+$in['lang']['confirm_delete'] =    'ÃŠtes-vous certain de vouloir SUPPRIMER cette discussion?'; //Are you sure you want to DELETE this topic?
+$in['lang']['confirm_hide'] =      'ÃŠtes-vous certain de vouloir CACHER cette discussion?'; //Are you sure you want to HIDE this topic?
+$in['lang']['confirm_move'] =      'ÃŠtes-vous certain de vouloir D&Eacute;PLACER cette discussion?'; //Are you sure you want to MOVE this topic?
 
 
 // jump to forum menu

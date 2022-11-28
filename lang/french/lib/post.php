@@ -29,8 +29,8 @@
 
 
 // main function post
-$in['lang']['e_subject_blank'] = "Les champ sujet et message ne peuvent pas être vides"; //Subject and message fields must not be blank
-$in['lang']['e_name_blank'] = "Le champ nom ne peut pas être vide. Veuillez entrer votre nom"; //Name must not be left blank.  Please submit your name
+$in['lang']['e_subject_blank'] = "Les champ sujet et message ne peuvent pas Ãªtre vides"; //Subject and message fields must not be blank
+$in['lang']['e_name_blank'] = "Le champ nom ne peut pas Ãªtre vide. Veuillez entrer votre nom"; //Name must not be left blank.  Please submit your name
 
 $in['lang']['e_name_invalid'] = "Votre nom contient des caract&egrave;res invalides"; //Your name contains non-word characters
 $in['lang']['e_name_long'] = "Le champ nom est trop long. Le maximum de caract&egrave;res permis est ";

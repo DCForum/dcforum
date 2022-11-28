@@ -32,7 +32,7 @@
 // function date_form_element
 $in['lang']['jan'] = "Jan";
 $in['lang']['feb'] = "Feb";
-$in['lang']['mar'] = "Mär";
+$in['lang']['mar'] = "MÃ¤r";
 $in['lang']['apr'] = "Apr";
 $in['lang']['may'] = "Mai";
 $in['lang']['jun'] = "Jun";

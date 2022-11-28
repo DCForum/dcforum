@@ -31,7 +31,7 @@
 $in['lang']['page_title'] = "Menu des invit&eacute;s"; //Guest user menu
 $in['lang']['page_header'] = "Option des invit&eacute;s"; //Guest user options
 
-$in['lang']['e_date_limit'] = "La date limite doit être un nombre"; //Date limit must be a number
+$in['lang']['e_date_limit'] = "La date limite doit Ãªtre un nombre"; //Date limit must be a number
 $in['lang']['e_time_zone'] = "Fuseau horaire invalide"; //Invalid time zone
 $in['lang']['e_name'] = "Syntaxe du nom invalide"; //Invalid name syntax
 $in['lang']['e_header'] = "Formulaire de date invalide"; //Invalid form data

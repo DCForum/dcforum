@@ -29,10 +29,10 @@
 
 
 // main function post
-$in['lang']['e_subject_blank'] = "Betreff und Beitrag dürfen nicht leer sein";
+$in['lang']['e_subject_blank'] = "Betreff und Beitrag dÃ¼rfen nicht leer sein";
 $in['lang']['e_name_blank'] = "Der Name darf nicht leer sein. Bitte gib deinen Namen ein.";
 
-$in['lang']['e_name_invalid'] = "Dein Name enthält unzulässige Zeichen";
+$in['lang']['e_name_invalid'] = "Dein Name enthÃ¤lt unzulÃ¤ssige Zeichen";
 $in['lang']['e_name_long'] = "Das Namesfeld ist zu lang. Das Maximum an erlaubten Zeichen ist";
 
 $in['lang']['e_name_dup'] = "Der von dir eingegebene Name wird von einem registrierten User benutzt ... bitte gib einen anderen Namen an";
@@ -53,10 +53,10 @@ $in['lang']['email_message'] = "Ein neuer Beitrag wurde in deinem Forum geschrie
 $in['lang']['q_header'] = "Neuer Beitrag geschrieben";
 
 $in['lang']['q_message'] = "<p>Danke, dass du unser Forum nutzt.</p>
-            <p>Dein Beitrag wurde zur Überprüfung durch einen Moderator übermittelt..</p>";
+            <p>Dein Beitrag wurde zur ÃœberprÃ¼fung durch einen Moderator Ã¼bermittelt..</p>";
 
-$in['lang']['q_option'] = "<p>Wähle aus folgenden Optionen</p>";
+$in['lang']['q_option'] = "<p>WÃ¤hle aus folgenden Optionen</p>";
 $in['lang']['q_option_1'] = "Zur Forenlobby";
-$in['lang']['q_option_2'] = "Zur Themenübersicht";
+$in['lang']['q_option_2'] = "Zur ThemenÃ¼bersicht";
 
 ?>

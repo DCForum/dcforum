@@ -31,7 +31,7 @@
 // function alert
 
 $in['lang']['page_title'] = "Hinweis an den Admin senden";
-$in['lang']['page_header'] = "Vervollst‰ndige das folgende Formular um einen Hinweis an den Admin zu senden.";
+$in['lang']['page_header'] = "Vervollst√§ndige das folgende Formular um einen Hinweis an den Admin zu senden.";
 $in['lang']['no_such_topic'] = "Kein solches Thema";
 
 $in['lang']['mesg_suject'] = "Hinweils-eMail von";

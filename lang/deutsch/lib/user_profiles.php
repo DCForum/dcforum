@@ -28,14 +28,14 @@
 $in['lang']['page_title'] = "Liste der User-Profile";
 $in['lang']['header'] = "Userprofile anschauen";
 
-$in['lang']['invalid_index'] = "Ungültiger Index";
-$in['lang']['invalid_index_mesg'] = "Der gewählte Index ist syntaktisch falsch. Bitte wähle 
+$in['lang']['invalid_index'] = "UngÃ¼ltiger Index";
+$in['lang']['invalid_index_mesg'] = "Der gewÃ¤hlte Index ist syntaktisch falsch. Bitte wÃ¤hle 
 							nur Elemente aus der Indextabelle aus oder gib einen Suchbegriff 
-							ein, der nur Buchstaben oder Zahlen enthält.";
+							ein, der nur Buchstaben oder Zahlen enthÃ¤lt.";
 
 
-$in['lang']['invalid_id'] = "Ungültige User-ID";
-$in['lang']['invalid_id_mesg'] = "Die gewählte User-ID ist ungültig. Stell bitte sicher, dass die User-ID nur Zahlen enthält";
+$in['lang']['invalid_id'] = "UngÃ¼ltige User-ID";
+$in['lang']['invalid_id_mesg'] = "Die gewÃ¤hlte User-ID ist ungÃ¼ltig. Stell bitte sicher, dass die User-ID nur Zahlen enthÃ¤lt";
 
 $in['lang']['inst_mesg'] = "Um Userprofile anzuzeigen, klick auf einen Index in der Indextabelle auf der linken Seite.<br />
              Du kannst auch die Suchfunktion unter der Indextabelle benutzen.";
@@ -64,7 +64,7 @@ $in['lang']['profile_name'] = "Feldname";
 $in['lang']['profile_value'] = "Inhalt";
 
 $in['lang']['no_such_profile'] = "Kein solches User-Profil";
-$in['lang']['no_such_profile_mesg'] = "Für die angegebene User-ID existiert kein Profil in der Datenbank.";
+$in['lang']['no_such_profile_mesg'] = "FÃ¼r die angegebene User-ID existiert kein Profil in der Datenbank.";
 
 $in['lang']['others'] = "andere";
 $in['lang']['options'] = "Optionen";

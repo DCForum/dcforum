@@ -35,25 +35,25 @@ $in['lang']['header'] = "Mitglieder, die in letzter Zeit das Forum aufgerufen ha
 
 // function display_whos_online
 $in['lang']['user'] = "User";
-$in['lang']['last_active_date'] = "Datum der Aktivit‰t";
+$in['lang']['last_active_date'] = "Datum der Aktivit√§t";
 $in['lang']['last_event'] = "Letzte Aktion";
-$in['lang']['posts'] = "Beitr‰ge";
+$in['lang']['posts'] = "Beitr√§ge";
 $in['lang']['options'] = "Optionen";
-$in['lang']['total_guests'] = "Gesamtzahl der G‰ste: ";
+$in['lang']['total_guests'] = "Gesamtzahl der G√§ste: ";
 
 
 // function whos_online_menu
 $in['lang']['time_array_1'] = "die letzte Stunde anzeigen";
 $in['lang']['time_array_3'] = "die letzten drei Stunden anzeigen";
 $in['lang']['time_array_6'] = "die letzten sechs Stunden anzeigen";
-$in['lang']['time_array_12'] = "die letzten zwˆlf Stunden anzeigen";
+$in['lang']['time_array_12'] = "die letzten zw√∂lf Stunden anzeigen";
 $in['lang']['time_array_24'] = "den letzten Tag anzeigen";
 $in['lang']['time_array_168'] = "die letzte Woche anzeigen";
 $in['lang']['time_array_720'] = "den letzten Monat anzeigen";
 
 $in['lang']['sort_by_1'] = "nach Datum sortieren";
 $in['lang']['sort_by_2'] = "nach Namen sortieren";
-$in['lang']['sort_by_3'] = "nach Beitr‰gen sortieren";
+$in['lang']['sort_by_3'] = "nach Beitr√§gen sortieren";
 
 $in['lang']['icon_desc'] = "Beschreibung der Icons";
 $in['lang']['missing'] = "Fehlen Icons neben dem Usernamen, <br />
@@ -68,7 +68,7 @@ $in['lang']['send_aol']  = "Nachricht per AOL IM";
 $in['lang']['send_icq']  = "Nachricht per ICQ";
 
 $in['lang']['sort_by'] = "Wonach sortieren?";
-$in['lang']['select_another_time'] = "Eine andere Zeitspanne w‰hlen";
+$in['lang']['select_another_time'] = "Eine andere Zeitspanne w√§hlen";
 $in['lang']['go'] = "Go!";
 
 ?>

@@ -38,14 +38,14 @@ $in['lang']['access_denied_message'] = "Die angeforderte Seite kann nicht angeze
 $in['lang']['page_title'] = "Administration - Themenmanager - Thema verschieben";
 
 $in['lang']['e_move'] = "Fehler beim verschieben des Themas";
-$in['lang']['e_move_desc_1'] = "Du hast als Ziel eine Forengruppe gew‰hlt. Es ist nicht mˆglich, 
-                           ein Thema in eine Forengruppe zu verschieben. Bitte w‰hle ein anderes Forum als Ziel.";
+$in['lang']['e_move_desc_1'] = "Du hast als Ziel eine Forengruppe gew√§hlt. Es ist nicht m√∂glich, 
+                           ein Thema in eine Forengruppe zu verschieben. Bitte w√§hle ein anderes Forum als Ziel.";
 
-$in['lang']['e_move_desc_2'] = "Du hast das selbe Forum als Ziel gew‰hlt. Es ist nicht mˆglich,
-                           ein Thema in das selbe Forum zu verschieben. Bitte w‰hle ein anderes Forum als Ziel.";
+$in['lang']['e_move_desc_2'] = "Du hast das selbe Forum als Ziel gew√§hlt. Es ist nicht m√∂glich,
+                           ein Thema in das selbe Forum zu verschieben. Bitte w√§hle ein anderes Forum als Ziel.";
 
 $in['lang']['page_header'] = "Thema verschieben";
-$in['lang']['ok_mesg'] = "Das von dir gew‰hlte Thema wurde verschoben.";
+$in['lang']['ok_mesg'] = "Das von dir gew√§hlte Thema wurde verschoben.";
 
 $in['lang']['which_forum'] = "In welches Forum verschieben?";
 $in['lang']['which_forum_desc'] = "Beachte, dass du Themen nicht in Forengruppen verschieben kannst.";

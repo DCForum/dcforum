@@ -28,17 +28,17 @@
 //
 //////////////////////////////////////////////////////////////////////////
 
-$in['lang']['e_guest_user'] = "Vous devez être membre pour &eacute;valuer cette discussion."; //You must be a registered user to rate topics.
+$in['lang']['e_guest_user'] = "Vous devez Ãªtre membre pour &eacute;valuer cette discussion."; //You must be a registered user to rate topics.
 
-$in['lang']['close_this_window'] = "Fermer cette fenêtre"; //Close this window
+$in['lang']['close_this_window'] = "Fermer cette fenÃªtre"; //Close this window
 
-$in['lang']['e_invalid_score'] = "R&eacute;sultat invalide - Doit être un nombre"; //Invalid score - must be a number
-$in['lang']['e_invalid_score_1'] = "R&eacute;sultat invalide - Doit être un nombre entre 1 et 5 (inclusif)";
+$in['lang']['e_invalid_score'] = "R&eacute;sultat invalide - Doit Ãªtre un nombre"; //Invalid score - must be a number
+$in['lang']['e_invalid_score_1'] = "R&eacute;sultat invalide - Doit Ãªtre un nombre entre 1 et 5 (inclusif)";
 //Invalid score - it must be a number between (and including) 1 and 5
 
 $in['lang']['e_invalid_user_id'] = "ID de membre invalide"; //Invalid user ID
 
-$in['lang']['e_header'] = "Il y a des erreurs dans votre requête:"; //There were errors in your request:
+$in['lang']['e_header'] = "Il y a des erreurs dans votre requÃªte:"; //There were errors in your request:
 
 $in['lang']['page_title'] = "&eacute;valuation de la discussion #"; //Rating topic #
 

@@ -32,31 +32,31 @@
 
 $in['lang']['page_title'] = "Formular zur Benutzerbewertung";
 
-$in['lang']['e_guest_user'] = "Du musst ein registrierter User sein, um andere User bewerten zu können.";
+$in['lang']['e_guest_user'] = "Du musst ein registrierter User sein, um andere User bewerten zu kÃ¶nnen.";
 $in['lang']['close_this_window'] = "Fenster schliessen";
 $in['lang']['e_rate_self'] = "Du kannst dich nicht selbst bewerten";
 $in['lang']['e_rate_again'] = "Du hast dieses User bereits bewertet!";
 
-$in['lang']['e_invalid_score'] = "Ungültige Wertung - es muss eine Zahl sein";
-$in['lang']['e_invalid_score_1'] = "Ungültige Wertung - sie muss -1, 0, oder 1 sein";
-$in['lang']['e_invalid_user_id'] = "Ungültige User-ID";
+$in['lang']['e_invalid_score'] = "UngÃ¼ltige Wertung - es muss eine Zahl sein";
+$in['lang']['e_invalid_score_1'] = "UngÃ¼ltige Wertung - sie muss -1, 0, oder 1 sein";
+$in['lang']['e_invalid_user_id'] = "UngÃ¼ltige User-ID";
 
 $in['lang']['e_header'] = "Es sind Fehler in deiner Anfrage aufgetreten:";
 
 $in['lang']['ok_mesg'] = "Deine Wertung wurde gespeichert.";
 
-$in['lang']['f_desc'] = "Wie schätzt du Beteiligung dieses Users an den Diskussionen ein?";
-$in['lang']['f_desc_1'] = "Für eine positive Beurteilung erhält der User +1 Punkt.  
-                         Für eine neutrale Beurteilung erhält der User 0 Punkte.
-                         Für eine negative Beurteilung erhält der User -1 Punkt.";
+$in['lang']['f_desc'] = "Wie schÃ¤tzt du Beteiligung dieses Users an den Diskussionen ein?";
+$in['lang']['f_desc_1'] = "FÃ¼r eine positive Beurteilung erhÃ¤lt der User +1 Punkt.  
+                         FÃ¼r eine neutrale Beurteilung erhÃ¤lt der User 0 Punkte.
+                         FÃ¼r eine negative Beurteilung erhÃ¤lt der User -1 Punkt.";
 
 $in['lang']['positive'] = "Positiv";
 $in['lang']['neutral'] = "Neutral";
 $in['lang']['negative'] = "Negativ";
 
-$in['lang']['any_comments'] = "Kommentar anfügen?";
+$in['lang']['any_comments'] = "Kommentar anfÃ¼gen?";
 
-$in['lang']['any_comments_1'] = "Wenn du einen Kommentar hinterlässt, verdoppelt sich der Wert deiner Beurteilung.
+$in['lang']['any_comments_1'] = "Wenn du einen Kommentar hinterlÃ¤sst, verdoppelt sich der Wert deiner Beurteilung.
             <br />Nur reiner Text. Alle HTML-Befehle und Grafiklinks werden entfernt.";
 
 $in['lang']['rate_user'] = "User bewerten";

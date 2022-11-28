@@ -44,9 +44,9 @@ $in['lang']['e_no_such_user'] = "Deine Anfrage konnte nicht verarbeitet werden, 
 
 $in['lang']['page_header'] = "Freundesliste aktualisiert";
 $in['lang']['ok_mesg'] = "Der User wurde in deine Freundesliste aufgenommen.";
-$in['lang']['select_option'] = "Wähle aus folgenden Optionen";
+$in['lang']['select_option'] = "WÃ¤hle aus folgenden Optionen";
 $in['lang']['option_1'] = "Zur Forenlobby";
-$in['lang']['option_2'] = "Zurück zur vorherigen Seite";
+$in['lang']['option_2'] = "ZurÃ¼ck zur vorherigen Seite";
 $in['lang']['option_3'] = "Deine Freundesliste verwalten";
 
 ?>

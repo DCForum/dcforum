@@ -36,15 +36,15 @@ $in['lang']['no_access'] = "Du hast keinen Zugriff auf das Programm.  <br />Bitt
 // function login_form
 $in['lang']['username'] = "Username";
 $in['lang']['password'] = "Passwort";
-$in['lang']['remember_later'] = "Für später eingeloggt bleiben?";
+$in['lang']['remember_later'] = "FÃ¼r spÃ¤ter eingeloggt bleiben?";
 $in['lang']['login'] = "Login";
 
 // function authenticate
-$in['lang']['error_username'] = "FEHLER: Dein Username enthält ungültige Zeichen";
+$in['lang']['error_username'] = "FEHLER: Dein Username enthÃ¤lt ungÃ¼ltige Zeichen";
 $in['lang']['no_such_user'] = "Kein solcher User...";
 $in['lang']['deactivated_account'] = "Dein Benutzerkonto ist deaktiviert";
 $in['lang']['incorrect_password'] = "Falsches Passwort";
-$in['lang']['insufficient'] = "Unzureichende Rechte für den Zugriff auf das Programm";
+$in['lang']['insufficient'] = "Unzureichende Rechte fÃ¼r den Zugriff auf das Programm";
 
 // function registration_form
 $in['lang']['again'] = " wiederholen";
@@ -62,21 +62,21 @@ $in['lang']['reg_error'] = "FEHLER: Es gab Fehler in deinem Registrierungsformul
 // following is to display error message that tells the
 // user that a particular login info is blank or empty
 $in['lang']['is_empty'] = " ist leer";
-$in['lang']['invalid_characters'] = " enthält Zeichen, die nicht erlaubt sind.";
-$in['lang']['too_long'] = " enthält zu viele Zeichen. Das Maximum an erlaubten Zeichen ist ";
-$in['lang']['different_passwords'] = "Die beiden Passwörter stimmen nicht überein.";
-$in['lang']['dup_username'] = "Der gewählte Username ist bereits in der Datenbank vorhanden. Bitte wähle einen anderen Usernamen.";
+$in['lang']['invalid_characters'] = " enthÃ¤lt Zeichen, die nicht erlaubt sind.";
+$in['lang']['too_long'] = " enthÃ¤lt zu viele Zeichen. Das Maximum an erlaubten Zeichen ist ";
+$in['lang']['different_passwords'] = "Die beiden PasswÃ¶rter stimmen nicht Ã¼berein.";
+$in['lang']['dup_username'] = "Der gewÃ¤hlte Username ist bereits in der Datenbank vorhanden. Bitte wÃ¤hle einen anderen Usernamen.";
 $in['lang']['dup_email_1'] = "Doppelte eMail-Adresse";
-$in['lang']['dup_email_2'] = " benutzt bereits diese eMail-Adresse. Bitte wähle eine andere eMail-Adresse.";
-$in['lang']['blocked_email'] = "Aus Sicherheitsgründen hat der Administrator
+$in['lang']['dup_email_2'] = " benutzt bereits diese eMail-Adresse. Bitte wÃ¤hle eine andere eMail-Adresse.";
+$in['lang']['blocked_email'] = "Aus SicherheitsgrÃ¼nden hat der Administrator
                         dieses Forums einen eMail-Filter eingerichtet, der eine Registrierung
                         mit Adressen von bestimmten, meist kostenlosen eMail-Diensten verhindert.
-                        Bitte wähle eine andere eMail-Adresse.";
+                        Bitte wÃ¤hle eine andere eMail-Adresse.";
 $in['lang']['bad_email'] = "Falsche eMail-Syntax";
 
 
 // function user_account_form
-$in['lang']['cannot_change_username'] = "Der Username kann nicht geändert werden.";
+$in['lang']['cannot_change_username'] = "Der Username kann nicht geÃ¤ndert werden.";
 
 // following are already defined
 //$in['lang']['again'] = " again";

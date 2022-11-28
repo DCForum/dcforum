@@ -35,6 +35,6 @@ $in['lang']['page_title'] = "Utilitaire des avatars"; //Avatar utility
 
 $in['lang']['page_header'] = "Cliquer sur une image pour choisir votre avatar"; //Click on an image to select that image as your avatar.
 
-$in['lang']['click_to_close'] = "Cliquer ici pour fermer cette fenêtre"; //Click here to close this window
+$in['lang']['click_to_close'] = "Cliquer ici pour fermer cette fenÃªtre"; //Click here to close this window
 
 ?>

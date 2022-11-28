@@ -36,22 +36,22 @@ $in['lang']['page_header'] = "Neues Passwort anfordern";
 $in['lang']['e_blank_username'] = "Dein Username darf nicht leer sein";
 
 $in['lang']['e_blank_email'] = "Deine eMail-Adresse darf nicht leer sein";
-$in['lang']['e_invalid_email'] = "Deine eMail-Adresse enthält eine ungültige Schreibweise";
+$in['lang']['e_invalid_email'] = "Deine eMail-Adresse enthÃ¤lt eine ungÃ¼ltige Schreibweise";
 $in['lang']['e_header'] = "Es sind Fehler in deiner Anfrage aufgetreten:";
 
 $in['lang']['e_no_match'] = "Es gibt kein Benutzerkonto mit den eingegebenen Daten.
-               Bitte versuchs nochmal oder kontaktiere den Administrator, falls weitere hierbei Hilfe benötigst.";
+               Bitte versuchs nochmal oder kontaktiere den Administrator, falls weitere hierbei Hilfe benÃ¶tigst.";
 
 $in['lang']['your_new_password_is'] = "Dein neues Passwort lautet";
 
-$in['lang']['ok_mesg'] = "Ein neues Passwort wurde für dein Benutzerkonto erstellt und
+$in['lang']['ok_mesg'] = "Ein neues Passwort wurde fÃ¼r dein Benutzerkonto erstellt und
                an deine eMail-Adresse verschickt.<br />
-               Falls du dieses neue Passwort nicht innerhalb von 24 Stunden erhälst, 
+               Falls du dieses neue Passwort nicht innerhalb von 24 Stunden erhÃ¤lst, 
                setze dich bitte deswegen mit dem Administrator in Kontaktfor.<br />&nbsp;<br />
                Danke.";
 
 $in['lang']['inst_mesg'] = "Bitte gib deinen Usernamen und deine eMail-Adresse ein.<br />
-               Ein neues Passwort wird für dein Benutzerkonto erstellt und dir per eMail zugeschickt.";
+               Ein neues Passwort wird fÃ¼r dein Benutzerkonto erstellt und dir per eMail zugeschickt.";
 
 // function lost_passwrod_form
 

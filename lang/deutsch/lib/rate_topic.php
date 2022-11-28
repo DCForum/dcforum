@@ -28,24 +28,24 @@
 //
 //////////////////////////////////////////////////////////////////////////
 
-$in['lang']['e_guest_user'] = "Du musst ein registrierter User sein, um Themen bewerten zu können.";
+$in['lang']['e_guest_user'] = "Du musst ein registrierter User sein, um Themen bewerten zu kÃ¶nnen.";
 
 $in['lang']['close_this_window'] = "Fenster schliessen";
 
-$in['lang']['e_invalid_score'] = "Ungültige Wertung - es muss eine Zahl sein";
-$in['lang']['e_invalid_score_1'] = "Ungültige Wertung - es muss eine Zahl zwischen 1 und 5 sein";
-$in['lang']['e_invalid_user_id'] = "Ungültige User-ID";
+$in['lang']['e_invalid_score'] = "UngÃ¼ltige Wertung - es muss eine Zahl sein";
+$in['lang']['e_invalid_score_1'] = "UngÃ¼ltige Wertung - es muss eine Zahl zwischen 1 und 5 sein";
+$in['lang']['e_invalid_user_id'] = "UngÃ¼ltige User-ID";
 
 $in['lang']['e_header'] = "Es sind Fehler in deiner Anfrage aufgetreten:";
 
 $in['lang']['page_title'] = "Bewetung von Thema Nr.";
 
 $in['lang']['ok_heading'] = "Speichern deiner Bewertung dieses Themas";
-$in['lang']['ok_mesg'] = "Deine Bewertung für das Thema wurde gespeichert.";
+$in['lang']['ok_mesg'] = "Deine Bewertung fÃ¼r das Thema wurde gespeichert.";
 
-$in['lang']['select_option'] = "Wähle aus folgenden Optionen";
+$in['lang']['select_option'] = "WÃ¤hle aus folgenden Optionen";
 $in['lang']['select_opt_1'] = "Zur Forenlobby";
-$in['lang']['select_opt_2'] = "Zur Themenübersicht";
+$in['lang']['select_opt_2'] = "Zur ThemenÃ¼bersicht";
 $in['lang']['select_opt_3'] = "Zum Thema";
  
 ?>

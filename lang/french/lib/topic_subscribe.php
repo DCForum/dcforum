@@ -31,12 +31,12 @@ $in['lang']['page_header'] = "Abonnement &agrave; la discussion termin&eacute;e"
 
 $in['lang']['already_subscribed'] = "Erreur lors de l'abonnement &agrave; la discussion"; //Topic subscription error
 
-$in['lang']['already_subscribed_mesg'] =  "Vous ne pouvez pas vous abonner deux fois &agrave; la même discussion";
+$in['lang']['already_subscribed_mesg'] =  "Vous ne pouvez pas vous abonner deux fois &agrave; la mÃªme discussion";
 //You cannot add this topic to your
 //topic subscription list because you are already subscribed to this topic.
 
 
-$in['lang']['result'] =  "Vous êtes maintenant abonn&eacute; &agrave; cette discussion.<br />
+$in['lang']['result'] =  "Vous Ãªtes maintenant abonn&eacute; &agrave; cette discussion.<br />
 	Vous serez avis&eacute; par courriel lors de nouveaux messages.";
 //You are now subscribed to this topic.<br />
 //You will be notified via email

@@ -37,9 +37,9 @@ $in['lang']['too_many_hits'] = "Zu viele Suchergebnisse. Nur die ersten";
 
 $in['lang']['pages'] = "Seiten werden angezeigt.";
 
-$in['lang']['displaying_topics'] = "Die angezeigten Themen enthalten ungelesene Beiträge";
+$in['lang']['displaying_topics'] = "Die angezeigten Themen enthalten ungelesene BeitrÃ¤ge";
 
-$in['lang']['no_match'] = "Keine neuen Beiträge...";
+$in['lang']['no_match'] = "Keine neuen BeitrÃ¤ge...";
 
 
 // function search_form
@@ -50,17 +50,17 @@ $in['lang']['rf_yes'] = "Ja";
 $in['lang']['rf_no'] = "Nein";
 
 // search days
-$in['lang']['rd_0'] = "Themen mit neuen Beiträgen anzeigen";
+$in['lang']['rd_0'] = "Themen mit neuen BeitrÃ¤gen anzeigen";
 $in['lang']['rd_1'] = "Aktive Themen der letzten 24 Stunden auflisten";
 $in['lang']['rd_7'] = "Aktive Themen der letzten Woche auflisten";
 $in['lang']['rd_30'] = "Aktive Themen des letzten Monats auflisten";
 
-$in['lang']['rf_view_desc'] = "Themen mit neuen Beiträgen aus der Liste rechts auswählen oder suche über das Formular unten nach aktiven Themen.";
+$in['lang']['rf_view_desc'] = "Themen mit neuen BeitrÃ¤gen aus der Liste rechts auswÃ¤hlen oder suche Ã¼ber das Formular unten nach aktiven Themen.";
 
 $in['lang']['rf_which_forum'] = "In welcher Forengruppe oder welchem Forum suchen?";
 $in['lang']['rf_children'] = "Falls anwendbar, untergeordnete Foren rekursiv durchsuchen?";
-$in['lang']['rf_days'] = "Wähle den Zeitraum für aktive Themen";
+$in['lang']['rf_days'] = "WÃ¤hle den Zeitraum fÃ¼r aktive Themen";
 $in['lang']['rf_pages'] = "Anzahl der Ergebnisse pro Seite";
-$in['lang']['rf_button'] = "Neue Beiträge auflisten";
+$in['lang']['rf_button'] = "Neue BeitrÃ¤ge auflisten";
 
 ?>

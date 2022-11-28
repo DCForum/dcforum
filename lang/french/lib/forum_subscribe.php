@@ -27,7 +27,7 @@
 //
 ////////////////////////////////////////////////////////////////////////
 
-$in['lang']['already_subscribed'] = "Vous êtes d&eacute;j&agrave; inscrit &agrave; ce forum."; //You are already subscribed to this forum.
+$in['lang']['already_subscribed'] = "Vous Ãªtes d&eacute;j&agrave; inscrit &agrave; ce forum."; //You are already subscribed to this forum.
 $in['lang']['select_option'] = "Choisir une option suivante"; //Select from following options
 $in['lang']['option_1'] = "Aller &agrave; la liste des forums"; //Goto forum listings
 $in['lang']['option_2'] = "Retour &agrave; la liste des discussions"; //Go back to topic listings
@@ -36,7 +36,7 @@ $in['lang']['error'] = "Erreur d'inscription au forum"; //Forum subscription err
 
 
 $in['lang']['ok_header'] = "Inscription au forum compl&eacute;t&eacute;e"; //Forum subscription request completed.
-$in['lang']['ok_mesg'] = "Vous êtes maintenant inscrit &agrave; ce forum.<br />
+$in['lang']['ok_mesg'] = "Vous Ãªtes maintenant inscrit &agrave; ce forum.<br />
 		L'administrateur vous enverra par courriel un r&eacute;sum&eacute; des nouveaux messages
 		de ce forum.";
 //You are now subscribed to this forum.<br />

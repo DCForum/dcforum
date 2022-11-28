@@ -42,7 +42,7 @@ $in['lang']['sort_by_views'] = "Nombre de lectures"; //number of views
 $in['lang']['sf_header'] = "Dossiers additionels dans cette discussion"; //Additional folders in this discussion
 $in['lang']['sf_header_2'] = "Sujets dans cette discussion"; //Topics in this discussion
 $in['lang']['sf_name'] = "Nom du forum et description"; //Forum name and description
-$in['lang']['sf_last_date'] = "Dernière mise &agrave; jour par date/sujet/auteur"; //Last updated date/topic/author
+$in['lang']['sf_last_date'] = "DerniÃ¨re mise &agrave; jour par date/sujet/auteur"; //Last updated date/topic/author
 $in['lang']['sf_info'] = "Information additionnelle"; //Additional information
 
 $in['lang']['moderators'] = "Mod&eacute;rateur"; //Moderators
@@ -54,7 +54,7 @@ $in['lang']['t_topic'] = "Discussion"; //Topic
 $in['lang']['t_author'] = "Auteur"; //Author
 
 // NOTE for t_date, use &nbsp; in place of a blank space
-$in['lang']['t_date'] = "Dernière&nbsp;mise &agrave; jour&nbsp;date"; //Last&nbsp;updated&nbsp;date
+$in['lang']['t_date'] = "DerniÃ¨re&nbsp;mise &agrave; jour&nbsp;date"; //Last&nbsp;updated&nbsp;date
 $in['lang']['t_replies'] = "R&eacute;ponses"; //Replies
 $in['lang']['t_views'] = "Vu"; //Views
 $in['lang']['t_rating'] = "&eacute;valuation"; //Rating
@@ -68,13 +68,13 @@ $in['lang']['delete'] =            'Supprimer'; //Delete
 $in['lang']['hide'] =              'Cacher'; //Hide
 $in['lang']['move'] =              'D&eacute;placer'; //Move
 
-$in['lang']['confirm_unpin'] =     'Êtes-vous certain de vouloir D&eacute;PINGLER cette discussion?'; //Are you sure you want to UNPIN this topic?
-$in['lang']['confirm_pin'] =       'Êtes-vous certain de vouloir &eacute;PINGLER cette discussion?'; //Are you sure you want to PIN this topic?
-$in['lang']['confirm_lock'] =      'Êtes-vous certain de vouloir VERROUILLER cette discussion?'; //Are you sure you want to LOCK this topic?
-$in['lang']['confirm_unlock'] =    'Êtes-vous certain de vouloir D&eacute;VERROUILLER cette discussion?'; //Are you sure you want to UNLOCK this topic?
-$in['lang']['confirm_delete'] =    'Êtes-vous certain de vouloir SUPPRIMER cette discussion?'; //Are you sure you want to DELETE this topic?
-$in['lang']['confirm_hide'] =      'Êtes-vous certain de vouloir CACHER cette discussion?'; //Are you sure you want to HIDE this topic?
-$in['lang']['confirm_move'] =      'Êtes-vous certain de vouloir D&eacute;PLACER cette discussion?'; //Are you sure you want to MOVE this topic?
+$in['lang']['confirm_unpin'] =     'ÃŠtes-vous certain de vouloir D&eacute;PINGLER cette discussion?'; //Are you sure you want to UNPIN this topic?
+$in['lang']['confirm_pin'] =       'ÃŠtes-vous certain de vouloir &eacute;PINGLER cette discussion?'; //Are you sure you want to PIN this topic?
+$in['lang']['confirm_lock'] =      'ÃŠtes-vous certain de vouloir VERROUILLER cette discussion?'; //Are you sure you want to LOCK this topic?
+$in['lang']['confirm_unlock'] =    'ÃŠtes-vous certain de vouloir D&eacute;VERROUILLER cette discussion?'; //Are you sure you want to UNLOCK this topic?
+$in['lang']['confirm_delete'] =    'ÃŠtes-vous certain de vouloir SUPPRIMER cette discussion?'; //Are you sure you want to DELETE this topic?
+$in['lang']['confirm_hide'] =      'ÃŠtes-vous certain de vouloir CACHER cette discussion?'; //Are you sure you want to HIDE this topic?
+$in['lang']['confirm_move'] =      'ÃŠtes-vous certain de vouloir D&eacute;PLACER cette discussion?'; //Are you sure you want to MOVE this topic?
 
 
 

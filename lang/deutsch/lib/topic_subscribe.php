@@ -27,7 +27,7 @@
 //
 
 
-$in['lang']['page_header'] = "Abonnement-Anfrage ausgeführt.";
+$in['lang']['page_header'] = "Abonnement-Anfrage ausgefÃ¼hrt.";
 
 $in['lang']['already_subscribed'] = "Fehler im Themen-Abonnement";
 
@@ -35,13 +35,13 @@ $in['lang']['already_subscribed_mesg'] =  "Du kannst dieses Thema nicht abonnier
                da du es bereits abonniert hast.";
 
 $in['lang']['result'] =  "Du hast dieses Thema nun abonniert.<br />
-             Sobald ein neuer Eintrag zu diesem Thema vorliegt, erhälst du eine Benachrichtigung eMail dazu.";
+             Sobald ein neuer Eintrag zu diesem Thema vorliegt, erhÃ¤lst du eine Benachrichtigung eMail dazu.";
 
 
-$in['lang']['do_mesg'] = "Wähle aus folgenden Optionen";
+$in['lang']['do_mesg'] = "WÃ¤hle aus folgenden Optionen";
 $in['lang']['do_opt1'] = "Zur Forenlobby";
-$in['lang']['do_opt2'] = "Zur Themenübersicht";
-$in['lang']['do_opt3'] = "Zurück zum Thema";
+$in['lang']['do_opt2'] = "Zur ThemenÃ¼bersicht";
+$in['lang']['do_opt3'] = "ZurÃ¼ck zum Thema";
 $in['lang']['do_opt4'] = "Deine Abonnements verwalten";
 
 ?>

@@ -35,11 +35,11 @@ $in['lang']['logged_in_as'] = "Eingeloggt als";
 $in['lang']['firsttime'] = "Zum ersten Mal hier?";
 $in['lang']['please_register'] = "Bitte anmelden";
 
-$in['lang']['announcements'] = "Ankündigungen";
+$in['lang']['announcements'] = "AnkÃ¼ndigungen";
 
 $in['lang']['sf_top_name'] = "Forengruppen";
 $in['lang']['sf_name'] = "Forenname und Beschreibung";
-$in['lang']['sf_date'] = "Letzte Änderung";
+$in['lang']['sf_date'] = "Letzte Ã„nderung";
 $in['lang']['sf_info'] = "Weitere Infos";
 $in['lang']['sf_conf'] = "Forengruppen und Foren";
 $in['lang']['sf_top_level'] = "Forengruppen";

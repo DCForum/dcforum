@@ -33,5 +33,5 @@ $in['lang']['subject'] = "Betreff";
 $in['lang']['topic'] = "Thema";
 $in['lang']['replies_to'] = "Antworten zu diesem Thema";
 
-$in['lang']['overload_mode'] = "Diese Seite ist im Überlastungsmodus.";
+$in['lang']['overload_mode'] = "Diese Seite ist im Ãœberlastungsmodus.";
 ?>

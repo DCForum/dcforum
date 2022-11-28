@@ -34,7 +34,7 @@ $in['lang']['page_desc'] = "Cliquez sur une binette pour l'ajouter dans votre me
 //Click on a smilie to insert it in your message.<br />
 //Or, you can just enter the shortcut shown on the right hand column.
 
-$in['lang']['click_to_close'] = "Cliquez ici pour fermer cette fenêtre"; //Click here to close this Window
+$in['lang']['click_to_close'] = "Cliquez ici pour fermer cette fenÃªtre"; //Click here to close this Window
 
 $in['lang']['smilies'] = "Binettes"; //Smilies
 $in['lang']['shortcut'] = "Raccourci"; //Shortcut

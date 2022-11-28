@@ -127,7 +127,7 @@ $in['lang']['preview_poll_message'] = "Pr&eacute;visualiser votre sondage avant 
 
 $in['lang']['rate_this_topic'] = "&Eacute;valuer cette discussion"; //Rate this topic
 $in['lang']['skip_it'] = "Ignorer"; // Skip it
-$in['lang']['must_read'] = "À lire"; //Must read
+$in['lang']['must_read'] = "Ã€ lire"; //Must read
 $in['lang']['rate_it'] = "&Eacute;valuer!"; //Rate it!
 
 // function display_forum

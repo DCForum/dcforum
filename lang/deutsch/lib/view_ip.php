@@ -26,12 +26,12 @@
 // 	$Id: view_ip.php,v 1.2 2003/03/20 18:20:21 david Exp $	
 //
 
-$in['lang']['page_title'] = "Gespeicherte IP-Adressen für einen User anschauen";
+$in['lang']['page_title'] = "Gespeicherte IP-Adressen fÃ¼r einen User anschauen";
 
 $in['lang']['missing_ip'] = "Fehlender IP-Eintrag";
 $in['lang']['this_ip'] = "IP-Adresse dieses Beitrags";
 $in['lang']['other_ip'] = "Andere bekannte IP-Adressen von";
 $in['lang']['no_ip'] = "Es gibt keine anderen bekannten IP-Adressen von";
-$in['lang']['click_here'] = "Hier klicken, um die IP-Adresse dieses Beitrags den unerwünschten IP-Adressen hinzuzufügen";
+$in['lang']['click_here'] = "Hier klicken, um die IP-Adresse dieses Beitrags den unerwÃ¼nschten IP-Adressen hinzuzufÃ¼gen";
 
 ?>

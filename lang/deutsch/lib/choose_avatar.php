@@ -33,7 +33,7 @@ $in['lang']['e_disabled'] = "Die Avatar-Funktion wurde vom Administrator deaktiv
 
 $in['lang']['page_title'] = "Avatar-Auswahl";
 
-$in['lang']['page_header'] = "Klick auf die Grafik, die du als Avatar nutzen möchtest.";
+$in['lang']['page_header'] = "Klick auf die Grafik, die du als Avatar nutzen mÃ¶chtest.";
 
 $in['lang']['click_to_close'] = "Hier klicken, um das Fenster zu schliessen";
 

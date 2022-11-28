@@ -30,19 +30,19 @@ $in['lang']['page_title'] = "Anzeige der Themen in";
 $in['lang']['pages'] = "Seiten";
 
 $in['lang']['pinned'] = "Weist auf oben festgesetztes Thema hin";
-$in['lang']['new_icon'] = "Farbige Icons weisen auf neue Beiträge hin";
+$in['lang']['new_icon'] = "Farbige Icons weisen auf neue BeitrÃ¤ge hin";
 
 $in['lang']['sort_by_id'] = "Beitrags-ID";
 $in['lang']['sort_by_subject'] = "Betreff";
 $in['lang']['sort_by_author'] = "Username";
-$in['lang']['sort_by_last_date'] = "letztem Änderungsdatum";
+$in['lang']['sort_by_last_date'] = "letztem Ã„nderungsdatum";
 $in['lang']['sort_by_replies'] = "Anzahl der Antworten";
 $in['lang']['sort_by_views'] = "Anzahl der Views";
 
 $in['lang']['sf_header'] = "Weitere Ordner in diesem Forum";
 $in['lang']['sf_header_2'] = "Themen in diesem Forum";
 $in['lang']['sf_name'] = "Forenname und Beschreibung";
-$in['lang']['sf_last_date'] = "Letzte Änderung Datum/Thema/Autor";
+$in['lang']['sf_last_date'] = "Letzte Ã„nderung Datum/Thema/Autor";
 $in['lang']['sf_info'] = "Weitere Informationen";
 
 $in['lang']['moderators'] = "Moderatoren";
@@ -54,25 +54,25 @@ $in['lang']['t_topic'] = "Thema";
 $in['lang']['t_author'] = "Autor";
 
 // NOTE for t_date, use &nbsp; in place of a blank space
-$in['lang']['t_date'] = "Letzte&nbsp;Änderung";
+$in['lang']['t_date'] = "Letzte&nbsp;Ã„nderung";
 $in['lang']['t_replies'] = "Antworten";
 $in['lang']['t_views'] = "Views";
 $in['lang']['t_rating'] = "Bewertung";
 
 // Following are also in /lang/deutsch/include/dcmenulib.php
-$in['lang']['unpin'] =             'Loslösen';
+$in['lang']['unpin'] =             'LoslÃ¶sen';
 $in['lang']['pin'] =               'Festsetzen';
 $in['lang']['lock'] =              'Sperren';
 $in['lang']['unlock'] =            'Freigeben';
-$in['lang']['delete'] =            'Löschen';
+$in['lang']['delete'] =            'LÃ¶schen';
 $in['lang']['hide'] =              'Verstecken';
 $in['lang']['move'] =              'Verschieben';
 
-$in['lang']['confirm_unpin'] =     'Bist du dir sicher, dass du dieses Thema LOSLÖSEN willst?';
+$in['lang']['confirm_unpin'] =     'Bist du dir sicher, dass du dieses Thema LOSLÃ–SEN willst?';
 $in['lang']['confirm_pin'] =       'Bist du dir sicher, dass du dieses Thema FESTSETZEN willst?';
 $in['lang']['confirm_lock'] =      'Bist du dir sicher, dass du dieses Thema SPERREN willst?';
 $in['lang']['confirm_unlock'] =    'Bist du dir sicher, dass du dieses Thema FREIGEBEN willst?';
-$in['lang']['confirm_delete'] =    'Bist du dir sicher, dass du dieses Thema LÖSCHEN willst?';
+$in['lang']['confirm_delete'] =    'Bist du dir sicher, dass du dieses Thema LÃ–SCHEN willst?';
 $in['lang']['confirm_hide'] =      'Bist du dir sicher, dass du dieses Thema VERSTECKEN willst?';
 $in['lang']['confirm_move'] =      'Bist du dir sicher, dass du dieses Thema VERSCHIEBEN willst?';
 

@@ -38,7 +38,7 @@ $in['lang']['no_edit'] = "Vous ne pouvez pas modifier ce message car le d&eacute
 //the editing period has expired.
 
 
-$in['lang']['e_blank_subject'] = "Erreur: l'espace pour le sujet et le message ne peut être vide"; //Posting error: Subject and message cannot be blank
+$in['lang']['e_blank_subject'] = "Erreur: l'espace pour le sujet et le message ne peut Ãªtre vide"; //Posting error: Subject and message cannot be blank
 
 
 ?>

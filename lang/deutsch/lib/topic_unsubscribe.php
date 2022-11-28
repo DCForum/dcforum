@@ -27,15 +27,15 @@
 //
 
 
-$in['lang']['page_header'] = "Abonnement-Anfrage ausgeführt.";
+$in['lang']['page_header'] = "Abonnement-Anfrage ausgefÃ¼hrt.";
 
-$in['lang']['result'] =  "Dein Abonnement dieses Themas wurde gelöscht.<br />
+$in['lang']['result'] =  "Dein Abonnement dieses Themas wurde gelÃ¶scht.<br />
              Es werden keine weiteren Benachrichtigungen per eMail an dich geschickt, wenn ein neuer Eintrag zu diesem Thema vorliegt.";
 
-$in['lang']['do_mesg'] = "Wähle aus folgenden Optionen";
+$in['lang']['do_mesg'] = "WÃ¤hle aus folgenden Optionen";
 $in['lang']['do_opt1'] = "Zur Forenlobby";
-$in['lang']['do_opt2'] = "Zur Themenübersicht";
-$in['lang']['do_opt3'] = "Zurück zum Thema";
+$in['lang']['do_opt2'] = "Zur ThemenÃ¼bersicht";
+$in['lang']['do_opt3'] = "ZurÃ¼ck zum Thema";
 $in['lang']['do_opt4'] = "Deine Abonnements verwalten";
 
 ?>

@@ -28,7 +28,7 @@
 //
 
 $in['lang']['access_denied'] = "Acc&egrave;s refus&eacute;"; //Access Denied
-$in['lang']['access_denied_mesg'] = "La page demand&eacute;e ne peut être affich&eacute;e car vous n'avez pas acc&egrave;s &agrave; cette fonction.
+$in['lang']['access_denied_mesg'] = "La page demand&eacute;e ne peut Ãªtre affich&eacute;e car vous n'avez pas acc&egrave;s &agrave; cette fonction.
 	Contacter l'administrateur du site pour plus de renseignements.";
 
 //The page you requested cannot be displayed because

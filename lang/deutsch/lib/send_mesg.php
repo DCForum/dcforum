@@ -28,7 +28,7 @@
 //
 
 
-$in['lang']['invalid_user_id'] = "Ungültige User-ID";
+$in['lang']['invalid_user_id'] = "UngÃ¼ltige User-ID";
 
 $in['lang']['send_to_self'] = "Du versuchst, dir selbst eine Mitteilung zu schicken...";
 
@@ -38,7 +38,7 @@ $in['lang']['error_header'] = "Es sind Fehler aufgetreten.";
 
 $in['lang']['page_title'] = "Private Mitteilung an einen User senden";
 
-$in['lang']['page_mesg'] = "Vervollständige das Formular für eine Mitteilung an";
+$in['lang']['page_mesg'] = "VervollstÃ¤ndige das Formular fÃ¼r eine Mitteilung an";
 
 $in['lang']['empty_subject'] = "Leerer Betreff";
 

@@ -29,8 +29,8 @@
 
 $in['lang']['page_title'] = "Smiley-Shortcuts";
 
-$in['lang']['page_desc'] = "Klick auf einen Smiley um ihn in deinen Beitrag einzufügen.<br />
-      Du kannst auch selber das Kürzel aus der rechten Spalte in deinen Beitrag eintragen.";
+$in['lang']['page_desc'] = "Klick auf einen Smiley um ihn in deinen Beitrag einzufÃ¼gen.<br />
+      Du kannst auch selber das KÃ¼rzel aus der rechten Spalte in deinen Beitrag eintragen.";
 
 $in['lang']['click_to_close'] = "Klick hier um das Fenster zu schliessen";
 

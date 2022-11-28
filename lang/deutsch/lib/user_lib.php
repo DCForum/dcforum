@@ -29,24 +29,24 @@
 $in['lang']['update'] = "Aktualisieren";
 
 // function profile_form_fields
-$in['lang']['local_avatar'] = "Klick hier um aus den vorhandenen Avataren einen auszuwählen.";
+$in['lang']['local_avatar'] = "Klick hier um aus den vorhandenen Avataren einen auszuwÃ¤hlen.";
 
 $in['lang']['remote_avatar_ok'] = "Du kannst auch eine Grafik von einem externen Server einbinden.<br />
-                  Gib dafür einfach die Adresse zur Grafik an.<br />
-                  Die voreingestellte Größe für Avatare ist 48 x 48 Pixel.<br />";
+                  Gib dafÃ¼r einfach die Adresse zur Grafik an.<br />
+                  Die voreingestellte GrÃ¶ÃŸe fÃ¼r Avatare ist 48 x 48 Pixel.<br />";
 
-$in['lang']['remote_avatar_disabled'] = "Die Möglichkeit, Grafiken von externen Servern einzubinden wurde von Administrator deaktiviert.";
+$in['lang']['remote_avatar_disabled'] = "Die MÃ¶glichkeit, Grafiken von externen Servern einzubinden wurde von Administrator deaktiviert.";
 
 
 //function update_user_setting
 $in['lang']['error_icq'] = "Die ICQ-UIN darf nur Zahlen enthalten";
 $in['lang']['error_aol'] = "Die AIM-ID darf nur Buchstaben und Zahlen enthalten";
-$in['lang']['error_avatar'] = "Ungültige Avatar-Grafik";
-$in['lang']['error_gender'] = "Das Geschlecht kann nur weiblich oder männlich sein";
+$in['lang']['error_avatar'] = "UngÃ¼ltige Avatar-Grafik";
+$in['lang']['error_gender'] = "Das Geschlecht kann nur weiblich oder mÃ¤nnlich sein";
 $in['lang']['error_city'] = "Die Stadt darf nur Buchstaben und Zahlen enthalten";
 $in['lang']['error_state'] = "Das Bundesland darf nur Buchstaben und Zahlen enthalten";
 $in['lang']['error_country'] = "Der Staat darf nur Buchstaben und Zahlen enthalten";
-$in['lang']['error_homepage'] = "Die Homepage-URL ist ungültig";
+$in['lang']['error_homepage'] = "Die Homepage-URL ist ungÃ¼ltig";
 $in['lang']['error_yes_no'] = "Diese Option darf nur yes/Ja oder no/Nein sein";
 
 

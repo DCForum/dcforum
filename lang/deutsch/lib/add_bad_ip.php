@@ -29,10 +29,10 @@
 //////////////////////////////////////////////////////////////////////////
 // function add_bad_ip
 
-$in['lang']['page_title'] = "Zur Liste der gesperrten IPs hinzufügen";
+$in['lang']['page_title'] = "Zur Liste der gesperrten IPs hinzufÃ¼gen";
 $in['lang']['page_header'] = "Folgende IP-Adressen stehen in der Liste der gesperrten IPs:";
 
-$in['lang']['not_added'] = "Nicht hinzugefügt. Diese Adresse steht bereits in der Liste.";
-$in['lang']['added'] = "Der IP-Liste hinzugefügt";
+$in['lang']['not_added'] = "Nicht hinzugefÃ¼gt. Diese Adresse steht bereits in der Liste.";
+$in['lang']['added'] = "Der IP-Liste hinzugefÃ¼gt";
 
 ?>

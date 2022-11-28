@@ -36,7 +36,7 @@ $in['lang']['delete_attachment_mesg'] = "Les pi&egrave;ces jointes s&eacute;lect
 //The attachments you selected have been deleted.<br />
 //You may include additional attachments using the form below.<br />
 
-$in['lang']['close_this_window'] = "Fermer cette fenêtre"; //Close this window
+$in['lang']['close_this_window'] = "Fermer cette fenÃªtre"; //Close this window
 
 $in['lang']['didnot_delete_attachement_mesg'] = "Vous avez choisi de ne pas supprimer vos pi&egrave;ces jointes.<br />
 		Utiliser le formulaire suivant pour les supprimer.";
@@ -87,7 +87,7 @@ $in['lang']['kbytes'] = "Koctets"; //KBytes
 
 $in['lang']['step_2'] = "Etape 2. D&eacute;finir le type de votre fichier"; //Step 2. Define your attachment type
 
-$in['lang']['check_embed'] = "Cochez ici pour inclure l'URL de ce fichier &agrave; même votre message.";
+$in['lang']['check_embed'] = "Cochez ici pour inclure l'URL de ce fichier &agrave; mÃªme votre message.";
 //Check this box if you wish to embed 
 //attachment URL in the message text box.
 

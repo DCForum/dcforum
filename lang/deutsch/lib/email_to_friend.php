@@ -32,17 +32,17 @@
 
 $in['lang']['page_title'] = "Dieses Thema empfehlen";
 
-$in['lang']['page_header'] = "Vervollst‰ndige das Formular, um dieses Thema zu empfehlen";
+$in['lang']['page_header'] = "Vervollst√§ndige das Formular, um dieses Thema zu empfehlen";
 
 $in['lang']['no_such_topic'] = "Kein solches Thema";
 
 $in['lang']['e_from_name_blank'] = "Dein Name darf nicht leer sein";
 $in['lang']['e_from_email_blank'] = "Deine eMail-Adresse darf nicht leer sein";
-$in['lang']['e_from_email_syntax'] = "Deine eMail-Adresse enth‰lt eine ung¸ltige Schreibweise";
+$in['lang']['e_from_email_syntax'] = "Deine eMail-Adresse enth√§lt eine ung√ºltige Schreibweise";
 
-$in['lang']['e_to_name_blank'] = "Der Name des Empf‰ngers darf nicht leer sein";
-$in['lang']['e_to_email_blank'] = "Die eMail-Adresse des Empf‰ngers darf nicht leer sein";
-$in['lang']['e_to_email_syntax'] = "Die eMail-Adresse des Empf‰ngers enth‰lt eine ung¸ltige Schreibweise";
+$in['lang']['e_to_name_blank'] = "Der Name des Empf√§ngers darf nicht leer sein";
+$in['lang']['e_to_email_blank'] = "Die eMail-Adresse des Empf√§ngers darf nicht leer sein";
+$in['lang']['e_to_email_syntax'] = "Die eMail-Adresse des Empf√§ngers enth√§lt eine ung√ºltige Schreibweise";
 
 $in['lang']['e_header'] = "Es gab folgende Fehler in deiner Anfrage:";
 
@@ -57,8 +57,8 @@ $in['lang']['f_topic_to_send'] = "Zu versendendes Thema";
 $in['lang']['f_posted_by'] = "Eingetragen von";
 $in['lang']['f_from_name'] = "Dein Name";
 $in['lang']['f_from_email'] = "Deine eMail";
-$in['lang']['f_to_name'] = "Name des Empf‰ngers";
-$in['lang']['f_to_email'] = "eMail des Empf‰ngers";
+$in['lang']['f_to_name'] = "Name des Empf√§ngers";
+$in['lang']['f_to_email'] = "eMail des Empf√§ngers";
 $in['lang']['f_message'] = "Mitteilung";
 $in['lang']['button'] = "Thema versenden";
 

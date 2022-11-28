@@ -31,7 +31,7 @@
 // main function move_this_topic
 
 $in['lang']['access_denied'] = "Acc&egrave;s refus&eacute;"; //Access denied
-$in['lang']['access_denied_message'] = "La page demand&eacute;e ne peut être affich&eacute;e car vous n'avez 
+$in['lang']['access_denied_message'] = "La page demand&eacute;e ne peut Ãªtre affich&eacute;e car vous n'avez 
 pas acc&egrave;s &agrave; cette fonction. Contactez l'administrateur du site pour plus de renseignements.";
 //The page you requested cannot be displayed because
 //you do not have access to this function. Please contact the
@@ -48,8 +48,8 @@ $in['lang']['e_move_desc_1'] = "Vous avez s&eacute;lectionn&eacute; une conf&eac
 //cannot move a topic to a conference.  Please choose another forum.
 
 
-$in['lang']['e_move_desc_2'] = "Vous avez choisi le même forum de destination. Vous ne pouvez pas d&eacute;placer une discussion
-	dans le même forum. Veuillez choisir un autre forum.";
+$in['lang']['e_move_desc_2'] = "Vous avez choisi le mÃªme forum de destination. Vous ne pouvez pas d&eacute;placer une discussion
+	dans le mÃªme forum. Veuillez choisir un autre forum.";
 //You selected same destination forum.  You
 //cannot move a topic to the same forum.  Please choose another forum.
 

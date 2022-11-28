@@ -35,7 +35,7 @@
 // $event_list array
 $in['lang']['event_list_1'] = 'Abendessen';
 $in['lang']['event_list_2'] = 'Abschluss';
-$in['lang']['event_list_3'] = 'Aufführung';
+$in['lang']['event_list_3'] = 'AuffÃ¼hrung';
 $in['lang']['event_list_4'] = 'Besprechung';
 $in['lang']['event_list_5'] = 'Chat';
 $in['lang']['event_list_6'] = 'Club-Ereignis';
@@ -46,7 +46,7 @@ $in['lang']['event_list_10'] = 'Geburtstag';
 $in['lang']['event_list_11'] = 'Happy Hour';
 $in['lang']['event_list_12'] = 'Hochzeit';
 $in['lang']['event_list_13'] = 'Interview';
-$in['lang']['event_list_14'] = 'Jubiläum';
+$in['lang']['event_list_14'] = 'JubilÃ¤um';
 $in['lang']['event_list_15'] = 'Kino';
 $in['lang']['event_list_16'] = 'Klasse';
 $in['lang']['event_list_17'] = 'Konzert';

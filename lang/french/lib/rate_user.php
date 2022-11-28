@@ -32,16 +32,16 @@
 
 $in['lang']['page_title'] = "Formulaire d'&eacute;valuation d'un membre"; // User rating form"
 
-$in['lang']['e_guest_user'] = "Vous devez être membre pour &eacute;valuer un membre"; //You must be a registered user to rate users.
-$in['lang']['close_this_window'] = "Fermer cette fenêtre"; //Close this window
-$in['lang']['e_rate_self'] = "Vous ne pouvez vous &eacute;valuer vous-même"; //You can't rate yourself
+$in['lang']['e_guest_user'] = "Vous devez Ãªtre membre pour &eacute;valuer un membre"; //You must be a registered user to rate users.
+$in['lang']['close_this_window'] = "Fermer cette fenÃªtre"; //Close this window
+$in['lang']['e_rate_self'] = "Vous ne pouvez vous &eacute;valuer vous-mÃªme"; //You can't rate yourself
 $in['lang']['e_rate_again'] = "Vous avez d&eacute;j&agrave; &eacute;valu&eacute; ce membre"; //You already rated this user!
 
-$in['lang']['e_invalid_score'] = "R&eacute;sultat invalide - doit être un nombre"; //Invalid score - must be a number
-$in['lang']['e_invalid_score_1'] = "R&eacute;sultat invalide - doit être -1, 0, ou 1"; //Invalid score - must be -1, 0, or 1
+$in['lang']['e_invalid_score'] = "R&eacute;sultat invalide - doit Ãªtre un nombre"; //Invalid score - must be a number
+$in['lang']['e_invalid_score_1'] = "R&eacute;sultat invalide - doit Ãªtre -1, 0, ou 1"; //Invalid score - must be -1, 0, or 1
 $in['lang']['e_invalid_user_id'] = "ID de membre invalide"; //Invalid user ID
 
-$in['lang']['e_header'] = "Il y a des erreurs dans votre requête:"; //There were errors in your request:
+$in['lang']['e_header'] = "Il y a des erreurs dans votre requÃªte:"; //There were errors in your request:
 
 $in['lang']['ok_mesg'] = "Votre r&eacute;sultat a &eacute;t&eacute; enregistr&eacute;"; //Your score has been recorded.
 

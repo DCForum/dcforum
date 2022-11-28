@@ -29,7 +29,7 @@
 
 $in['lang']['page_header'] = "Abonnement &agrave; la discussion termin&eacute;."; //Topic subscription request completed.
 
-$in['lang']['result'] =  "Vous n'êtes plus abonn&eacute; &agrave; cette discussion.<br />
+$in['lang']['result'] =  "Vous n'Ãªtes plus abonn&eacute; &agrave; cette discussion.<br />
              Vous ne serez plus avis&eacute; des nouveaux messages de cette discussion.";
 //You have been removed from the topic subscription list.<br />
 //You will no longer be notified by email

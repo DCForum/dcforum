@@ -34,7 +34,7 @@ $in['lang']['send_to_self'] = "Vous essayez de vous envoyer un message"; //You a
 
 $in['lang']['no_such_user'] = "Membre inexistant"; //No such user
 
-$in['lang']['error_header'] = "Il y a des erreurs dans votre requête"; //There were errors in your request
+$in['lang']['error_header'] = "Il y a des erreurs dans votre requÃªte"; //There were errors in your request
 
 $in['lang']['page_title'] = "Envoyer un message priv&eacute; &agrave; un membre"; //Send private message to a user
 

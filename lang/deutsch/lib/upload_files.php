@@ -29,61 +29,61 @@
 // main function
 $in['lang']['page_title'] = "Datei-Upload";
 
-$in['lang']['delete_header'] = "Wähle die Anhänge, die du löschen möchtest.";
+$in['lang']['delete_header'] = "WÃ¤hle die AnhÃ¤nge, die du lÃ¶schen mÃ¶chtest.";
 
-$in['lang']['delete_attachment_mesg'] = "Die ausgewählten Anhänge wurden gelöscht.<br />
-                          Wenn du möchtest, kannst du weitere Anhänge mit dem nachstehenden Formular hochladen.<br />";
+$in['lang']['delete_attachment_mesg'] = "Die ausgewÃ¤hlten AnhÃ¤nge wurden gelÃ¶scht.<br />
+                          Wenn du mÃ¶chtest, kannst du weitere AnhÃ¤nge mit dem nachstehenden Formular hochladen.<br />";
 
 $in['lang']['close_this_window'] = "Fenster schliessen";
 
-$in['lang']['didnot_delete_attachement_mesg'] = "Du hast keine Anhänge gelöscht.
-                          <br />Bitte benutze das nachstehende Formular, um welche zu löschen.";
+$in['lang']['didnot_delete_attachement_mesg'] = "Du hast keine AnhÃ¤nge gelÃ¶scht.
+                          <br />Bitte benutze das nachstehende Formular, um welche zu lÃ¶schen.";
 
-$in['lang']['select_file_mesg'] = "Bitte wähle eine Datei zum heraufladen";
+$in['lang']['select_file_mesg'] = "Bitte wÃ¤hle eine Datei zum heraufladen";
 
-$in['lang']['max_file_invalid'] = "Die maximale Dateigröße stimmt nicht.";
+$in['lang']['max_file_invalid'] = "Die maximale DateigrÃ¶ÃŸe stimmt nicht.";
 
-$in['lang']['select_file_type_mesg'] = "Bitte wähle einen Dateityp";
+$in['lang']['select_file_type_mesg'] = "Bitte wÃ¤hle einen Dateityp";
 
-$in['lang']['invalid_file_type'] = "Ungültiger Dateityp";
+$in['lang']['invalid_file_type'] = "UngÃ¼ltiger Dateityp";
 
 $in['lang']['error_header'] = "Es sind Fehler im Datei-Upload aufgetreten.";
 
-$in['lang']['ok_mesg'] = "Die gewählte Datei wurde erfolgreich heraufgeladen.<br />
+$in['lang']['ok_mesg'] = "Die gewÃ¤hlte Datei wurde erfolgreich heraufgeladen.<br />
                         Die Adresse dieser Datei lautet ";
 
-$in['lang']['upload_failed_mesg'] = "Upload fehlgeschlagen ... die Datei, die du heraufladen wolltest übersetigt das vom Administrator gesetzte Limit. Bitte versuchs nochmal.";
+$in['lang']['upload_failed_mesg'] = "Upload fehlgeschlagen ... die Datei, die du heraufladen wolltest Ã¼bersetigt das vom Administrator gesetzte Limit. Bitte versuchs nochmal.";
 
-$in['lang']['max_exceeded'] = "Dein Beitrag enthält die maximale Anzahl an Anhängen, die erlaubt ist.";
+$in['lang']['max_exceeded'] = "Dein Beitrag enthÃ¤lt die maximale Anzahl an AnhÃ¤ngen, die erlaubt ist.";
 
-$in['lang']['max_exceeded_mesg'] = "Die maximale Anzahl an Anhängen, die erlaubt ist wurde überschritten.<br />
-                                    Du musst ein oder mehrere Dateien deiner momentanen Anhänge löschen, 
+$in['lang']['max_exceeded_mesg'] = "Die maximale Anzahl an AnhÃ¤ngen, die erlaubt ist wurde Ã¼berschritten.<br />
+                                    Du musst ein oder mehrere Dateien deiner momentanen AnhÃ¤nge lÃ¶schen, 
                                     bevor du weitere Dateien heraufladen kannst.";
 
-$in['lang']['select_another'] = "Wenn du weitere Dateien heraufladen möchtest, benutze dafür das folgende Formular. Ansonsten ";
+$in['lang']['select_another'] = "Wenn du weitere Dateien heraufladen mÃ¶chtest, benutze dafÃ¼r das folgende Formular. Ansonsten ";
 
 
 // function uploade_form
-$in['lang']['step_1'] = "Schritt 1. Klick auf den 'Durchsuchen...' Button um eine Datei auszuwählen.";
+$in['lang']['step_1'] = "Schritt 1. Klick auf den 'Durchsuchen...' Button um eine Datei auszuwÃ¤hlen.";
 
-$in['lang']['maximum_size'] = "maximal erlaubte Dateigröße";
+$in['lang']['maximum_size'] = "maximal erlaubte DateigrÃ¶ÃŸe";
 
 $in['lang']['kbytes'] = "KBytes";
 
 $in['lang']['step_2'] = "Schritt 2. Gib den Dateityp deines Anhangs an";
 
-$in['lang']['check_embed'] = "Markiere diese Checkbox, wenn du die Adresse zum Anhang in das Eingabefeld einfügen möchtest.";
+$in['lang']['check_embed'] = "Markiere diese Checkbox, wenn du die Adresse zum Anhang in das Eingabefeld einfÃ¼gen mÃ¶chtest.";
 
 $in['lang']['step_3'] = "Schritt 3. Klick auf den 'Heraufladen!' Button um die Aktion abzuschliessen. 
-         Der Name der der heraufgeladenen Datei wird automatisch in das Feld für Anhänge eingefügt.";
+         Der Name der der heraufgeladenen Datei wird automatisch in das Feld fÃ¼r AnhÃ¤nge eingefÃ¼gt.";
           
 $in['lang']['button_upload'] = "Heraufladen!";
-$in['lang']['button_reset'] = "Zurücksetzen";
+$in['lang']['button_reset'] = "ZurÃ¼cksetzen";
 
 
 // fucntion delete_upload_files
 
-$in['lang']['select_file_to_delete'] = "Wähle die Anhänge, die du entfernen möchtest";
-$in['lang']['button_delete'] = "Ausgewählte Dateien löschen!";
+$in['lang']['select_file_to_delete'] = "WÃ¤hle die AnhÃ¤nge, die du entfernen mÃ¶chtest";
+$in['lang']['button_delete'] = "AusgewÃ¤hlte Dateien lÃ¶schen!";
 
 ?>

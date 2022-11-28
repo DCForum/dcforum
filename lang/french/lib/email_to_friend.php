@@ -36,15 +36,15 @@ $in['lang']['page_header'] = "Remplir le formulaire suivant pour envoyer cette d
 
 $in['lang']['no_such_topic'] = "Discussion inexistante"; //No such topic
 
-$in['lang']['e_from_name_blank'] = "Le champ nom doit être rempli"; //Your name cannot be blank
-$in['lang']['e_from_email_blank'] = "Le champ courriel doit être rempli"; //Your email address cannot be blank
+$in['lang']['e_from_name_blank'] = "Le champ nom doit Ãªtre rempli"; //Your name cannot be blank
+$in['lang']['e_from_email_blank'] = "Le champ courriel doit Ãªtre rempli"; //Your email address cannot be blank
 $in['lang']['e_from_email_syntax'] = "Votre adresse de courriel est erron&eacute;e"; //Your email address has incorrect syntax
 
-$in['lang']['e_to_name_blank'] = "Le champ nom de votre ami doit être rempli"; //Your friend's name cannot be blank
-$in['lang']['e_to_email_blank'] = "Le champ courriel de votre ami doit être rempli"; //Your friend's email address cannot be blank
+$in['lang']['e_to_name_blank'] = "Le champ nom de votre ami doit Ãªtre rempli"; //Your friend's name cannot be blank
+$in['lang']['e_to_email_blank'] = "Le champ courriel de votre ami doit Ãªtre rempli"; //Your friend's email address cannot be blank
 $in['lang']['e_to_email_syntax'] = "L'adresse courriel de votre ami est erron&eacute;e"; //Your friend's email address has incorrect syntax
 
-$in['lang']['e_header'] = "Voici les erreurs de votre requête:"; //There were following errors in your request:
+$in['lang']['e_header'] = "Voici les erreurs de votre requÃªte:"; //There were following errors in your request:
 
 $in['lang']['from'] = "De"; //From
 $in['lang']['topic_url'] = "URL de la discussion"; //Topic URL

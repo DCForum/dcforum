@@ -32,7 +32,7 @@ $in['lang']['error'] = "FEHLER";
 
 // output_error_mesg
 $in['lang']['invalid_forum_id'] = "Die angeforderte Seite kann nicht angezeigt werden weil 
-				die Syntax der Foren-ID ungültig ist. Die Foren-ID muss eine Ganzzahl sein.";
+				die Syntax der Foren-ID ungÃ¼ltig ist. Die Foren-ID muss eine Ganzzahl sein.";
 
 $in['lang']['missing_forum'] = "Die angeforderte Seite kann nicht angezeigt werden weil 
 				es kein solches Forum gibt. Der Admin dieser Seite hat das Forum eventuell 
@@ -47,45 +47,45 @@ $in['lang']['access_denied'] = "Die angeforderte Seite kann nicht angezeigt werd
             Wenn du Fragen dazu hast, wende dich bitte an den Administrator.";
 
 $in['lang']['invalid_topic_id'] = "Die angeforderte Seite kann nicht angezeigt werden weil
-               die Syntax der Themen-ID ungültig ist. Die Themen-ID muss eine Ganzzahl sein.";
+               die Syntax der Themen-ID ungÃ¼ltig ist. Die Themen-ID muss eine Ganzzahl sein.";
 
 $in['lang']['missing_topic'] = "Die angeforderte Seite kann nicht angezeigt werden weil
             kein solches Thema existiert. Der Admin dieser Seite hat das Thema eventuell 
 				entfernt, nach dem du suchst.";
 
 $in['lang']['invalid_message_id'] = "Die angeforderte Seite kann nicht angezeigt werden weil
-               die Syntax der Beitrags-ID ungültig ist. Die Beitrags-ID muss eine Ganzzahl sein.";
+               die Syntax der Beitrags-ID ungÃ¼ltig ist. Die Beitrags-ID muss eine Ganzzahl sein.";
 
 $in['lang']['missing_message'] = "Die angeforderte Seite kann nicht angezeigt werden weil
             kein solcher Beitrag existiert.  Der Admin dieser Seite hat den Beitrag eventuell 
 				entfernt, nach dem du suchst.";
 
-$in['lang']['disabled_option'] = "Die angeforderten Informationen können nicht angezeigt werden weil
-            du Optionen aufrufen wolltest, die nur für registrierte User sind oder
+$in['lang']['disabled_option'] = "Die angeforderten Informationen kÃ¶nnen nicht angezeigt werden weil
+            du Optionen aufrufen wolltest, die nur fÃ¼r registrierte User sind oder
             der Admin dieser Seite hat diese Option deaktiviert.";
 
-$in['lang']['missing_attachment'] = "Der angeforderte Anhang ist nicht mehr verfügbar.
-            Er wurde wahrscheinlich vom Administrator gelöscht.";
+$in['lang']['missing_attachment'] = "Der angeforderte Anhang ist nicht mehr verfÃ¼gbar.
+            Er wurde wahrscheinlich vom Administrator gelÃ¶scht.";
 
 $in['lang']['missing_module'] = "Die angeforderte Seite kann nicht angezeigt werden weil
             das dazu erforderliche Modul fehlt.";
 
-$in['lang']['invalid_input_parameter'] = "Die angeforderten Informationen können nicht angezeigt werden weil
-            mindestens ein Eingabeparameter eine ungültige Schreibweise enthält.";
+$in['lang']['invalid_input_parameter'] = "Die angeforderten Informationen kÃ¶nnen nicht angezeigt werden weil
+            mindestens ein Eingabeparameter eine ungÃ¼ltige Schreibweise enthÃ¤lt.";
 
 
 $in['lang']['invalid_referer'] = "Die angeforderte Seite kann nicht angezeigt werden weil
-               deine Anfrage die Prüfung des HTTP-Bezeichners nicht bestand. Wenn du eine
+               deine Anfrage die PrÃ¼fung des HTTP-Bezeichners nicht bestand. Wenn du eine
                Sicherheitssoftware laufen hast (z.B. Norton Internet Security)
                oder einen Browser benutzt, der das Abschalten des REFERER LOGGINGs erlaubt, stelle bitte sicher, 
                dass du diese Option deaktivierst.";
 
 $in['lang']['denied_request'] = "Du musst ein angemeldeter User sein 
-                 um diese Funktion nutzen zu können. Bitte klick auf 
+                 um diese Funktion nutzen zu kÃ¶nnen. Bitte klick auf 
                  <a href=\"" . DCF . "?az=login\">Login</a> um dich anzumelden.";
 
-$in['lang']['default'] = "Die angeforderten Informationen können nicht angezeigt werden weil
-            sei nicht mehr zur Verfügung stehen. Wenn du Fragen dazu hast, wende dich bitte an den Administrator.";
+$in['lang']['default'] = "Die angeforderten Informationen kÃ¶nnen nicht angezeigt werden weil
+            sei nicht mehr zur VerfÃ¼gung stehen. Wenn du Fragen dazu hast, wende dich bitte an den Administrator.";
 
 // print_error_page
 $in['lang']['request_error'] = "Anfragefehler";
@@ -97,6 +97,6 @@ $in['lang']['click_to_goback'] = "Klick hier um zur vorherigen Seite zu gelangen
 $in['lang']['request_alert'] = "Anfrage-Hinweis";
 
 // print_success_page
-$in['lang']['request_completed'] = "Anfrage vollständig";
+$in['lang']['request_completed'] = "Anfrage vollstÃ¤ndig";
 
 ?>

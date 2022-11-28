@@ -36,7 +36,7 @@ $in['lang']['page_header'] = "Page d'aide du forum"; //"Select from following li
 $in['lang']['faq_topic'] = array(
        'gen_faq' => 'Aide : Information g&eacute;n&eacute;rale', //General FAQ
        'reg_faq' => 'Aide : Inscription', //Registration FAQ
-       'ico_faq' => 'Aide : IcÙnes', //Icons FAQ
+       'ico_faq' => 'Aide : Ic√¥nes', //Icons FAQ
        'uh_faq' => 'Aide : Utilisation du forum', //User How-to FAQ
        'uf_faq' => 'Aide :  Fonctions interactives' //User Functions FAQ
 );
@@ -95,7 +95,7 @@ $in['lang']['gen_faq'] = array(
               <li> <strong>Forum exclusif</strong>: Seuls les membres inscrits appartenant aux groupes 
               suivants ont acc&egrave;s &agrave; ce type de forum: admin, mod&eacute;rateur, &eacute;quipe et membre.</li>
               <li> <strong>Forum priv&eacute;</strong>: Ce type de forum est accessible seulement aux membres 
-              inscrits qui ont reÁu une autorisation sp&eacute;ciale de l'administrateur.</li>
+              inscrits qui ont re√ßu une autorisation sp&eacute;ciale de l'administrateur.</li>
               </ul>"
               
               //"There are four types of forums, each with varying degree of access control: 
@@ -130,13 +130,13 @@ $in['lang']['gen_faq'] = array(
 
    '5' => array(
 
-      'q' => "Quand je poste un message dans un forum, Áa fonctionne, mais, je ne peux pas poster dans un autre forum. Pourquoi?",
+      'q' => "Quand je poste un message dans un forum, √ßa fonctionne, mais, je ne peux pas poster dans un autre forum. Pourquoi?",
              //"When I post a message in one forum, it posts ok. But in another forum, it won't post.  Why?",
 
 
       'a' => "Vous avez probablement post&eacute; dans un forum mod&eacute;r&eacute;. Chaque forum peut &ecirc;tre 'public' et 'mod&eacute;r&eacute;' par l'admin.
               Si le forum est mod&eacute;r&eacute;, les messages doivent &ecirc;tre au pr&eacute;alable approuv&eacute;s manuellement par l'admin ou le mod&eacute;rateur. 
-              Les forums mod&eacute;r&eacute;s sont indiqu&eacute;s par l'icÙne <img src=\"" . 
+              Les forums mod&eacute;r&eacute;s sont indiqu&eacute;s par l'ic√¥ne <img src=\"" . 
               IMAGE_URL . "/new_locked_folder.gif\" alt=\"forum mod&eacute;r&eacute;\" align=\"middle\" /> ou
               <img src=\"" . IMAGE_URL . "/locked_folder.gif\" alt=\"forum mod&eacute;r&eacute;\" align=\"middle\" />"
              //"Most likely, you are posting to a moderated forum. Any forum can be set to 'open' or 'moderated' mode 
@@ -225,7 +225,7 @@ $in['lang']['ico_faq'] = array(
 
    '1' => array(
    
-      'q' => "Que permet de faire chacune des icÙnes?", //"What does each menu icon allow me to do?",
+      'q' => "Que permet de faire chacune des ic√¥nes?", //"What does each menu icon allow me to do?",
 
 
       'a' => "En cliquant sur <img src=\"" . IMAGE_URL . "/login.gif\" alt=\"Identification\" align=\"middle\" /> 
@@ -266,7 +266,7 @@ $in['lang']['ico_faq'] = array(
 
    '2' => array(
 
-      'q' => "Pourquoi certaines icÙnes sont-elles en flammes?", //"Why do some file icons display flame?",
+      'q' => "Pourquoi certaines ic√¥nes sont-elles en flammes?", //"Why do some file icons display flame?",
 
 
       'a' => "Les flammes indiquent une discussion chaude; elle d&eacute;passe un certain nombre de r&eacute;ponses.",  //"Flame indicates heavy user activity."
@@ -276,7 +276,7 @@ $in['lang']['ico_faq'] = array(
 
    '3' => array(
 
-      'q' => "Pourquoi certains forums montrent une icÙne en forme de cadenas?", //"Why do some forum folder icons display a lock?",
+      'q' => "Pourquoi certains forums montrent une ic√¥ne en forme de cadenas?", //"Why do some forum folder icons display a lock?",
 
 
       'a' => "Il indique des forums mod&eacute;r&eacute;s. Tous les messages post&eacute;s dans ces forums doivent &ecirc;tre autoris&eacute;s 
@@ -288,7 +288,7 @@ $in['lang']['ico_faq'] = array(
 
    '4' => array(
 
-      'q' => "Pourquoi certaines discussions montrent une icÙne en forme de cadenas?", //"Why do some topic icons display a lock?",
+      'q' => "Pourquoi certaines discussions montrent une ic√¥ne en forme de cadenas?", //"Why do some topic icons display a lock?",
 
 
       'a' => "Il indique que la discussion a &eacute;t&eacute; ferm&eacute;e par l'administrateur pour lecture seulement.
@@ -312,10 +312,10 @@ $in['lang']['ico_faq'] = array(
 
    '6' => array(
 
-      'q' => "C'est quoi les petites icÙnes &agrave; la droite du nom de membre?", //"What are all those icons immediately to the right of the username?",
+      'q' => "C'est quoi les petites ic√¥nes &agrave; la droite du nom de membre?", //"What are all those icons immediately to the right of the username?",
 
 
-      'a' => "Ces icÙnes donnent certains renseignements sur le membre. Les &eacute;toiles indiquent que le membre a &eacute;t&eacute; &eacute;valu&eacute; par d'autres.
+      'a' => "Ces ic√¥nes donnent certains renseignements sur le membre. Les &eacute;toiles indiquent que le membre a &eacute;t&eacute; &eacute;valu&eacute; par d'autres.
              Plus le membre a d'&eacute;toiles, plus l'&eacute;valuation est positive. <img src=\"" . IMAGE_URL . "/admin_icon.gif\" alt=\"admin \" /> indique le statut d'administrateur.
               <img src=\"" . IMAGE_URL . "/guest.gif\" alt=\"invit&eacute;\"> indique le statut d'invit&eacute; (non-inscrit)"
              //"The icons indicate certain information about the user. The stars indicate user rating. More stars mean 
@@ -327,10 +327,10 @@ $in['lang']['ico_faq'] = array(
 
    '7' => array(
 
-      'q' => "C'est quoi toutes ces icÙnes en haut au coin droit de chaque message?",
+      'q' => "C'est quoi toutes ces ic√¥nes en haut au coin droit de chaque message?",
              //"What are all those icons to the upper right corner of each message below the date and time?",
 
-      'a' => "Ces icÙnes permettent une action avec un membre concern&eacute;. Par exemple,<br /> 
+      'a' => "Ces ic√¥nes permettent une action avec un membre concern&eacute;. Par exemple,<br /> 
              cliquez sur <img src=\"" . IMAGE_URL . "/email.gif\" alt=\"Envoyer un courriel &agrave; ce membre\" align=\"middle\" /> 
              pour envoyer un courriel &agrave; ce membre.<br /> 
              &nbsp;&nbsp;&nbsp;<img src=\"" . IMAGE_URL . "/mesg.gif\" alt=\"Envoyer un message priv&eacute;\" align=\"middle\" /> 
@@ -364,8 +364,8 @@ $in['lang']['uh_faq'] = array(
       'q' => "Comment naviguer sur ce forum?",  //"How do I navigate?",
 
 
-      'a' => "¿ partir du lobby, vous pouvez entrer dans chaque forum ou conf&eacute;rence 
-              en cliquant sur l'icÙne ou le lien correspondant. La m&ecirc;me proc&eacute;dure s'applique pour
+      'a' => "√Ä partir du lobby, vous pouvez entrer dans chaque forum ou conf&eacute;rence 
+              en cliquant sur l'ic√¥ne ou le lien correspondant. La m&ecirc;me proc&eacute;dure s'applique pour
               entrer dans les discussions.<br /> 
               Une fois dans la discussion, vous pouvez voir tous les messages,<br /> 
               vous pouvez voir les liens <strong>Discussion pr&eacute;c&eacute;dente | Discussion suivante</strong> 
@@ -407,7 +407,7 @@ $in['lang']['uh_faq'] = array(
       'q' => "Comment poster une nouvelle discussion?", //"How do I start a new topic?",
 
 
-      'a' => "¿ la page du forum, cliquez sur <img src=\"" . IMAGE_URL . "/post.gif\" alt=\"poster\" />."
+      'a' => "√Ä la page du forum, cliquez sur <img src=\"" . IMAGE_URL . "/post.gif\" alt=\"poster\" />."
              //"At the topics page, click on <img src=\"" . IMAGE_URL . "/post.gif\" alt=\"post\" />."
 
       ),
@@ -417,7 +417,7 @@ $in['lang']['uh_faq'] = array(
      'q' => "Comment cr&eacute;er un vote?",  //"How do I start a new poll?",
 
 
-     'a' => "¿ la page du forum, cliquez sur <img src=\"" . IMAGE_URL . "/poll.gif\" alt=\"vote\" /> 
+     'a' => "√Ä la page du forum, cliquez sur <img src=\"" . IMAGE_URL . "/poll.gif\" alt=\"vote\" /> 
              pour d&eacute;finir une question et ses options. Par la suite, cliquez sur soumettre."
              //"At the topics page, click on <img src=\"" . IMAGE_URL . "/poll.gif\" alt=\"poll\" /> 
              //and define the question and choices. 
@@ -431,7 +431,7 @@ $in['lang']['uh_faq'] = array(
 
 
       'a' => "Au bas de chaque message, apparaissent les liens suivants <strong>R&eacute;pondre | R&eacute;pondre avec citation</strong>. 
-              R&eacute;pondre avec citation est une option qui ins&egrave;re le texte du message auquel vous r&eacute;pondez dans le vÙtre,
+              R&eacute;pondre avec citation est une option qui ins&egrave;re le texte du message auquel vous r&eacute;pondez dans le v√¥tre,
               vous donnant ainsi la possibilit&eacute; de le citer."
               //"Each message table in a thread will contain <strong>Reply | Reply With Quote</strong>. 
               //Reply with quote will populate the upcoming post form text area with the body 
@@ -448,7 +448,7 @@ $in['lang']['uh_faq'] = array(
              Dans vos pr&eacute;f&eacute;rences<strong>Pr&eacute;f&eacute;rences</strong>, si vous choisissez oui pour <strong>Marquer?</strong>, vous obtiendrez 
              le marquage manuel (en cliquant sur <img src=\"" . IMAGE_URL . "/mark.gif\" alt=\"marquer\"> &agrave; la page de discussion) 
              du forum consult&eacute;. La prochaine fois que vous visiterez le forum, seuls les nouveaux messages post&eacute;s apr&egrave;s votre visite 
-             seront indiqu&eacute;s par une icÙne en couleur. Si vous ne choisissez pas l'option marquage, 
+             seront indiqu&eacute;s par une ic√¥ne en couleur. Si vous ne choisissez pas l'option marquage, 
              les nouveaux messages seront indiqu&eacute;s selon votre derni&egrave;re visite au forum."
              
 
@@ -621,7 +621,7 @@ $in['lang']['uh_faq'] = array(
               <strong>Cliquez ici pour inclure une pi&egrave;ce jointe</strong>. Ceci va ouvrir une fen&ecirc;tre
               &agrave; partir de laquelle vous pouvez s&eacute;lectionner le fichier que vous d&eacute;sirez transf&eacute;rer
               et sp&eacute;cifier le type de fichier. Une fois le fichier s&eacute;lectionn&eacute;, il sera automatiquement
-              transf&eacute;r&eacute; &agrave; votre message. Tous les fichiers sont renomm&eacute;s de faÁon al&eacute;atoire.
+              transf&eacute;r&eacute; &agrave; votre message. Tous les fichiers sont renomm&eacute;s de fa√ßon al&eacute;atoire.
               La taille des fichiers transf&eacute;rables est limit&eacute;e."
               
               //"You can just include the imageurl ( i.e. http://www.somedomain.com/Images/cool.gif) in your message.
@@ -768,9 +768,9 @@ $in['lang']['uf_faq'] = array(
       'q' => "Comment &eacute;valuer les autres membres?", //"How do I rate other users?",
 
 
-      'a' => "Il y a deux faÁons de faire. Sur la page du message post&eacute;, vous pouvez cliquez sur <strong>Evaluer ce membre</strong> ou 
-             <strong>xx points</strong> &agrave; cÙt&eacute; du nom du membre que vous d&eacute;sirez &eacute;valuer.              
-             <strong>Evaluer ce membre</strong>. Quand vous cliquez, un formulaire d'&eacute;valuation du membre apparaÓt.<br />
+      'a' => "Il y a deux fa√ßons de faire. Sur la page du message post&eacute;, vous pouvez cliquez sur <strong>Evaluer ce membre</strong> ou 
+             <strong>xx points</strong> &agrave; c√¥t&eacute; du nom du membre que vous d&eacute;sirez &eacute;valuer.              
+             <strong>Evaluer ce membre</strong>. Quand vous cliquez, un formulaire d'&eacute;valuation du membre appara√Æt.<br />
              Une autre m&eacute;thode lorsque vous cliquez sur <img src=\"" . IMAGE_URL . "/user_rating.gif\" alt=\"Evaluation de membres\" align=\"middle\" />
              <strong>Evaluation</strong>. Ce lien m&egrave;ne &agrave; une liste des membres sous forme d'index alphab&eacute;tique.  En cliquant sur une lettre,  
              vous obtenez une liste des membres participant au syst&egrave;me d'&eacute;valuation.  S&eacute;lectionnez la lettre qui correspond

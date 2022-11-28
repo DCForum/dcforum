@@ -45,7 +45,7 @@ $in['lang']['page_info_edit'] = "Utiliser le formulaire ci-dessous pour modifica
 //Modify the event information using the form below.  When finished, submit this form.
 
 
-$in['lang']['e_title'] = "Titre ne doit pas être vide";  //Title must not be blank
+$in['lang']['e_title'] = "Titre ne doit pas Ãªtre vide";  //Title must not be blank
 $in['lang']['e_event_type'] = "Type d'&eacute;v&eacute;nement invalide";  //Event type is invalid
 $in['lang']['e_month'] = "Date (mois) est invalide";  //Date (month) is invalid
 $in['lang']['e_day'] = "Date (jour) est invalide";  //Date (day) is invalid
@@ -63,10 +63,10 @@ $in['lang']['e_end_day'] =  "Date de fin (jour) est invalide";  //End date (day)
 $in['lang']['e_end_year'] = "Date de fin (ann&eacute;e) est invalide";  //End year (year) is invalid
 
 $in['lang']['ok_mesg_posted'] = "Votre &eacute;v&eacute;nement est soumis.";  //Your event has been posted.
-$in['lang']['ok_mesg_updated'] = "Votre &eacute;v&eacute;nement est mis à jour.";  //Your event has been updated.
+$in['lang']['ok_mesg_updated'] = "Votre &eacute;v&eacute;nement est mis Ã  jour.";  //Your event has been updated.
 
 $in['lang']['preview_mesg'] = "Visualiser votre &eacute;v&eacute;nement ci-dessous. Si toutes les informations sont correctes,
-	cliquez sur le bouton 'Soumettre &eacute;v&eacute;nement'. Autrement modifier à l'aide
+	cliquez sur le bouton 'Soumettre &eacute;v&eacute;nement'. Autrement modifier Ã  l'aide
 	du formulaire ci-dessous et cliquer sur le bouton 'Visualiser &eacute;v&eacute;nement'";
 
 // Preview your event below.  If all information is correct, 
@@ -86,7 +86,7 @@ $in['lang']['ok_mesg_deleted'] = "L'&eacute;v&eacute;nement selectionn&eacute; a
 $in['lang']['confirm_header'] = "Vous avez choisi d'effacer l'&eacute;v&eacute;nement suivant.";
 //You have elected to delete following event.
 
-$in['lang']['confirm_again'] = "Etes-vous certain de vouloir faire ça?";
+$in['lang']['confirm_again'] = "Etes-vous certain de vouloir faire Ã§a?";
 //Are you sure you want to do this?
 
 $in['lang']['button_go'] = "Oui, effacer l'&eacute;v&eacute;nement selectionn&eacute;"; //Yes, delete selected event
@@ -148,7 +148,7 @@ $in['lang']['reoccuring_event'] = "&Eacute;v&eacute;nement r&eacute;current"; //
 // function event_form
 $in['lang']['preview_event'] = "Visualiser cet &eacute;v&eacute;nement"; //Preview this event
 $in['lang']['post_event'] = "Soumettre l'&eacute;v&eacute;nement"; //Post event
-$in['lang']['update_event'] = "Mettre à jour l'&eacute;v&eacute;nement"; //Update event
+$in['lang']['update_event'] = "Mettre Ã  jour l'&eacute;v&eacute;nement"; //Update event
 
 $in['lang']['fields'] = "Champs"; //Fields
 $in['lang']['form'] = "Formulaire"; //Form
@@ -167,7 +167,7 @@ $in['lang']['repeat_on'] = "R&eacute;p&eacute;ter le"; //Repeat on the
 $in['lang']['end_date'] = "Date de fin"; //End date
 
 $in['lang']['without_end_date'] = "Cet &eacute;v&eacute;nement se r&eacute;p&egrave; te sans date de fin"; //This event repeats without end date
-$in['lang']['until_end_date'] = "Jusqu'à (mais non inclusif)"; //Until (but not including)
+$in['lang']['until_end_date'] = "Jusqu'Ã  (mais non inclusif)"; //Until (but not including)
 
 
 // function display_event
@@ -181,7 +181,7 @@ $in['lang']['edit_event'] = "Modifier l'&eacute;v&eacute;nement"; //Edit event
 $in['lang']['delete_event'] = "Supprimer l'&eacute;v&eacute;nement"; //Delete event
 $in['lang']['event_date'] = "Date de l'&eacute;v&eacute;nement"; //Event date
 $in['lang']['from'] = "De"; //From
-$in['lang']['to'] = "à"; //to
+$in['lang']['to'] = "Ã "; //to
 $in['lang']['posted_by'] = "Soumis par"; //Posted by
 $in['lang']['on'] = "le"; //on
 $in['lang']['last_edited_on'] = "Derni&egrave; re modification le"; //Last edited on

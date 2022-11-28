@@ -33,27 +33,27 @@
 $in['lang']['page_title'] = "User Registrierung";
 $in['lang']['page_header'] = "Registrationsformular";
 $in['lang']['email_subject'] = "Himweis auf einen neuen User";
-$in['lang']['email_message'] = "Ein neuer User hat sich für die Nutzung des Forums registriert.\n\n";
+$in['lang']['email_message'] = "Ein neuer User hat sich fÃ¼r die Nutzung des Forums registriert.\n\n";
 $in['lang']['username'] = "Username";
 $in['lang']['password'] = "Passwort";
 $in['lang']['email'] = "eMail";
 $in['lang']['name'] = "Name";
 
 $in['lang']['ok_mesg'] = "Das Benutzerkonto wurde erfolgreich angelegt.
-                     Ein zufälliges Passwort wurde an die angegeben eMail-Adresse versandt.";
+                     Ein zufÃ¤lliges Passwort wurde an die angegeben eMail-Adresse versandt.";
 
 $in['lang']['ok_mesg_2'] = "Benutzerkonto erfolgreich angelegt.";
 $in['lang']['click_to_login'] = "Hier klick, um dich einzuloggen.";
 
 
-$in['lang']['inst_mesg'] = "Bitte fülle das nachfolgende Formular aus, um dich für dieses Forum zu registrieren:";
+$in['lang']['inst_mesg'] = "Bitte fÃ¼lle das nachfolgende Formular aus, um dich fÃ¼r dieses Forum zu registrieren:";
 
 $in['lang']['i_agree'] = "Ich stimme zu";
 $in['lang']['i_do_not_agree'] = "Ich stimme nicht zu";
 
 $in['lang']['disagree_mesg'] = "Du hast den Nutzungsbedingungen nicht zugestimmt. 
-					Deshalb kann dir nicht erlaubt werden, dich für dieses Forum zu registrieren.
-					Falls du aus Versehen den falschen Button gedrückt hast, geh zurück, lies 
+					Deshalb kann dir nicht erlaubt werden, dich fÃ¼r dieses Forum zu registrieren.
+					Falls du aus Versehen den falschen Button gedrÃ¼ckt hast, geh zurÃ¼ck, lies 
 					nochmals die Nutzungsbedingungen und klick dann auf 'Ich stimme zu', 
 					wenn du die Bedingungen akzeptierst.";
 

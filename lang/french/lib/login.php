@@ -46,7 +46,7 @@ $in['lang']['e_cookie_desc'] = "Vous devez activer vos cookies pour que DCForum
 //and try again.
 
 $in['lang']['page_header'] = "Identification en cours,...veuillez patienter"; //Login in progress...please wait
-$in['lang']['no_refresh'] = "Si cette page ne se rafraîchit pas, cliquez ici."; //If this page does not refresh, please click here.
+$in['lang']['no_refresh'] = "Si cette page ne se rafraÃ®chit pas, cliquez ici."; //If this page does not refresh, please click here.
 
 $in['lang']['login_form'] = "Formulaire d'identification du membre"; //User login form
 
@@ -73,7 +73,7 @@ $in['lang']['info_updated'] = "Votre profil et vos pr&eacute;f&eacute;rences ont
 
 $in['lang']['click_here'] = "Cliquez ici pour aller &agrave; la page principale du forum"; //Click here to goto the main forum
 
-$in['lang']['h_guest'] = "Vous devez être membre pour poster dans ce forum. Si vous l'êtes, entrez votre nom de membre et mot de passe";
+$in['lang']['h_guest'] = "Vous devez Ãªtre membre pour poster dans ce forum. Si vous l'Ãªtes, entrez votre nom de membre et mot de passe";
 //You must be a registered user to post in this forum.<br />
 //If you are a registered user, please enter your username
 //and password.
@@ -85,7 +85,7 @@ $in['lang']['new_user_1'] = "Si vous d&eacute;sirez vous inscrire comme nouveau 
 
 $in['lang']['new_user_2'] = "utilisez ce formulaire pour vous inscrire"; //please use this form and register
 
-$in['lang']['new_user_3'] = "Si vous êtes un nouveau membre, contactez l'administrateur du site pour obtenir votre acc&egrave;s";
+$in['lang']['new_user_3'] = "Si vous Ãªtes un nouveau membre, contactez l'administrateur du site pour obtenir votre acc&egrave;s";
 //If you are a new user, please contact the site administrator  to obtain user account.
 
 $in['lang']['retrieve_password'] = "Mot de passe oubli&eacute;?"; //Don't remember your password?

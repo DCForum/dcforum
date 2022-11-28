@@ -28,20 +28,20 @@
 
 // login parameters
 $in['lang']['username_title'] = 'Username';
-$in['lang']['username_desc'] = 'Beim Login wird nicht zwischen Groß- und Kleinschreibung unterschieden, bei dieser Eingabe aber schon.<br />
+$in['lang']['username_desc'] = 'Beim Login wird nicht zwischen GroÃŸ- und Kleinschreibung unterschieden, bei dieser Eingabe aber schon.<br />
                  Der Username darf nur alphanumerische Zeichen, den Unterstrich oder Leerzeichen enthalten.<br />
-                 Die Länge ist maximal 30 Zeichen.';
+                 Die LÃ¤nge ist maximal 30 Zeichen.';
 
 $in['lang']['password_title'] = 'Passwort';
-$in['lang']['password_desc'] = 'Beim Passwort wird zwischen Groß- und Kleinschreibung unterschieden.<br />
-                 Es darf nicht länger als 30 Zeichen sein.';
+$in['lang']['password_desc'] = 'Beim Passwort wird zwischen GroÃŸ- und Kleinschreibung unterschieden.<br />
+                 Es darf nicht lÃ¤nger als 30 Zeichen sein.';
 
 $in['lang']['name_title'] = 'Name';
 $in['lang']['name_desc'] = 'Der volle Name darf nur alphanumerische Zeichen, den Unterstrich oder Leerzeichen enthalten.<br />
-                  Er darf nicht länger als 50 Zeichen sein.';
+                  Er darf nicht lÃ¤nger als 50 Zeichen sein.';
 
 $in['lang']['email_title'] = 'eMail-Adresse';
-$in['lang']['email_desc'] = 'Sie darf nicht länger als 50 Zeichen sein.';
+$in['lang']['email_desc'] = 'Sie darf nicht lÃ¤nger als 50 Zeichen sein.';
 
 // profile parameters
 
@@ -61,7 +61,7 @@ $in['lang']['pc_desc'] = '';
 $in['lang']['pd_title'] = 'Geschlecht';
 $in['lang']['pd_desc'] = '';
 
-$in['lang']['pd_male'] = 'männlich';
+$in['lang']['pd_male'] = 'mÃ¤nnlich';
 $in['lang']['pd_female'] = 'weiblich';
 
 
@@ -75,18 +75,18 @@ $in['lang']['pg_title'] = 'Staat';
 $in['lang']['pg_desc'] =  '';
 
 $in['lang']['ph_title'] = 'Homepage';
-$in['lang']['ph_desc'] = 'Falls du eine Homepage hast, die vollständige URL';
+$in['lang']['ph_desc'] = 'Falls du eine Homepage hast, die vollstÃ¤ndige URL';
 
 $in['lang']['pi_title'] = 'Hobby';
 $in['lang']['pi_desc'] = '';
 
 $in['lang']['pj_title'] = 'Kommentar';
-$in['lang']['pj_desc'] = 'Eine Nachricht, die du anderen Usern mitteilen möchtest<br />
+$in['lang']['pj_desc'] = 'Eine Nachricht, die du anderen Usern mitteilen mÃ¶chtest<br />
                  Nur einfacher Text... HTML-Tags werden entfernt.<br />
                   Maximal 255 Zeichen erlaubt.';
 
 $in['lang']['pk_title'] = 'Signatur';
-$in['lang']['pk_desc'] = 'Signatur die du in deinen Beiträgen benutzen möchtest.<br />
+$in['lang']['pk_desc'] = 'Signatur die du in deinen BeitrÃ¤gen benutzen mÃ¶chtest.<br />
                  Maximal 255 Zeichen erlaubt.';
 
 
@@ -94,24 +94,24 @@ $in['lang']['pk_desc'] = 'Signatur die du in deinen Beiträgen benutzen möchtest.
 // preference parameters
 
 $in['lang']['ut_title'] = 'Deine Zeitzone';
-$in['lang']['ut_desc'] = 'Wähle eine andere Zeitzone aus, um alle Zeit- und Datumsangaben 
+$in['lang']['ut_desc'] = 'WÃ¤hle eine andere Zeitzone aus, um alle Zeit- und Datumsangaben 
 						auf deine Zeitzone bezogen anzuzeigen. Standard ist GMT.';
 
 $in['lang']['uu_title'] = 'Datumsbegrenzung';
-$in['lang']['uu_desc'] = 'Nur Beiträge anzeigen, deren letztes Änderungsdatum innerhalb des gewählten Zeitraumes liegt.'; 
+$in['lang']['uu_desc'] = 'Nur BeitrÃ¤ge anzeigen, deren letztes Ã„nderungsdatum innerhalb des gewÃ¤hlten Zeitraumes liegt.'; 
 
-$in['lang']['uv_title'] = 'Anzeigestil von Beiträgen';
-$in['lang']['uv_desc'] = 'Wähle einen Anzeigestil für die Beiträge';
+$in['lang']['uv_title'] = 'Anzeigestil von BeitrÃ¤gen';
+$in['lang']['uv_desc'] = 'WÃ¤hle einen Anzeigestil fÃ¼r die BeitrÃ¤ge';
 
 $in['lang']['uw_title'] = 'Sprache';
-$in['lang']['uw_desc'] = 'Wähle deine bevorzugte Sprache für die Menüs und Überschriften';
+$in['lang']['uw_desc'] = 'WÃ¤hle deine bevorzugte Sprache fÃ¼r die MenÃ¼s und Ãœberschriften';
 
 $in['lang']['ua_title'] = 'Dein Profil verbergen?';
-$in['lang']['ua_desc'] = 'Wähle "yes" wenn du nicht möchtest, dass sich andere User dein Profil anschauen';
+$in['lang']['ua_desc'] = 'WÃ¤hle "yes" wenn du nicht mÃ¶chtest, dass sich andere User dein Profil anschauen';
 
 $in['lang']['ub_title'] = 'Am System der Privaten Mitteilungen teilnehmen?';
-$in['lang']['ub_desc'] = 'Wähle "yes" um am System der Privaten Mitteilungen teilzunehmen. 
-						Dadurch ist es dir möglich, selber Private Mitteilungen zu versenden und zu empfangen.';
+$in['lang']['ub_desc'] = 'WÃ¤hle "yes" um am System der Privaten Mitteilungen teilzunehmen. 
+						Dadurch ist es dir mÃ¶glich, selber Private Mitteilungen zu versenden und zu empfangen.';
 
 $in['lang']['uc_title'] = 'Anderen registrierten Usern erlauben, dir eMails zu schicken?';
 $in['lang']['uc_desc'] = '';
@@ -119,29 +119,29 @@ $in['lang']['uc_desc'] = '';
 $in['lang']['ud_title'] = 'Dem Administrator erlauben, dir eMails zu schicken?';
 $in['lang']['ud_desc'] = '';
 
-$in['lang']['ue_title'] = 'Eingeloggt bleiben, für eine spätere Rückkehr ins Forum?';
-$in['lang']['ue_desc'] = 'Bei "yes" musst du dich beim nächsten Besuch des Forums nicht nochmal einloggen.
-                    Diese Funktion tritt erst nach dem nächsten Login in Kraft.';
+$in['lang']['ue_title'] = 'Eingeloggt bleiben, fÃ¼r eine spÃ¤tere RÃ¼ckkehr ins Forum?';
+$in['lang']['ue_desc'] = 'Bei "yes" musst du dich beim nÃ¤chsten Besuch des Forums nicht nochmal einloggen.
+                    Diese Funktion tritt erst nach dem nÃ¤chsten Login in Kraft.';
 
-$in['lang']['uf_title'] = 'Möchtest du per eMail benachrichtigt werden, wenn du eine neue private Mitteilung erhalten hast?';
+$in['lang']['uf_title'] = 'MÃ¶chtest du per eMail benachrichtigt werden, wenn du eine neue private Mitteilung erhalten hast?';
 $in['lang']['uf_desc'] = '';
 
 $in['lang']['ug_title'] = 'An der Userbewertung teilnehmen?';
-$in['lang']['ug_desc'] = 'Wenn du "yes" wählst, kannst du andere User bewerten und auch selbst von diesen bewertet werden.';
+$in['lang']['ug_desc'] = 'Wenn du "yes" wÃ¤hlst, kannst du andere User bewerten und auch selbst von diesen bewertet werden.';
 
 $in['lang']['uh_title'] = 'Manuelle Markierungsfunktion nutzen?';
-$in['lang']['uh_desc'] = 'Wähle "yes" wenn du (un)gelesene Beiträge manuell, mit klick auf 
-						den Button "Markieren", als gelesen markieren möchtest. Andernfalls 
-						werden die Beiträge anhand des Zeitstempels deines letzen Besuches als gelesen markiert.';
+$in['lang']['uh_desc'] = 'WÃ¤hle "yes" wenn du (un)gelesene BeitrÃ¤ge manuell, mit klick auf 
+						den Button "Markieren", als gelesen markieren mÃ¶chtest. Andernfalls 
+						werden die BeitrÃ¤ge anhand des Zeitstempels deines letzen Besuches als gelesen markiert.';
 
-$in['lang']['ui_title'] = 'Möchtest du per eMail benachrichtigt werden, wenn dich jemand in seine Freundesliste aufgenommen hat?';
+$in['lang']['ui_title'] = 'MÃ¶chtest du per eMail benachrichtigt werden, wenn dich jemand in seine Freundesliste aufgenommen hat?';
 $in['lang']['ui_desc'] = '';
 
-$in['lang']['uj_title'] = 'Möchtest du deine Signatur für jeden Beitrag bearbeiten können?';
-$in['lang']['uj_desc'] = 'Bei "yes" wird deine Signatur mit in das Texteingabefeld eingefügt 
-						und du kannst sie ändern oder löschen. Ansonsten wird deine Signatur 
-						immer automatisch angehängt. <br />
-						Hinweis: Du musst dafür vorher eine Signatur in deinem Profil angelegt haben.'; 
+$in['lang']['uj_title'] = 'MÃ¶chtest du deine Signatur fÃ¼r jeden Beitrag bearbeiten kÃ¶nnen?';
+$in['lang']['uj_desc'] = 'Bei "yes" wird deine Signatur mit in das Texteingabefeld eingefÃ¼gt 
+						und du kannst sie Ã¤ndern oder lÃ¶schen. Ansonsten wird deine Signatur 
+						immer automatisch angehÃ¤ngt. <br />
+						Hinweis: Du musst dafÃ¼r vorher eine Signatur in deinem Profil angelegt haben.'; 
 
 // forum parameters
 // do need to modify this section...only affects admin program
@@ -150,31 +150,31 @@ $in['lang']['id_title'] = 'Foren-ID';
 $in['lang']['id_desc'] = '';
 
 $in['lang']['type_title'] = 'Forentyp';
-$in['lang']['type_desc'] = 'Ist dieses Forum ein untergeordnetes Forum, wird der Forentyp mindestens dem übergeordneten Forentyp entsprechen.';
+$in['lang']['type_desc'] = 'Ist dieses Forum ein untergeordnetes Forum, wird der Forentyp mindestens dem Ã¼bergeordneten Forentyp entsprechen.';
 
-$in['lang']['parent_id_title'] = 'Übergeordnetes Forum';
-$in['lang']['parent_id_desc'] = 'Wähle hier das Forum (oder die Forengruppe) in dem dieses neue Forum angezeigt werden soll. Der Forentyp den du oben wählst, muss mindestens dem Typ (in Klammern dahinter) des Forums entsprechen, das du hier auswählst.';
+$in['lang']['parent_id_title'] = 'Ãœbergeordnetes Forum';
+$in['lang']['parent_id_desc'] = 'WÃ¤hle hier das Forum (oder die Forengruppe) in dem dieses neue Forum angezeigt werden soll. Der Forentyp den du oben wÃ¤hlst, muss mindestens dem Typ (in Klammern dahinter) des Forums entsprechen, das du hier auswÃ¤hlst.';
 
 $in['lang']['forum_name_title'] = ' Name des Forums';
 $in['lang']['forum_name_desc'] = '';
 
 $in['lang']['description_title'] = 'Forumsbeschreibung';
-$in['lang']['description_desc'] = 'In der Beschreibung können HTML-Tags verwendet werden';
+$in['lang']['description_desc'] = 'In der Beschreibung kÃ¶nnen HTML-Tags verwendet werden';
 
 $in['lang']['moderator_title'] = 'Moderatoren des Forums';
 $in['lang']['moderator_desc'] = 'Dieses Feld ist nicht anwendbar, wenn du eine neue Forengruppe erstellst.';
 
 $in['lang']['mode_title'] = 'Forums-Moderation';
-$in['lang']['mode_desc'] = 'Wähle \'off\' für ein nicht-moderierter Forum oder \'on\' für ein moderierte Forum. Nur auf Foren anwendbar.';
+$in['lang']['mode_desc'] = 'WÃ¤hle \'off\' fÃ¼r ein nicht-moderierter Forum oder \'on\' fÃ¼r ein moderierte Forum. Nur auf Foren anwendbar.';
 
 $in['lang']['status_title'] = 'Status des Forums';
 $in['lang']['status_desc'] = '';
 
-$in['lang']['top_template_title'] = 'Schablone für die Kopfzeile';
-$in['lang']['top_template_desc'] = 'Diese Vorlage wird oben in jeder Ausgabe des Forums eingefügt. Sie muss sich im Verzeichnis "templates" befinden.';
+$in['lang']['top_template_title'] = 'Schablone fÃ¼r die Kopfzeile';
+$in['lang']['top_template_desc'] = 'Diese Vorlage wird oben in jeder Ausgabe des Forums eingefÃ¼gt. Sie muss sich im Verzeichnis "templates" befinden.';
 
-$in['lang']['bottom_template_title'] = 'Schablone für die Fußzeile';
-$in['lang']['bottom_template_desc'] = 'Diese Vorlage wird unten in jeder Ausgabe des Forums eingefügt. Sie muss sich im Verzeichnis "templates" befinden.';
+$in['lang']['bottom_template_title'] = 'Schablone fÃ¼r die FuÃŸzeile';
+$in['lang']['bottom_template_desc'] = 'Diese Vorlage wird unten in jeder Ausgabe des Forums eingefÃ¼gt. Sie muss sich im Verzeichnis "templates" befinden.';
 
 // days to list topics
 
@@ -184,7 +184,7 @@ $in['lang']['days_30'] = 'Ein Monat';
 $in['lang']['days_90'] = 'Drei Monate';
 $in['lang']['days_182'] = 'Sechs Monate';
 $in['lang']['days_365'] = 'Ein Jahr';
-$in['lang']['days_0'] = 'Alle verfügbaren Themen';
+$in['lang']['days_0'] = 'Alle verfÃ¼gbaren Themen';
 
 // Topic icon titles
 

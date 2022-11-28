@@ -30,7 +30,7 @@
 
 $in['lang']['page_title'] = "Druckbare Seite, Themen-ID";
 
-$in['lang']['goback'] = "Zurück zum vorherigen Thema";
+$in['lang']['goback'] = "ZurÃ¼ck zum vorherigen Thema";
 
 $in['lang']['forum_name'] = "Forenname";
 

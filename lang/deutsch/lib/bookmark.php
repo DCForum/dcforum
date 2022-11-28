@@ -31,15 +31,15 @@
 
 $in['lang']['page_title'] = "Lesezeichen";
 $in['lang']['e_header'] = "Fehler in den Lesezeichen";
-$in['lang']['e_desc'] = "Du kannst dieses Thema nicht deinen Lesezeichen anfügen, da
+$in['lang']['e_desc'] = "Du kannst dieses Thema nicht deinen Lesezeichen anfÃ¼gen, da
                es bereits in der Liste ist.";
 
-$in['lang']['page_header'] = "Thema den Lesezeichen hinzufügen";
-$in['lang']['page_mesg'] = "Das ausgewählte Thema wurde in deine Lesezeichen aufgenommen.";
+$in['lang']['page_header'] = "Thema den Lesezeichen hinzufÃ¼gen";
+$in['lang']['page_mesg'] = "Das ausgewÃ¤hlte Thema wurde in deine Lesezeichen aufgenommen.";
  
-$in['lang']['select_option'] = "Wähle aus folgenden Optionen";
+$in['lang']['select_option'] = "WÃ¤hle aus folgenden Optionen";
 $in['lang']['option_1'] = "Zur Forenlobby";
-$in['lang']['option_2'] = "Zur Themenübersicht";
+$in['lang']['option_2'] = "Zur ThemenÃ¼bersicht";
 $in['lang']['option_3'] = "Zum Thema";
 $in['lang']['option_4'] = "Lesezeichen verwalten";
 

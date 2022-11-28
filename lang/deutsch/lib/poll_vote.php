@@ -31,6 +31,6 @@
 // main function
 
 $in['lang']['e_already_voted'] = "Du hast bereits abgestimmt";
-$in['lang']['e_already_voted_mesg'] = "Du hast bereits für diese Abstimmung deine Stimme abgegeben.";
+$in['lang']['e_already_voted_mesg'] = "Du hast bereits fÃ¼r diese Abstimmung deine Stimme abgegeben.";
 
 ?>

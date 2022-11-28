@@ -47,12 +47,12 @@ $in['lang']['remote_avatar_disabled'] = "L'utilisation d'images de d'autres serv
 $in['lang']['error_icq'] = "Un id ICQ ne contient que des chiffres"; //ICQ ID can only contain numbers
 $in['lang']['error_aol'] = "Un id AOL IM ne contient que des lettres"; //AOL IM ID can only contain word characters
 $in['lang']['error_avatar'] = "Image d'avatar invalide"; //Invalid avatar image
-$in['lang']['error_gender'] = "Le genre ne peut être que homme ou femme"; //Gender field can only be mail or female
+$in['lang']['error_gender'] = "Le genre ne peut Ãªtre que homme ou femme"; //Gender field can only be mail or female
 $in['lang']['error_city'] = "Le nom de ville ne peut contenir que des lettres"; //City field can only contain word characters
 $in['lang']['error_state'] = "Le champ province ne peut contenir que des lettres"; //State field can only contain word characters
 $in['lang']['error_country'] = "Le champ pays ne peut contenir que des lettres"; //Country field can only contain word characters
 $in['lang']['error_homepage'] = "L'URL de la page personnelle est invalide"; //Homepage URL in invalid
-$in['lang']['error_yes_no'] = "Cette option ne peut être que oui ou non"; //option can only be yes or no
+$in['lang']['error_yes_no'] = "Cette option ne peut Ãªtre que oui ou non"; //option can only be yes or no
 
 
 //function full_setting_form

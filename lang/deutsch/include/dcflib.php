@@ -29,12 +29,12 @@
 
 // function print_forum_desc
 
-$in['lang']['unread_forum'] = "Das Forum enthält Themen mit ungelesenen Beiträgen";
+$in['lang']['unread_forum'] = "Das Forum enthÃ¤lt Themen mit ungelesenen BeitrÃ¤gen";
 $in['lang']['moderated_forum'] = "Moderiertes Forum";
-$in['lang']['conference'] = "Forengruppe - enthält nur Foren";
+$in['lang']['conference'] = "Forengruppe - enthÃ¤lt nur Foren";
 
 // function delete_message
-$in['lang']['deleted_message'] = "Gelöschter Beitrag";
+$in['lang']['deleted_message'] = "GelÃ¶schter Beitrag";
 $in['lang']['no_message'] = "Kein Beitrag";
 
 // function move_topic
@@ -42,7 +42,7 @@ $in['lang']['moved_message'] = "Dieses Thema wurde vom Moderator des Forums vers
                                 Es kann nun hier gefunden werden:\n\n";
 
 // Get subscription message
-$in['lang']['subscription_header'] = "Neue Beiträge in";
+$in['lang']['subscription_header'] = "Neue BeitrÃ¤ge in";
 $in['lang']['posted_by'] = "Eingetragen von";
 
 ?>

@@ -28,16 +28,16 @@
 ////////////////////////////////////////////////////////////////////////
 
 $in['lang']['already_subscribed'] = "Du hast dieses Forum bereits abonniert.";
-$in['lang']['select_option'] = "Wähle aus folgenden Optionen";
+$in['lang']['select_option'] = "WÃ¤hle aus folgenden Optionen";
 $in['lang']['option_1'] = "Zur Forenlobby";
-$in['lang']['option_2'] = "Zur Themenübersicht";
+$in['lang']['option_2'] = "Zur ThemenÃ¼bersicht";
 $in['lang']['option_3'] = "Die Forenabonnements verwalten";
 $in['lang']['error'] = "Fehler im Forum-Abo";
 
 
 $in['lang']['ok_header'] = "Abonnierung des Forums abgeschlossen.";
 $in['lang']['ok_mesg'] = "Du hast dieses Forum nun abonniert.<br />
-             Du erhälst eine eMail mit einer Übersicht neuer Nachrichten in diesem Forum, sobald 
+             Du erhÃ¤lst eine eMail mit einer Ãœbersicht neuer Nachrichten in diesem Forum, sobald 
              sie vom Administator verschickt wird.";
 
 ?>

@@ -29,14 +29,14 @@
 //////////////////////////////////////////////////////////////////////////
 
 $in['lang']['e_referer'] = "Problem mit dem HTTP-Bezeichner";
-$in['lang']['e_referer_desc'] = "Aus Sicherheitsgründen erfordert es dieses Programm,
+$in['lang']['e_referer_desc'] = "Aus SicherheitsgrÃ¼nden erfordert es dieses Programm,
                  dein PC die Option zum REFERER LOGGING aktiviert hat.
-                 Bitte überprüfe deinen Browser und eventuelle Internet
+                 Bitte Ã¼berprÃ¼fe deinen Browser und eventuelle Internet
                  Sicherheits-Software dahingehend und aktiviere diese Option.";
 
 $in['lang']['e_cookie'] = "Cookie-Problem";
 $in['lang']['e_cookie_desc'] = "Das DCForum Login-System erfordert es, dass
-                 du Cookies für diese Website zulässt. Bitte ändere die Einstellungen im
+                 du Cookies fÃ¼r diese Website zulÃ¤sst. Bitte Ã¤ndere die Einstellungen im
                  Browser und versuch erneut, dich einzuloggen.";
 
 $in['lang']['page_header'] = "Login wird bearbeitet ... bitte warten";
@@ -50,23 +50,23 @@ $in['lang']['h_password_desc'] = "Hier klicken um ein neues Passwort zu bekommen
 $in['lang']['h_firsttime'] = "Neuer User";
 
 $in['lang']['h_firsttime_desc'] = "Dies ist das erste Mal, dass du eingeloggt bist. Bitte
-                        fülle das folgende Formular aus um dein Profil und deine Voreinstellungen 
+                        fÃ¼lle das folgende Formular aus um dein Profil und deine Voreinstellungen 
                         zu erstellen.";
 
-$in['lang']['e_header'] = "Es sind Fehler in den Informationen aufgetreten, die du übermittelt hast.
-                  Bitte prüfe nachstehend deine Angaben:";
+$in['lang']['e_header'] = "Es sind Fehler in den Informationen aufgetreten, die du Ã¼bermittelt hast.
+                  Bitte prÃ¼fe nachstehend deine Angaben:";
 
 $in['lang']['info_updated'] = "Dein Profil und deine Einstellungen wurden aktualisiert.
-                        Wenn du sie später nocheinmal überarbeiten möchtest, kannst du das in deinem Usermenü tun.";
+                        Wenn du sie spÃ¤ter nocheinmal Ã¼berarbeiten mÃ¶chtest, kannst du das in deinem UsermenÃ¼ tun.";
 
 $in['lang']['click_here'] = "Klicke hier, um zur Forenlobby zu gelangen";
 
-$in['lang']['h_guest'] = "Du musst ein registrierter User sein, um in diesem Forum schreiben zu können.<br />
+$in['lang']['h_guest'] = "Du musst ein registrierter User sein, um in diesem Forum schreiben zu kÃ¶nnen.<br />
                  Wenn du bereits registriert bis, gib bitte deinen Usernamen und dein Passwort ein.";
 
 $in['lang']['login_desc'] = "Bitte gib Username und Passwort ein, um dich einzuloggen";
 
-$in['lang']['new_user_1'] = "Wenn du ein neuer User bist und dich für die Benutzung dieses Forums registrieren möchtest, ";
+$in['lang']['new_user_1'] = "Wenn du ein neuer User bist und dich fÃ¼r die Benutzung dieses Forums registrieren mÃ¶chtest, ";
 
 $in['lang']['new_user_2'] = "benutze bitte dieses Formular und registriere dich";
 

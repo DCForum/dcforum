@@ -22,6 +22,10 @@ ASAP.
 2. MySQL 3.23.x
 
 ### Changelog
+
+### Dev
+* Converted "while each" loops to `foreach`.
+
 #### 1.27.1
 * Converted all files to utf-8.
 

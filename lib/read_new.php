@@ -101,7 +101,7 @@ function read_new() {
       $hits_max = 100;
       $total_hits = 0;
 
-      while (list($forum,$forum_info) = each($in['forum_list'])) {
+     foreach($in['forum_list'] as $forum => $forum_info) {
 
          if ($in['user_info']['uh'] == 'yes') {
             // use $in['user_info'][$in['forum']] as time stamp

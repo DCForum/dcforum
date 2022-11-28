@@ -52,7 +52,7 @@ function my_setcookie($name,$value,$expires = "") {
 function zip_cookie($arr) {
 
    $outarr = array();
-   while(list($key,$value) = each($arr)) {
+  foreach($arr as $key => $value) {
       $kvpair = implode('=',array($key,$value));
       array_push($outarr,$kvpair);
    }
@@ -66,7 +66,7 @@ function unzip_cookie($str) {
 
    $str = base64_decode($str);
    $tmparr = explode('&',$str);
-   while(list($key,$value) = each($tmparr)) {
+  foreach($tmparr as $key => $value) {
       $kv_array = explode('=',$value);
       $outarr[$kv_array['0']] = $kv_array['1'];
    }
@@ -251,7 +251,7 @@ function include_bottom($template = 'bottom.html') {
 function dc_zip_param($in_array) {
 
    $temp_array = array();
-   while(list($key,$value) = each($in_array)) {
+  foreach($in_array as $key => $value) {
       if ($value)
          array_push($temp_array,"$key#$value");
    }
@@ -309,7 +309,7 @@ function get_form_data() {
 
    // Make sure the form data doesn't have additional slashes
    // On the other hand, if the $val is an array, leave it alone
-   while (list($key,$val)=each($_GET)) {
+  foreach($_GET as $key => $val) {
       if (is_array($val)) {
          $in[$key] = $val;
       }
@@ -317,7 +317,7 @@ function get_form_data() {
          $in[$key] = ini_get('magic_quotes_gpc') ? stripslashes($val) : $val;
       }
    }
-   while (list($key,$val)=each($_POST)) {
+  foreach($_POST as $key => $val) {
       if (is_array($val)) {
          $in[$key] = $val;
       }

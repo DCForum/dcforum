@@ -223,7 +223,7 @@ function nav_menu() {
 
             array_unshift($nav_menu,$in['forum_info']['name']);
             get_forum_ancestors($in['forum'],$parents);
-            while(list($id,$val) = each($parents)) {
+           foreach($parents as $id => $val) {
                $name = $parents[$id]['name'];
                array_unshift($nav_menu,"<a href=\"" . DCF .
                   "?az=show_topics&forum=$id&page=$in[page]\">$name</a>");
@@ -237,7 +237,7 @@ function nav_menu() {
             array_unshift($nav_menu,"<a href=\"" . DCF . 
                "?az=show_topics&forum=$in[forum]\">" . $in['forum_info']['name'] . "</a>");
             get_forum_ancestors($in['forum'],$parents);
-            while(list($id,$val) = each($parents)) {
+           foreach($parents as $id => $val) {
                $name = $parents[$id]['name'];
                array_unshift($nav_menu,"<a href=\"" . DCF .
                   "?az=show_topics&forum=$id\">$name</a>");
@@ -252,7 +252,7 @@ function nav_menu() {
             array_unshift($nav_menu,"<a href=\"" . DCF . 
                "?az=show_topics&forum=$in[forum]\">" . $in['forum_info']['name'] . "</a>");
             get_forum_ancestors($in['forum'],$parents);
-            while(list($id,$val) = each($parents)) {
+           foreach($parents as $id => $val) {
                $name = $parents[$id]['name'];
                array_unshift($nav_menu,"<a href=\"" . DCF .
                   "?az=show_topics&forum=$id\">$name</a>");
@@ -266,7 +266,7 @@ function nav_menu() {
             array_unshift($nav_menu,"<a href=\"" . DCF . 
                "?az=show_topics&forum=$in[forum]&page=$in[page]\">" . $in['forum_info']['name'] . "</a>");
             get_forum_ancestors($in['forum'],$parents);
-            while(list($id,$val) = each($parents)) {
+           foreach($parents as $id => $val) {
                $name = $parents[$id]['name'];
                array_unshift($nav_menu,"<a href=\"" . DCF . 
                   "?az=show_topics&forum=$id\">$name</a>");
@@ -278,7 +278,7 @@ function nav_menu() {
             array_unshift($nav_menu,"<a href=\"" . DCF . 
                 "?az=show_topics&forum=$in[forum]&page=$in[page]\">" . $in['forum_info']['name'] . "</a>");
             get_forum_ancestors($in['forum'],$parents);
-            while(list($id,$val) = each($parents)) {
+           foreach($parents as $id => $val) {
                $name = $parents[$id]['name'];
                array_unshift($nav_menu,"<a href=\"" . DCF . 
                   "?az=show_topics&forum=$id\">$name</a>");
@@ -443,7 +443,7 @@ function button_menu() {
 
 
    if (SETUP_USE_TEXT == 'yes') {
-      while(list($key,$val) = each ($text_buttons)) {
+     foreach($text_buttons as $key => $val) {
          $buttons[$key] = $buttons[$key] . " " . $text_buttons[$key];
       }
    }

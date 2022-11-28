@@ -75,7 +75,7 @@ function choose_avatar() {
 //   $temp_array = array();
 
    $j=0;
-   while(list($avatar,$val) = each($avatars)) {
+  foreach($avatars as $avatar => $val) {
      $j++;
      if ($j == 1)
          print "<tr>";

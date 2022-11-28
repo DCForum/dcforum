@@ -194,7 +194,7 @@ function list_private_forums() {
             </tr>";
 
 
-   while(list($key,$val) = each($forum_tree)) {
+  foreach($forum_tree as $key => $val) {
       print "<tr class=\"dcdark\"><td class=\"dcdark\">";
       $in['moderators'] = get_forum_moderators($key);
       if ($in['saz'] == 'forum') {
@@ -327,7 +327,7 @@ function add_users_to_private_forums($this_forum,$user_array) {
       // for all parent forums as well
       $forums = array($this_forum);
       get_forum_ancestors($this_forum,$parents);
-      while(list($id,$val) = each($parents)) {
+     foreach($parents as $id => $val) {
          $type = $parents[$id]['type'];
          if ($type == 40)
             array_push($forums,$id);

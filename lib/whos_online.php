@@ -189,7 +189,7 @@ function display_whos_online() {
 
    $time_diff = time();
 
-   while(list($u_id,$row) = each($user_list)) {
+  foreach($user_list as $u_id => $row) {
 
       $user_ip = $row['ip'];
 

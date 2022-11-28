@@ -129,7 +129,7 @@ function data_util_recover_tar() {
              <td>Select</td><td>Table name</td><td>Last 
              modified date</td><td>Size (Bytes)</td></tr>\n";
 
-      while(list($key,$val) = each ($table_list)) {
+     foreach($table_list as $key => $val) {
          print "<tr class=\"dclite\">
              <td class=\"dcdark\"><input type=\"checkbox\" name=\"selected[]\"
                   value=\"$key\" /></td><td>$key</td><td>$val[date]</td><td>$val[size]</td></tr>\n";

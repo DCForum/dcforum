@@ -72,7 +72,7 @@ function main() {
          print "<tr class=\"dcheading\"><td class=\"dcheading\">
             $title</td>\n";
          $first_col = '';
-         while(list($skey,$sval) = each($sub_cat) ) {
+        foreach($sub_cat as $skey => $sval) {
             $first_col .= "<li> <a href=\"" . DCA . 
             "?az=$key&saz=$skey\">$sval[title]</a></li>";
          }
@@ -87,7 +87,7 @@ function main() {
          print "<tr class=\"dclite\"><td class=\"dclite\" width=\"50%\">$first_col</td>
                 <td class=\"dclite\" width=\"50%\">";
 
-         while(list($skey,$sval) = each($sub_cat) ) {
+        foreach($sub_cat as $skey => $sval) {
             print "<li> <a href=\"" . DCA . "?az=$key&saz=$skey\">$sval[title]</a></li>";
          }
 

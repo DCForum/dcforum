@@ -219,7 +219,7 @@ function show_forums() {
 	    	           " " . $in['lang']['in'] . "  $row[name] " . $in['lang']['conference'] . "</td></tr>\n";
 
 
-                     while(list($c_key,$c_row) = each($children_rows)) {
+                    foreach($children_rows as $c_key => $c_row) {
 		        // mod.2002.11.02.04
 		        if ($in['access_list'][$c_row['id']] or SETUP_HIDE_PRIVATE == 'no') {
 
@@ -279,7 +279,7 @@ function show_forums() {
                         colspan=\"$col_span\">" . ucfirst($in['lang']['forums']) .
 		         " " . $in['lang']['in'] . "  $row[name] " . $in['lang']['conference'] . "</td></tr>\n";
  
-                      while(list($c_key,$c_row) = each($children_rows)) {
+                     foreach($children_rows as $c_key => $c_row) {
 	   	         // mod.2002.11.02.04
 		         if ($in['access_list'][$c_row['id']] or SETUP_HIDE_PRIVATE == 'no') {
 		            $css_class = toggle_css_class($css_class);

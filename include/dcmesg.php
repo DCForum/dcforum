@@ -173,7 +173,7 @@ function print_ok_mesg($heading,$fields = '') {
             'class'=>'') );
 
       if (is_array($fields)) {
-         while(list($key,$val) = each($fields)) {
+        foreach($fields as $key => $val) {
             print "<tr class=\"dclite\"><td nowrap=\"nowrap\">$key :</td><td 
                class=\"dclite\" nowrap=\"nowrap\">$val</td></tr>";
          }

@@ -99,7 +99,7 @@ function log_event($u_id,$e_id,$e_info) {
 ////////////////////////////////////////////////////////
 function time_zone_fields($time_zone) {
    $time_zone_fields = array();
-   while(list($key,$val) = each($time_zone)) {
+  foreach($time_zone as $key => $val) {
       $time_zone_fields[$key] = $val['country'] . "/" . 
          $val['location'] . " (" . $val['offset'] . ")";
    }
@@ -1076,7 +1076,7 @@ function get_replies($mesg_table,$top_id) {
       $j = 1;
       $mesg_index = array();
       $parent_reply_id = array();
-      while(list($key,$val) = each($date_array)) {
+     foreach($date_array as $key => $val) {
          $mesg_index[$val] = $j;
          $j++;
       }
@@ -1084,7 +1084,7 @@ function get_replies($mesg_table,$top_id) {
       reset($rows);
 
       $parent_reply_id = array();
-      while(list($key,$val) = each($rows)) {
+     foreach($rows as $key => $val) {
          $rows[$key]['reply_id'] = $mesg_index[$val['id']];
          $parent_reply_id[$rows[$key]['id']] = $mesg_index[$rows[$key]['parent_id']];
          $rows[$key]['parent_reply_id'] = $parent_reply_id[$rows[$key]['id']] == '' ?
@@ -1157,7 +1157,7 @@ function thread_replies(&$sorted_list,$unsorted_list,$parent_id) {
 
   global $level;
    $level++;
-   while(list($key,$row) = each ($unsorted_list) ) {
+  foreach($unsorted_list as $key => $row) {
       if ($row['parent_id'] == $parent_id) {
 	$row['level'] = $level;
          array_push($sorted_list,$row);
@@ -1774,7 +1774,7 @@ function move_message($from_forum_id,$to_forum_id,$topic_id,$mesg_parent_id) {
 //                 '$row[th_order]',
 //                 '$row[th_next]',
 
-     while(list($key,$val) = each($row)) {
+    foreach($row as $key => $val) {
         $row[$key] = db_escape_string($val);
      }
 
@@ -2275,12 +2275,12 @@ function send_subscription() {
 
    // Forum message body
    $subscription_mesg = array();
-   while(list($forum_id,$user_array) = each($forum_list)) {
+  foreach($forum_list as $forum_id => $user_array) {
       $subscription_mesg[$forum_id] = get_subscription_mesg($forum_id,$last_date);
    }
 
 
-   while(list($user_email,$val) = each($user_list)) {
+  foreach($user_list as $user_email => $val) {
       $forum_message = $message;
       $new_mesg_flag = 0;
 
@@ -2388,7 +2388,7 @@ function sort_forum_list($forum_list) {
    // initialize level value
    $level = 0;
 
-   while(list($key,$val) = each ($forum_list) ) {
+  foreach($forum_list as $key => $val) {
  
       // Check to see if this is the first level forum
       // If so, go get child folders
@@ -2423,7 +2423,7 @@ function get_child(&$sorted_forum_list,$forum_list,$parent_id,&$level) {
    $count_child = 0;
 
    // sort thru $forum_list and pick off parents
-   while(list($key,$val) = each($forum_list)) {
+  foreach($forum_list as $key => $val) {
 
       if ($val['parent_id'] == $parent_id and $val['status'] === 'on') {
 
@@ -2504,7 +2504,7 @@ function get_threaded_replies($mesg_table,$top_id) {
       $j = 1;
       $mesg_index = array();
       $parent_reply_id = array();
-      while(list($key,$val) = each($date_array)) {
+     foreach($date_array as $key => $val) {
          $mesg_index[$val] = $j;
          $j++;
       }
@@ -2512,7 +2512,7 @@ function get_threaded_replies($mesg_table,$top_id) {
       reset($rows);
 
       $parent_reply_id = array();
-      while(list($key,$val) = each($rows)) {
+     foreach($rows as $key => $val) {
          $rows[$key]['reply_id'] = $mesg_index[$val['id']];
          $parent_reply_id[$rows[$key]['id']] = $mesg_index[$rows[$key]['parent_id']];
          $rows[$key]['parent_reply_id'] = $parent_reply_id[$rows[$key]['id']] == '' ?

@@ -111,7 +111,7 @@ function alert() {
       $in['moderators'] = get_forum_moderators($in['forum']);
       if (is_array($in['moderators'])) {
          $temp_arr = array();
-         while (list($key,$val) = each($in['moderators'])) {
+        foreach($in['moderators'] as $key => $val) {
             array_push($temp_arr,"'$key'");
          }
          $moderator_list = implode(",",$temp_arr);

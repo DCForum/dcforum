@@ -80,7 +80,7 @@ function preference_form_fields() {
 
 
    // Do for each preference param
-   while(list($key,$val) = each($param_preference)) {
+  foreach($param_preference as $key => $val) {
 
       // Admin may turn off this feature
       if ($param_preference[$key]['status'] == 'on') {
@@ -222,7 +222,7 @@ function profile_form_fields() {
 
 
    // for each profile
-   while(list($key,$val) = each($param_profile)) {
+  foreach($param_profile as $key => $val) {
 
       if ($param_profile[$key]['status'] == 'on') {
 
@@ -296,7 +296,7 @@ function update_user_setting($param = 'default') {
 
    }
 
-   while(list($key,$val) = each($this_param)) {
+  foreach($this_param as $key => $val) {
 
       $hide = 0;
       // trim leading and trailing white spaces
@@ -559,7 +559,7 @@ function user_setting_form($param = 'full') {
    if ($in['ssaz'] == '') {  
 
       $query_array = array();
-      while(list($key,$val) = each($this_param)) {
+     foreach($this_param as $key => $val) {
          array_push($query_array,$key);
       }
       reset($this_param);
@@ -572,7 +572,7 @@ function user_setting_form($param = 'full') {
       $result = db_query($q);
       $row = db_fetch_array($result);
       db_free($result);
-      while(list($key,$val) = each($this_param)) {
+     foreach($this_param as $key => $val) {
          $in[$key] = $row[$key];
       }
    }

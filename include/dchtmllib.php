@@ -53,7 +53,7 @@ function begin_table ($attributes) {
 
    print "<table width=\"100%\"";
    if ($attributes) {
-      while ( list($key,$value) = each($attributes) ) {
+     foreach($attributes as $key => $value) {
          if ($key != 'width' and $key != 'align' and $value != '') {
             print " $key=\"$value\"";
          }
@@ -223,7 +223,7 @@ function form_element($name,$form_type,$in_value,$default,$tab_index="") {
 //            $default = $values['0'];
 //         }
 
-         while(list($key,$val) = each($values)) {
+        foreach($values as $key => $val) {
 
             $checked = '';
 
@@ -254,7 +254,7 @@ function form_element($name,$form_type,$in_value,$default,$tab_index="") {
             $default = $values['0'];
          }
 
-         while(list($key,$val) = each($values)) {
+        foreach($values as $key => $val) {
  
             $checked = '';
 
@@ -341,7 +341,7 @@ function form_element($name,$form_type,$in_value,$default,$tab_index="") {
 
          $form = "<select name=\"$name\" tabindex=\"$tab_index\">\n";
 
-         while(list($key,$val) = each($values)) {
+        foreach($values as $key => $val) {
             if ($key == $default) {
                $form .= "<option value=\"$key\" selected=\"selected\">$values[$key]</option>\n";
             }

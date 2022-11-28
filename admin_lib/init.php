@@ -764,9 +764,9 @@ function create_faq_table() {
      //      include(ADMIN_LIB_DIR . "/faq_default.php");
      require (ADMIN_LIB_DIR . "/faq_default.php");
 
-      while(list($type,$array) = each($help)) {
+     foreach($help as $type => $array) {
 
-         while(list($question,$answer) = each($help[$type])) {
+        foreach($help[$type] as $question => $answer) {
             $question = db_escape_string($question);
             $answer = db_escape_string($answer);
 
@@ -1022,7 +1022,7 @@ function create_setup_table() {
 
 //   if (is_empty_table(DB_SETUP)) {
       // Populate setup table with default values
-      while (list($key,$value) = each($setup_var_types)) {
+     foreach($setup_var_types as $key => $value) {
 
          // insert if key doesn't exists
          if ($key_array[$key] != 1) {
@@ -1061,7 +1061,7 @@ function create_notice_table() {
 
    if (is_empty_table(DB_NOTICE)) {
       // Populate setup table with default values
-      while (list($key,$value) = each($notice_vars)) {
+     foreach($notice_vars as $key => $value) {
 
          $var_key = db_escape_string($notice_vars[$key]);
          $subject = db_escape_string($notice_vars[$key]['subject']);
@@ -1183,7 +1183,7 @@ function create_event_table() {
    db_query($q);
 
    if (is_empty_table(DB_EVENT_TYPE)) {
-     while(list($key,$val) = each ($event_list)) {
+    foreach($event_list as $key => $val) {
       $q = "INSERT INTO " . DB_EVENT_TYPE . "
                  VALUES ('$key','$val' ) ";
       db_query($q);

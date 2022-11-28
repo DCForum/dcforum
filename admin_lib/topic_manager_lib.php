@@ -43,7 +43,7 @@ function topic_manager_main_form() {
    $forum_tree = get_forum_tree();
    $this_forum_tree = array();
 
-   while(list($key,$val) = each($forum_tree)) {
+  foreach($forum_tree as $key => $val) {
       if ($in['access_list'][$key] != '') {
          $this_forum_tree[$key] = $val;
       }

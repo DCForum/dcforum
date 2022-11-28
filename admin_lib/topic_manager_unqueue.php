@@ -107,7 +107,7 @@ function topic_manager_unqueue() {
 
      if ($in['user_info']['g_id'] < 99) {
        $this_forum_tree = array();
-       while(list($key,$val) = each($forum_tree)) {
+      foreach($forum_tree as $key => $val) {
 	 if ($in['access_list'][$key] != '')
 	   $this_forum_tree[$key] = $val;
        }
@@ -129,7 +129,7 @@ function topic_manager_unqueue() {
             <p>Your query found following number of message in each forum's queue. Click on
                the forum link to view the list of messages in each forum.</p>\n";
 
-      while(list($key,$value) = each ($forum_tree)) {
+     foreach($forum_tree as $key => $value) {
 
          $forum_info = get_forum_info($key);
          if ($forum_info['type'] == 99) {

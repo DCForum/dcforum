@@ -237,7 +237,7 @@ function show_topic() {
 
            $j=1;
 
-	   while(list($key,$val) = each($row_info)) {
+	  foreach($row_info as $key => $val) {
 
               if ($in['sub_topic_id'] == $key ) {
                  array_push($temp_array,"<strong>$j</strong>");
@@ -540,7 +540,7 @@ function show_topic() {
 function get_row_info($rows) {
 
   $row_info = array();
-  while(list($key,$row) = each($rows)) {
+ foreach($rows as $key => $row) {
     if ($row['level'] == 1)
       $this_id = $row['id'];
 

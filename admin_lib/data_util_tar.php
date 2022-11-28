@@ -94,7 +94,7 @@ function data_util_tar() {
 
       print "Following tables have been archived in a tar file<ul>";
 
-      while(list($key,$val) = each ($table_list)) {
+     foreach($table_list as $key => $val) {
          print "<li>$key </li>\n";
       }
       print "</ul>";

@@ -188,7 +188,7 @@ function view_profile($u_id) {
                <td class=\"dclite\">$row[name]</td>
                </tr>";
 
-        while(list($key,$val) = each($param_profile)) {
+       foreach($param_profile as $key => $val) {
 
             $title = $param_profile[$key]['title'];
             $this_val = '';
@@ -471,7 +471,7 @@ function index_menu() {
             'class'=>'') 
    );
 
-   while(list($key,$val) = each($index_map)) {
+  foreach($index_map as $key => $val) {
 
       print "<tr class=\"dcdark\">";
 

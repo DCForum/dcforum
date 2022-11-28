@@ -131,7 +131,7 @@ function forum_manager_create() {
       // Get forum types
       $forum_types = get_forum_types();
 
-      while(list($key,$val) = each($forum_form)) {
+     foreach($forum_form as $key => $val) {
 
          $fields = split('[\|]',$forum_form[$key]['form']);
          $form_type = array_shift($fields);

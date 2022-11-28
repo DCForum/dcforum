@@ -167,7 +167,7 @@ function create_cal_day($events='') {
 
 
    // go thru each hour of the day
-   while(list($key,$val) = each($time_array)) {
+  foreach($time_array as $key => $val) {
 
       $time_stamp = $key . '0000';
 
@@ -335,7 +335,7 @@ function create_cal_month($events='') {
    print "<tr>";
 
    reset ($day_week);
-   while(list($key,$val) = each($day_week)) {
+  foreach($day_week as $key => $val) {
       $this_day = substr($val,0,3);
       print "<td  class=\"dcdark\" width=\"80\" align=\"center\">$this_day</td>";
    }
@@ -456,7 +456,7 @@ function create_cal_month_menu() {
       print "<tr>";
    }
    reset ($day_week);
-   while(list($key,$val) = each($day_week)) {
+  foreach($day_week as $key => $val) {
       $this_day = substr($val,0,2);
       print "<td class=\"dclite\">$this_day</td>";
    }

@@ -113,7 +113,7 @@ function display_access_map() {
    print "<tr class=\"dcheading\">
             <td class=\"dcheading\">Users \ Forums</td>";
 
-   while(list($key,$val) = each($forum_tree)) {
+  foreach($forum_tree as $key => $val) {
       print "<td class=\"dcheading\">$val</td>";
    }
 
@@ -139,7 +139,7 @@ function display_access_map() {
       print "<tr class=\"dcdark\">
                <td class=\"dcdark\">$row[username]</td>";
 
-      while(list($key,$val) = each($forum_tree)) {
+     foreach($forum_tree as $key => $val) {
          print "<td class=\"dclite\"><input type=\"checkbox\"
                name=\"select[]\" value=\"$key,$row[id]\"";
 

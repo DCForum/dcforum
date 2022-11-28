@@ -411,7 +411,7 @@ function index_menu() {
             'class'=>'') 
    );
 
-   while(list($key,$val) = each($index_map)) {
+  foreach($index_map as $key => $val) {
 
       print "<tr class=\"dcdark\">";
 

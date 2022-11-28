@@ -203,7 +203,7 @@ function display_user_list() {
 
    print "<tr class=\"dcdark\"><td>Username</td><td># of 
       files</td><td>Total Disk Usage (KBytes)</td></tr>";   
-   while(list($key,$val) = each($user_list)) {
+  foreach($user_list as $key => $val) {
       $u_id = $key;
       $dsize = ceil($user_list[$key]['dsize'] / 1000);
       print "<tr class=\"dclite\"><td><a href=\"" . DCA . 

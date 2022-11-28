@@ -108,7 +108,7 @@ function get_session_data() {
    // It maybe guest user's cookie
    if (is_array($cookie_arr)) {
 
-      while (list($key,$val)=each($cookie_arr)) {
+     foreach($cookie_arr as $key => $val) {
          $in[DC_COOKIE][$key] = $val;
       }
 
@@ -190,7 +190,7 @@ function get_session_data() {
       // Update the time stamp
       if (isset($_COOKIE[DC_TEMP_COOKIE])) {
          $cookie_arr = unzip_cookie($_COOKIE[DC_TEMP_COOKIE]);
-         while (list($key,$val)=each($cookie_arr)) {
+        foreach($cookie_arr as $key => $val) {
             $in[DC_TEMP_COOKIE][$key] = $val;
          }
       }
@@ -269,7 +269,7 @@ function get_session_data() {
       );
 
       // Assign default cookie to $in[DC_COOKIE] variable
-      while (list($key,$val)=each($cookie_arr)) {
+     foreach($cookie_arr as $key => $val) {
          $in[DC_COOKIE][$key] = $val;
       }
 
@@ -292,7 +292,7 @@ function get_session_data() {
       $language = SETUP_LANGUAGE;
 
       // Assign default cookie to $in[DC_COOKIE] variable
-      while (list($key,$val)=each($cookie_arr)) {
+     foreach($cookie_arr as $key => $val) {
          $in[DC_TEMP_COOKIE][$key] = $val;
       }
 

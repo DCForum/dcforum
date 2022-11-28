@@ -73,7 +73,7 @@ function forum_manager_reorder() {
               class=\"dclite\" colspan=\"2\"><p>Forums were 
               reordered. Here is the new forum order:<p>";
 
-      while(list($key,$val) = each ($forum_tree)) {
+     foreach($forum_tree as $key => $val) {
          print "&nbsp;&nbsp; $val<br />";
       }
       print "<p><a href=\"" . DCA . "?az=forum_manager&saz=reorder\">Click 
@@ -119,7 +119,7 @@ function forum_manager_reorder() {
          'class'=>'') );
 
       $forum_order = 0;
-      while(list($key,$val) = each ($forum_tree)) {
+     foreach($forum_tree as $key => $val) {
 
          $forum_order++;
          print "<tr><td class=\"dclite\"><input type=\"text\"

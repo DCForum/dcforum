@@ -236,7 +236,7 @@ function set_session($row) {
    if ($row['uh'] == 'yes') {
       $this_array = array();
       $time_mark = get_user_time_mark($row['id']);
-      while(list($forum_id,$date) = each($time_mark)) {
+     foreach($time_mark as $forum_id => $date) {
          array_push($this_array,"$forum_id#$date");
       }
       $time_mark = implode('^',$this_array);
@@ -256,7 +256,7 @@ function set_session($row) {
    $in['user_info']['id'] = $row['id'];
    $in['user_info']['g_id'] = $row['g_id'];
 
-   while(list($key,$val) = each($row)) {
+  foreach($row as $key => $val) {
       $session_row[$key] = db_escape_string($val);
    }
 
@@ -374,7 +374,7 @@ function registration_form() {
       'cellpadding' => '5',
       'class'=>'') );
 
-   while(list($key,$val_array) = each($param_login)) {
+  foreach($param_login as $key => $val_array) {
 
       if ($key == 'password' and 
           SETUP_AUTH_REGISTER_VIA_EMAIL == 'yes' and
@@ -489,7 +489,7 @@ function check_reg_info() {
    // Check and make sure none of the fields are empty
    // Also check and make sure certain characters
    // are not present
-   while(list($key,$val_array) = each($param_login)) {
+  foreach($param_login as $key => $val_array) {
       if ($key == 'password' and 
          SETUP_AUTH_REGISTER_VIA_EMAIL == 'yes' and
          $in['this'] == DCF) {
@@ -741,7 +741,7 @@ function user_account_form() {
       'cellpadding' => '5',
       'class'=>'') );
 
-   while(list($key,$val_array) = each($param_login)) {
+  foreach($param_login as $key => $val_array) {
 
       if ($key == 'password' and 
           SETUP_AUTH_REGISTER_VIA_EMAIL == 'yes' and

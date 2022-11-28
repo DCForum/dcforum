@@ -137,7 +137,7 @@ function show_topics() {
       $new_row = 1;
 
       // $key is forum id but it is also saved in $row[id]
-      while(list($key,$row) = each($rows)) {
+     foreach($rows as $key => $row) {
 
 
          // backward compatibility
@@ -323,7 +323,7 @@ function show_topics() {
 
 	 print "<tr class=\"dcheading\">";
 
-      while(list($key,$val) = each($sort_by)) {
+     foreach($sort_by as $key => $val) {
          if (! ($key == "views" and SETUP_READ_COUNT != 'yes')) {
 
             print "<td class=\"dcheading\">";

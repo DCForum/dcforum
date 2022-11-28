@@ -96,7 +96,7 @@ function setting() {
               <br />Changes have been made.  Following
               is the new settings:</td></tr>\n";
 
-      while(list($key,$val) = each($new_setting)) {
+     foreach($new_setting as $key => $val) {
             print "<tr class=\"dclite\"><th class=\"dcdark\" width=\"50%\">
               $key</td><td class=\"dclite\" width=\"50%\">$val
               </td></tr>\n";

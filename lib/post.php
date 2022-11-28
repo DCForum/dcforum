@@ -358,7 +358,7 @@ function notify_admin($forum_id,$topic_id,$mesg_id,$moderators,$username) {
 
    if (SETUP_EMAIL_TO_MOD == 'yes' and is_array($moderators)) {
       $temp_arr = array();
-      while (list($key,$val) = each($moderators)) {
+     foreach($moderators as $key => $val) {
          array_push($temp_arr,"'$key'");
       }
       $moderator_list = implode(",",$temp_arr);

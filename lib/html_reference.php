@@ -27,12 +27,12 @@
          'cellpadding' => '5',
          'class'=>'') );
 
-   while(list($key,$this_array) = each($in['lang']['html_ref'])) {
+  foreach($in['lang']['html_ref'] as $key => $this_array) {
 
      // $key is table heading
       print "<tr class=\"dcheading\"><td 
          class=\"dcheading\" colspan=\"2\">$key</td></tr>";
-      while(list($this_key,$this_val) = each ($this_array)) {
+     foreach($this_array as $this_key => $this_val) {
          print "<tr class=\"dcdark\"><td 
             class=\"dcdark\">$this_key</td><td 
             class=\"dclite\">$this_val</td>

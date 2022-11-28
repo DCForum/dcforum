@@ -233,7 +233,7 @@ function list_forum_tree() {
             
    print "</tr>";
 
-   while(list($key,$val) = each($forum_tree)) {
+  foreach($forum_tree as $key => $val) {
 
       $forum_info = get_forum_info($key);
 

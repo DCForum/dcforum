@@ -562,7 +562,7 @@ function emotion_icon_list() {
    // Emotion icon hash
    include(INCLUDE_DIR . "/form_info.php");
    $emotion_icon_array = array();
-   while(list($key,$val) = each($emotion_icons)) {
+  foreach($emotion_icons as $key => $val) {
       array_push($emotion_icon_array,$key);
    }
    $emotion_icon_list = implode('|',$emotion_icon_array);
@@ -985,7 +985,7 @@ function post_form() {
       // If show topic icons
       if ($is_a_topic) {
             $topic_form_fields = array();
-            while(list($key,$val) = each($topic_icons)) {
+           foreach($topic_icons as $key => $val) {
                $topic_icon_id = $key;
                if ($topic_icon_id != 1) {
                      $desc = $topic_icons[$key]['desc'];
@@ -1441,7 +1441,7 @@ function create_poll_body($forum_id,$topic_id) {
    $poll_id = $row['id'];
 
    // list poll answers
-   while(list($key,$val) = each($poll_choice)) {
+  foreach($poll_choice as $key => $val) {
       if ($row[$key]) {
          $temp = explode('_',$key);
          $this_id = $temp['1'];
@@ -1483,7 +1483,7 @@ function create_poll_body($forum_id,$topic_id) {
 
    $full_size = $max_count > 1 ? 400 * $total_count / $max_count : 400 ;
 
-   while(list($key,$val) = each($poll_choice)) {
+  foreach($poll_choice as $key => $val) {
 
       $temp = explode('_',$key);
       $this_id = $temp['1'];
@@ -1567,7 +1567,7 @@ function poll_form() {
               print "<tr class=\"dcdark\"><th class=\"dcdark\">" . $in['lang']['poll_question'] . "</td><td
               class=\"dcdark\" width=\"100%\">$form</td></tr>\n";
 
-      while(list($key,$val) = each($poll_choice)) {
+     foreach($poll_choice as $key => $val) {
          $form = form_element("$key","text","60",$in[$key]);
               print "<tr class=\"dcdark\"><th class=\"dcdark\">$val</td><td
               class=\"dcdark\" width=\"100%\">$form</td></tr>\n";
@@ -1700,7 +1700,7 @@ function preview_poll() {
               <strong>" . $in['lang']['poll_question'] . ": $subject</strong>
               <dd> ";
 
-      while(list($key,$val) = each($poll_choice)) {
+     foreach($poll_choice as $key => $val) {
          if ($in[$key] != '') {
             print "<li> $val - $in[$key] </li>\n";
          }
@@ -1737,7 +1737,7 @@ function post_poll() {
    }
 
 
-   while(list($key,$val) = each($poll_choice)) {
+  foreach($poll_choice as $key => $val) {
       if ($in[$key]) {
          $in[$key] = db_escape_string(htmlspecialchars($in[$key]));
       }
@@ -1796,7 +1796,7 @@ function update_poll() {
    global $in;
 
    include(INCLUDE_DIR . "/form_info.php");
-   while(list($key,$val) = each($poll_choice)) {
+  foreach($poll_choice as $key => $val) {
       if ($in[$key]) {
          $in[$key] = db_escape_string(htmlspecialchars($in[$key]));
       }
@@ -2085,7 +2085,7 @@ print "<table class=\"dctoc\" cellspacing=\"1\"
 
    // now go thru each row and construct
    // construct directory style of tree
-   while(list($key,$val) = each($replies)) {
+  foreach($replies as $key => $val) {
 
       $css_class = toggle_css_class($css_class);
 
@@ -2222,7 +2222,7 @@ function generate_replies_tree_old($az,$forum,$top_id,$page,$this_id,$rows = '')
 
    // now go thru each row and construct
    // construct directory style of tree
-   while(list($key,$val) = each($replies)) {
+  foreach($replies as $key => $val) {
 
       $level = $replies[$key]['level'];
       $level_flag[$level] = $last_flag[$key];
@@ -2353,7 +2353,7 @@ function generate_replies_tree_classic($az,$forum,$top_id,$page,$this_id,$rows =
    $prev_level = -1;
 
 
-   while(list($key,$val) = each($replies)) {
+  foreach($replies as $key => $val) {
 
       $level = $replies[$key]['level'];
       $level_flag[$level] = $last_flag[$key];
@@ -2444,7 +2444,7 @@ function generate_sub_replies_tree($az,$forum,$top_id,$page,$this_id,$rows) {
 
    // now go thru each row and construct
    // construct directory style of tree
-   while(list($key,$val) = each($replies)) {
+  foreach($replies as $key => $val) {
       if ($key == $this_id) {
          $show = 1;
       }
@@ -2567,7 +2567,7 @@ function generate_sub_replies_tree_classic($az,$forum,$top_id,$page,$this_id,$ro
    // now go thru each row and construct
    // construct directory style of tree   
 
-   while(list($key,$val) = each($replies)) {
+  foreach($replies as $key => $val) {
       $level = $replies[$key]['level'];
       $level_flag[$level] = $last_flag[$key];
 
@@ -2751,7 +2751,7 @@ function smilie_table() {
    include(INCLUDE_DIR . "/form_info.php");
 
    $j = 0;
-   while(list($key,$val) = each($emotion_icons)) {
+  foreach($emotion_icons as $key => $val) {
       $j++;
       $this_temp .= "<a href=\"javascript:smilie('$key')\"><img 
              src=\"" . IMAGE_URL . "/" . $val . "\" border=\"0\" /></a> ";
@@ -2810,7 +2810,7 @@ function display_forum($row,$css_class,$col_span) {
 // mod.2002.11.11.03
 // user_id bug
    if ($moderators) {
-      while(list($key,$val) = each($moderators)) {
+     foreach($moderators as $key => $val) {
             array_push($temp_array,"<a 
                href=\"" . DCF . "?az=user_profiles&u_id=$key\">$val</a>");
       }

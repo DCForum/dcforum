@@ -98,7 +98,7 @@ function user_manager_modify() {
 
          $row = get_user_info($in['u_id']);
 
-         while(list($key,$val) = each($row)) {
+        foreach($row as $key => $val) {
             $in[$key] = $val;
             if ($key == 'password')
                $in['password_2'] = $val;

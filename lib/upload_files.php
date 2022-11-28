@@ -82,7 +82,7 @@ function upload_files() {
          // it can be added back to the attachment textbox
          $new_list = array();
          $attachments = upload_file_list($post_id,$in['mesg_id']); 
-         while (list($id,$type) = each($attachments)) {
+        foreach($attachments as $id => $type) {
             $file = $id . "." . $type;
             array_push($new_list,$file);
          }
@@ -271,7 +271,7 @@ function upload_form() {
 
    print "<tr class=\"dclite\"><td class=\"dclite\"><select name=\"file_type\">";
 
-   while(list($key,$val) = each($allowed_files)) {
+  foreach($allowed_files as $key => $val) {
 
       if ($key == SETUP_FILE_UPLOAD_DEFAULT) {
 	$checked = 'selected';
@@ -490,7 +490,7 @@ function delete_upload_files_form($post_id,$mesg_id) {
 
    $attachments = upload_file_list($post_id,$mesg_id);
 
-   while (list($id,$type) = each($attachments)) {
+  foreach($attachments as $id => $type) {
          $file = USER_URL . "/" . $id . "." . $type;
          print "<tr class=\"dclite\"><td class=\"dclite\">
          <input type=\"checkbox\" name=\"delete[]\" value=\"$id\" /> 

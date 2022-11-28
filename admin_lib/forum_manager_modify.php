@@ -142,7 +142,7 @@ function forum_manager_modify() {
 
       // In order to use it in form, we strip off keys
       $this_forum_moderators = array();
-      while(list($key,$val) = each($this_forum_moderators_hash)) {
+     foreach($this_forum_moderators_hash as $key => $val) {
          array_push($this_forum_moderators,$key);
       }
 
@@ -154,7 +154,7 @@ function forum_manager_modify() {
 
       $forum_tree['0'] = 'Top Level Forum';
 
-      while(list($key,$val) = each($forum_form)) {
+     foreach($forum_form as $key => $val) {
 
          $fields = split('[\|]',$forum_form[$key]['form']);
          $form_type = array_shift($fields);

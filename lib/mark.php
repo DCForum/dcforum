@@ -109,7 +109,7 @@ function mark() {
 
    reset($current_time_marks);
    $cookie_thing = array();
-   while (list($forum,$marker) = each($current_time_marks)) {
+  foreach($current_time_marks as $forum => $marker) {
       array_push($cookie_thing,"$forum#$marker");
    }
 
@@ -208,7 +208,7 @@ function update_forum_marks($child_forum,$forum,$u_id,&$user_time_marks,&$curren
    // There are same level folders
    $rows = get_forums($forum);
 
-   while(list($key,$row) = each($rows)) {
+  foreach($rows as $key => $row) {
       if ($row['id'] != $child_forum)
           if ($row['last_date'] > $current_time_marks[$row['id']] and 
              $current_time_marks[$forum] < $row['last_date'])   {

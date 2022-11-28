@@ -59,7 +59,7 @@ function upgrade_manager_import_misc_user_info() {
 
    // OK, let's take care of the ratings file
 
-   while(list($id,$username) = each($user_name)) {
+  foreach($user_name as $id => $username) {
       $username = rawurlencode($username);
       if (file_exists("$rating_dir/$username.txt")) {
 

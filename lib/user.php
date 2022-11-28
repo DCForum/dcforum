@@ -438,7 +438,7 @@ function change_profile() {
 
          $ok_fields = array();
 
-         while(list($key,$val) = each($param_profile)) {
+        foreach($param_profile as $key => $val) {
             if ($val['status'] == 'on' and $in[$key]) {
 
                switch($key) {
@@ -509,7 +509,7 @@ function change_preference() {
       else {
 
          $ok_fields = array();
-         while(list($key,$val) = each($param_preference)) {
+        foreach($param_preference as $key => $val) {
             if ($key == 'ut')
                $in[$key] = $time_zone[$in[$key]]['location'] . " (" .
                            $time_zone[$in[$key]]['offset'] . " GMT)";
@@ -607,7 +607,7 @@ function forum_subscription() {
             </tr>";
 
 
-         while(list($key,$val) = each($forum_tree)) {
+        foreach($forum_tree as $key => $val) {
             $forum_info = get_forum_info($key);
             print "<tr class=\"dcdark\">
                   <td class=\"dcdark\">";
@@ -1306,7 +1306,7 @@ function user_menu() {
    );
       
 
-   while (list($key,$val) = each($menu_array)) {
+  foreach($menu_array as $key => $val) {
       $href =  DCF . "?az=$in[az]&saz=$key";
       $title = $menu_array[$key]['title'];
       $image_src = "<img src=\"" . IMAGE_URL . "/" . 

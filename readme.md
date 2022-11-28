@@ -21,6 +21,10 @@ ASAP.
 1. PHP 4.x
 2. MySQL 3.23.x
 
+### Changelog
+#### 1.27.1
+* Converted all files to utf-8.
+
 #### --- Original readme file converted to markdown ---
 
 DCForum+ Readme File

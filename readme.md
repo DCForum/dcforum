@@ -28,7 +28,7 @@ DCForum+ Readme File
 
 DCForum+ Version 1.27  
 Release Date 9-30-2006  
-©1997-2005 DCScripts
+Â©1997-2005 DCScripts
 
 This program is free software; you can redistribute it and/or modify  
 it under the terms of the [GNU General Public License](./docs/license.html) as published by  
@@ -121,5 +121,5 @@ You can also email our support at support@dcscripts.com for any questions regard
 
 * * *
 
-© 1997-2005 DCScripts.com - All rights reserved  
+Â© 1997-2005 DCScripts.com - All rights reserved  
 DCScripts.com is a division of DC Business Solutions

@@ -1,0 +1,52 @@
+about_chmod.txt
+
+An introduction to changing file and directory permissions
+================================================================
+
+Installing Perl CGI programs on UNIX-based web servers typically
+involve creating directories, uploading files, and then changing 
+their permissions.  The unix command for changing file or
+directory permission is called "chmod".  If you know how to chmod
+then you do not need to read this documentation. Otherwise, please 
+continue reading this Section
+
+In order for a perl CGI program to run on your web server, 
+it must have proper file permission.  Specifically, the CGI 
+script must have EXECUTE permission.  You need to set *.cgi 
+files to 755, which grants read/write/execute permission to 
+the owner and read/execute to the group and world.
+
+Additionally, if your perl CGI program needs to:
+
+   1. create and remove directories
+   2. create, modify, and delete files
+   3. read, write, and append to files
+
+then directories and files must all have proper permissions.  This 
+means that certain directories need to be set to 777, which 
+grants read/write/execute permission to owner/group/world.  
+
+If you have telnet access, type (from the command line):
+
+   chmod 755 file.cgi
+
+to set file.cgi to 755 permission.  Or, you can use
+
+   chmod 777 some_directory
+   
+to set some_directory to 777 permission.
+
+If you are using an FTP program, there should be a function that
+allow you to change the permission by selecting a file on your server.
+For example, if you are using CuteFTP (Version 4.2), then you can
+select a file or a directory on the server, then click on "Commands"
+from the menu and then "Change Permissions".  Choosing this option
+will bring up a dialog box where you can choose read/write/execute
+permissions for owner/group/world.
+
+If you have more questions, please contact support@dcscripts.com
+
+At this point, if you are still not sure where to start, please
+consider our installation option.  For a small service fee, we will
+install it on your web server usually within 24 hours.
+Please contact support@dcscripts.com and ask us about this service.

@@ -1,0 +1,1058 @@
+<html>
+<head>
+<title>DCForum+ Administration User's guide</title>
+<link rel="stylesheet" type="text/css" href="docs.css">
+</head>
+<body>
+
+<h1>
+DCForum+  Administration User's Guide
+</h1>
+<P>DCForum+ Version 1.27<BR>
+© 1997-2005, DCScripts<BR>
+Release Date 7-31-2005</P>
+
+<P><BR>DCForum+  offers a set of comprehensive administration tools 
+to help you effectively manage your discussion forum. This user's guide assumes 
+that you have already successfully installed DCForum+  on your web site. 
+If you have not yet installed DCForum, please refer to <A href="../readme.html">readme.html</A>. </P>
+
+<h2>Table of Contents</h2>
+<ol>
+<li><A href="#1">Getting started...</A>
+<li><A href="#2">Post-installation configuration</A>
+<li><A href="#3">Setting up forums</A>
+<li><A href="#4">Managing user accounts</A>
+<li><A href="#5">Managing conferences and forums</A>
+<li><A href="#6">Managing private forums</A>
+<li><A href="#7">Managing topics and messages</A>
+<li><A href="#8">Using special administration feature</A>
+<li><A href="#9">Forum Statistics</A>
+<li><A href="#10">Using&nbsp;Data Utilities</A></li>
+</ol>
+<h2>1.&nbsp;<a name="1">Getting started...</a></h2>
+<p>
+DCForum+ administration utility is purely 
+browser-based.&nbsp; After you have successfully installed DCForum+ on your 
+server, you'll need to perform the following tasks to complete your forum setup:
+</p>
+<OL>
+<li>Post-installation configuration
+<li>Create forums
+<li>Customize interface</li></OL>
+
+<p>
+Carefully read and follow 
+the direction in Section 2 (Post-installation configuration) and Section 3 (Setting up conferences and
+forums) to complete your setup.  Other sections can be used as a reference.
+</p>
+
+
+<h2>2. <a name="2">Post-installation configuration</a></h2>
+<P>After the initial installation, the first thing you'll 
+want to do is to specify the title, select time/date format, and define other forum 
+options.&nbsp; These options can be specified using the <STRONG><EM>Forum 
+Settings Manager</EM></STRONG> which is located in the top right section of the admininistrator interface. It contains the 
+following sub menus:</P>
+<UL>
+<li><STRONG>   Date, time, and language setting</STRONG>      
+<li><STRONG>Security Settings </STRONG>
+  <LI><STRONG>Email and Registration Settings </STRONG>
+  <LI><STRONG>General Setup Parameters </STRONG>
+  <LI><STRONG>User Option Settings </STRONG>   
+<li><STRONG>Forum-level Style Settings </STRONG>   
+<li><STRONG>Topic-level Style Settings </STRONG>   
+<li><STRONG>User Input Form Settings </STRONG></li>
+<li><STRONG>Modules and add-on Settings </STRONG></li>
+</UL>
+<P>Each sub menu will allow you to set specific forum options.&nbsp; It is 
+recommended that you familiarize yourself with each option before going live
+with your forum.&nbsp; The options 
+in each sub menu are listed below:</P>
+
+<h3><U> Forum Date, time, and language Settings</U>    </h3>
+<OL>  
+             
+	<li><STRONG>Time&nbsp;Zone</STRONG> - 
+  Default time zone.&nbsp; If the user doesn't 
+  set their local zone, this is the default used for all date and time. 
+  <BR>  
+              
+	        
+	<li><STRONG>Date format</STRONG>&nbsp;-&nbsp;Choose 
+  between US&nbsp;or European format&nbsp;<br>
+  </li>
+	<li><strong>Default lanuage</strong> - Choose a default language module for
+	  your users. You may add additional modules by translating files in /lang/english
+	  directory. As additional language modules become available, you will be
+	  able to download them from our site.</li>
+</OL>
+<P><U><STRONG><FONT color=#990000>Security Settings</FONT> </STRONG> </U></P>
+<OL>
+  <LI><STRONG>Check HTTP_REFERER before allowing certain functions? - 
+  </STRONG>Checking referer URL can enhance forum security. 
+  However, some internet PC software disables referer by default.&nbsp; Therefore,&nbsp;HTTP_REFERER checked if 
+  and only if it is not an empty 
+string.
+  <LI><STRONG>Session&nbsp;durationg in minutes</STRONG>&nbsp;-&nbsp;<!--StartFragment --> Session duration while 
+  it is inactive. If the session is inactive for a longer period of time, 
+  then&nbsp;the user is forced to login again. However, if the user has set 
+  "Remain Logged in" option, then this session is not affected.<BR>
+  <LI><STRONG>Extended login session option</STRONG> - If you want to allow 
+  users to use "Remain logged on..." option in their user menu, then set this 
+  option to "yes".&nbsp; In this case, the user remains logged logged regardless 
+  of whether this user is active or not.<BR>
+  <LI><STRONG>Allow Users to Modify Their Account Information</STRONG>   - 
+  If this option is 'yes', users will be able to change their 
+  account information.&nbsp; Usually, these will include name and email. <BR>    
+              
+           
+  <LI><STRONG>Allow Users to Change Their Password</STRONG> - Set this option to&nbsp;"yes" if you want to allow 
+  your registered users to change their password.&nbsp; If you are using the 
+  email registration (wherein the password is generated by the program), you may 
+  want to allow users to change their passwords to something easier to 
+  remember.<BR>    
+              
+           
+  <LI><STRONG>Allow users to retrieve new 
+  password</STRONG>             
+             &nbsp; 
+  - If you set this option to "yes", users will be able 
+  to generate a new password if they can't remember the old password.<BR>
+  <LI><STRONG>Enable alert function?</STRONG>       
+              
+                
+       - If yes, users will be able to 
+  send you alerts<BR>      
+               
+  <LI><STRONG>Hide restricted/private forums from users who do not have 
+  access?</STRONG> - The restricted and private forums are not accessible by 
+  everyone.&nbsp; Set this option to 'yes' if you do not want them listed in the 
+  lobby to unauthorized users. <BR>           
+                
+        
+  <LI><STRONG>Bad Word List</STRONG> - 
+  List of words you want to censor from your forum. The words in this list are 
+  replaced with ###### in the body of the message. <BR>          
+             
+  <LI><STRONG>Allow users to view IP address of other users?</STRONG> - If you want to let your 
+  users view other posters' ip addresses, then select 'on'.&nbsp; Otherwise, 
+  select 'off'. It is recommended that this option be set to 'off' for privacy 
+  reasons.<BR> 
+  <LI><STRONG>Turn on IP blocking?</STRONG> - If you set this option 'on', 
+  all the postings from ip addresses listed in your bad_ip.txt will be disallowed.
+  &nbsp; The administrator can add selected addresses to this list from 
+  the IP lookup link in each message.<BR>          
+            
+  <LI><STRONG>IP Blocking Pattern</STRONG> - Select at which level you wish to block bad IP addresses. 
+  Keep in mind that selecting any pattern other than the "exact match" will 
+  result in the indiscriminate banning of multiple ip addresses from the same 
+  provider<BR></LI></OL>
+<H3><U>Email and Registration Settings</U> </H3>
+<P>Use this menu to configure your email service, set email 
+options,&nbsp;and&nbsp;customize&nbsp;user registration service.</P>
+<OL>
+  <LI><STRONG>Administrator's Email Address</STRONG> - This is your email address.
+  &nbsp; This email address should be a valid email account with the domain on which 
+  the forum is installed. This email address will be the "from address" on all 
+   outgoing messages generated by the forum. Most servers will refuse to relay email 
+	unless the "from address" is a valid account with that domain.<BR>
+  <LI><STRONG>Administrator's signature&nbsp;</STRONG>- Signature that is added 
+  for various email notification messages<BR>
+  <LI><STRONG>Maximum username length allowed</STRONG> - You can 
+  limit&nbsp;the length of usernames when users register.&nbsp; 
+  Unusually lengthy usernames will cause the tables to exceed 100% in width, 
+  forcing users to scroll sideways.<BR>        
+              
+            
+  <LI><STRONG>Allow users to register</STRONG>&nbsp;- Set this option to 'yes' if you want to allow users to 
+  register to use your forum. <BR>          
+            
+  <LI><STRONG>Enable email&nbsp;registration?</STRONG> - If this option is 'yes', a randomly generated password will 
+  be emailed to the user requesting registration.&nbsp; This option forces users 
+  to submit valid email addresses&nbsp;during registration.&nbsp;<BR>       
+              
+           
+  <LI><STRONG>Default user group</STRONG> - 
+  Default group assigned to user upon registration.&nbsp; "Normal" is the recommended default user group. 
+  Please be reminded that restricted and private forums require that the user belong to at least the "member" group to 
+  be eligible for access. If you want all those who sign up to be eligible by 
+  default, assign the default user group to "member".<BR>          
+               
+       
+  <LI><STRONG>List of banned email domains</STRONG> 
+  - List of email addresses or domains you want to block from the registration 
+  service. <BR>          
+         
+  <LI><STRONG>Activate user account upon 
+  registration?</STRONG> &nbsp;- If this option is 'on', the user account will be 
+  active on registration and the user will be allow to login and use the forum 
+  service immediately. If set to 'off', the user account is set to inactive, in which case 
+  the administrator must activate the account using the user manager before the newly 
+  registered user can use the forum. <BR>         
+                   
+  <LI><STRONG>Notify&nbsp;administrator when a new user 
+  registers</STRONG>&nbsp;- If this option is 'on', 
+  the administrator will receive an email notification when new users register. <BR>        
+              
+  <LI><STRONG>Notify user when their account in 
+  activated?</STRONG> - If this option is 'on', users will receive an
+  email notifications in the event that you change their account status. <BR>       
+               
+     
+  <LI><STRONG>Notify 
+  administrator&nbsp;if 
+  a new&nbsp;message&nbsp;is 
+  posted?</STRONG> - Select 'on' if you wish 
+  to receive email notifications when a new&nbsp;message is&nbsp;posted your discussion forum. <BR>            
+          
+  <LI><STRONG>Notify forum moderators&nbsp;if a new message is 
+  posted?</STRONG>&nbsp;- Select 'on' if you want the forum moderators to receive 
+  an email notification when a new message is posted in their forums.</LI></OL>
+
+<P><STRONG><U><FONT color=#990000>General Setup Settings</FONT>  
+</U>  </STRONG>  </P>
+<OL>                                                 
+<li><STRONG>Forum log file limit (in days)</STRONG>      
+               
+          
+            - 
+To automatically remove old forum log entries, enter the number of days of 
+log entries you want to save.&nbsp; This function is automatically executed whenever a user 
+logs in. <BR>   
+                                 
+<li><STRONG>IP log file limit (in days)</STRONG>            
+              
+            
+            
+   - To automatically remove old IP log entries, enter the number 
+  of days you want to save.&nbsp; This function is executed whenever&nbsp;a user logs in. <BR>   
+                                 
+<li><STRONG>Table width (if in percent, include 
+  %)</STRONG> Defines the table width for the lobby and the message body, among 
+  many others.<BR>     
+<li><STRONG>         Views 
+  option </STRONG>- This option will keep track of the 
+  number times a topic has been read.&nbsp; The actual number of times read is 
+  not updated instantly, however.&nbsp; The number of views is updated when a 
+  new message is posted in that topic.<BR>     
+<li><STRONG>Announcement display mode</STRONG>&nbsp; - 
+  Select "full' if you want to display the announcements in the main forum 
+  page.&nbsp; Otherwise, it will only display the subject of the 
+announcement<BR>     
+<li><STRONG>Display "Welcome to our newest member..." 
+  link?</STRONG> - If "yes", this link will appear in the main forum page<BR>     
+<li><STRONG>Display the number of registered users in the 
+  forum listing page?</STRONG> - If "yes", the total number of registered users 
+  will appear in the main forum page<BR>     
+<li><STRONG>Display "who's online?"</STRONG>&nbsp;link in the forum listing page?&nbsp;- If 
+  "yes", users will be able to check who's online<BR>     
+<li><STRONG>Icon for team users </STRONG>- Icon to 
+  denote users in 'team' user group.<BR>       
+<li><STRONG> Icon for moderators </STRONG>- Icon to 
+  denote users in 'moderator' user group<BR>       
+<li><STRONG>Icon 
+  for&nbsp;administrator</STRONG> - Icon to denote users in 'admin' user group<BR>       
+<li><STRONG>Label for users who are no longer in user 
+  database</STRONG>&nbsp; - This is to indicate inactive or missing users<BR>       
+<li><STRONG>Icon for users who are no longer in user 
+  database</STRONG>        
+                
+              
+        <BR>             
+                               
+<li><STRONG>   Lable for unregistered 
+  users</STRONG> - This title will appear in the messages 
+  posted by unregistered users. It is intended to distinguish unregistered users 
+  from registered users.<BR>       
+<li><STRONG>Icon&nbsp;for unregistered 
+users</STRONG>&nbsp;&nbsp;- This icon will appear next to the usernames in 
+  the topic listing.</li></OL>
+
+<P><STRONG><U><FONT color=#990000>User Option Settings</FONT>  
+</U>  </STRONG> </P>
+<ol>
+<li><STRONG>  Enable file attachments?</STRONG> - This feature allows users to 
+upload files to your server. Keep this feature 'off' unless you really need it. 
+Allowing file upload is a security risk.<BR>                              
+<li><STRONG>Upload file size limit in KBytes?</STRONG> - If you do allow users to 
+upload files to your server, then specify the maximum file size that your users can 
+upload.
+  <STRONG>NOTE</STRONG>: For security reasons, there is a 
+  hard-coded value&nbsp;set by PhP in&nbsp;its configuration files.<BR>                              
+<li><STRONG>Maximum&nbsp;number of attachments per 
+  post&nbsp; -</STRONG>&nbsp;Specify the maximum number of attachments per post 
+  allowed.<BR>        
+               
+<li><STRONG>Allow users to edit their message?</STRONG> - If 'yes', users can edit 
+their own messages within the time limit specified in the next option.<BR>     
+<li><STRONG>Edit time limit in minutes</STRONG> - Specify the time limit for message editing. Enter '0' if 
+  you want to allow users to edit their message at anytime. <BR>                              
+<li><STRONG>Allow the use of HTML tags in the 
+  messages?</STRONG>  -&nbsp;In general, allowing HTML tags is a 
+  bad idea as broken or maliciious html tags can be used to deface the layout of 
+  the board. Unless you really need it, keep this option 'off'.&nbsp;Even if this 
+  option is enabled, certain HTML tags are removed for security 
+  reasons. These include: FORM, SCRIPT, OBJECT, EMBED, APPLET, and INPUT tags.&nbsp;&nbsp; <BR>   
+              
+                                    
+<li><STRONG> Enable forum subscription?</STRONG> - If 'on', users will be able 
+to subscribe to a forum to receive an email digest of all new messages posted to that 
+forum. <BR>                                   
+<li><STRONG> When to send subscription</STRONG>  
+            
+             
+      - Specify when you&nbsp;wish to send subscription.&nbsp; <BR>                                             
+<li><STRONG>Enable subscription to topics?</STRONG> - If 'on', registered users will 
+be able to subscribe to a topic to receive an email notification when a new message 
+is posted in that topic.<BR>                                    
+<li><STRONG>Allow users to use 'Email topic to a friend' 
+  feature?</STRONG> - If 'on', users can email topics to any email address. <BR>      
+<li><STRONG>Allow user to disable profile? </STRONG>- A registered user can elect 
+to hide his/her profile by setting one of the options in the user preference.&nbsp; 
+If you would like to allow this option, then select 
+  'on'.&nbsp; If 'off', this setting overrides the user's preference.<BR>  
+                
+<li><STRONG>Allow user to disable inbox? </STRONG>- A registered user can disable 
+the board's private messaging system to his/her inbox by setting one of the options 
+in the user preference.&nbsp; If you wish to allow this option, then select 'on'.
+&nbsp; If 'off', this setting overrides the user's preference. <BR>  
+              
+<li><STRONG>Allow user to disable email? </STRONG>- A registered user can prevent 
+other users from sending him/her email by setting one of the options in the user 
+preference.&nbsp; If you want to allow this option, then select 'on'.&nbsp; 
+If 'off', this setting overrides the user's preference. <BR>            
+              
+          
+  <LI><STRONG>Enable user rating/feedback system?</STRONG> &nbsp;- The user rating 
+  system allows registered users to rate other registered users. Select "on" to 
+  enable this feature. <BR>  
+                
+             
+       
+<li><STRONG>Allow user to disable user rating/feedback 
+  system? </STRONG>- A registered user can elect not to 
+  participate in user feedback system.&nbsp; If you want to allow this option, 
+  then select 'on'.&nbsp; If 'off', this setting overrides the user's 
+  preference. <BR>         
+               
+          
+  <LI><STRONG>Allow users to rate topics?</STRONG>&nbsp; - The topic rating system 
+  allows users to rate certain topics. Higher ratings usually generate added 
+  interest and activity in that topic. Select 'on' to enable this feature.<BR>     
+              
+        
+  <LI><STRONG>Minimum number of votes before topic rating is displayed</STRONG> - 
+  The rating for a topic is not&nbsp;displayed unless&nbsp;the number of&nbsp;votes
+  &nbsp;is greater than or equal to this specified number.&nbsp; Lower threshold 
+  will result in inaccurate or misleading ratings earlier in the process.<BR>           
+              
+      
+<li><STRONG>Allow users to use Avatars in their messages? 
+  </STRONG>- An avatar is a small image file to 
+  denote a user in each message.&nbsp; If bandwidth usage is a concern, you may 
+  want to disallow avatars in messages. <BR>              
+                
+<li><STRONG>Allow users to use images on external servers as avatars?</STRONG> - 
+  If 'on', users will be able to use images on remote servers as their avatars. 
+  While this option will save you server bandwidth, you have no control over which 
+  images users will use for their avatar. This option is not applicable if you do not 
+  allow users to use avatars in their posts.<BR>                                                                      
+<li><STRONG>Allow users to start polls?</STRONG> - If 'on', users will be able to start 
+polls. If 'off', only administrators and moderators will be able to start polls. <BR>                          
+<li><STRONG>Only allow registered users to start 
+  polls?</STRONG> - If 'on', only registered users will be allowed to start polls.</li>                  
+</ol>
+
+<P><U><FONT color=#990000><STRONG>Forum-level Style Settings</STRONG> </FONT> </U>  </P>
+<OL>    
+            
+<li><STRONG>Expand conference in the main listing?</STRONG> 
+  - If 'yes', all conferences in the top level will be expanded to show the 
+  forums in those conferences.<BR>    
+            
+<li><STRONG>Use fully threaded listing as the 
+  default?</STRONG> - If 'yes', the default topic listing will be a fully 
+  threaded listing(expanded mode in the past). Each topic in the topic listing page 
+  will show all replies in relation to the original message. Otherwise, only the 
+  original messages are listed with some pertinent information about the topic such 
+  as number of replies, etc. Please be reminded that the fully-threaded listing 
+  increases the server load.
+  <BR>                               
+<li><STRONG>Linear-style messages per page </STRONG>- 
+The number of messages per page. This option is not applicable if the discussion 
+style is Threaded. <BR>                                 
+<li><STRONG>Use icons in menus? </STRONG>- Select 'on' if 
+  you want to use image icons in the menu links<BR>                                 
+<li><STRONG>Display text link in the menu?</STRONG> - Select 'on' if you want to display text links with the menu 
+  icons (recommended)<BR><BR>NOTE - 
+  Option 7 and 8 cannot both be turned 'off'.&nbsp; At least one of them must be 
+  turned 'on'. <BR>                                 
+<li><STRONG>Default number of days for topic 
+  listing</STRONG>&nbsp; - When querying the message table, the program will 
+  only search for topics who's last modified date is 
+  within this limit.&nbsp; Limiting this value will improve query performance. <BR>     
+<li><STRONG>Number of topics to display per page in the 
+  topic listing<BR></STRONG>- This 
+  setting specifies the number of topics to list per page. <BR>           
+             
+<li><STRONG>Multi-page threaded mode starts at how many 
+  replies</STRONG> - When the number of replies exceed this number, the topic 
+  is displayed one message at a time in the fully threaded mode.&nbsp; This option 
+  is not applicable if you&nbsp;are using the linear&nbsp;discussion style.<BR>                       
+<li><STRONG>Maximum subject length allowed</STRONG>- Specifies the maximum subject 
+length. Unusually long subjects will cause the width of the page to exceed 100%, 
+forcing users to scroll sideways.<BR>
+<li><STRONG>Display caption below subjects? </STRONG>- If 
+  'yes', a caption will be displayed below the subjects in the topic listing.<BR>   
+<li><STRONG>Caption length in characters</STRONG> - Specifies the caption length 
+below the subject in topic listings page.<br>        
+<li><STRONG>How many replies are needed to use flaming images?</STRONG>&nbsp;- 
+When the number of replies is greater than or equal to this number, a flaming icon 
+will replace the default icon to indicate heavy activity. <BR></li></OL>           
+<p><STRONG><U><FONT color=#990000>Topic-level Style 
+Settings</FONT>  </U></STRONG></p>
+<OL>
+<li><STRONG>Number of message levels</STRONG> - For fully threaded discussion only. 
+This number controls how many levels of replies to indent in the table of contents.
+&nbsp;&nbsp;Indentation will only occur to the level specified in this setting.<BR>&nbsp; 
+  
+<LI><STRONG>Indent threaded message?</STRONG> - For fully 
+  threaded discussion only.&nbsp; If 'on', the messages will be indented from the 
+  left-hand side to denote the level of the message in question.<BR>
+  <LI><STRONG>Table of contents threshold</STRONG> - The minimum number of 
+  messages in a topic before the table of contents is displayed in the topic 
+  page or the full view mode. <BR>
+  <LI><STRONG>Message Layout Style</STRONG> - Choose one of three message styles: dcf, ubb, or 
+  classic.&nbsp; This is the default for first time user as they can 
+choose their own style<BR>   
+<li><STRONG>Quoted text style</STRONG> - Choose one of two quote styles. DCF uses 
+&gt; to denote each line of quote. UBB uses horizontal rules and indentation.<BR>   
+<li><STRONG>Automatic URL linking?</STRONG> - If 'yes', URLs in messages are automatically hyperlinked 
+  for DCF text style.&nbsp; If the user choose "plaintext" for the message format, no URL linking 
+is done.<BR>   
+<li><STRONG>Show user post counts in the messages</STRONG> - Turn this option 'yes' 
+if you want to show the user's post counts in the messages&nbsp;&nbsp;</li></OL>
+
+<P><STRONG><U><FONT color=#990000>User Input Form Settings</FONT>   
+</U>   </STRONG>   </P>
+<OL>
+<li><STRONG>Show original message in the post form?      
+  </STRONG> - Shows the original message above the post form.   <BR>     
+<li><STRONG>Number of rows for text edit boxes </STRONG> - Defines the dimensions 
+of the message body text box on the post form.   <BR>         
+<li><STRONG>Number of columns for text edit boxes</STRONG> - Defines the dimensions 
+of the message body text box on the post form.      <BR>       
+<li><STRONG>Number of columns to wrap quoted text at (should be less than 
+the setting immediately above)</STRONG> - Controls the wrapping for the quoted text 
+within the text edit box.<BR>    
+<li><STRONG>Allow users to embed smilies?</STRONG>&nbsp;- 
+  If 'yes', clickable emoticons will be displayed to the side of the text edit 
+  box.<BR>    
+<li><STRONG>Display smilies table in the post 
+  form?</STRONG>            
+  &nbsp;- If </li></OL>
+
+<P><STRONG><U><FONT color=#990000>Modules and add-on settings</FONT>   
+</U>   </STRONG>   </P>
+<OL>
+<li><STRONG>Enable events caledar?      
+  </STRONG> - If you want to use events calendar, set this option to 'yes'     
+<li><STRONG>Calendar option: Allow anyone to post events? </STRONG>
+If this option is set to "yes", anyone can post events to the events calendar. 
+If this option is set to "no", then only registered users will be able to add to the events calendar.
+</OL>
+
+<h2><a name="3">  3.&nbsp; Setting up forums</a></h2>
+<p>
+   Once the forum options are set, the next step is to
+create forums. There are couple of things that you should
+think about before you begin.
+</p>
+
+<ul>
+<li><b>Should you setup multiple conferences?</b> A conference is a group of forums belonging to a similar 
+  theme.&nbsp; While, in the strict sense, a &nbsp;conference is a
+	 forum type, it can only contain children forums and cannot contain
+	topics.&nbsp; Whether you need multiple conferences or not will depend on how
+	many forums you will be setting up. If you are going to
+	set up over 10 forums, then it is a good idea to group those
+	forums into two or more conferences. On the other hand,
+   if you are only going to set up 5 or 6 forums then you would only
+	need to create a single conference.  In this case, you can create a
+	conference named 'Main' and assign all your forums to this
+	conference.
+<li><b>What type of forums will you need?</b> DCForum+ supports four types of forums: 
+Public, Protected, Restricted and Private.&nbsp; If you want to allow everyone to 
+participate without requiring registration, then choose Public forums. 
+If you want to allow everyone to read but require 
+	registration to post messages, then choose Protected.&nbsp; 
+	If&nbsp;you only want users in 'member' user group to have access
+   to your forums for both read and 
+	write, then choose restricted forums.&nbsp;
+   Lastly,  private forums are highly exclusive in that,
+	 the users must be elevated to
+   'member' user group in order to qualify to use them.  
+	Additionally, the moderator of that forum must grant access to his/her private 
+	forums. Also keep in mind that threads in private and restricted forums are 
+	dynamically generated each time it is viewed. They are not saved as static html 
+	pages. They are not suitable for heavy traffic forums due to server load.
+<li><b>Will you need moderated forums?</b> Moderated forums allow you to preview 
+the messages before they are posted in the forums. It works with all four forum 
+types. Whether you need this level of security will depend on your needs. 
+Moderation creates considerable amount of additional labor for administrators and 
+moderators.</li>                        
+</ul>
+
+<h3><U>Creating A Forum</U>  </h3>
+<ol>
+<li> From Forum Manager menu, choose "Create New Forum".
+<li> Select a forum type - choose from public, protected, restricted, private, or conference.
+<li>        
+       Select parent forum.
+<li> Enter forum name.
+<li> Enter forum description.
+<li> Select forum moderator(s).&nbsp; NOTE - all users with 
+  admin or moderator group are listed.
+<li> Select forum mode - if you select 'yes' to Moderated 
+  forum&nbsp;option, this forum will be a moderated forum
+<li> Select forum status. If 'not active', this forum will 
+  not be displayed.
+<li> Select top template file name
+<li>        Select
+     bottom template file name
+<li> Click on 'Submit' button.</li>        
+</ol>
+
+<p>
+Congratulations!  You have now setup DCForum+ for your
+web site.  Now, let's customize your forum layout.
+</p>
+
+<h3><a name="custom"><U>Customizing Forum 
+Layout</U>  </a></h3>
+<p>
+        
+            
+             
+             
+          
+         DCForum+ program uses CSS 
+(dc.css)&nbsp;and two template files to generate all its output.&nbsp;</p>
+<p>
+        
+            
+             
+             
+          
+         1. CSS tags - Modify the colors and
+        
+            
+             
+             
+          
+         font attributes in dc.css 
+to get the look you want for the forum:</p>
+
+<ul>
+<li>
+body - Default style
+  
+<li>
+.dcmessage - Message text
+  
+<li>
+a: - Hyperlink styles
+  
+<li>
+.dctitle - Title
+  
+<li>
+.dcmenu - Button menu
+  
+<li>
+.dcnavmenu - Navigation menu
+  
+<li>
+.dcoptionmenu - Option menu
+  
+<li>
+.dcheading - Table heading row
+  
+<li>
+.dclite/.dcdark - Alternating table row styles
+  
+<li>
+.dcfooter - Footer style
+  
+<li>
+.dclink - Link style for Forum name and Subjects
+  
+<li>
+.dccaption - Style for caption below the subject
+  
+<li>
+.dcinfo - Information text
+  
+<li>
+.dcdate - Date style
+  
+<li>
+.dcmisc - Misc style
+  
+<li>
+.dcerrortitle - Error page title
+  
+<li>
+.dcerrorsubject - Error page subject
+  
+<li>
+.dcinstsubject - Instruction subject
+  
+<li>
+  .dcnormal - Normal text
+  
+<li>
+  .dcbigger/.dcsmall - Big and small text
+  
+<li>
+  .dcsmallemp/.dcemp - emphasis text - alert, special
+  
+<li>
+  .dcnote - Note text
+  
+<li>
+  .dcerror - General error text
+  
+<li>
+  .dcsubtitle - subtitle
+  
+<li>
+  .dcplain - Plain text
+  
+<li>
+  .dcborder - Table border color
+  
+<li>
+  .dcstrong - Bold
+  
+<li>
+  .dccenter - Centering
+  
+<li>
+  .dctoc - Table of content text
+  
+<li>
+  .dctocsubject
+  
+<li>
+  .dcauthorlink - Author text</li>
+</ul>
+<p>
+  2. In addtion to the CSS file, DCForum+ uses two 
+templates to complete its output: top.html and bottom.html.&nbsp; These template 
+files can be found in the templates directory.&nbsp; Modify these 
+to get the layout that you want for your forum.&nbsp; Please note that top.html 
+does not include &lt;html&gt;&lt;head&gt;&lt;/head&gt; section as these are 
+generated by DCForum+.</p>
+<P></P>
+
+<h2>4.&nbsp;<a name="4">Managing user accounts</a></h2>
+<P>DCForum+ administration utility features a comprehensive user account 
+management system.&nbsp;Following functions are available:</P>
+<ul>
+<li>Create A New Account 
+<li>Modify User Account 
+<li>Remove User Accounts 
+<li>Activate User Accounts 
+<li>Deactivate User Accounts 
+<li>Remove Inactive Users</li>            
+</ul>     
+
+
+<h3><U>Creating A New Account</U>   </h3>
+
+<ol>
+<li> From the User Manager menu, choose 'Create New Account'.
+<li> Enter username.
+<li> Enter password twice.
+<li> Select user group.
+<li> Enter all other additional fields.
+<li> Select user account status.
+<li>Click on 'Submit' button.</li>        
+</ol>
+
+<h3><U>Modify User Account</U>   </h3>
+<OL>
+<li> From User Manager menu, choose 'Modify User Account'.
+<li> Select the field you wish to search.
+<li> Enter desired search string and then submit the form.
+<li> From the list of user accounts matching your search condition, 
+select the account you wish to modify and then submit the form.
+<li> Edit and change account information.
+<li>Click on 'Submit' button.</li></OL>
+
+<h3><U>Remove User Accounts</U>   </h3>
+
+<ol>
+  <LI>From the User Manager menu, choose 'Remove User Accounts'. 
+  <LI>Select the field you wish to search. 
+  <LI>Enter desired search string and then submit the form. 
+  <LI>From the list of user accounts, select the accounts you wish to remove. 
+<li>Click on 'Submit' button to remove selected user accounts.</li>        
+</ol>
+<H3><U>Activate User Accounts</U>  </H3>
+<OL>
+  <LI>From the User Manager menu, choose 'Activate User Accounts'. 
+  <LI>Select the field you wish to search. 
+  <LI>Enter search string and then submit the form. 
+  <LI>From the list of user accounts, select the accounts you wish to activate. 
+  <LI>Click on 'Submit' button to activate selected user accounts.</LI></OL>
+<H3><U>Deactivate User Accounts</U>  </H3>
+<OL>
+  <LI>From the User Manager menu, choose 'Deactivate User Accounts'. 
+  <LI>Select the field you wish to search. 
+  <LI>Enter search string and then submit the form. 
+  <LI>From the list of user accounts, select the accounts you wish to deactivate. 
+  <LI>Click on 'Submit' button to deactivate selected user accounts.</LI></OL>
+
+<p><U><b><FONT 
+color=#990000>Remove Inactive user accounts</FONT>   </b> </U> 
+</p>
+<ol>
+<li> From the User Manager menu, choose 'Remove Inactive Users'.
+<li> Select month, day, and year.  All user accounts
+     inactive since this date will be removed.
+<li> Click on 'Submit' button.</li>        
+</ol>
+<UL></UL>
+
+
+<h2>5.&nbsp;<a name="5">Managing conferences and forums</a></h2>
+
+<p>
+Even after your discussion forum is up and running,
+you may still need to manage existing conferences and forums.
+You use the conference and forum manager to facilitate this task.</p>
+
+<h3><U>Modify A Forum</U> </h3>
+<ol>
+<li> From the Forum Manager menu, choose 'Modify Forum'
+	 and click on the 'Submit'.
+<li> From the dialogue menu, select the forum that
+     you want to modify and then click on 'Submit'.
+<li> Edit the forum information you want to modify.
+<li> Click on Submit button.</li>    
+</ol>
+
+<h3><U>Reorder Forums</U> </h3>
+<ol>
+<li> From the Forum Manager menu, choose 'Reorder Forums'
+	 and click on 'Submit'.
+<li> In the forum listing, number the forums in the order 
+  in which to display.&nbsp; Note that the higher level forums
+     always override the lower level forums.
+<li>Click on Submit button</li>        
+</ol>
+
+<h3><U>Remove A Forum</U> </h3>
+<p>
+<b>NOTE: Removing a forum deletes all the messages and topics
+posted in that forum.  This is not a reversible process.</b>
+</p>
+
+<ol>
+<li> From the Forum Manager menu, choose 'Remove Forum'
+     and click on 'Submit'.
+<li> From the dialogue menu, select the forum that
+     you want to remove.
+<li> If you wish to&nbsp;remove all children forums, then
+     click on the checkbox
+<li>Submit the form.&nbsp; DCForum+ will ask you once 
+  again if you really want to remove the forum.&nbsp; If so, click on 
+    "Yes".&nbsp; Otherwise, click on "No, cancel this action".</li>           
+                       
+</ol>
+
+<h2>6.&nbsp;<a name="6">Managing Private Forums</a></h2>
+<p>
+ Private forums are exclusive in that the administrator or 
+the moderator of each forum must grant access to the user. The user access 
+is managed using the Private Forum Manager. In order for a user to have access 
+to a private forum: </p>
+
+<OL>
+<li> The user must be of at least the 'member' user group - if the user
+     belongs to the 'normal' user group, then you must
+	  promote this user to the 'member' user group using
+	  the User Manager. See 'Managing user accounts' on 
+	  how to accomplish this task.
+<li>The administrator or the moderator must use the private 
+    forum user manager to grant access.</li></OL>
+<P>There are following available functions to help you manage your private forum 
+users:</P>
+<ul>
+  <LI>Add users to a private forum access list
+  <LI>Remove users from a private forum access list
+  <LI>View a private forum access list</LI></ul>
+<H3><U>Adding users to a private forum access list</U>       </H3>
+<OL>
+<li> From&nbsp;the Private Forum Manager menu, click on 'Add Users to a Private forum access
+     list'.
+<li> Select a forum.
+<li> Select the users you want to grant access rights by using the checkboxes.
+  <LI>Click on the 'Update User List' button to complete.&nbsp;</LI></OL>
+<H3><U>Removing users from a private forum access 
+list</U>       </H3>
+<OL>
+  <LI>From&nbsp;the Private Forum Manager menu, click on 'Remove Users from a 
+  Private forum access list'. 
+  <LI>Select a forum. 
+  <LI>Select the users whose access rightsyou want to revoke by using the checkboxes. 
+  <LI>Click on the 'Update User List' button to complete.&nbsp;</LI></OL>
+<H3><U>View a private forum access list</U>    </H3>
+<OL>
+  <LI>From&nbsp;the Private Forum Manager menu, click on 'View private forum access 
+  list' to bring up the user/forum access table.
+  <LI> The member users are listed in rows while the forums are listed in 
+  columns.&nbsp; The cell that is intersected by the user row and forum column 
+  displays an icon, either green or red.&nbsp; If this icon is green, then this 
+  user has access to the forum.
+  <LI>To change the access status, just click on the icon. Red will change to green 
+  and vice versa.</LI></OL>
+
+<h2>7.&nbsp;<a name="7">Managing topics and messages</a></h2>
+<p>
+The Topic manager is used to manage topics and messages.
+The available functions are:</p>
+<UL>
+<li> Unqueue messages - preview and unqueue messages
+     to moderated forums.
+<li> Lock threads - Make topics read-only.
+<li> Unlock threads - Undo locking threads
+<li> Move threads - Move current threads from one forum to another
+<li>    Delete topics
+<li>Delete messages - Remove messages from a topic 
+  <LI>Prune message table&nbsp;- Delete old archives</LI></UL>
+<P>Additionally, you will be able to manage topics and messages directly from 
+forum listings as well.&nbsp; You must be logged on as admin or moderator in 
+order for this feature to appear.</P>
+
+<h3><U>Unqueue messages</U>  </h3>
+<ol>
+<li> Select 'Unqueue Messages' from the Topic Manager.
+<li> Select a forum from the list of moderated forums.
+     If 'In Queue' field displays '0', then there are no messages in queue.
+<li> Click on 'Submit' to bring up all messages in
+     queue.
+<li> Preview each message and select 'unqueue' if you want to post
+     the message.  Select 'delete' if you want to
+	  remove the message.  Not selecting either option will
+	  leave the message in the queue.
+<li> Click on 'Submit' to unqueue and delete 
+    messages.</li>                
+</ol>
+
+<h3><U>Lock threads</U>  </h3>
+<ol>
+<li> Select 'Lock Threads' from the Topic manager.
+<li> Select a forum from the list.
+<li>Click on 'Submit' to retrieve the current topics page of the selected forum.
+<li> Select the topics you wish to make read-only.
+<li> Click on 'Submit'.</li>              
+</ol>
+
+<h3><U>Unlock threads</U>  </h3>
+<ol>
+<li> Select 'Unlock Threads' from the Topic manager.
+<li> Select a forum from the list.
+<li>Click on 'Submit' to retrieve the locked topics page of the selected forum.
+<li> Select the topics you wish to unlock.
+<li> Click on 'Submit'.</li>              
+</ol>
+
+
+<h3><U>Move threads</U>  </h3>
+
+<ol>
+<li> Select 'Move Threads' from the Topic manager.
+<li> Select a forum. The threads you select from this forum will be moved
+	  to another forum that you select later.
+<li>Click on 'Submit' to retrieve the topics page of the selected forum..
+<li>From the 'Move to Which Forum?' dropdown menu, select
+     the destination forum.
+<li> Select the topics you wish to move.
+<li>Click on 'Submit'.</li>              
+</ol>
+
+
+<h3><U>Remove threads</U>  </h3>
+
+<ol>
+<li>  Select 'Remove Threads' from the board manager.
+<li> Select a forum.
+  <LI>Click on 'Submit' to list the topics.
+<li> Select the topics you wish to remove.
+<li> Click on 'Submit'.</li>              
+</ol>
+
+<h3><U>Remove messages</U>  </h3>
+
+<ol>
+<li> Select 'Remove Messages' from the Topic manager.
+<li> Select a forum from the list.
+<li>     Click on 'Submit' to list the topics.
+<li> Select the topic that contains the messages you 
+  wish to remove.
+  <LI>Click on 'Submit' button to list the messages in the selected topic.&nbsp; 
+  Please note that the original message cannot be removed.
+  <LI>Preview each message and click on the 'Select to remove the following message' 
+  checkboxes to select the mesages to remove.
+<li> Click on 'Submit'.</li>              
+</ol>
+
+<h3><U>Delete archives</U>  </h3>
+
+<ol>
+<li> Select "Delete archives" from the Topic manager.
+<li> Select month, date, and year - all archived topics 
+  inactive since this date will be deleted.
+<li>   Click on 'Delete all 
+    archives'.</li>              
+</ol>
+
+<H2><A name=8>8.&nbsp; Using special administration 
+feature</A></H2>
+<OL></OL>
+<p>
+DCForum+ includes the following special administration features:</p>
+
+<ul>
+<li>Announcement Manager
+<li> Message Manager
+<li>Sending Email to Forum Users
+<li>Subscription Manager</li>  
+</ul>
+
+<h3>Announcement Manager</h3>
+<p>
+Announcement is a read-only message only the administrator can post.
+An 'announcement' link will appear in the lobby to alert all users visiting the lobby.
+It is useful in reaching all of the users without the use of unwanted bulk email.</p>
+
+<h3> Message Manager</h3>
+<p>The message manager can be used to customize forum 
+messages such as the email registration text or the acceptable usage policy.&nbsp; 
+Use this manager to customize the following messages:</p>
+         
+  
+<ul>
+<li>Email registration message&nbsp;&nbsp;
+<li>Account status change email message
+<li>  Topic subscription&nbsp;email message 
+    
+<li>Forum subscription email message 
+    
+<li>Lost password email message 
+    
+<li>Private message email notification message&nbsp; 
+    
+<li>Acceptable usage policy&nbsp;</li>   
+</ul>
+
+
+
+
+<h3>Sending Email to Forum Users</h3>
+<p>
+This feature allows you to send bulk mail to all or selected user group.</p>
+
+<ol>
+<li>Choose email recipients by selecting a user group.
+<li>
+Fill in the subject and message fields.
+<li>Click 'Submit'.</li>    
+</ol>
+
+<h3>Subscription Manager</h3>
+
+<p>Use this function to manage your subscription (digest) 
+list.&nbsp; Following functions are available:</p>
+         
+  
+<ul>
+<li>Send subscription -&nbsp;Click on this option 
+  to&nbsp;manually send subscriptions.&nbsp; Note that you can&nbsp;customize 
+  &nbsp;the '<STRONG>subscription queue limit (in days)'. 
+  </STRONG>option<STRONG>&nbsp;</STRONG>in the Forum Setting manager =&gt; User 
+  option menu to automatically send subscriptions.&nbsp; This option is initiated 
+  when the administrator logs on to the forum.
+<li>Unsubscribe users from a forum
+<li>Remove forums from a user's subscription&nbsp; 
+    
+<li>View entire subscription list 
+    
+<li>Cleanup Subscription&nbsp;List&nbsp;</li>   
+</ul>
+
+<h2><a name="9">  9. Forum</a> 
+Statistics</h2>
+           
+         
+        <p>
+DCForum+ now allows you to closely monitor forum activities.&nbsp; 
+These include:</p>
+
+<ul>
+<li>View access statistics
+<li>View user usage
+<li>Manage file uploads&nbsp;</li>    
+</ul>
+
+<h3>View Access Statistics</h3>
+      
+          
+     
+<ol>
+<li>Select 'View access statistics' from the Forum monitor menu.
+  <LI>Specify the range of dates you want to view.
+  <LI>Click on 'Display Access Statistics'.</LI>       
+         
+</ol>
+
+<h3>View User Usage</h3>
+<ol>
+<li>Select 'View&nbsp;user&nbsp;usage' from the forum monitor menu.
+  <LI>Specify the range of dates you want to view.
+  <LI>Specify the sort fields.
+  <LI>Click on 'Display Statistics'.&nbsp;</LI>        
+          
+</ol>
+
+
+<h2><a name="10">10.&nbsp;Using Data 
+Utilities</a></h2><p>
+Although DCForum+ is extremely robust and stable, 
+you may occasionally encounter file corruptions and data losses du to server 
+concurrency problems. You can protect yourself against such malfunctions by properly 
+utilizing the data utility features. DCForum+ includes the following 
+special data utilities: </p>
+
+<UL>
+<li>View table information in your database
+  
+<li> Optimize tables
+<li>Make a backup - not implemented&nbsp;in 1.00x&nbsp;
+<li>Recover tables from previous backup&nbsp;&nbsp;- not 
+  implemented in 1,00x</li></UL>
+
+<hr>
+
+<P>
+DCForum+ ©1997-2005 by <a href="http://www.dcscripts.com">DCScripts</a>. All rights reserved. 
+</P>
+		  	
+
+
+</body>
+</html>

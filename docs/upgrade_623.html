@@ -1,0 +1,312 @@
+<html>
+<head>
+<title>DCForum+ Installation Guide - Upgrade from DCForum 6.2x</title>
+<link rel="stylesheet" type="text/css" href="docs.css">
+</head>
+
+<body>
+
+<h2>
+DCForum+ Upgrade Guide - Upgrading from DCForum Version 6.2x</h2>
+<P>  DCForum+ Version 1.27
+<BR>© 1997-2005, DCScripts<BR>Release Date 
+7-29-2005</P>
+
+<P>This is an upgrade documentation for owners of DCForum 6.2x only. If you are 
+upgrading from a previous version of DCForum, please upgrade to DCForum 6.2x
+before you upgrade to DCForum+.</P>
+
+<H3>YOU MUST FOLLOW THE DIRECTION EXACTLY AS DESCRIBED IN 
+THE FOLLOWING INSTALLATION PROCEDURE! DO NOT SKIP A STEP. </H3>
+
+<P>Installing and setting up DCForum+ consists of following steps:</P>
+<OL>
+<li> Installation overview   
+<li> Installing DCForum+
+<li> Creating a backup directory
+<li> Edit dcsetup.php  
+<li> Start dcadmin.php
+<li> Import old data
+<li> Post-installation steps</li>  
+</OL>
+
+<p><strong>NOTE: You must import the old forum data before you create new users and forums.</strong></p>
+
+
+<h2>1. Installation Overview</h2>
+
+<p>In the following installation procedure, we assume that you have 
+already downloaded DCForum+ tar.gz file to a window-based PC and that you will 
+be using an FTP program to install it on your web server.  
+</p>
+<p>
+If you downloaded DCForum+ tar.gz file directly onto your web server, 
+then copy the files to appropriate directories instead of uploading them.
+</p>
+
+<p>
+IF YOU DON'T KNOW WHAT "chmod" FUNCTION IS OR DO NOT KNOW HOW TO CHANGE
+FILE AND DIRECTORY PERMISSIONS, PLEASE READ <A href="about_chmod.txt">about_chmod.txt</A>
+BEFORE YOU CONTINUE WITH THE INSTALLATION.
+</p>
+
+<h2>2. Installing DCForum+</h2>
+<p><STRONG>IMPORTANT NOTE</STRONG>: PLEASE MAKE 
+SURE YOU USE <STRONG>ASCII MODE</STRONG>
+        
+ FOR UPLOADING SCRIPTS FILES (EXCEPT IMAGE FILES, USE BINARY MODE)
+</p>
+<P>There are more than one way to setup DCForum+ system. The following setup 
+what we recommend. </P>
+<pre>   
+    /htdocs directory  (Your top HTML directory accessible  by your domain URL) 
+       |----/dc (This directory would be accessible via http://www.yourdomain.com/dc)
+             |--- index.html           
+             |---/admin_lib (directory)
+                     |----index.html
+             |---/include (directory)
+                     |----index.html   
+             |---/lib (directory)              
+                     |----index.html 
+             |---/jscss (directory)              
+                     |----index.html 
+             |---/cal (directory)              
+                     |----index.html 
+             |---lang (directory)
+                     |--- english,german,french
+                              |--- lib  (directory)
+                              |--- cal (directory)
+                              |--- include (directory)
+             |---/templates (directory)
+                     |----index.html
+             |---/temp_files (777 - directory)
+                     |----index.html
+             |---/user_files (777 - directory)
+                     |----index.html
+             |---/docs (directory)
+             |---/images (directory)
+                      |----index.html (to hide the directory) 
+                      |---- gif files 
+                      |---/avatars (directory)
+                              |--- gif and jpg files              
+</pre>
+
+                                 
+<STRONG>Installation Steps</STRONG>
+<p>
+Change directory to your root html directory. By root html directory we mean the 
+directory corresponding to your home site URL.
+<OL>
+   <li>            
+   Create a subdirectory called "dc".
+
+   <li>  Set your FTP program to transfer files  in BINARY model.
+
+   <li> Create a subdirectory called "images" in the "dc" directory.
+
+   <li> Change directory to "images".  Create a directory named "avatars"
+
+   <li> Upload /images/*.gif files to /images directory.      
+               
+   <li> Change directory to "/images/avatars".
+   
+   <li> Upload /images/avatars/*.gif files to /images/avatars 
+  directory    
+   
+   <li> Change directory to "dc" directory    
+   
+   <li> Set your FTP program to transfer files 
+  in ASCII mode    
+   
+   <li> Create a subdirectory called "admin_lib" in 
+  the "dc" directory     
+   
+   <li> Change directory to "admin_lib" directory    
+   
+   <li> Upload files in your local /admin_lib directory 
+  to this directory    
+   
+   <li> Repeat steps 10 - 13 for "cal", "include", 
+  "lib", "jscss", "docs",  and "templates" directory.  
+
+   <li> Change directory to "dc" directory.
+
+   <li> Create a subdirectory named "lang". 
+
+   <li> Change directory to "lang" directory.  Upload all contents of
+        lang directory to this directory.  Be sure to preserve
+        its directory structure        
+   
+   <li> Change directory to "dc" directory    
+   
+   <li> Create a subdirectory called "user_files" and "temp_files"&nbsp;in 
+  the "dc" directory.  Chmod this directory to 777.     
+   
+   <li> Upload following files to "dc" directory: dcboard.php, 
+  dcadmin.php, readme.html  and index.html.</li></OL>       
+           
+   
+   <p> NOTE - Please note that you may also drag-and-drop "dc" 
+directory from your local PC to the server's root directory so long as you setup 
+your FTP program to automatically recognize .php, .inc, .html file extension as ASCII text files and 
+  .gif and .jpg as image files.</p>
+
+
+<h2> 3. Creating a backup directory</h2>
+<p>DCForum+ allows you to make a backup of your entire database using 
+mysqldmp function.  In order to perform this action, however, there are two thing things that you
+must consider.</p>
+
+<p><strong>NOTE:</strong> Creating a backup directory can wait until you finish your installation.
+You may elect to get the forum running before you revisit this issue.</p>
+
+<p>1. In order for the browser to create a backup and save it to
+a location on your server, we need to create a backup directory so that
+the browser has the permission to write a flie in that directory.  In a nutshell,
+this means that the backup 
+directory must be set to 777 permission</p>
+
+
+<p>2. A more important requirement for this backup directory 
+is that the contents of this directory must not be accessible via the 
+browser.  Therefore, you must create this backup directory above your root 
+HTML directory that your hosting company has setup for you.  For example, 
+they may have a directory named "data" or "cgi-out" where it is not accessible using the browser.</p>
+
+
+<p>You may also place this backup directory below your 
+cgi-bin directory if this directory is set to execute scripts only.  If you are not sure, do a
+simple test.  Place a simple html file in your cgi-bin directory and try to 
+view this file.  If setup correctly, you should get an internal server 
+error.  On the other hand, if you can view this html file, then you 
+cannot create a backup directory in your cgi-bin directory. </p>
+
+<p>Once you determine where where to create this backup 
+directory, create the directory and set this directory to 777.</p>
+
+
+<h2>4. Edit dcsetup.php</h2>
+<p>
+   This file contains parameters that DCForum+ requires to run.  You won't
+   need to edit most of them.  Just to get it started, you'll only need 
+   to define the following variables in dcsetup.php  
+</p>
+<p>   Database paramters - Ask your ISP 
+what these values are<BR>   
+-------------------------------<BR>&nbsp;&nbsp;&nbsp;DB_HOST&nbsp; 
+-&nbsp;Typically&nbsp;"localhost" since most MySQL servers are on the same 
+server as&nbsp;web server<BR>&nbsp;&nbsp; DB_NAME&nbsp; - 
+database&nbsp;name<BR>&nbsp;&nbsp; DB_USERNAME - database 
+username<BR>
+              
+                  
+     &nbsp;&nbsp; DB_PASSWORD - database password  
+</p>
+<p>   Forum parameters<BR>   
+--------------------------------<BR>&nbsp;&nbsp; ROOT_URL -&nbsp;This is the URL 
+to /dc&nbsp;directory...for example, http://www.yourdomain.com/dc
+<BR>&nbsp;&nbsp; COOKIE_DOMAIN -&nbsp;This should be .yourdomain.com
+<BR>&nbsp;&nbsp; BACKUP_DIR - Location where backup file will be saved.  This can wait until your forum is installed.
+</p>
+
+<p>Import parameters - Following directories must be FULL PATHS <br >
+--------------------------------<BR>
+&nbsp;&nbsp; OLD_USER_INFO - Directory path to User_info direcoty
+<BR>&nbsp;&nbsp; OLD_MAIN_DIR - Directory path to 
+$maindir from the old forum<BR>&nbsp;&nbsp; OLD_PRIVATE_DIR 
+- Directory path to $private_forums from the         old forum&nbsp;
+</p>
+
+
+
+<p>
+   Open dcsetup.php file in your text editor and define these variables.
+     Once you're done, upload dcsetup.php to your /dc directory.
+</p>
+
+
+<h2>   5. Start dcadmin.php.</h2>
+
+<p>
+     Start dcadmin.php by opening this page using your  browser. The URL should
+   be something like,
+</p>
+<P>http://www.yourdomain.com/dc/dcadmin.php </P>
+   
+<p>
+   The
+   firsttime you run this program, it will ask you to read the
+   DCForum+ End-User Licensing Agreement.  Click ok to continue with installation.
+</p>
+
+<p>
+   Follow the instruction as provided until you have registered and
+   login page appears.  Proceed with login and this will bring you to 
+   the main page of the forum.  Look for the "admin"
+   menu icon.  Clicking on this icon will bring up the administrator's
+   program.
+</p>
+   
+<p>
+   If you get any errors during above steps, please go back and check 
+   to make sure that all path variables and permissions are set correctly.  
+   Also, check and make sure that you didn't use BINARY mode when you
+   transfer the files.  If you're still stuck, use our support forum at 
+</p>
+
+<A href="http://www.dcscripts.com/dc/dcboard.php">http://www.dcscripts.com/dc/dcboard.php</A>
+   
+
+<p>
+   Or email us at support@dcscripts.com.
+</p>   
+
+<h2>6. Import old data</h2>
+
+<p><STRONG>NOTE - Please make sure that&nbsp;no 
+two&nbsp;forums have the same forum name. If any two or more forums have same 
+forum name, please rename the forums before you perform this upgrade.&nbsp; 
+Failure to make this change can cause errors</STRONG>                                             </p>
+<p>NOTE - DCForum+ automatically creates two user accounts: 
+root and guest 
+<p><STRONG>Before you import DCForum 6.23 data, please 
+prune forum log and ip log files using the DCForum 6.23 utility.</STRONG>          
+<p>
+If you are logged in as root, you should have access to the administration utility.  Once of the menu items in this utility will allow you to import your old forum data.  To do so, perform following task in <strong>exact order</strong>:
+<ol>
+<li> <strong>Import user accounts from DCF 6.2x</strong> - This option imports user data. <STRONG>If the browser 
+  appears to stop beforeall user database is imported, you may rerun this 
+  function until all user records are imported.</STRONG>           
+               
+       <BR>           
+               
+      
+  <UL></UL>
+<li> <strong>Import misc user files from DCF 6.2x</strong> - Imports user rating file <BR>     
+<li> <strong>Import forum data and messages from DCF 6.2x</strong> - Imports forum data from forum_info.txt and 
+  each forums.&nbsp; This utility will import 100 topics at a time to avoid CGI 
+  timeout.&nbsp; If you still experience CGI time out, 
+  modify<BR><BR>$num_topics<BR><BR>variable in 
+  upgrade_manager_import_forum_mesg.php so that 
+  you reduce the CGI processing time.<BR>                 
+<li> <strong>Import forum log data</strong> - Imports forum log data</li>     
+</ol>
+<P></P>
+<P>Once you've imported all the forum data, browse your new forum and see if 
+everything seems normal before you proceed to the next step.&nbsp; Specifically 
+check and compare topics in the new forum to the old DCF 6.23 forum.</P>
+
+<h2>   7. Post-installation steps</h2>
+
+<p>If you did not receive any errors thus far, then you are all set with DCForum+ installation.
+Now, go ahead and login as the administrator.
+You should not have access to the forum administration utilities.
+Please refer to the <A href="admin.html">administrator user's guide</A> for post-installation setup
+and configuration.
+</p>
+  
+<hr>
+© 1997-2005 DCScripts.com - All rights reserved<BR>DCScripts is&nbsp;a DC 
+Business Solutions company
+</body>
+</html>

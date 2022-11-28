@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>DCForum+ Installation Guide</title>
+<link rel="stylesheet" type="text/css" href="docs.css">
+</head>
+
+<body>
+<h2>
+DCForum+ Upgrade Guide<BR>
+   Upgrading from DCForum+ 1.1x</h2>
+
+<P>  DCForum+ Version 1.27<BR>
+  © 
+  
+  1997-2005, DCScripts<BR>
+  Release Date 
+1-29-2005</P>
+
+<P>This is an upgrade documentation for owners of DCForum+ 1.1x only. If you
+  are 
+upgrading from a previous version of DCForum, please use appropriate documenation.</P>
+
+<p>NOTE: Please note that DCF+ 1.27 uses new css files (now in /dc/jscss directory).
+The old dc.css is now main.css.  You must cut and paste dc.css content to the new main.css
+in order for your forum to retain current look.</p>
+
+
+<H2>YOU MUST FOLLOW THE DIRECTION EXACTLY AS DESCRIBED IN 
+THE FOLLOWING INSTALLATION PROCEDURE! DO NOT SKIP A STEP. </H2>
+
+<h2>Upgrading from DCForum+ 1.1x</h2>
+
+<ol>
+<li>Login to existing forum as root</li>
+<li>Shutdown the forum.</li>
+<li>Return to the main administration page by clicking on "admin main".
+Keep your browser on this page as we need to
+    continue installation process using dcadmin</li>
+<li>Edit dcsetup.php - Edit this configuration file as described in 
+Section 4 ("Edit dcsetup.php") of the New installation guide. Upload 
+this new configuration file to your /dc directory. 
+</li>
+
+
+
+<li>Replace the following directories and files with the new release versions:
+
+<ul><li> dcboard.php</li>
+<li> dcadmin.php</li>
+<li>upgrade_125_127.php</li>
+<li> All files in cal directory</li>
+<li> All files in lib directory</li>
+<li> All files admin_lib directory</li>
+<li> All files in include directory</li>
+<li> All files in docs directory
+
+</li></ul>
+<br />
+</li>
+
+<li> 
+Upload /dc/templates/message_style_*.php to your /dc/templates directory on your server.
+</li>
+
+<li> 
+In your dc directory, create a directory called "jscss". Upload all 
+     the files in jscss directory of the distribution package and upload to this 
+     directory. Be sure to use ASCII mode when you transfer this file.
+</li>
+
+<li>
+In your DCForum+ server on the server (dc), create a directory called "lang".
+Upload lang directory and all its content to your DCForum+ directory
+on your server.  Be sure to reserve its directory structure.
+
+<pre>
+dc  (your DCForum+ directory on the server)
+  |---lang
+         |--- english
+                |--- lib
+                      |--- .php files
+                |--- cal
+                      |--- .php files
+                |--- include
+                      |--- .php files
+
+</pre>
+This new directory contains the language modules.  If you wish to add additional language modules, please refer to documentation on how to add language modules.
+</li>
+
+<li>
+Run upgrade_125_127.php.  The URL should be yourdomain.com/dc/upgrade_125_127.php.
+</li>
+
+<li>
+Goto main administration page.
+</li>
+<li>
+Run "Update setup table" in General administration function.  On the following page, click on "Click here to update" to finish updating your setup table.
+ This will update setup table to include lanuage option</li>
+<li>
+Goto main administration page.
+</li>
+
+<li>
+Run "DCForum+ 1.1x to DCForum+ 1.2 update" option in "Uprade various components" section.
+</li>
+
+<li>
+Run "DCForum+ 1.2 to DCForum+ 1.22 update" option in "Uprade various components" section.
+</li>
+
+<li>
+Start the forum.
+</li>
+
+</ol>
+
+That's all folks!!!
+
+<hr>
+© 1997-2005 DCScripts.com - All rights reserved<BR>DCScripts is&nbsp;a DC 
+Business Solutions company
+</body>
+</html>

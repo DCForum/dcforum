@@ -1,3 +1,16 @@
+##### intellectual property rights notice  
+I've created this repository for a few reasons:  
+1. Persevere original DCForum+.
+2. Bring the project to basic current day PHP support (8.x). (not intended for production!)
+3. Eventually a complete rewrite of the project based on [Laravel](https://laravel.com).
+
+I was active on several DCForum based boards during the early 2000's,    
+And it is very nostalgic to me, I wish to bring it back to life,  
+I have no commercial plans for the outcome of this project.  
+DCFroum was a commercial project but in its last stages was released under GPL license.
+I maid several attempts to find the original owner of the right (DC Scripts), But I did have much success.  
+If you have claims to any of the rights related to this project (code, artwork, trademarks, etc.)   
+Please create a [github issue](https://github.com/DCForum/dcforum/issues/new) with your claim and I will address it ASAP. 
 
 #### --- Original readme file converted to markdown ---
 

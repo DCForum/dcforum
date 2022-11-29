@@ -24,8 +24,7 @@ function dc_close_all() {
 // function dc_get_obj_id
 // return object id of the event item
 function dc_get_obj_id(evt) {
-   var object_id = (evt.target) ? evt.target.id : ((evt.srcElement) ? evt.srcElement.id : null);
-   return object_id;
+   return (evt.target) ? evt.target.id : ((evt.srcElement) ? evt.srcElement.id : null);
 }
 
 function dc_toggle_menu(evt,objectID) {

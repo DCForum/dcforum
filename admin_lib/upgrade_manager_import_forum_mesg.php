@@ -343,17 +343,17 @@ function import_topic($user_id,$ip_list,$topic_id) {
             $last_edit_timestamp = '';
 
             // First pull off updated_body
-            preg_match('/^(\[updated:([^\]]|\n).*?\])/',$body,$updated_body);
+            preg_match('/^(\[updated:([^]]|\n).*?])/',$body,$updated_body);
 
             // print "$updated_body[0]<br />";
 
             // Pull off UPDATE text and save it to $last_edit
-            preg_match('/\[updated:LAST EDITED ON (([^\]\|]|\n).*)\]/',$updated_body['0'],$last_edit);
+            preg_match('/\[updated:LAST EDITED ON (([^]|]|\n).*)]/',$updated_body['0'],$last_edit);
 
             // print "$last_edit[1]<br />";
               
             // Ok, match dates and stuff
-            preg_match('/([^-].*)-([^-].*)-([^-].*)\sAT\s([^:].*):([^\&].*)&nbsp;([^\s\(].*)\s([^\s].*)/',$last_edit['1'],$dates);
+            preg_match('/([^-].*)-([^-].*)-([^-].*)\sAT\s([^:].*):([^&].*)&nbsp;([^\s(].*)\s(\S.*)/',$last_edit['1'],$dates);
 
             $month = $month_array[$dates['1']];
             $day = $dates['2'];
@@ -369,11 +369,11 @@ function import_topic($user_id,$ip_list,$topic_id) {
 
 
             // Now pull off author
-            preg_match('/([^-].*)-([^-].*)-([^-].*)\sAT\s([^:].*):([^\&].*)&nbsp;([^\s\(].*)\s([^\s].*)\sby\s([^\(].*)\s(.*)/',$last_edit['1'],$dates);
+            preg_match('/([^-].*)-([^-].*)-([^-].*)\sAT\s([^:].*):([^&].*)&nbsp;([^\s(].*)\s(\S.*)\sby\s([^(].*)\s(.*)/',$last_edit['1'],$dates);
             $edit_author = db_escape_string($dates['8']);
 
             // Delete [updated]
-            $body = preg_replace('/(\[updated:([^\]\|]|\n).*\])/','',$body);
+            $body = preg_replace('/(\[updated:([^]|]|\n).*])/','',$body);
             $body = preg_replace("/\r/","",$body);
 
             $body = db_escape_string($body);

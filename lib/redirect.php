@@ -27,18 +27,18 @@
 // 	$Id: redirect.php,v 1.1 2003/04/14 09:33:56 david Exp $	
 //
 //////////////////////////////////////////////////////////////////////////
-function redirect() {
+function redirect()
+{
 
-   global $in;
+    global $in;
 
-   print_head('Redirecting to another page...');
+    print_head('Redirecting to another page...');
 
-   include_top();
+    include_top();
 
-   print "<p>$in[redirect_message]</p>';
-   
-   include_bottom();
-   print_tail();
+    print "<p>" . $in['redirect_message'] . "</p>";
+
+    include_bottom();
+    print_tail();
 
 }
-?>

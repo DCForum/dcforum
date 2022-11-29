@@ -122,9 +122,9 @@ function new_mesg_rss() {
                                 wordwrap(
                                    substr($row['message'],0,SETUP_CAPTION_LENGTH), 20, " ",1));
 
-                  $caption = preg_replace('/\[([^]]+)\]/','',$caption);
-                  $caption = preg_replace("/\&l;/","[",$caption);
-                  $caption = preg_replace("/\&r;/","]",$caption);
+                  $caption = preg_replace('/\[([^]]+)]/','',$caption);
+                  $caption = preg_replace("/&l;/","[",$caption);
+                  $caption = preg_replace("/&r;/","]",$caption);
 
                }
 

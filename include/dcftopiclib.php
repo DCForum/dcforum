@@ -506,8 +506,8 @@ function format_message($message, $format)
       case 0;
          $message = myhtmlspecialchars($message);
 
-         $message = preg_replace("/\&l;/", "[", $message);
-         $message = preg_replace("/\&r;/", "]", $message);
+         $message = preg_replace("/&l;/", "[", $message);
+         $message = preg_replace("/&r;/", "]", $message);
          break;
 
       // Plain text
@@ -558,7 +558,7 @@ function emotion_icon_list()
       $emotion_icon_array[] = $key;
    }
    $emotion_icon_list = implode('|', $emotion_icon_array);
-   $emotion_icon_list = preg_replace("/([\(\)\*\+\-\&\;])/", "\ $1", $emotion_icon_list);
+   $emotion_icon_list = preg_replace("/([()*+\-&;])/", "\ $1", $emotion_icon_list);
    $emotion_icon_list = preg_replace("/\s+/", "", $emotion_icon_list);
 
    return $emotion_icon_list;

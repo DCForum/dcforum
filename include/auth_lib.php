@@ -711,7 +711,7 @@ function random_text()
     $rand = mt_rand(1000, 9999);
     $rand = my_crypt($rand, substr($rand, 1, 2));
     // Strip off confusing symbols
-    preg_replace('/[\W]/gi', '', $rand);
+    preg_replace('/\W/gi', '', $rand);
     return substr($rand, 0, 7);
 }
 

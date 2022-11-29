@@ -200,7 +200,7 @@ function display_whos_online()
         }
         // $dup_entry++;
 
-        if (isset($row['pc']) and preg_match('{http:\/\/}', $row['pc'])) {
+        if (isset($row['pc']) and preg_match('{http://}', $row['pc'])) {
             $avatar = "<img src=\"" . $row['pc'] . "\" alt=\"\" /> <br />";
         } else if (isset($row['pc'])) {
             $avatar = "<img src=\"" . AVATAR_URL . "/" . $row['pc'] . "\" alt=\"\" /> <br />";

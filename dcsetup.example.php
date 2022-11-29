@@ -91,7 +91,7 @@ const OLD_MAIN_DIR = "old maindir directory";
 const OLD_PRIVATE_DIR = "old private forums directory";
 
 // DCForum+ Version variable
-const DCFV = "DCForum+ Version 1.27";
+const DCFV = "DCForum+ Version 1.27.1-php8.1";
 
 
 // DCForum+ Version variable

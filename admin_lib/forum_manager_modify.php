@@ -143,7 +143,7 @@ function forum_manager_modify() {
       // In order to use it in form, we strip off keys
       $this_forum_moderators = array();
      foreach($this_forum_moderators_hash as $key => $val) {
-         array_push($this_forum_moderators,$key);
+         $this_forum_moderators[] = $key;
       }
 
       // Get forum types
@@ -207,7 +207,7 @@ function forum_manager_modify() {
          }
  
          if ($required)
-            array_push($required_fields,$key);
+             $required_fields[] = $key;
 
       }
 

@@ -55,7 +55,7 @@ function list_users() {
       return;
    }
    while($row = db_fetch_array($result)) {
-      array_push($is_subscribed,"'$row[u_id]'");
+       $is_subscribed[] = "'$row[u_id]'";
    }
    db_free($result);   
 

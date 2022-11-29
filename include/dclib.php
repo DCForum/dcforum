@@ -55,7 +55,7 @@ function zip_cookie($arr)
     $outarr = [];
     foreach ($arr as $key => $value) {
         $kvpair = implode('=', [$key, $value]);
-        array_push($outarr, $kvpair);
+        $outarr[] = $kvpair;
     }
     return base64_encode(implode('&', $outarr));
 }
@@ -264,7 +264,7 @@ function dc_zip_param($in_array)
     $temp_array = [];
     foreach ($in_array as $key => $value) {
         if ($value)
-            array_push($temp_array, "$key#$value");
+            $temp_array[] = "$key#$value";
     }
     $out_str = implode('^', $temp_array);
     return $out_str;

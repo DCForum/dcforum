@@ -276,7 +276,7 @@ function reconcile_private_forum_list() {
           WHERE forum_id = '$this_forum' ";
       $result = db_query($q);
       while($row = db_fetch_array($result)) {
-         array_push($user_array,$row['u_id']);
+          $user_array[] = $row['u_id'];
       }
       db_free($result);
 
@@ -330,7 +330,7 @@ function add_users_to_private_forums($this_forum,$user_array) {
      foreach($parents as $id => $val) {
          $type = $parents[$id]['type'];
          if ($type == 40)
-            array_push($forums,$id);
+             $forums[] = $id;
       }
       
       foreach ($forums as $forum) {

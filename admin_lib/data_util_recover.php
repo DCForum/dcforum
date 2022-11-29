@@ -221,7 +221,7 @@ function get_file_list($dir,$f_ext) {
          $name = substr($file,0,strrpos($file, '.'));
 	 if ($ext == ".$f_ext") {
             $name = substr($name,0,strrpos($name, '.'));
-            array_push($file_list,$name);
+         $file_list[] = $name;
 	 }
       }
       closedir($dir_stream);

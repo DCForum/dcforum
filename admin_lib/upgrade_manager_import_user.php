@@ -178,9 +178,9 @@ function upgrade_manager_import_user() {
 
                   if (isset($profile_array[$key])) {
                      $val = $profile_array[$key];
-                     array_push($key_arr,$key);
+                      $key_arr[] = $key;
 //                     $val = db_escape_string($val);
-                     array_push($val_arr,"'$val'");
+                      $val_arr[] = "'$val'";
                   }
                }
 

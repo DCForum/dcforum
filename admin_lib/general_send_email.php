@@ -67,7 +67,7 @@ function general_send_email() {
          $email_array = get_user_emails($in['who']);
       }
       else {
-         array_push($error,"You must select a recipient");
+          $error[] = "You must select a recipient";
       }
 
       // check for empty fields
@@ -75,10 +75,10 @@ function general_send_email() {
       $in['message'] = trim($in['message']);
 
       if ($in['subject'] == '') {
-         array_push($error,"Subject cannot be blank");
+          $error[] = "Subject cannot be blank";
       }
       if ($in['message'] == '') {
-         array_push($error,"Message cannot be blank");
+          $error[] = "Message cannot be blank";
       }
 
       if ($error) {
@@ -211,7 +211,7 @@ function get_user_emails($g_array = '') {
 
    if (is_array($g_array)) {
       foreach ($g_array as $g_id) {
-         array_push($temp_array,"'$g_id'");
+          $temp_array[] = "'$g_id'";
       }
       $g_id_list = implode(", ",$temp_array);
       $q .= " WHERE g_id IN ($g_id_list) ";
@@ -220,7 +220,7 @@ function get_user_emails($g_array = '') {
    $result = db_query($q);
 
    while($row = db_fetch_array($result)) {
-      array_push($email_array,$row['email']);
+       $email_array[] = $row['email'];
    }
 
    db_free($result);

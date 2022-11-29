@@ -1133,7 +1133,7 @@ function get_replies($mesg_table,$top_id) {
             $row['reply_id'] = $j;
             $row['parent_reply_id'] = $parent_reply_id[$row['parent_id']] == ''
                                       ? 0 : $parent_reply_id[$row['parent_id']];
-            array_push($rows,$row);
+             $rows[] = $row;
             $parent_reply_id[$row['id']] = $row['reply_id'];
             $j++;
          }
@@ -1160,7 +1160,7 @@ function thread_replies(&$sorted_list,$unsorted_list,$parent_id) {
   foreach($unsorted_list as $key => $row) {
       if ($row['parent_id'] == $parent_id) {
 	$row['level'] = $level;
-         array_push($sorted_list,$row);
+          $sorted_list[] = $row;
          thread_replies($sorted_list,$unsorted_list,$key);
       }
     }
@@ -1224,7 +1224,7 @@ function get_forums($parent_id) {
        $row = $in['forum_list'][$this_row_id];
        if ($this_level == $parent_level + 1) {
             $row['num_folders']= get_child($sorted_forum_list,$in['forum_list'],$this_row_id,$this_level);
-            array_push($rows,$row);
+           $rows[] = $row;
        }
        elseif ($this_level == $parent_level) {
 	   $ok_forum = 0;
@@ -1674,7 +1674,7 @@ function move_topic($from_forum_id,$to_forum_id,$topic_id) {
 
       if (db_num_rows($result) > 0) {
          while($row = db_fetch_array($result)) {
-            array_push($rows,$row['id']);
+             $rows[] = $row['id'];
             // check children replies
             get_children_ids($from_table,$row['id'],$rows);
          }
@@ -1732,7 +1732,7 @@ function get_children_ids($mesg_table,$parent_id,&$rows) {
 
    if (db_num_rows($result) > 0) {
          while($row = db_fetch_array($result)) {
-            array_push($rows,$row['id']);
+             $rows[] = $row['id'];
             // check children replies
             get_children_ids($mesg_table,$row['id'],$rows);
          }
@@ -2083,7 +2083,7 @@ function get_child_branch($parent_id,&$parent_form_fields) {
    $result = db_query($q);
 
    while($row = db_fetch_array($result)) {
-         array_push($parent_form_fields,$row['id']);
+       $parent_form_fields[] = $row['id'];
          get_child_branch($row['id'],$parent_form_fields);
    }
 
@@ -2245,8 +2245,8 @@ function send_subscription() {
       if (! isset($user_list[$row['email']]))
          $user_list[$row['email']] = array();
 
-      array_push($forum_list[$row['forum_id']],$row['email']);
-      array_push($user_list[$row['email']],$row['forum_id']);
+       $forum_list[$row['forum_id']][] = $row['email'];
+       $user_list[$row['email']][] = $row['forum_id'];
    }
    db_free($result);
 
@@ -2394,9 +2394,9 @@ function sort_forum_list($forum_list) {
       // If so, go get child folders
       if ($val['parent_id'] == 0 and $val['status'] == 'on') {
 	// Ok, we have a parent forum...add it to the array
-         array_push($sorted_forum_list,array($key,$level));
+          $sorted_forum_list[] = [$key, $level];
 
-         // get children forums
+          // get children forums
          $count_child = get_child($sorted_forum_list,$forum_list,$key,$level);
 
          // if the number of accessible folders are 0,
@@ -2431,8 +2431,8 @@ function get_child(&$sorted_forum_list,$forum_list,$parent_id,&$level) {
 	 $count_child++;
 
          // add this child to the sorted forum list
-         array_push($sorted_forum_list,array($key,$level));
-         $this_num = get_child($sorted_forum_list,$forum_list,$key,$level);
+         $sorted_forum_list[] = [$key, $level];
+          $this_num = get_child($sorted_forum_list,$forum_list,$key,$level);
 
          if ($this_num < 1 and $val['type'] == 99) {
 	    array_pop($sorted_forum_list);

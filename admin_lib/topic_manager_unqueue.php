@@ -312,7 +312,7 @@ function send_topic_subscription($forum_id,$topic_id,$mesg_id,$u_id) {
    if ($num_rows > 0) {
 
       while($row = db_fetch_array($result)) {
-         array_push($bcc_arr,$row['email']);
+          $bcc_arr[] = $row['email'];
       }
 
       // At this point, Bcc list is at least 1

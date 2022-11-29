@@ -414,25 +414,25 @@ END;
 
    // create left and right message links
    if (SETUP_AUTH_ALERT == 'yes')
-      array_push($left_links_array,"<a href=\"" . DCF . 
-         "?az=alert&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\">" . $in['lang']['alert'] . "</a> ");
+       $left_links_array[] = "<a href=\"" . DCF .
+           "?az=alert&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\">" . $in['lang']['alert'] . "</a> ";
 
    if (SETUP_DISPLAY_IP_ADDRESS == 'yes' or
-       is_forum_moderator()) 
-      array_push($left_links_array,"<a href=\"" . DCF . 
-      "?az=view_ip&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\">" . $in['lang']['ip'] . "</a> ");
+       is_forum_moderator())
+       $left_links_array[] = "<a href=\"" . DCF .
+           "?az=view_ip&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\">" . $in['lang']['ip'] . "</a> ";
 
 
 	 // mod.2003.03.14.01
    if ($row['top_id'] and is_forum_moderator()) {
-      array_push($left_links_array, "<a href=\"" . DCF . 
-         "?az=set_topic&saz=delete_message&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\" 
-          onclick=\"return confirm('" .$in['lang']['delete_confirm'] . "')\">" . $in['lang']['delete'] . "</a>\n");
+       $left_links_array[] = "<a href=\"" . DCF .
+           "?az=set_topic&saz=delete_message&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\" 
+          onclick=\"return confirm('" . $in['lang']['delete_confirm'] . "')\">" . $in['lang']['delete'] . "</a>\n";
 
-      array_push($left_links_array, "<a href=\"" . DCF . 
-         "?az=make_topic&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\" 
-          onclick=\"return confirm('" .$in['lang']['move_subthread_confirm'] . "')\">" . 
-          $in['lang']['move_subthread'] . "</a>\n");
+       $left_links_array[] = "<a href=\"" . DCF .
+           "?az=make_topic&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\" 
+          onclick=\"return confirm('" . $in['lang']['move_subthread_confirm'] . "')\">" .
+           $in['lang']['move_subthread'] . "</a>\n";
    }
 
    $left_links = implode(" | ",$left_links_array);
@@ -563,7 +563,7 @@ function emotion_icon_list() {
    include(INCLUDE_DIR . "/form_info.php");
    $emotion_icon_array = array();
   foreach($emotion_icons as $key => $val) {
-      array_push($emotion_icon_array,$key);
+      $emotion_icon_array[] = $key;
    }
    $emotion_icon_list = implode('|',$emotion_icon_array);
    $emotion_icon_list = preg_replace("/([\(\)\*\+\-\&\;])/","\ $1",$emotion_icon_list);
@@ -660,10 +660,10 @@ function topic_page_links($num_messages,$top_id,$current_page) {
 
       for ($j=1; $j <= $pages; $j++) {
          if ($j == $current_page) {
-             array_push($page_links_array,"$j");
+             $page_links_array[] = "$j";
          }
          else {
-             array_push($page_links_array,"<a href=\"$q_str&topic_page=$j\">$j</a>");
+             $page_links_array[] = "<a href=\"$q_str&topic_page=$j\">$j</a>";
          }
       }
 
@@ -2811,8 +2811,8 @@ function display_forum($row,$css_class,$col_span) {
 // user_id bug
    if ($moderators) {
      foreach($moderators as $key => $val) {
-            array_push($temp_array,"<a 
-               href=\"" . DCF . "?az=user_profiles&u_id=$key\">$val</a>");
+         $temp_array[] = "<a 
+               href=\"" . DCF . "?az=user_profiles&u_id=$key\">$val</a>";
       }
       $moderator_link = implode(", ",$temp_array);
       $moderator_link = "<br />" . $in['lang']['moderators'] . ": $moderator_link";

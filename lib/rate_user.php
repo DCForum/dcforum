@@ -73,15 +73,15 @@ function rate_user() {
       $error = array();
 
       if (! is_numeric($in['rating'])) {
-	 array_push($error,$in['lang']['e_invalid_score']);
+          $error[] = $in['lang']['e_invalid_score'];
       }
 
       if (! ($in['rating'] == 0 or $in['rating'] == 1 or $in['rating'] == -1)) {
-	 array_push($error,$in['lang']['e_invalid_score_1']);
+          $error[] = $in['lang']['e_invalid_score_1'];
       }
 
       if (! is_numeric($in['u_id'])) {
-         array_push($error,$in['lang']['e_invalid_user_id']);
+          $error[] = $in['lang']['e_invalid_user_id'];
       }
 
       if ($error) {

@@ -110,7 +110,7 @@ function mark() {
    reset($current_time_marks);
    $cookie_thing = array();
   foreach($current_time_marks as $forum => $marker) {
-      array_push($cookie_thing,"$forum#$marker");
+      $cookie_thing[] = "$forum#$marker";
    }
 
    // Update the session table
@@ -148,7 +148,7 @@ function get_forum_list($forum_id = '') {
                 FROM " . DB_FORUM;
       $result = db_query($q);
       while($row = db_fetch_array($result)) {
-         array_push($forum_list, $row['id']);
+          $forum_list[] = $row['id'];
       }
       db_free($result);
    }
@@ -178,7 +178,7 @@ function get_forum_branch($parent_id) {
     $result = db_query($q);
 
     while($row = db_fetch_array($result)) {
-            array_push($forum_branch,$row['id']);
+        $forum_branch[] = $row['id'];
             get_child_branch($row['id'],$forum_branch);
     }
     db_free($result);

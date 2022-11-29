@@ -167,26 +167,26 @@ function change_account_info() {
       $error = array();
 
       if ($in['name'] == '') {
-         array_push($error,$in['lang']['name_blank']);
+          $error[] = $in['lang']['name_blank'];
       }
       elseif (! is_alphanumericplus($in['name'])) {
-         array_push($error,$in['lang']['name_invalid']);
+          $error[] = $in['lang']['name_invalid'];
       }
 
 
       // Check email syntax
       if ($in['email'] == '') {
-            array_push($error,$in['lang']['email_blank']);
+          $error[] = $in['lang']['email_blank'];
       }
       elseif (! check_email($in['email'])) {
-            array_push($error,$in['lang']['email_invalid']);
+          $error[] = $in['lang']['email_invalid'];
       }
       else {
          // Email is valid but is it used by another user?
          $owner = check_dup_email($in['email']);
          if ($owner and $owner != $in['user_info']['username']) {
-            array_push($error,$in['lang']['dup_email_1'] 
-                        . ": $owner " . $in['lang']['dup_email_2']);
+             $error[] = $in['lang']['dup_email_1']
+                 . ": $owner " . $in['lang']['dup_email_2'];
          }
       }
 
@@ -308,10 +308,10 @@ function change_password() {
       $error = array();
 
       if ($in['new_password'] == '') {
-         array_push($error,$in['lang']['new_password_blank']);
+          $error[] = $in['lang']['new_password_blank'];
       }
       if ($in['new_password_2'] == '') {
-         array_push($error,$in['lang']['new_password_blank']);
+          $error[] = $in['lang']['new_password_blank'];
       }
 
       // First check current password
@@ -324,11 +324,11 @@ function change_password() {
       db_free($result);
 
       if (my_crypt($in['current_password'],$row['password']) != $row['password']) {
-         array_push($error,$in['lang']['current_password_incorrect']);
+          $error[] = $in['lang']['current_password_incorrect'];
       }
 
       if ($in['new_password'] != $in['new_password_2']) {
-         array_push($error,$in['lang']['two_passwords_different']);
+          $error[] = $in['lang']['two_passwords_different'];
       }
       
 
@@ -1369,16 +1369,16 @@ function send_mesg() {
 
    // Put input checks
    if (! is_numeric($in['u_id']))
-      array_push($error,$in['lang']['invalid_user_id']);
+       $error[] = $in['lang']['invalid_user_id'];
 
    if ($in['u_id'] == $in['user_info']['id'])
-     array_push($error,$in['lang']['you_are_trying']);
+       $error[] = $in['lang']['you_are_trying'];
 
    // Get recipient information
    $to_user_info = get_user_info($in['u_id']);
 
    if ($to_user_info['username'] == '')
-     array_push($error,$in['lang']['no_such_user']);
+       $error[] = $in['lang']['no_such_user'];
 
    if ($error) {
       print_error_page($in['lang']['send_mesg_error'],$error);
@@ -1393,12 +1393,12 @@ function send_mesg() {
       $in['subject'] = trim($in['subject']);
 
       if ($in['subject'] == '')
-	array_push($error,$in['lang']['empty_subject']);
+          $error[] = $in['lang']['empty_subject'];
 
       $in['message'] = trim($in['message']);
 
       if ($in['message'] == '')
-	array_push($error,$in['lang']['empty_message']);
+          $error[] = $in['lang']['empty_message'];
 
       if ($error) {
          print_error_mesg($in['lang']['send_mesg_error'],$error);

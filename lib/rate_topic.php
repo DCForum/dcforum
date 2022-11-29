@@ -63,10 +63,10 @@ function rate_topic() {
    $error = array();
 
    if (! is_numeric($score)) {
-     array_push($error,$in['lang']['e_invalid_score']);
+       $error[] = $in['lang']['e_invalid_score'];
    }
    if ($score < 1 or $score > 5) {
-     array_push($error,$in['lang']['e_invalid_score_1']);
+       $error[] = $in['lang']['e_invalid_score_1'];
    }
 
 
@@ -93,7 +93,7 @@ function rate_topic() {
    db_free($result);
 
    if ($num_rows > 0) {
-     array_push($error,$in['lang']['e_invalid_user_id']);
+       $error[] = $in['lang']['e_invalid_user_id'];
    }
 
    if ($error) {

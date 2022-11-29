@@ -46,16 +46,16 @@ function send_email() {
 
    // Put input checks
    if (! is_numeric($in['u_id']))
-     array_push($error,$in['lang']['invalid_user_id']);
+       $error[] = $in['lang']['invalid_user_id'];
 
    if ($in['u_id'] == $in['user_info']['id'])
-     array_push($error,$in['lang']['send_to_self']);
+       $error[] = $in['lang']['send_to_self'];
 
    // Get to email address
    $to_user_info = get_user_info($in['u_id']);
 
    if ($to_user_info['username'] == '')
-     array_push($error,$in['lang']['no_such_user']);
+       $error[] = $in['lang']['no_such_user'];
 
    if ($error) {
       print_error_page($in['lang']['error_header'],$error);
@@ -90,10 +90,10 @@ function send_email() {
       $in['message'] = trim($in['message']);
 
       if ($in['subject'] == '') {
-	array_push($error,$in['lang']['empty_subject']);
+          $error[] = $in['lang']['empty_subject'];
       }
       if ($in['message'] == '') {
-         array_push($error,$in['lang']['empty_message']);
+          $error[] = $in['lang']['empty_message'];
       }
 
       if ($error) {

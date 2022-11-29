@@ -451,7 +451,7 @@ function check_required_fields($in) {
 
    foreach ($required_fields as $required_field) {
       if ($in[$required_field] == '') {
-         array_push($error,$required_field);
+          $error[] = $required_field;
       }
    }
 

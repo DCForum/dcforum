@@ -51,15 +51,15 @@ function guest_user() {
 
       $error = array();
       if (! is_numeric($in['days']))
-         array_push($error,$in['lang']['e_date_limit']);
+          $error[] = $in['lang']['e_date_limit'];
       if (! is_numeric($in['zone']))
-         array_push($error,$in['lang']['e_time_zone']);
+          $error[] = $in['lang']['e_time_zone'];
       if (! is_yes_no($in['daylight_savings']))
-         array_push($error,$in['lang']['e_time_zone']);
+          $error[] = $in['lang']['e_time_zone'];
       if (! is_alphanumericplus($in['name']))
-         array_push($error,$in['lang']['e_name']);
+          $error[] = $in['lang']['e_name'];
       if (! is_alphanumericplus($in['message_style']))
-         array_push($error,$in['lang']['e_name']);
+          $error[] = $in['lang']['e_name'];
 
       if ($error) {
          print_error_page($in['lang']['e_header'],$error);

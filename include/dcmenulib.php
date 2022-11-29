@@ -89,26 +89,26 @@ function page_links($c_page,$n_rows,$t_page,$url) {
       }
 
      if ($start_page == 2) {
-        array_push($pages, " <a href=\"$url&page=1\">1</A> ");
+         $pages[] = " <a href=\"$url&page=1\">1</A> ";
      }
      elseif ($start_page > 1) {
-        array_push($pages, " <a href=\"$url&page=1\">1</A> | <b>...</b> ");
+         $pages[] = " <a href=\"$url&page=1\">1</A> | <b>...</b> ";
      }
 
      for ($j=$start_page;$j<=$stop_page;$j++) {
          if ($c_page == $j) {
-            array_push($pages,$j);
+             $pages[] = $j;
          }
          else {
-            array_push($pages, " <a href=\"$url&page=$j\">$j</A> ");
+             $pages[] = " <a href=\"$url&page=$j\">$j</A> ";
          }      
     }
 
      if ($stop_page == $n_pages - 1) {
-        array_push($pages, " <a href=\"$url&page=$n_pages\">$n_pages</A> ");
+         $pages[] = " <a href=\"$url&page=$n_pages\">$n_pages</A> ";
      }
      elseif ($stop_page != $n_pages ) {
-        array_push($pages, " <b>...</b> | <a href=\"$url&page=$n_pages\">$n_pages</A> ");
+         $pages[] = " <b>...</b> | <a href=\"$url&page=$n_pages\">$n_pages</A> ";
      }
  
      $page_links = implode(" | ",$pages);
@@ -123,10 +123,10 @@ function page_links($c_page,$n_rows,$t_page,$url) {
             $j_stop=$n_rows;
 
          if ($mesg_marker == $start) {
-            array_push($pages,$j);
+             $pages[] = $j;
          }
          else {
-            array_push($pages, " <a href=\"$url&page=$j\">$j</A> ");
+             $pages[] = " <a href=\"$url&page=$j\">$j</A> ";
          }
 
       }
@@ -242,7 +242,7 @@ function nav_menu() {
                array_unshift($nav_menu,"<a href=\"" . DCF .
                   "?az=show_topics&forum=$id\">$name</a>");
             }
-            array_push($nav_menu,"Post a message");
+          $nav_menu[] = "Post a message";
             array_unshift($nav_menu,"<a href=\"" . DCF . "\">Top</a>");
             break;
 
@@ -257,7 +257,7 @@ function nav_menu() {
                array_unshift($nav_menu,"<a href=\"" . DCF .
                   "?az=show_topics&forum=$id\">$name</a>");
             }
-            array_push($nav_menu,"Edit a message");
+          $nav_menu[] = "Edit a message";
             array_unshift($nav_menu,"<a href=\"" . DCF . "\">Top</a>");
             break;
 
@@ -289,7 +289,7 @@ function nav_menu() {
  
       case 'show_forums':    // show_forums
          // do nothing - no navigation menu needed...
-         array_push($nav_menu,"Top");
+          $nav_menu[] = "Top";
 
          break;
 
@@ -457,92 +457,92 @@ function button_menu() {
 
       case 'faq':
 
-         array_push($menu,$buttons['goback']);
-         array_push($menu,$log_button);
-         array_push($menu,$buttons['search']);
-         array_push($menu,$buttons['read_new']);
+          $menu[] = $buttons['goback'];
+          $menu[] = $log_button;
+          $menu[] = $buttons['search'];
+          $menu[] = $buttons['read_new'];
 
          if ($u_id) {
-            array_push($menu,$buttons['user']);
-            array_push($menu,$buttons['user_profiles']);
+             $menu[] = $buttons['user'];
+             $menu[] = $buttons['user_profiles'];
             if ($user_rating)
-               array_push($menu,$buttons['rating']);
+                $menu[] = $buttons['rating'];
          }
          else {
-            array_push($menu,$buttons['guest_user']);
+             $menu[] = $buttons['guest_user'];
          }
 
          if (SETUP_USE_CALENDAR == 'yes')
-            array_push($menu,$buttons['calendar']);
+             $menu[] = $buttons['calendar'];
 
          if ($u_id and $g_id > 50)
-            array_push($menu,$buttons['admin']);
+             $menu[] = $buttons['admin'];
 
          break;
 
 
       case 'whos_online':
 
-         array_push($menu,$buttons['goback']);
-         array_push($menu,$log_button);
-         array_push($menu,$buttons['search']);
-         array_push($menu,$buttons['read_new']);
+          $menu[] = $buttons['goback'];
+          $menu[] = $log_button;
+          $menu[] = $buttons['search'];
+          $menu[] = $buttons['read_new'];
 
          if ($u_id) {
-            array_push($menu,$buttons['user']);
-            array_push($menu,$buttons['user_profiles']);
+             $menu[] = $buttons['user'];
+             $menu[] = $buttons['user_profiles'];
             if ($user_rating)
-               array_push($menu,$buttons['rating']);
+                $menu[] = $buttons['rating'];
          }
          else {
-            array_push($menu,$buttons['guest_user']);
+             $menu[] = $buttons['guest_user'];
          }
 
          if (SETUP_USE_CALENDAR == 'yes')
-            array_push($menu,$buttons['calendar']);
+             $menu[] = $buttons['calendar'];
 
          if ($u_id and $g_id > 50)
-            array_push($menu,$buttons['admin']);
+             $menu[] = $buttons['admin'];
 
          break;
 
       case 'show_all':
 
-         array_push($menu,$buttons['goback']);
-         array_push($menu,$log_button);
-         array_push($menu,$buttons['faq']);
-         array_push($menu,$buttons['search']);
+          $menu[] = $buttons['goback'];
+          $menu[] = $log_button;
+          $menu[] = $buttons['faq'];
+          $menu[] = $buttons['search'];
 
          if (SETUP_USE_CALENDAR == 'yes')
-            array_push($menu,$buttons['calendar']);
+             $menu[] = $buttons['calendar'];
 
          if ($u_id and $g_id > 50)
-            array_push($menu,$buttons['admin']);
+             $menu[] = $buttons['admin'];
 
          break;
 
       case 'show_topics':
 
-         array_push($menu,$log_button);
-         array_push($menu,$buttons['faq']);
-         array_push($menu,$buttons['search']);
-         array_push($menu,$buttons['read_new']);
+          $menu[] = $log_button;
+          $menu[] = $buttons['faq'];
+          $menu[] = $buttons['search'];
+          $menu[] = $buttons['read_new'];
 
          if ($in['forum_info']['type'] < 99) {
-            array_push($menu,$buttons['post']);
+             $menu[] = $buttons['post'];
             // Poll button
 
             if (is_forum_moderator()) {
-                  array_push($menu,$buttons['poll']);
+                $menu[] = $buttons['poll'];
             }
             elseif ($g_id < 20) {
                if (SETUP_ALLOW_POLLS == 'yes') {
                   if (SETUP_DENY_POLL_EVERYONE == 'yes') {
                      if ($u_id)
-                        array_push($menu,$buttons['poll']);
+                         $menu[] = $buttons['poll'];
                   }
                   else {
-                        array_push($menu,$buttons['poll']);
+                      $menu[] = $buttons['poll'];
                   }
                }
             }
@@ -552,23 +552,23 @@ function button_menu() {
 
          if ($u_id) {
             if ($in['user_info']['uh'] == 'yes')
-               array_push($menu,$buttons['mark']);
+                $menu[] = $buttons['mark'];
 
-            array_push($menu,$buttons['user']);
-            array_push($menu,$buttons['user_profiles']);
+             $menu[] = $buttons['user'];
+             $menu[] = $buttons['user_profiles'];
 
             if ($user_rating)
-               array_push($menu,$buttons['rating']);
+                $menu[] = $buttons['rating'];
          }
          else {
-            array_push($menu,$buttons['guest_user']);
+             $menu[] = $buttons['guest_user'];
          }
 
          if (SETUP_USE_CALENDAR == 'yes')
-            array_push($menu,$buttons['calendar']);
+             $menu[] = $buttons['calendar'];
 
          if ($u_id and $g_id > 10)
-            array_push($menu,$buttons['admin']);
+             $menu[] = $buttons['admin'];
 
          break;
 
@@ -576,149 +576,149 @@ function button_menu() {
 
       case 'show_topic':
 
-         array_push($menu,$buttons['printer_friendly']);
+          $menu[] = $buttons['printer_friendly'];
          if ($email_to_friend)
-            array_push($menu,$buttons['email_to_friend']);
+             $menu[] = $buttons['email_to_friend'];
 
          if ($u_id) {
 
             if (SETUP_EMAIL_NOTIFICATION == 'yes') {
                if (is_subscribed($in['forum'],$u_id,$in['topic_id'])) {
-                  array_push($menu,$buttons['topic_unsubscribe']);
+                   $menu[] = $buttons['topic_unsubscribe'];
                }
                else{
-                  array_push($menu,$buttons['topic_subscribe']);
+                   $menu[] = $buttons['topic_subscribe'];
                }
             }
-            array_push($menu,$buttons['bookmark']);
+             $menu[] = $buttons['bookmark'];
          }
 
 
          break;
 
-      case 'show_mesg': 
+      case 'show_mesg':
 
-         array_push($menu,$buttons['printer_friendly']);
-         array_push($menu,$buttons['email_to_friend']);
+          $menu[] = $buttons['printer_friendly'];
+          $menu[] = $buttons['email_to_friend'];
 
          if ($u_id) {
             if (SETUP_EMAIL_NOTIFICATION == 'yes') {
                if (is_subscribed($in['forum'],$u_id,$in['topic_id'])) {
-                  array_push($menu,$buttons['topic_unsubscribe']);
+                   $menu[] = $buttons['topic_unsubscribe'];
                }
                else{
-                  array_push($menu,$buttons['topic_subscribe']);
+                   $menu[] = $buttons['topic_subscribe'];
                }
             }
-            array_push($menu,$buttons['bookmark']);
+             $menu[] = $buttons['bookmark'];
          }
          break;
 
 
       case 'post':
 
-         array_push($menu,$buttons['goback']);
-         array_push($menu,$buttons['faq']);
+          $menu[] = $buttons['goback'];
+          $menu[] = $buttons['faq'];
 
          break;
 
 
       case 'user':  // User menu
 
-         array_push($menu,$log_button);
-         array_push($menu,$buttons['faq']);
-         array_push($menu,$buttons['search']);
-         array_push($menu,$buttons['read_new']);
+          $menu[] = $log_button;
+          $menu[] = $buttons['faq'];
+          $menu[] = $buttons['search'];
+          $menu[] = $buttons['read_new'];
 
          if ($u_id) {
-            array_push($menu,$buttons['user_profiles']);
+             $menu[] = $buttons['user_profiles'];
             if ($user_rating)
-               array_push($menu,$buttons['rating']);
+                $menu[] = $buttons['rating'];
          }
 
-         array_push($menu,$buttons['calendar']);
+          $menu[] = $buttons['calendar'];
 
          if ($u_id and $g_id > 50)
-            array_push($menu,$buttons['admin']);
+             $menu[] = $buttons['admin'];
 
          break;
 
       case 'user_profiles':  // User profiles
 
-         array_push($menu,$log_button);
-         array_push($menu,$buttons['faq']);
-         array_push($menu,$buttons['search']);
-         array_push($menu,$buttons['read_new']);
+          $menu[] = $log_button;
+          $menu[] = $buttons['faq'];
+          $menu[] = $buttons['search'];
+          $menu[] = $buttons['read_new'];
 
          if ($u_id) {
-            array_push($menu,$buttons['user']);
+             $menu[] = $buttons['user'];
             if ($user_rating)
-               array_push($menu,$buttons['rating']);
+                $menu[] = $buttons['rating'];
          }
          else {
-            array_push($menu,$buttons['guest_user']);
+             $menu[] = $buttons['guest_user'];
          }
 
          if (SETUP_USE_CALENDAR == 'yes')
-            array_push($menu,$buttons['calendar']);
+             $menu[] = $buttons['calendar'];
 
          if ($u_id and $g_id > 50)
-            array_push($menu,$buttons['admin']);
+             $menu[] = $buttons['admin'];
 
          break;
 
       case 'user_ratings':  // User rating
 
-         array_push($menu,$log_button);
-         array_push($menu,$buttons['faq']);
-         array_push($menu,$buttons['search']);
-         array_push($menu,$buttons['read_new']);
+          $menu[] = $log_button;
+          $menu[] = $buttons['faq'];
+          $menu[] = $buttons['search'];
+          $menu[] = $buttons['read_new'];
 
          if ($u_id) {
 
-            array_push($menu,$buttons['user']);
-            array_push($menu,$buttons['user_profiles']);
+             $menu[] = $buttons['user'];
+             $menu[] = $buttons['user_profiles'];
          }
          else {
-            array_push($menu,$buttons['guest_user']);
+             $menu[] = $buttons['guest_user'];
          }
 
          if (SETUP_USE_CALENDAR == 'yes')
-            array_push($menu,$buttons['calendar']);
+             $menu[] = $buttons['calendar'];
 
          if ($u_id and $g_id > 50)
-            array_push($menu,$buttons['admin']);
+             $menu[] = $buttons['admin'];
 
          break;
 
       default:  // no az or az = show_forums
 
-         array_push($menu,$log_button);
-         array_push($menu,$buttons['faq']);
-         array_push($menu,$buttons['search']);
-         array_push($menu,$buttons['read_new']);
+          $menu[] = $log_button;
+          $menu[] = $buttons['faq'];
+          $menu[] = $buttons['search'];
+          $menu[] = $buttons['read_new'];
 
          if ($u_id) {
 
             if ($in['user_info']['uh'] == 'yes')
-               array_push($menu,$buttons['mark']);
+                $menu[] = $buttons['mark'];
 
-            array_push($menu,$buttons['user']);
-            array_push($menu,$buttons['user_profiles']);
+             $menu[] = $buttons['user'];
+             $menu[] = $buttons['user_profiles'];
             if ($user_rating)
-               array_push($menu,$buttons['rating']);
+                $menu[] = $buttons['rating'];
          }
          else {
-            array_push($menu,$buttons['guest_user']);
+             $menu[] = $buttons['guest_user'];
          }
 
          if (SETUP_USE_CALENDAR == 'yes')
-            array_push($menu,$buttons['calendar']);
+             $menu[] = $buttons['calendar'];
 
 // mod.2002.11.06.07
 // moderator access bug
          if ($u_id and $g_id > 10)
-            array_push($menu,$buttons['admin']);
+             $menu[] = $buttons['admin'];
 
          break;
 
@@ -754,28 +754,28 @@ function option_menu() {
 
 
    if ($in['az'] == 'show_all') {
-      array_push($option_menu,"<a href=\"" . DCF . 
-          "\">" . $in['lang']['top'] . "</a>");
+       $option_menu[] = "<a href=\"" . DCF .
+           "\">" . $in['lang']['top'] . "</a>";
    }
    elseif ($in['az'] != 'show_topics'
            and $in['az'] != 'show_topic'
-           and $in['az'] != 'show_mesg') { 
-      array_push($option_menu,"<a href=\"" . DCF . 
-          "?az=show_all\">" . $in['lang']['show_all_folders'] . "</a>");
+           and $in['az'] != 'show_mesg') {
+       $option_menu[] = "<a href=\"" . DCF .
+           "?az=show_all\">" . $in['lang']['show_all_folders'] . "</a>";
   }
 
    if ($in['az'] == 'show_topics' 
       or $in['az'] == 'show_forums') {
 
       if ($in[DC_COOKIE][DC_LIST_STYLE] == 'classic') {
-               array_push($option_menu, "<a href=\"" . DCF . 
-                  "?az=select_dcf_mode&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$in[mesg_id]&p_az=$in[az]&page=$in[page]\">" . 
-                  $in['lang']['select_dcf_mode'] . "</a>");
+          $option_menu[] = "<a href=\"" . DCF .
+              "?az=select_dcf_mode&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$in[mesg_id]&p_az=$in[az]&page=$in[page]\">" .
+              $in['lang']['select_dcf_mode'] . "</a>";
       }
       else {
-               array_push($option_menu, "<a href=\"" . DCF . 
-                  "?az=select_classic_mode&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$in[mesg_id]&p_az=$in[az]&page=$in[page]\">" . 
-			  $in['lang']['select_classic_mode'] . "</a>");
+          $option_menu[] = "<a href=\"" . DCF .
+              "?az=select_classic_mode&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$in[mesg_id]&p_az=$in[az]&page=$in[page]\">" .
+              $in['lang']['select_classic_mode'] . "</a>";
       }
 
    }
@@ -784,29 +784,29 @@ function option_menu() {
    // 1.2 addition - added expand/collapse conference option
    if ($in['az'] == 'show_forums') {
       if ($in[DC_COOKIE][DC_CONFERENCE_LIST_STYLE] == 'expand') {
-         array_push($option_menu, "<a href=\"" . DCF . 
-                  "?az=collapse_conference\">" . 
-                  $in['lang']['collapse_conference'] . "</a>");
+          $option_menu[] = "<a href=\"" . DCF .
+              "?az=collapse_conference\">" .
+              $in['lang']['collapse_conference'] . "</a>";
       }
       else {
-         array_push($option_menu, "<a href=\"" . DCF . 
-                  "?az=expand_conference\">" . 
-                  $in['lang']['expand_conference'] . "</a>");
+          $option_menu[] = "<a href=\"" . DCF .
+              "?az=expand_conference\">" .
+              $in['lang']['expand_conference'] . "</a>";
 
       }
    }
 
    if ($in['az'] == 'show_forums') {
       if (SETUP_DISPLAY_WHOS_ONLINE == 'yes')
-         array_push($option_menu,"<a href=\"" . DCF . "?az=whos_online\">" . $in['lang']['whos_online'] . "</a>");
+          $option_menu[] = "<a href=\"" . DCF . "?az=whos_online\">" . $in['lang']['whos_online'] . "</a>";
    }
    elseif ($in['az'] == 'show_all') {
       if (SETUP_DISPLAY_WHOS_ONLINE == 'yes')
-         array_push($option_menu,"<a href=\"" . DCF . "?az=whos_online\">" . $in['lang']['whos_online'] . "</a>");
+          $option_menu[] = "<a href=\"" . DCF . "?az=whos_online\">" . $in['lang']['whos_online'] . "</a>";
    }
    elseif ($in['forum_info']['type'] == 99) {
       if (SETUP_DISPLAY_WHOS_ONLINE == 'yes')
-         array_push($option_menu,"<a href=\"" . DCF . "?az=whos_online\">" . $in['lang']['whos_online'] . "</a>");
+          $option_menu[] = "<a href=\"" . DCF . "?az=whos_online\">" . $in['lang']['whos_online'] . "</a>";
    }
    elseif ($in['az'] == 'show_topics' or
            $in['az'] == 'show_topic' or
@@ -817,18 +817,18 @@ function option_menu() {
          if ($in[DC_COOKIE][DC_DISCUSSION_MODE] == 'threaded') {
 
             if ($in['az'] == 'show_topics')
-               array_push($option_menu, "<a href=\"" . DCF . 
-                  "?az=expand_topics&forum=$in[forum]&page=$in[page]\">" . $in['lang']['expand_topics'] . "</a>");
+                $option_menu[] = "<a href=\"" . DCF .
+                    "?az=expand_topics&forum=$in[forum]&page=$in[page]\">" . $in['lang']['expand_topics'] . "</a>";
 
 	       //            if ($in['az'] != 'show_mesg')
-               array_push($option_menu, "<a href=\"" . DCF . 
-                  "?az=set_linear_mode&forum=$in[forum]&page=$in[page]&topic_id=$in[topic_id]&prev_page=$in[az]\">" . 
-                   $in['lang']['linear_mode'] . "</a>");
+             $option_menu[] = "<a href=\"" . DCF .
+                 "?az=set_linear_mode&forum=$in[forum]&page=$in[page]&topic_id=$in[topic_id]&prev_page=$in[az]\">" .
+                 $in['lang']['linear_mode'] . "</a>";
          }
          else {
-               array_push($option_menu, "<a href=\"" . DCF . 
-                  "?az=set_threaded_mode&forum=$in[forum]&page=$in[page]&topic_id=$in[topic_id]&prev_page=$in[az]\">" . 
-                   $in['lang']['threaded_mode'] . "</a>");
+             $option_menu[] = "<a href=\"" . DCF .
+                 "?az=set_threaded_mode&forum=$in[forum]&page=$in[page]&topic_id=$in[topic_id]&prev_page=$in[az]\">" .
+                 $in['lang']['threaded_mode'] . "</a>";
          }
       }
       else {
@@ -836,18 +836,18 @@ function option_menu() {
          if ($in[DC_COOKIE][DC_DISCUSSION_MODE] == 'threaded') {
 
 	   if ($in['az'] == 'show_topics')
-               array_push($option_menu, "<a href=\"" . DCF . 
-		       "?az=collapse_topics&forum=$in[forum]&page=$in[page]\">" . $in['lang']['collapse_topics'] . "</a>");
+           $option_menu[] = "<a href=\"" . DCF .
+               "?az=collapse_topics&forum=$in[forum]&page=$in[page]\">" . $in['lang']['collapse_topics'] . "</a>";
 
 	       //            if ($in['az'] != 'show_mesg')
-               array_push($option_menu, "<a href=\"" . DCF . 
-                  "?az=set_linear_mode&forum=$in[forum]&page=$in[page]&topic_id=$in[topic_id]&prev_page=$in[az]\">" . 
-                   $in['lang']['linear_mode'] . "</a>");
+             $option_menu[] = "<a href=\"" . DCF .
+                 "?az=set_linear_mode&forum=$in[forum]&page=$in[page]&topic_id=$in[topic_id]&prev_page=$in[az]\">" .
+                 $in['lang']['linear_mode'] . "</a>";
          }
          else {
-               array_push($option_menu, "<a href=\"" . DCF . 
-                  "?az=set_threaded_mode&forum=$in[forum]&page=$in[page]&topic_id=$in[topic_id]&prev_page=$in[az]\">" . 
-                   $in['lang']['threaded_mode'] . "</a>");
+             $option_menu[] = "<a href=\"" . DCF .
+                 "?az=set_threaded_mode&forum=$in[forum]&page=$in[page]&topic_id=$in[topic_id]&prev_page=$in[az]\">" .
+                 $in['lang']['threaded_mode'] . "</a>";
          }
 
       }
@@ -855,8 +855,8 @@ function option_menu() {
 
       if ($in['user_info']['id'] and $in['az'] == 'show_topics'
           and SETUP_SUBSCRIPTION == 'yes')
-               array_push($option_menu, "<a href=\"" . DCF . 
-                  "?az=forum_subscribe&forum=$in[forum]&page=$in[page]\">" . $in['lang']['subscribe'] . "</a>");
+          $option_menu[] = "<a href=\"" . DCF .
+              "?az=forum_subscribe&forum=$in[forum]&page=$in[page]\">" . $in['lang']['subscribe'] . "</a>";
 
       // display default days
       if ($in['az'] == 'show_topics') {
@@ -867,18 +867,18 @@ function option_menu() {
 
           if ($in['user_info']['id']) {
                if ($in['user_info']['uu'] > 0) {
-                  array_push($option_menu,"<a href=\"" . DCF .
-                     "?az=user&saz=change_preference\">" . $in['lang']['listing_days'] . " $days_desc</a>");
+                   $option_menu[] = "<a href=\"" . DCF .
+                       "?az=user&saz=change_preference\">" . $in['lang']['listing_days'] . " $days_desc</a>";
                }
                else {
-                  array_push($option_menu,"<a href=\"" . DCF .
-                     "?az=user&saz=change_preference\">" . $in['lang']['listing'] . " $days_desc</a>");
+                   $option_menu[] = "<a href=\"" . DCF .
+                       "?az=user&saz=change_preference\">" . $in['lang']['listing'] . " $days_desc</a>";
                }
           }
           else {
 
-               array_push($option_menu,"<a href=\"" . DCF .
-                  "?az=guest_user\">" . $in['lang']['listing_days'] . " $days_desc</a>");
+              $option_menu[] = "<a href=\"" . DCF .
+                  "?az=guest_user\">" . $in['lang']['listing_days'] . " $days_desc</a>";
           }
 
       }
@@ -889,47 +889,47 @@ function option_menu() {
 
 
             if ($in['topic_pin']) {
-               array_push($option_menu, "<a href=\"" . DCF . 
-                  "?az=set_topic&saz=unpin&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$in[mesg_id]&page=$in[page]\" onclick=\"return confirm('" . 
-               $in['lang']['confirm_unpin'] . "')\">" . 
-               $in['lang']['unpin'] . "</a>");
+                $option_menu[] = "<a href=\"" . DCF .
+                    "?az=set_topic&saz=unpin&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$in[mesg_id]&page=$in[page]\" onclick=\"return confirm('" .
+                    $in['lang']['confirm_unpin'] . "')\">" .
+                    $in['lang']['unpin'] . "</a>";
             }
             else {
-               array_push($option_menu, "<a href=\"" . DCF . 
-                  "?az=set_topic&saz=pin&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$in[mesg_id]&page=$in[page]\" onclick=\"return confirm('" . 
-               $in['lang']['confirm_pin'] . "')\">" . 
-               $in['lang']['pin'] . "</a>");
+                $option_menu[] = "<a href=\"" . DCF .
+                    "?az=set_topic&saz=pin&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$in[mesg_id]&page=$in[page]\" onclick=\"return confirm('" .
+                    $in['lang']['confirm_pin'] . "')\">" .
+                    $in['lang']['pin'] . "</a>";
 
             }
 
             if ($in['topic_lock'] != 'on') {
-               array_push($option_menu, "<a href=\"" . DCF . 
-                  "?az=set_topic&saz=lock&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$in[mesg_id]&page=$in[page]\" onclick=\"return confirm('" . 
-               $in['lang']['confirm_lock'] . "')\">" . 
-               $in['lang']['lock'] . "</a>");
+                $option_menu[] = "<a href=\"" . DCF .
+                    "?az=set_topic&saz=lock&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$in[mesg_id]&page=$in[page]\" onclick=\"return confirm('" .
+                    $in['lang']['confirm_lock'] . "')\">" .
+                    $in['lang']['lock'] . "</a>";
             }
             else {
-               array_push($option_menu, "<a href=\"" . DCF . 
-                  "?az=set_topic&saz=unlock&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$in[mesg_id]&page=$in[page]\" onclick=\"return confirm('" . 
-               $in['lang']['confirm_unlock'] . "')\">" . 
-               $in['lang']['unlock'] . "</a>");
+                $option_menu[] = "<a href=\"" . DCF .
+                    "?az=set_topic&saz=unlock&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$in[mesg_id]&page=$in[page]\" onclick=\"return confirm('" .
+                    $in['lang']['confirm_unlock'] . "')\">" .
+                    $in['lang']['unlock'] . "</a>";
 
             }
 
-            array_push($option_menu, "<a href=\"" . DCF . 
-               "?az=set_topic&saz=delete&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$in[mesg_id]&page=$in[page]\" onclick=\"return confirm('" . 
-               $in['lang']['confirm_delete'] . "')\">" . 
-               $in['lang']['delete'] . "</a>");
+                $option_menu[] = "<a href=\"" . DCF .
+                    "?az=set_topic&saz=delete&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$in[mesg_id]&page=$in[page]\" onclick=\"return confirm('" .
+                    $in['lang']['confirm_delete'] . "')\">" .
+                    $in['lang']['delete'] . "</a>";
 
-            array_push($option_menu, "<a href=\"" . DCF . 
-               "?az=move_this_topic&forum=$in[forum]&id=$in[topic_id]&page=$in[page]\" onclick=\"return confirm('" . 
-               $in['lang']['confirm_move'] . "')\">" . 
-               $in['lang']['move'] . "</a>");
+                $option_menu[] = "<a href=\"" . DCF .
+                    "?az=move_this_topic&forum=$in[forum]&id=$in[topic_id]&page=$in[page]\" onclick=\"return confirm('" .
+                    $in['lang']['confirm_move'] . "')\">" .
+                    $in['lang']['move'] . "</a>";
 
-            array_push($option_menu, "<a href=\"" . DCF . 
-               "?az=set_topic&saz=hide&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$in[mesg_id]&page=$in[page]\" onclick=\"return confirm('" . 
-               $in['lang']['confirm_hide'] . "')\">" . 
-               $in['lang']['hide'] . "</a>");
+                $option_menu[] = "<a href=\"" . DCF .
+                    "?az=set_topic&saz=hide&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$in[mesg_id]&page=$in[page]\" onclick=\"return confirm('" .
+                    $in['lang']['confirm_hide'] . "')\">" .
+                    $in['lang']['hide'] . "</a>";
 
 
             }
@@ -939,8 +939,8 @@ function option_menu() {
    else {
 
       if (SETUP_DISPLAY_WHOS_ONLINE == 'yes')
-         array_push($option_menu,"<a href=\"" . DCF . "?az=whos_online\">" . 
-               $in['lang']['whos_online'] . "</a>");
+          $option_menu[] = "<a href=\"" . DCF . "?az=whos_online\">" .
+              $in['lang']['whos_online'] . "</a>";
 
    }
 
@@ -1006,13 +1006,13 @@ function MakeArray() {
 
    $dum_array = array();
 
-   array_push($dum_array,"\"" . ROOT_URL . "/" . DCF . "\"");
-   array_push($dum_array,"\"" . ROOT_URL . "/" . DCF . "\"");
+    $dum_array[] = "\"" . ROOT_URL . "/" . DCF . "\"";
+    $dum_array[] = "\"" . ROOT_URL . "/" . DCF . "\"";
 
 
    foreach ($sorted_forum_list as $this_temp) {
       $id = $this_temp['0'];
-      array_push($dum_array,"\"" . ROOT_URL . "/" . DCF . "?az=show_topics&forum=$id\"");
+       $dum_array[] = "\"" . ROOT_URL . "/" . DCF . "?az=show_topics&forum=$id\"";
    }
 
    $dum = implode(",\n",$dum_array);

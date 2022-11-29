@@ -808,40 +808,40 @@ function admin_links($row) {
       $option_menu = array();
 
                   if ($row['topic_pin']) {
-                     array_push($option_menu, "<a href=\"" . DCF . 
-                        "?az=set_topic&saz=unpin&forum=$in[forum]&topic_id=$row[id]&page=$in[page]\" onclick=\"return confirm('" .
-                        $in['lang']['confirm_unpin'] . "')\">" . $in['lang']['unpin'] . "</a>");
+                      $option_menu[] = "<a href=\"" . DCF .
+                          "?az=set_topic&saz=unpin&forum=$in[forum]&topic_id=$row[id]&page=$in[page]\" onclick=\"return confirm('" .
+                          $in['lang']['confirm_unpin'] . "')\">" . $in['lang']['unpin'] . "</a>";
                   }
                   else {
-                     array_push($option_menu, "<a href=\"" . DCF . 
-                        "?az=set_topic&saz=pin&forum=$in[forum]&topic_id=$row[id]&page=$in[page]\" onclick=\"return confirm('" .
-                        $in['lang']['confirm_pin'] . "')\">" . $in['lang']['pin'] . "</a>");
+                      $option_menu[] = "<a href=\"" . DCF .
+                          "?az=set_topic&saz=pin&forum=$in[forum]&topic_id=$row[id]&page=$in[page]\" onclick=\"return confirm('" .
+                          $in['lang']['confirm_pin'] . "')\">" . $in['lang']['pin'] . "</a>";
 
                   }
 
                   if ($row['topic_lock'] != 'on') {
-                     array_push($option_menu, "<a href=\"" . DCF . 
-                        "?az=set_topic&saz=lock&forum=$in[forum]&topic_id=$row[id]&page=$in[page]\" onclick=\"return confirm('" .
-                        $in['lang']['confirm_lock'] . "')\">" . $in['lang']['lock'] . "</a>");
+                      $option_menu[] = "<a href=\"" . DCF .
+                          "?az=set_topic&saz=lock&forum=$in[forum]&topic_id=$row[id]&page=$in[page]\" onclick=\"return confirm('" .
+                          $in['lang']['confirm_lock'] . "')\">" . $in['lang']['lock'] . "</a>";
                   }
                   else {
-                     array_push($option_menu, "<a href=\"" . DCF . 
-                        "?az=set_topic&saz=unlock&forum=$in[forum]&topic_id=$row[id]&page=$in[page]\" onclick=\"return confirm('" .
-                        $in['lang']['confirm_unlock'] . "')\">" . $in['lang']['unlock'] . "</a>");
+                      $option_menu[] = "<a href=\"" . DCF .
+                          "?az=set_topic&saz=unlock&forum=$in[forum]&topic_id=$row[id]&page=$in[page]\" onclick=\"return confirm('" .
+                          $in['lang']['confirm_unlock'] . "')\">" . $in['lang']['unlock'] . "</a>";
 
                   }
 
-                  array_push($option_menu, "<a href=\"" . DCF . 
-                     "?az=set_topic&saz=delete&forum=$in[forum]&topic_id=$row[id]&page=$in[page]\" onclick=\"return confirm('" .
-                        $in['lang']['confirm_delete'] . "')\">" . $in['lang']['delete'] . "</a>");
+    $option_menu[] = "<a href=\"" . DCF .
+        "?az=set_topic&saz=delete&forum=$in[forum]&topic_id=$row[id]&page=$in[page]\" onclick=\"return confirm('" .
+        $in['lang']['confirm_delete'] . "')\">" . $in['lang']['delete'] . "</a>";
 
-                  array_push($option_menu, "<a href=\"" . DCF . 
-                     "?az=move_this_topic&forum=$in[forum]&id=$row[id]&page=$in[page]\" onclick=\"return confirm('" .
-                        $in['lang']['confirm_move'] . "')\">" . $in['lang']['move'] . "</a>");
+    $option_menu[] = "<a href=\"" . DCF .
+        "?az=move_this_topic&forum=$in[forum]&id=$row[id]&page=$in[page]\" onclick=\"return confirm('" .
+        $in['lang']['confirm_move'] . "')\">" . $in['lang']['move'] . "</a>";
 
-                  array_push($option_menu, "<a href=\"" . DCF . 
-                     "?az=set_topic&saz=hide&forum=$in[forum]&topic_id=$row[id]&page=$in[page]\" onclick=\"return confirm('" . 
-                        $in['lang']['confirm_hide'] . "')\">" . $in['lang']['hide'] . "</a>");
+    $option_menu[] = "<a href=\"" . DCF .
+        "?az=set_topic&saz=hide&forum=$in[forum]&topic_id=$row[id]&page=$in[page]\" onclick=\"return confirm('" .
+        $in['lang']['confirm_hide'] . "')\">" . $in['lang']['hide'] . "</a>";
 
       $option_menu = implode(' | ',$option_menu);
 

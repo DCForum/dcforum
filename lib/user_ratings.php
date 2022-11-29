@@ -359,7 +359,7 @@ function index_menu() {
            FROM " . DB_USER_RATING ;
    $result = db_query($q);
    while($row = db_fetch_array($result)) {
-      array_push($in_list,"'$row[u_id]'");
+       $in_list[] = "'$row[u_id]'";
    }
    db_free($result);
 

@@ -90,7 +90,7 @@ function topic_manager_prune_topics() {
                         AND last_date < $in[prune_date] ";
                $result = db_query($q);
                while($row = db_fetch_array($result)) {
-                  array_push($ids,$row['id']);
+                   $ids[] = $row['id'];
                }
                db_free($result);
 

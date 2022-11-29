@@ -121,15 +121,15 @@ function create_cal_day($events='') {
    // hour or all day event
    foreach( $events[$s_day] as $event) {
 
-     if ($event['all_day'] == 'yes') { 
-       array_push($all_day_events,$event);
+     if ($event['all_day'] == 'yes') {
+         $all_day_events[] = $event;
      }
      else {
         $s_hour = date('H',$event['event_start_date_time']);
         if (!isset($todays_events[$s_hour])) {
 	  $todays_events[$s_hour] = array();
 	}
-        array_push($todays_events[$s_hour],$event);
+         $todays_events[$s_hour][] = $event;
      }
    }
 

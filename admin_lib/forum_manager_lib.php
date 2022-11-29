@@ -319,7 +319,7 @@ function update_subscription_list($id,$forum_type) {
                     WHERE g_id > 1 ";
          $q_result = db_query($q_sub);
          while($row=db_fetch_array($q_result)) {
-            array_push($members,"'$row[id]'");
+             $members[] = "'$row[id]'";
          }
          db_free($q_result);
          $members = implode(',',$members);

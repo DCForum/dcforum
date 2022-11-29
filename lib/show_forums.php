@@ -80,16 +80,16 @@ function show_forums() {
    if (SETUP_DISPLAY_NUM_USERS == 'yes') {
       // Get user count
       $user_count = get_user_count();
-      array_push($temp_array,"<span class=\"dcemp\">$user_count</span> " . $in['lang']['registered_members']);
+       $temp_array[] = "<span class=\"dcemp\">$user_count</span> " . $in['lang']['registered_members'];
    }
    if (isset($in['user_info']['id']) and $in['user_info']['id']) {
-      array_push($temp_array,$in['lang']['logged_in_as'] . " <span class=\"dcemp\">" 
-         . $in['user_info']['username'] . "</span>");
+       $temp_array[] = $in['lang']['logged_in_as'] . " <span class=\"dcemp\">"
+           . $in['user_info']['username'] . "</span>";
    }
    else {
       if (SETUP_AUTH_ALLOW_REGISTRATION == 'yes') {
-         array_push($temp_array,$in['lang']['firsttime'] . " <a href=\"" . DCF . 
-                "?az=register\">" . $in['lang']['please_register'] . "</a>");
+          $temp_array[] = $in['lang']['firsttime'] . " <a href=\"" . DCF .
+              "?az=register\">" . $in['lang']['please_register'] . "</a>";
       }
    }
 

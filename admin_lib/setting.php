@@ -67,7 +67,7 @@ function setting() {
                foreach ($this_value as $bad_word) {
                   $bad_word = trim($bad_word);
                   if ($bad_word != "") {
-		    array_push($bad_word_array,$bad_word);
+                      $bad_word_array[] = $bad_word;
                   }
                }
                $this_value = implode(",",$bad_word_array);
@@ -200,7 +200,7 @@ function setting() {
             }
 
             if ($required) {
-               array_push($required_fields,$record['var_key']);
+                $required_fields[] = $record['var_key'];
             }
  
             $temp = form_element($record['var_key'],$form_type,$fields,$record['var_value']);

@@ -42,7 +42,7 @@ function set_collapsed() {
    $expanded_arr = array();
    foreach ($temp_arr as $temp) {
       if ($temp != $set_string) {
-         array_push($expanded_arr,$temp);
+          $expanded_arr[] = $temp;
       }
    }
 

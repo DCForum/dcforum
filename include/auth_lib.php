@@ -237,7 +237,7 @@ function set_session($row) {
       $this_array = array();
       $time_mark = get_user_time_mark($row['id']);
      foreach($time_mark as $forum_id => $date) {
-         array_push($this_array,"$forum_id#$date");
+         $this_array[] = "$forum_id#$date";
       }
       $time_mark = implode('^',$this_array);
 //      $in[DC_COOKIE][DC_TIME_MARK] = $time_mark;

@@ -158,14 +158,14 @@ function date_form_element ($default_date,$pre) {
 
    for ($j=1; $j<32; $j++) {
       $this_temp = sprintf('%02d',$j);
-      array_push($days,$this_temp);
+       $days[] = $this_temp;
    }
 
    $years = array();
 
    for ($j=-6; $j<10; $j++) {
       $this_temp = $default_year + $j;
-      array_push($years,$this_temp);  
+       $years[] = $this_temp;
    }
 
 

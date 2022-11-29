@@ -389,7 +389,7 @@ function get_events_month(&$events_list) {
       if (can_view_event($row['mode'],$row['author_id'])) {
          if (! isset($events_list[$dayofmonth]))
             $events_list[$dayofmonth] = array();
-         array_push($events_list[$dayofmonth],$row);
+          $events_list[$dayofmonth][] = $row;
       }
    }
 
@@ -486,7 +486,7 @@ function get_events_month(&$events_list) {
                       and is_every_other($s_year,$e_year,$opt1_1)) {
                      if (! isset($events_list[$e_day]))
                           $events_list[$e_day] = array();
-                     array_push($events_list[$e_day],$row);
+                      $events_list[$e_day][] = $row;
                   }
                }
                elseif ($row['opt1_2'] == '3') {  // month
@@ -496,14 +496,14 @@ function get_events_month(&$events_list) {
                         if (! isset($events_list[$e_day]))
                            $events_list[$e_day] = array();
 
-                        array_push($events_list[$e_day],$row);
+                 $events_list[$e_day][] = $row;
                      }
                      else {   // Event starts this month
 		        if ($stop_date_time >= $event_start_date_time) {
                            if (! isset($events_list[$e_day]))
                                $events_list[$e_day] = array();
 
-                              array_push($events_list[$e_day],$row);
+                    $events_list[$e_day][] = $row;
 			}
                      }
                   }
@@ -532,7 +532,7 @@ function get_events_month(&$events_list) {
                               if (! isset($events_list[$k])) 
                                  $events_list[$k] = array();
 
-                              array_push($events_list[$k],$row);
+                  $events_list[$k][] = $row;
 			   }
 
                         }
@@ -541,7 +541,7 @@ function get_events_month(&$events_list) {
                               if (! isset($events_list[$k])) 
                                  $events_list[$k] = array();
 
-                              array_push($events_list[$k],$row);
+                   $events_list[$k][] = $row;
 			   }
 
                         }
@@ -555,7 +555,7 @@ function get_events_month(&$events_list) {
                               $weeks_diff = floor($days_diff/7);
                               if ($weeks_diff%$opt1_1 == 0) {
                                   if (! isset($events_list[$k]) ) $events_list[$k] = array();
-                                     array_push($events_list[$k],$row);
+                                  $events_list[$k][] = $row;
                               }
                            }
                         }
@@ -566,7 +566,7 @@ function get_events_month(&$events_list) {
                               $weeks_diff = floor($days_diff/7);
                               if ($weeks_diff%$opt1_1 == 0) {
                                   if (! isset($events_list[$k]) ) $events_list[$k] = array();
-                                     array_push($events_list[$k],$row);
+                                  $events_list[$k][] = $row;
                               }
                            }
 
@@ -578,7 +578,7 @@ function get_events_month(&$events_list) {
                               $weeks_diff = floor($days_diff/7);
                               if ($weeks_diff%$opt1_1 == 0) {
                                   if (! isset($events_list[$k]) ) $events_list[$k] = array();
-                                     array_push($events_list[$k],$row);
+                                  $events_list[$k][] = $row;
                               }
                            }
 
@@ -589,7 +589,7 @@ function get_events_month(&$events_list) {
                               $weeks_diff = floor($days_diff/7);
                               if ($weeks_diff%$opt1_1 == 0) {
                                   if (! isset($events_list[$k]) ) $events_list[$k] = array();
-                                     array_push($events_list[$k],$row);
+                                  $events_list[$k][] = $row;
                               }
                            }
                         }
@@ -646,7 +646,7 @@ function get_events_month(&$events_list) {
 
                      if (! isset($events_list[$e_day]))
                           $events_list[$e_day] = array();
-                     array_push($events_list[$e_day],$row);
+              $events_list[$e_day][] = $row;
                   }
                }
                // month, other month, 3 month, 4 month, 6 month
@@ -664,14 +664,14 @@ function get_events_month(&$events_list) {
                         if (! isset($events_list[$e_day]))
                            $events_list[$e_day] = array();
 
-                        array_push($events_list[$e_day],$row);
+                 $events_list[$e_day][] = $row;
                      }
                      else {   // Event starts this month
 		        if ($stop_date_time >= $event_start_date_time) {
                            if (! isset($events_list[$e_day]))
                                $events_list[$e_day] = array();
 
-                              array_push($events_list[$e_day],$row);
+                    $events_list[$e_day][] = $row;
 		        }
                      }
 		 }
@@ -758,7 +758,7 @@ function get_events_week(&$events_list) {
       if (can_view_event($row['mode'],$row['author_id'])) {
          if (! isset($events_list[$dayofmonth]))
             $events_list[$dayofmonth] = array();
-         array_push($events_list[$dayofmonth],$row);
+          $events_list[$dayofmonth][] = $row;
       }
    }
 
@@ -855,7 +855,7 @@ function get_events_week(&$events_list) {
                       and is_every_other($s_year,$e_year,$opt1_1)) {
                      if (! isset($events_list[$e_day]))
                           $events_list[$e_day] = array();
-                     array_push($events_list[$e_day],$row);
+                      $events_list[$e_day][] = $row;
                   }
                }
                elseif ($row['opt1_2'] == '3') {  // month
@@ -865,14 +865,14 @@ function get_events_week(&$events_list) {
                         if (! isset($events_list[$e_day]))
                            $events_list[$e_day] = array();
 
-                        array_push($events_list[$e_day],$row);
+                 $events_list[$e_day][] = $row;
                      }
                      else {   // Event starts this month
 		        if ($stop_date_time >= $event_start_date_time) {
                            if (! isset($events_list[$e_day]))
                                $events_list[$e_day] = array();
 
-                              array_push($events_list[$e_day],$row);
+                    $events_list[$e_day][] = $row;
 			}
                      }
                   }
@@ -901,7 +901,7 @@ function get_events_week(&$events_list) {
                               if (! isset($events_list[$k])) 
                                  $events_list[$k] = array();
 
-                              array_push($events_list[$k],$row);
+                  $events_list[$k][] = $row;
 			   }
 
                         }
@@ -910,7 +910,7 @@ function get_events_week(&$events_list) {
                               if (! isset($events_list[$k])) 
                                  $events_list[$k] = array();
 
-                              array_push($events_list[$k],$row);
+                   $events_list[$k][] = $row;
 			   }
 
                         }
@@ -924,7 +924,7 @@ function get_events_week(&$events_list) {
                               $weeks_diff = floor($days_diff/7);
                               if ($weeks_diff%$opt1_1 == 0) {
                                   if (! isset($events_list[$k]) ) $events_list[$k] = array();
-                                     array_push($events_list[$k],$row);
+                                  $events_list[$k][] = $row;
                               }
                            }
                         }
@@ -935,7 +935,7 @@ function get_events_week(&$events_list) {
                               $weeks_diff = floor($days_diff/7);
                               if ($weeks_diff%$opt1_1 == 0) {
                                   if (! isset($events_list[$k]) ) $events_list[$k] = array();
-                                     array_push($events_list[$k],$row);
+                                  $events_list[$k][] = $row;
                               }
                            }
 
@@ -947,7 +947,7 @@ function get_events_week(&$events_list) {
                               $weeks_diff = floor($days_diff/7);
                               if ($weeks_diff%$opt1_1 == 0) {
                                   if (! isset($events_list[$k]) ) $events_list[$k] = array();
-                                     array_push($events_list[$k],$row);
+                                  $events_list[$k][] = $row;
                               }
                            }
 
@@ -958,7 +958,7 @@ function get_events_week(&$events_list) {
                               $weeks_diff = floor($days_diff/7);
                               if ($weeks_diff%$opt1_1 == 0) {
                                   if (! isset($events_list[$k]) ) $events_list[$k] = array();
-                                     array_push($events_list[$k],$row);
+                                  $events_list[$k][] = $row;
                               }
                            }
                         }
@@ -1015,7 +1015,7 @@ function get_events_week(&$events_list) {
 
                      if (! isset($events_list[$e_day]))
                           $events_list[$e_day] = array();
-                     array_push($events_list[$e_day],$row);
+              $events_list[$e_day][] = $row;
                   }
                }
                // month, other month, 3 month, 4 month, 6 month
@@ -1033,14 +1033,14 @@ function get_events_week(&$events_list) {
                         if (! isset($events_list[$e_day]))
                            $events_list[$e_day] = array();
 
-                        array_push($events_list[$e_day],$row);
+                 $events_list[$e_day][] = $row;
                      }
                      else {   // Event starts this month
 		        if ($stop_date_time >= $event_start_date_time) {
                            if (! isset($events_list[$e_day]))
                                $events_list[$e_day] = array();
 
-                              array_push($events_list[$e_day],$row);
+                    $events_list[$e_day][] = $row;
 		        }
                      }
 		 }

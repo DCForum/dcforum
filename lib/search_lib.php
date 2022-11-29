@@ -326,7 +326,7 @@ function search_forum_list($select_forum = 0) {
 
          if ($this_forum_id == $select_forum) {
 
-             array_push($forum_tree,$this_forum_id);
+             $forum_tree[] = $this_forum_id;
 
             if ($in['recursive_search'] == 'Yes')
 	       $ok_forum = 1;
@@ -338,7 +338,7 @@ function search_forum_list($select_forum = 0) {
 	 elseif ($ok_forum) {
             if ($ok_level < $this_level) {
                if ($in['forum_list'][$this_forum_id]['type'] < 99)
-                  array_push($forum_tree,$this_forum_id);
+                   $forum_tree[] = $this_forum_id;
             }
             else {
 	      $ok_forum = 0;
@@ -357,8 +357,8 @@ function search_forum_list($select_forum = 0) {
 
          $this_forum_id = $this_array['0'];
          // If not conference, search
-         if ($in['forum_list'][$this_forum_id]['type'] < 99)      
-            array_push($forum_tree,$this_forum_id);
+         if ($in['forum_list'][$this_forum_id]['type'] < 99)
+             $forum_tree[] = $this_forum_id;
 
       }
 

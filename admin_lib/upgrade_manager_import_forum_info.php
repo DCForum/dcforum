@@ -236,7 +236,7 @@ function import_private_forum_list($old_forum_id,$forum_id) {
          $output = preg_replace("/[\r\n]/","",$output);
          if ($output) {
             $output = db_escape_string($output);
-            array_push($user_list,"'$output'");
+             $user_list[] = "'$output'";
          }
       }
       fclose($fh);

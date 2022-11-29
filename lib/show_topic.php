@@ -231,20 +231,20 @@ function show_topic() {
                        "&topic_id=$in[topic_id]&mesg_id=&page=$page&mode=full\">View all</a>]";
          if ($in['sub_topic_id']) {
            print "<br />Subthread pages: ";
-           
-           array_push($temp_array,"<a href=\"" . DCF . "?az=$in[az]&forum=$in[forum]" .
-                       "&topic_id=$in[topic_id]&mesg_id=&page=$page\">Top</a>");
+
+             $temp_array[] = "<a href=\"" . DCF . "?az=$in[az]&forum=$in[forum]" .
+                 "&topic_id=$in[topic_id]&mesg_id=&page=$page\">Top</a>";
 
            $j=1;
 
 	  foreach($row_info as $key => $val) {
 
               if ($in['sub_topic_id'] == $key ) {
-                 array_push($temp_array,"<strong>$j</strong>");
+                  $temp_array[] = "<strong>$j</strong>";
               }
               else {
-                 array_push($temp_array,"<a href=\"" . DCF . "?az=$in[az]&forum=$in[forum]" .
-                       "&topic_id=$in[topic_id]&sub_topic_id=$key&mesg_id=&page=$page\">$j</a>");
+                  $temp_array[] = "<a href=\"" . DCF . "?az=$in[az]&forum=$in[forum]" .
+                      "&topic_id=$in[topic_id]&sub_topic_id=$key&mesg_id=&page=$page\">$j</a>";
               }
               $j++;    
            }

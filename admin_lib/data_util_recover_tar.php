@@ -67,7 +67,7 @@ function data_util_recover_tar() {
       if (is_array($in[selected])) {
          $temp = array();
          foreach ($in[selected] as $selected) {
-            array_push($temp,"./$selected.*");
+             $temp[] = "./$selected.*";
          }
          $list = implode(' ',$temp);
          chdir(DB_DIR);

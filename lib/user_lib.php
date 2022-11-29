@@ -315,12 +315,12 @@ function update_user_setting($param = 'default') {
 
             case 'pa':    // ICQ can only be numbers
                if (! is_numeric($in[$key]))
-		 array_push($error,$in['lang']['error_icq']);
+                   $error[] = $in['lang']['error_icq'];
                break;
 
             case 'pb':    // AOL IM user ID
                if (! is_alphanumericplus($in[$key]))
-		 array_push($error,$in['lang']['error_aol']);
+                   $error[] = $in['lang']['error_aol'];
                break;
 
             case 'pc':    // Avatar image file name
@@ -333,12 +333,12 @@ function update_user_setting($param = 'default') {
                         // do nothing, image filename is ok
                      }
                      else {   // opps error...
-		       array_push($error,$in['lang']['error_avatar']);
+                         $error[] = $in['lang']['error_avatar'];
                      }
                   }
                   else {
                      if (! is_image_filename($in[$key]))
-		       array_push($error,$in['lang']['error_avatar']);
+                         $error[] = $in['lang']['error_avatar'];
  
                   }
 
@@ -347,99 +347,99 @@ function update_user_setting($param = 'default') {
 
             case 'pd':    // Gender
                if ($in[$key] != 'male' and $in[$key] != 'female')
-		 array_push($error,$in['lang']['error_gender']);
+                   $error[] = $in['lang']['error_gender'];
                break;
 
             case 'pe':    // City field
                if (! is_alphanumericplus($in[$key]))
-		 array_push($error,$in['lang']['error_city']);
+                   $error[] = $in['lang']['error_city'];
                break;
 
             case 'pf':    // State field
                if (! is_alphanumericplus($in[$key]))
-		 array_push($error,$in['lang']['error_state']);
+                   $error[] = $in['lang']['error_state'];
                break;
 
             case 'pg':    // Country field
                if (! is_alphanumericplus($in[$key]))
-		 array_push($error,$in['lang']['error_country']);
+                   $error[] = $in['lang']['error_country'];
                break;
 
             case 'ph':    // Homepage
                if ($in[$key] and ! is_url($in[$key]))
-		 array_push($error,$in['lang']['error_homepage']);
+                   $error[] = $in['lang']['error_homepage'];
                break;
 
             case 'ua':
                if (SETUP_ALLOW_DISABLE_PROFILE != 'yes')
                      $hide = 1;
                if ($in[$key] and ! is_yes_no($in[$key]))
-                  array_push($error,"\"" . $param_preference[$key]['title'] . 
-                     "\" " . $in['lang']['error_yes_no']);
+                   $error[] = "\"" . $param_preference[$key]['title'] .
+                       "\" " . $in['lang']['error_yes_no'];
                   break;
 
             case 'ub':
                   if (SETUP_ALLOW_DISABLE_INBOX != 'yes')
                      $hide = 1;
                if ($in[$key] and ! is_yes_no($in[$key]))
-                  array_push($error,"\"" . $param_preference[$key]['title'] . 
-                     "\" " . $in['lang']['error_yes_no']);
+                   $error[] = "\"" . $param_preference[$key]['title'] .
+                       "\" " . $in['lang']['error_yes_no'];
                   break;
 
             case 'uc':
                   if (SETUP_ALLOW_DISABLE_EMAIL != 'yes')
                      $hide = 1;
                if ($in[$key] and ! is_yes_no($in[$key]))
-                  array_push($error,"\"" . $param_preference[$key]['title'] . 
-                     "\" " . $in['lang']['error_yes_no']);
+                   $error[] = "\"" . $param_preference[$key]['title'] .
+                       "\" " . $in['lang']['error_yes_no'];
                   break;
 
             case 'ud':
                   if (SETUP_ALLOW_DISABLE_EMAIL != 'yes')
                      $hide = 1;
                if ($in[$key] and ! is_yes_no($in[$key]))
-                  array_push($error,"\"" . $param_preference[$key]['title'] . 
-                     "\" " . $in['lang']['error_yes_no']);
+                   $error[] = "\"" . $param_preference[$key]['title'] .
+                       "\" " . $in['lang']['error_yes_no'];
                   break;
 
             case 'ue':
                   if (SETUP_AUTH_ALLOW_PASSWORD_REMEMBERING != 'yes')
                      $hide = 1;
                if ($in[$key] and ! is_yes_no($in[$key]))
-                  array_push($error,"\"" . $param_preference[$key]['title'] . 
-                     "\" " . $in['lang']['error_yes_no']);
+                   $error[] = "\"" . $param_preference[$key]['title'] .
+                       "\" " . $in['lang']['error_yes_no'];
                   break;
 
             case 'uf':
                if ($in[$key] and ! is_yes_no($in[$key]))
-                  array_push($error,"\"" . $param_preference[$key]['title'] . 
-                     "\" " . $in['lang']['error_yes_no']);
+                   $error[] = "\"" . $param_preference[$key]['title'] .
+                       "\" " . $in['lang']['error_yes_no'];
                   break;
 
             case 'ug':
                   if (SETUP_ALLOW_DISABLE_USER_RATING != 'yes')
                      $hide = 1;
                if ($in[$key] and ! is_yes_no($in[$key]))
-                  array_push($error,"\"" . $param_preference[$key]['title'] . 
-                     "\" " . $in['lang']['error_yes_no']);
+                   $error[] = "\"" . $param_preference[$key]['title'] .
+                       "\" " . $in['lang']['error_yes_no'];
                   break;
 
             case 'uh':
                if ($in[$key] and ! is_yes_no($in[$key]))
-                  array_push($error,"\"" . $param_preference[$key]['title'] . 
-                     "\" " . $in['lang']['error_yes_no']);
+                   $error[] = "\"" . $param_preference[$key]['title'] .
+                       "\" " . $in['lang']['error_yes_no'];
                   break;
 
             case 'ui':
                if ($in[$key] and ! is_yes_no($in[$key]))
-                  array_push($error,"\"" . $param_preference[$key]['title'] . 
-                     "\" " . $in['lang']['error_yes_no']);
+                   $error[] = "\"" . $param_preference[$key]['title'] .
+                       "\" " . $in['lang']['error_yes_no'];
                   break;
 
             case 'uj':
                if ($in[$key] and ! is_yes_no($in[$key]))
-                  array_push($error,"\"" . $param_preference[$key]['title'] . 
-                     "\" " . $in['lang']['error_yes_no']);
+                   $error[] = "\"" . $param_preference[$key]['title'] .
+                       "\" " . $in['lang']['error_yes_no'];
                   break;
 
 
@@ -457,10 +457,10 @@ function update_user_setting($param = 'default') {
 
       // set up sql input
       if ($hide == 1) {
-         array_push($query_array,"$key = '" . $param_preference[$key]['value'] . "'");
+          $query_array[] = "$key = '" . $param_preference[$key]['value'] . "'";
       }
       else {
-         array_push($query_array,"$key = '" . $this_val . "'");
+          $query_array[] = "$key = '" . $this_val . "'";
       }
 
    }
@@ -483,23 +483,23 @@ function update_user_setting($param = 'default') {
       if ($param == 'preference' or $param == 'default') {
          $set_clause = array();
          if ($in['ue'] != '')
-            array_push($set_clause, " ue = '$in[ue]'") ;
+             $set_clause[] = " ue = '$in[ue]'";
          if ($in['ug'] != '')
-            array_push($set_clause, " ug = '$in[ug]'") ;
+             $set_clause[] = " ug = '$in[ug]'";
          if ($in['uh'] != '')
-            array_push($set_clause, " uh = '$in[uh]'") ;
+             $set_clause[] = " uh = '$in[uh]'";
          if ($in['uj'] != '')
-            array_push($set_clause, " uj = '$in[uj]'") ;
+             $set_clause[] = " uj = '$in[uj]'";
          if ($in['ut'] != '')
-            array_push($set_clause, " ut = '$in[ut]'") ;
+             $set_clause[] = " ut = '$in[ut]'";
          if ($in['utt'] != '')
-            array_push($set_clause, " utt = '$in[utt]'") ;
+             $set_clause[] = " utt = '$in[utt]'";
          if ($in['uu'] != '')
-            array_push($set_clause, " uu = '$in[uu]'") ;
+             $set_clause[] = " uu = '$in[uu]'";
          if ($in['uv'] != '')
-            array_push($set_clause, " uv = '$in[uv]'") ;
+             $set_clause[] = " uv = '$in[uv]'";
          if ($in['uw'] != '')
-            array_push($set_clause, " uw = '$in[uw]'") ;
+             $set_clause[] = " uw = '$in[uw]'";
 
          $set_list = implode(",",$set_clause);
 
@@ -560,7 +560,7 @@ function user_setting_form($param = 'full') {
 
       $query_array = array();
      foreach($this_param as $key => $val) {
-         array_push($query_array,$key);
+         $query_array[] = $key;
       }
       reset($this_param);
 

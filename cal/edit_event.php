@@ -133,7 +133,7 @@ function edit_event() {
          $in[$param] = trim($in[$param]);
          $error = check_cal_param($param);
          if ($error)
-	   array_push($errors,$error);
+             $errors[] = $error;
       }
 
       // If error print them

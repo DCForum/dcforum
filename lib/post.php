@@ -106,7 +106,7 @@ function post() {
 
       if (trim($in['subject']) == ''
           or trim($in['message']) == '') {
-	array_push($post_error,$in['lang']['e_subject_blank']);
+          $post_error[] = $in['lang']['e_subject_blank'];
       }
 
       if (! $in['user_info']['id']) {
@@ -114,16 +114,16 @@ function post() {
 
          // blank guest name bug
          if ($in['name'] == '')
-	   array_push($post_error,$in['lang']['e_name_blank']);
+             $post_error[] = $in['lang']['e_name_blank'];
 
          if (! is_username($in['name']))
-	   array_push($post_error,$in['lang']['e_name_invalid']);
+             $post_error[] = $in['lang']['e_name_invalid'];
 
          if (strlen($in['name']) > SETUP_NAME_LENGTH_MAX)
-            array_push($post_error,$in['lang']['e_name_long'] ." " . SETUP_NAME_LENGTH_MAX);
+             $post_error[] = $in['lang']['e_name_long'] . " " . SETUP_NAME_LENGTH_MAX;
 
          if (registered_username($in['name']))
-	   array_push($post_error,$in['lang']['e_name_dup']);
+             $post_error[] = $in['lang']['e_name_dup'];
 
       }
 
@@ -288,7 +288,7 @@ function send_topic_subscription($forum_id,$topic_id,$mesg_id,$u_id) {
    if ($num_rows > 0) {
 
       while($row = db_fetch_array($result)) {
-         array_push($bcc_arr,$row['email']);
+          $bcc_arr[] = $row['email'];
       }
 
       // At this point, Bcc list is at least 1
@@ -359,7 +359,7 @@ function notify_admin($forum_id,$topic_id,$mesg_id,$moderators,$username) {
    if (SETUP_EMAIL_TO_MOD == 'yes' and is_array($moderators)) {
       $temp_arr = array();
      foreach($moderators as $key => $val) {
-         array_push($temp_arr,"'$key'");
+         $temp_arr[] = "'$key'";
       }
       $moderator_list = implode(",",$temp_arr);
       if ($moderator_list) {

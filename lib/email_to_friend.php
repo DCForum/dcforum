@@ -64,7 +64,7 @@ function email_to_friend() {
    $error = array();
    $result = get_message(mesg_table_name($in['forum']),$in['topic_id']);
    if (db_num_rows($result) < 1) {
-      array_push($error,$in['lang']['no_such_topic']);
+       $error[] = $in['lang']['no_such_topic'];
    }
    else {
       $row = db_fetch_array($result);
@@ -92,24 +92,24 @@ function email_to_friend() {
       $in['message'] = trim($in['message']);
 
       if ($in['from_name'] == '') {
-	array_push($error,$in['lang']['e_from_name_blank']);
+          $error[] = $in['lang']['e_from_name_blank'];
       }
       if ($in['from_email'] == '') {
-	array_push($error,$in['lang']['e_from_email_blank']);
+          $error[] = $in['lang']['e_from_email_blank'];
       }
       elseif (! check_email($in['from_email']) ) {
-	array_push($error,$in['lang']['e_from_email_syntax']);
+          $error[] = $in['lang']['e_from_email_syntax'];
 
       }
 
       if ($in['to_name'] == '') {
-	array_push($error,$in['lang']['e_to_name_blank']);
+          $error[] = $in['lang']['e_to_name_blank'];
       }
       if ($in['to_email'] == '') {
-	array_push($error,$in['lang']['e_to_email_blank']);
+          $error[] = $in['lang']['e_to_email_blank'];
       }
       elseif (! check_email($in['to_email']) ) {
-	array_push($error,$in['lang']['e_to_email_syntax']);
+          $error[] = $in['lang']['e_to_email_syntax'];
       }
 
       if ($error) {

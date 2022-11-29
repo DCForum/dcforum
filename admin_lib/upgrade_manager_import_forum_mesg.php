@@ -207,7 +207,7 @@ function get_file_list() {
       $name = substr($file,0,strrpos($file, '.'));
       if ($ext == '.txt') {
 
-            array_push($file_list,$name);
+          $file_list[] = $name;
       }
    }
 
@@ -617,7 +617,7 @@ function get_next_forum($current_forum) {
       }
 
       while($row = db_fetch_array($result)) {
-         array_push($list,array('id'=>$row['id'],'name'=>$row['name'],'type'=>$row['type']));
+          $list[] = ['id' => $row['id'], 'name' => $row['name'], 'type' => $row['type']];
       }
 
       db_free($result);
@@ -675,7 +675,7 @@ function import_attachment($author_id,$forum_id,$topic_id,$mesg_id,$timestamp,$a
 
           $attachment_id = db_insert_id();
           $new_file_name = $attachment_id . '.' . $file_type;
-          array_push($new_array,$new_file_name);
+          $new_array[] = $new_file_name;
 
           copy(OLD_MAIN_DIR . "/User_files/$a_file", USER_DIR . "/$new_file_name");
 

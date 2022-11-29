@@ -214,7 +214,7 @@ function forum_manager_create() {
          }
  
          if ($required)
-            array_push($required_fields,$key);
+             $required_fields[] = $key;
 
       }
 

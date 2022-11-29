@@ -67,13 +67,13 @@ function retrieve_password() {
       $in['email'] = trim($in['email']);
 
       if ($in['username'] == '') {
-         array_push($error,$in['lang']['e_blank_username']);
+          $error[] = $in['lang']['e_blank_username'];
       }
       if ($in['email'] == '') {
-	array_push($error,$in['lang']['e_blank_email']);
+          $error[] = $in['lang']['e_blank_email'];
       }
       elseif (! check_email($in['email']) ) {
-	array_push($error,$in['lang']['e_invalid_email']);
+          $error[] = $in['lang']['e_invalid_email'];
 
       }
 

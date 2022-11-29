@@ -84,7 +84,7 @@ function upload_files() {
          $attachments = upload_file_list($post_id,$in['mesg_id']); 
         foreach($attachments as $id => $type) {
             $file = $id . "." . $type;
-            array_push($new_list,$file);
+            $new_list[] = $file;
          }
          // Put em there, buddy....
          $attachment = implode(",",$new_list);
@@ -125,24 +125,24 @@ function upload_files() {
       // If $_FILES['file_upload'] is empty and file_upload text is not there...
     //      if ($_FILES['file_upload'] == '' and $in['file_upload'] == '') {
       if ($_FILES['file_upload'] == '' and $in['file_upload']) {
-         array_push($error, $in['lang']['select_file_mesg']);
+          $error[] = $in['lang']['select_file_mesg'];
          log_error($in['user_info']['id'],'File upload error','Invalid file type');
       }
 
 
       // See if MAX_FILE_SIZE was altered
       if ($in[MAX_FILE_SIZE] != $max_size) {
-	 array_push($error,$in['lang']['max_file_invalid']);
+          $error[] = $in['lang']['max_file_invalid'];
          log_error($in['user_info']['id'],'File upload error','Maximum file size has beeb altered');
       }
 
       // See if the file has valid extension type
       if ($in['file_type'] == '') {
-         array_push($error, $in['lang']['select_file_type_mesg']);
+          $error[] = $in['lang']['select_file_type_mesg'];
          log_error($in['user_info']['id'],'File upload error','Invalid file type');
       }
       elseif (! $allowed_files[$in['file_type']]) {
-         array_push($error, $in['lang']['invalid_file_type']);
+          $error[] = $in['lang']['invalid_file_type'];
          log_error($in['user_info']['id'],'File upload error','Invalid file type');
       }
 

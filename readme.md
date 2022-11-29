@@ -3,7 +3,7 @@
 I've created this repository for a few reasons:
 
 1. Persevere original DCForum+.
-2. Bring the project to basic current day PHP support (8.x). (not intended for production!)
+2. Bring the project to basic current day PHP support (8.x). (not intended for production!) Achieved!
 3. Eventually a complete rewrite of the project based on [Laravel](https://laravel.com).
 
 I was active on several DCForum based boards during the early 2000's,    
@@ -15,11 +15,6 @@ But I did not have much success.
 If you have claims to any of the rights related to this project (code, artwork, trademarks, etc.)   
 Please create a [GitHub issue](https://github.com/DCForum/dcforum/issues/new) with your claim and I will address it
 ASAP.
-
-### Requirements
-
-1. PHP 4.x
-2. MySQL 3.23.x
 
 ### Changelog
 
@@ -45,6 +40,11 @@ ASAP.
 #### 1.27.1
 
 * Converted all files to utf-8.
+
+### Original Requirements
+
+1. PHP 4.x
+2. MySQL 3.23.x
 
 #### --- Original readme file converted to markdown ---
 

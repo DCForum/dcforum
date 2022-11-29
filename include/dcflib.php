@@ -397,6 +397,8 @@ function add_new_message()
 //                 '{$in['th_order']}',
 //                 '1',
 
+    $in['parent_id'] ??= '0';
+
     $q = "INSERT INTO $in[forum_table]
           VALUES(null,
                  '{$in['top_id']}',
@@ -424,7 +426,6 @@ function add_new_message()
                  '0',
                  '0',
                  '0') ";
-   
     db_query($q);
 
     // Get the topic_id ID

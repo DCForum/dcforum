@@ -70,7 +70,7 @@ function upgrade_manager_import_forum_info() {
       if ($output) {
          $forum_order++;
          // $fields = conf id, conf name, conf desc, status
-         $fields = split('[\|]',$output);
+         $fields = explode('|',$output);
          $conf_id = $fields['0'];
          $conf_name = db_escape_string($fields['1']);
          $conf_desc = db_escape_string($fields['2']);
@@ -137,7 +137,7 @@ function upgrade_manager_import_forum_info() {
 
          $forum_order++;
          // $fields = password, username, group, firstname, lastname, email, status
-         $fields = split('[\|]',$output);
+         $fields = explode('|',$output);
          $old_forum_id = $fields['0'];
          $parent_id = $conf_ids[$fields['1']];
          $forum_name = db_escape_string($fields['2']);

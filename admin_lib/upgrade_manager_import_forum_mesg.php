@@ -59,7 +59,7 @@ function upgrade_manager_import_forum_mesg() {
    while(!feof($fh)) {
          $output = fgets($fh,256);
          chop($output);
-         $fields = split('[\|]',$output);
+         $fields = explode('|',$output);
          if ($fields['0'] == "time_offset")
             $time_offset = $fields['1'];
    }
@@ -136,7 +136,7 @@ function upgrade_manager_import_forum_mesg() {
    while(!feof($fh)) {
          $output = fgets($fh,2048);
          chop($output);
-         $fields = split('[\|]',$output);
+         $fields = explode('|',$output);
          // 0 = forum ID
          // 1 = topic_id
          // 2 = mesg_id
@@ -582,7 +582,7 @@ function get_old_forum_id($forum_name) {
       $output = fgets($fh,1024);
       chop($output);
       if ($output) {
-         $fields = split('[\|]',$output);
+         $fields = explode('|',$output);
          if ($forum_name == $fields['2'])
             $forum_id = $fields['0'];
      }

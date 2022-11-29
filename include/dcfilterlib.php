@@ -59,15 +59,8 @@ function filter_non_number_chars($in_string) {
 /////////////////////////////////////////////////////
 function check_email($str) {
 
-// mod.2002.11.16.01   
-   $str = strtolower($str);
-
-   return ereg( 
-               '^([a-z0-9_]|\\-|\\.)+'.
-               '@'.
-               '(([a-z0-9_]|\\-)+\\.)+'.
-               '[a-z]{2,4}$',
-               $str);
+// mod.2002.11.16.01
+   return filter_var($str, FILTER_VALIDATE_EMAIL);
 }
 
 /////////////////////////////////////////////////////

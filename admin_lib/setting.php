@@ -140,7 +140,7 @@ function setting() {
             $title = $setup_vars[$key]['title'];
             $desc = $setup_vars[$key]['desc'];
 
-            $fields = split('[\|]',$setup_vars[$key]['form']);
+            $fields = explode('|',$setup_vars[$key]['form']);
             $form_type = array_shift($fields);
             $required = array_pop($fields);
 

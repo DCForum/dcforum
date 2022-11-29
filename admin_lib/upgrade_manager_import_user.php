@@ -111,7 +111,7 @@ function upgrade_manager_import_user() {
       if ($output) {
 
          // $fields = password, username, group, firstname, lastname, email, status
-         $fields = split('[\|]',$output);
+         $fields = explode('|',$output);
          $fields['1'] = trim($fields['1']);
 
          $name = "$fields[3] $fields[4]";

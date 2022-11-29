@@ -133,7 +133,7 @@ function forum_manager_create() {
 
      foreach($forum_form as $key => $val) {
 
-         $fields = split('[\|]',$forum_form[$key]['form']);
+         $fields = explode('|',$forum_form[$key]['form']);
          $form_type = array_shift($fields);
          $required = array_pop($fields);
 

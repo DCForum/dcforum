@@ -88,7 +88,7 @@ function preference_form_fields()
 
             $title = $param_preference[$key]['title'];
             $desc = $param_preference[$key]['desc'];
-            $fields = split('[\|]', $param_preference[$key]['form']);
+            $fields = explode('|', $param_preference[$key]['form']);
             $form_type = array_shift($fields);
             $required = array_pop($fields);
 
@@ -230,7 +230,7 @@ function profile_form_fields()
 
             $title = $param_profile[$key]['title'];
             $desc = $param_profile[$key]['desc'];
-            $fields = split('[\|]', $param_profile[$key]['form']);
+            $fields = explode('|', $param_profile[$key]['form']);
             $form_type = array_shift($fields);
             $required = array_pop($fields);
 

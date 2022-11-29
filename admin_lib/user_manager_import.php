@@ -60,7 +60,7 @@ function user_manager_import() {
 
       if ($output) {
          // $fields = password, username, group, firstname, lastname, email, status
-         $fields = split('[\|]',$output);
+         $fields = explode('|',$output);
          $name = "$fields[3] $fields[4]";
          $group_id = $group_user[$fields[2]];
          $sql = "INSERT INTO " . DB_USER . "

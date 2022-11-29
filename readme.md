@@ -37,6 +37,8 @@ ASAP.
 * Changed all `NOT NULL DEFAULT...` to `NULL DEFAULT...`.
 * Added `legacy_each` in `dclib.php`.
 * Replaced `each` with `legacy_each`.
+* Migrated `split('[\|]',` to `explode('|',`.
+* Modified `check_email` to use `filter_var`.
 
 #### 1.27.1
 

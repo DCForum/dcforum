@@ -86,7 +86,7 @@ function upgrade_manager_import_forum_log() {
 
          $event = '';
 
-         $fields = split('[\|]',$output);
+         $fields = explode('|',$output);
          // 0 - username
          // 1 - event (lobby, post etc) If post, post-forum_name
          // 2 - date
@@ -138,7 +138,7 @@ function get_old_forum_ids() {
       $output = fgets($fh,1024);
       chop($output);
       if ($output) {
-         $fields = split('[\|]',$output);
+         $fields = explode('|',$output);
          $forum_id[$fields['2']] = $fields['0'];
       }
    }

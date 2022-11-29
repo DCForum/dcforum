@@ -70,13 +70,13 @@ include(INCLUDE_DIR . "/dcdatelib.php");
    print "...done.<br />";
 
    print "Adding user preference for daylight savings time to user db...";
-   $q = "ALTER TABLE " . DB_USER . " ADD COLUMN utt ENUM('yes','no') NOT NULL DEFAULT 'no' AFTER ut ";
+   $q = "ALTER TABLE " . DB_USER . " ADD COLUMN utt ENUM('yes','no') NULL DEFAULT 'no' AFTER ut ";
 
    db_query($q);
    print "...done.<br />";
 
    print "Adding user preference for daylight savings time to session db...";
-   $q = "ALTER TABLE " . DB_SESSION . " ADD COLUMN utt ENUM('yes','no') NOT NULL DEFAULT 'no' AFTER ut ";
+   $q = "ALTER TABLE " . DB_SESSION . " ADD COLUMN utt ENUM('yes','no') NULL DEFAULT 'no' AFTER ut ";
 
    db_query($q);
    print "...done.<br />";

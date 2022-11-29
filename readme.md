@@ -34,7 +34,7 @@ ASAP.
 * Removed timestamp size from mysql tables.
 * Migrated empty strings on auto increment to null on sql inserts.
 * Wrapped all array access in strings to `'{$arr['key']}'`.
-* Changed all `NOT NULL DEFAULT...` to `NULL DEFAULT...`.
+* Changed all `NULL DEFAULT...` to `NULL DEFAULT...`.
 * Added `legacy_each` in `dclib.php`.
 * Replaced `each` with `legacy_each`.
 * Migrated `split('[\|]',` to `explode('|',`.

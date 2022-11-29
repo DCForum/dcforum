@@ -158,7 +158,7 @@ function gm_time($server_time = 0) {
 //////////////////////////////////////////////////////
 //
 // function sql_timestamp
-// converts unix timestamp to TIMESTAMP(14) format
+// converts unix timestamp to TIMESTAMP format
 //
 //////////////////////////////////////////////////////
 function sql_timestamp($date) {

@@ -266,7 +266,7 @@ function set_session($row) {
 
    // record session in session table
    $q = "INSERT INTO " . DB_SESSION . "
-         VALUES('',
+         VALUES(null,
                 '$session',
                 '{$session_row['id']}',
                 '{$session_row['username']}',
@@ -280,8 +280,8 @@ function set_session($row) {
                 '{$session_row['ue']}',
                 '{$session_row['ug']}',
                 '{$session_row['uh']}',
-                '{$session_row['uj']}',
-                '{$session_row['uw']}',
+                NULLIF('{$session_row['uj']}', ''),
+                NULLIF('{$session_row['uw']}', ''),
                 '$time_mark',
                 NOW()
         ) ";

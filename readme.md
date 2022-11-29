@@ -34,6 +34,7 @@ ASAP.
 * Removed timestamp size from mysql tables.
 * Migrated empty strings on auto increment to null on sql inserts.
 * Wrapped all array access in strings to `'{$arr['key']}'`.
+* Changed all `NOT NULL DEFAULT...` to `NULL DEFAULT...`.
 
 #### 1.27.1
 

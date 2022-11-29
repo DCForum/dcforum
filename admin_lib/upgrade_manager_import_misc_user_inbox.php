@@ -61,7 +61,7 @@ function upgrade_manager_import_misc_user_inbox() {
 
    // OK, let's take care of the ratings file
 
-   while(list($id,$username) = each($user_name)) {
+  foreach($user_name as $id => $username) {
       $username = rawurlencode($username);
       if (file_exists("$rating_dir/$username.box")) {
 
@@ -89,7 +89,7 @@ function upgrade_manager_import_misc_user_inbox() {
                $comment = db_escape_string(rawurldecode($fields['3']));
 
                $q = "INSERT INTO " . DB_INBOX . "
-                       VALUES('','$id','$r_id','$subject','$comment','$date') ";
+                       VALUES(null,'$id','$r_id','$subject','$comment','$date') ";
                db_query($q);
             }
          }

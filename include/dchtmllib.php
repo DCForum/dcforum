@@ -53,7 +53,7 @@ function begin_table ($attributes) {
 
    print "<table width=\"100%\"";
    if ($attributes) {
-      while ( list($key,$value) = each($attributes) ) {
+     foreach($attributes as $key => $value) {
          if ($key != 'width' and $key != 'align' and $value != '') {
             print " $key=\"$value\"";
          }
@@ -78,7 +78,7 @@ function end_table () {
 //
 /////////////////////////////////////////////////////
 
-function toggle_css_class($css_class) {
+function toggle_css_class($css_class = '') {
    if ($css_class == 'dclite') {
       $css_class = 'dcdark';
    }
@@ -157,15 +157,15 @@ function date_form_element ($default_date,$pre) {
    $days = array();
 
    for ($j=1; $j<32; $j++) {
-      $this_temp = sprintf('%02d',$j);
-      array_push($days,$this_temp);
+      $__this_temp = sprintf('%02d',$j);
+       $days[] = $__this_temp;
    }
 
    $years = array();
 
    for ($j=-6; $j<10; $j++) {
-      $this_temp = $default_year + $j;
-      array_push($years,$this_temp);  
+      $__this_temp = $default_year + $j;
+       $years[] = $__this_temp;
    }
 
 
@@ -223,14 +223,14 @@ function form_element($name,$form_type,$in_value,$default,$tab_index="") {
 //            $default = $values['0'];
 //         }
 
-         while(list($key,$val) = each($values)) {
+        foreach($values as $key => $val) {
 
             $checked = '';
 
             // $default can be an array
             if (is_array($default)) {
-               foreach ($default as $this_temp) {
-                  if ($this_temp == $key)
+               foreach ($default as $__this_temp) {
+                  if ($__this_temp == $key)
                      $checked = 'checked="checked"';
                }
             }
@@ -254,14 +254,14 @@ function form_element($name,$form_type,$in_value,$default,$tab_index="") {
             $default = $values['0'];
          }
 
-         while(list($key,$val) = each($values)) {
+        foreach($values as $key => $val) {
  
             $checked = '';
 
             // $default can be an array
             if (is_array($default)) {
-               foreach ($default as $this_temp) {
-                  if ($this_temp == $key)
+               foreach ($default as $__this_temp) {
+                  if ($__this_temp == $key)
                      $checked = 'checked="checked"';
                }
             }
@@ -341,7 +341,7 @@ function form_element($name,$form_type,$in_value,$default,$tab_index="") {
 
          $form = "<select name=\"$name\" tabindex=\"$tab_index\">\n";
 
-         while(list($key,$val) = each($values)) {
+        foreach($values as $key => $val) {
             if ($key == $default) {
                $form .= "<option value=\"$key\" selected=\"selected\">$values[$key]</option>\n";
             }

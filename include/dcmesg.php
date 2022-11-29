@@ -32,36 +32,37 @@ select_language("/include/dcmesg.php");
 /////////////////////////////////////////////////////
 // function print_error_mesg
 /////////////////////////////////////////////////////
-function print_error_mesg($error_heading,$errors = '') {
+function print_error_mesg($error_heading, $errors = '')
+{
 
-   global $in;
+    global $in;
 
-   begin_table(array(
-         'border'=>'0',
-         'cellspacing' => '0',
-         'cellpadding' => '5',
-         'class'=>'') );
+    begin_table([
+        'border'      => '0',
+        'cellspacing' => '0',
+        'cellpadding' => '5',
+        'class'       => '',
+    ]);
 
-   $missing = "<img src=\"" . IMAGE_URL . "/alert.gif\" alt=\"\" />";
+    $missing = "<img src=\"" . IMAGE_URL . "/alert.gif\" alt=\"\" />";
 
-   print "<tr class=\"dclite\"><td>$missing</td><td width=\"100%\">
+    print "<tr class=\"dclite\"><td>$missing</td><td width=\"100%\">
           <p class=\"dcerrorsubject\">" . $in['lang']['error'] . ": $error_heading</p></td></tr>";
-   print "<tr class=\"dclite\"><td colspan=\"2\">";
+    print "<tr class=\"dclite\"><td colspan=\"2\">";
 
-   if (is_array($errors)) {
-      print "<ul>\n";
-      foreach ($errors as $error) {
-         print "<li> $error </li>\n";
-      }
-      print "</ul>";
-   }
-   elseif ($errors) {
-      print " $errors \n";
-   }
+    if (is_array($errors)) {
+        print "<ul>\n";
+        foreach ($errors as $error) {
+            print "<li> $error </li>\n";
+        }
+        print "</ul>";
+    } else if ($errors) {
+        print " $errors \n";
+    }
 
-   print "</td></tr>";
+    print "</td></tr>";
 
-   end_table();
+    end_table();
 
 }
 
@@ -69,79 +70,80 @@ function print_error_mesg($error_heading,$errors = '') {
 /////////////////////////////////////////////////////
 // function output_error_mesg
 /////////////////////////////////////////////////////
-function output_error_mesg($error_flag) {
+function output_error_mesg($error_flag)
+{
 
-  global $in;
+    global $in;
 
-   print_no_cache_header();
+    print_no_cache_header();
 
-   switch ($error_flag) {
+    switch ($error_flag) {
 
-      case 'Invalid Forum ID':
-	 $mesg = $in['lang']['invalid_forum_id'];
-         break;
+        case 'Invalid Forum ID':
+            $mesg = $in['lang']['invalid_forum_id'];
+            break;
 
-      case 'Missing Forum':
-	 $mesg = $in['lang']['missing_forum'];
-         break;
+        case 'Missing Forum':
+            $mesg = $in['lang']['missing_forum'];
+            break;
 
-      case 'Message Posting Denied':
-	 $mesg = $in['lang']['message_posting_denied'];
-         break;
+        case 'Message Posting Denied':
+            $mesg = $in['lang']['message_posting_denied'];
+            break;
 
-      case 'Access Denied':
-	 $mesg = $in['lang']['access_denied'];
-         break;
+        case 'Access Denied':
+            $mesg = $in['lang']['access_denied'];
+            break;
 
-      case 'Invalid Topic ID':
-	 $mesg = $in['lang']['invalid_topic_id'];
-         break;
+        case 'Invalid Topic ID':
+            $mesg = $in['lang']['invalid_topic_id'];
+            break;
 
-      case 'Missing Topic':
-	 $mesg = $in['lang']['missing_topic'];
-         break;
+        case 'Missing Topic':
+            $mesg = $in['lang']['missing_topic'];
+            break;
 
-      case 'Invalid Message ID':
-	 $mesg = $in['lang']['invalid_message_id'];
-         break;
+        case 'Invalid Message ID':
+            $mesg = $in['lang']['invalid_message_id'];
+            break;
 
-      case 'Missing Message':
-	 $mesg = $in['lang']['missing_message'];
-         break;
+        case 'Missing Message':
+            $mesg = $in['lang']['missing_message'];
+            break;
 
-      case 'Disabled Option':
-	 $mesg = $in['lang']['disabled_option'];
-         break;
+        case 'Disabled Option':
+            $mesg = $in['lang']['disabled_option'];
+            break;
 
-      case 'Missing Attachment':
-	 $mesg = $in['lang']['missing_attachment'];
-         break;
+        case 'Missing Attachment':
+            $mesg = $in['lang']['missing_attachment'];
+            break;
 
-      case 'Missing Module':
-	 $mesg = $in['lang']['missing_module'];
-         break;
+        case 'Missing Module':
+            $mesg = $in['lang']['missing_module'];
+            break;
 
-      case 'Invalid Input Parameter':
-	 $mesg = $in['lang']['invalid_input_parameter'];
-         break;
+        case 'Invalid Input Parameter':
+            $mesg = $in['lang']['invalid_input_parameter'];
+            break;
 
-      case 'Invalid Referer':
-	 $mesg = $in['lang']['invalid_referer'];
-         break;
+        case 'Invalid Referer':
+            $mesg = $in['lang']['invalid_referer'];
+            break;
 
-      case 'Denied Request':
-	 $mesg = $in['lang']['denied_request'];
-         break;
+        case 'Denied Request':
+            $mesg = $in['lang']['denied_request'];
+            break;
 
-      default:
-	 $mesg = $in['lang']['default'];
-         break;
-
-
-   }
+        default:
+            $mesg = $in['lang']['default'];
+            break;
 
 
-   print_error_page($error_flag,$mesg);
+    }
+
+
+    print_error_page($error_flag, $mesg);
 
 
 }
@@ -149,107 +151,109 @@ function output_error_mesg($error_flag) {
 /////////////////////////////////////////////////////
 // function print_ok_mesg
 /////////////////////////////////////////////////////
-function print_ok_mesg($heading,$fields = '') {
+function print_ok_mesg($heading, $fields = '')
+{
 
-   begin_table(array(
-         'border'=>'0',
-         'width' => '100%',
-         'cellspacing' => '0',
-         'cellpadding' => '5',
-         'class'=>'') );
+    begin_table([
+        'border'      => '0',
+        'width'       => '100%',
+        'cellspacing' => '0',
+        'cellpadding' => '5',
+        'class'       => '']);
 
-   $ok_icon = "<img src=\"" . IMAGE_URL . "/alert.gif\"  alt=\"\" />";
+    $ok_icon = "<img src=\"" . IMAGE_URL . "/alert.gif\"  alt=\"\" />";
 
-   print "<tr class=\"dclite\"><td>$ok_icon</td><td width=\"100%\">
+    print "<tr class=\"dclite\"><td>$ok_icon</td><td width=\"100%\">
           <div class=\"dcerrorsubject\">$heading</div></td></tr>";
 
-   end_table();
+    end_table();
 
-   if ($fields) {
-      begin_table(array(
-            'border'=>'0',
+    if ($fields) {
+        begin_table([
+            'border'      => '0',
             'cellspacing' => '1',
             'cellpadding' => '5',
-            'class'=>'') );
+            'class'       => '']);
 
-      if (is_array($fields)) {
-         while(list($key,$val) = each($fields)) {
-            print "<tr class=\"dclite\"><td nowrap=\"nowrap\">$key :</td><td 
+        if (is_array($fields)) {
+            foreach ($fields as $key => $val) {
+                print "<tr class=\"dclite\"><td nowrap=\"nowrap\">$key :</td><td 
                class=\"dclite\" nowrap=\"nowrap\">$val</td></tr>";
-         }
-      }
-      elseif ($fields) {
-         print "<tr class=\"dclite\"><td colspan=\"2\">$fields</td></tr>";
-      }
-   
-      end_table();
-   }
+            }
+        } else if ($fields) {
+            print "<tr class=\"dclite\"><td colspan=\"2\">$fields</td></tr>";
+        }
+
+        end_table();
+    }
 }
 
 /////////////////////////////////////////////////////
 // function print_inst_mesg
 /////////////////////////////////////////////////////
-function print_inst_mesg($heading) {
+function print_inst_mesg($heading)
+{
 
-   begin_table(array(
-         'border'=>'0',
-         'width' => '100%',
-         'cellspacing' => '0',
-         'cellpadding' => '5',
-         'class'=>'') );
+    begin_table([
+        'border'      => '0',
+        'width'       => '100%',
+        'cellspacing' => '0',
+        'cellpadding' => '5',
+        'class'       => '']);
 
-   $inst_icon = "<img src=\"" . IMAGE_URL . "/alert.gif\"  alt=\"\" />";
+    $inst_icon = "<img src=\"" . IMAGE_URL . "/alert.gif\"  alt=\"\" />";
 
-   print "<tr class=\"dclite\"><td>$inst_icon</td><td width=\"100%\">
+    print "<tr class=\"dclite\"><td>$inst_icon</td><td width=\"100%\">
           <div class=\"dcsubjecttext\">$heading</div></td></tr>";
 
-   end_table();
+    end_table();
 
 }
 
 ///////////////////////////////////////////////////////
 // function print_error_page
 ///////////////////////////////////////////////////////
-function print_error_page($error_heading,$errors,$title = '') {
+function print_error_page($error_heading, $errors, $title = '')
+{
 
-  global $in;
+    global $in;
 
-   print_head($in['lang']['request_error']);
+    print_head($in['lang']['request_error']);
 
-   if ($title == '') {
-     $title = $in['lang']['cannot_be_displayed'];
-   }
+    if ($title == '') {
+        $title = $in['lang']['cannot_be_displayed'];
+    }
 
-   if (is_array($errors)) {
-      foreach ($errors as $error) {
-         $temp .= "<li> $error</li>";
-      }
-      $errors = $temp;
-   }
+    if (is_array($errors)) {
+        foreach ($errors as $error) {
+            $temp .= "<li> $error</li>";
+        }
+        $errors = $temp;
+    }
 
-   // include top template file
-   include_top('error.html');
+    // include top template file
+    include_top('error.html');
 
-   begin_table(array(
-         'border'=>'0',
-         'cellspacing' => '0',
-         'cellpadding' => '5',
-         'class'=>'') );
+    begin_table([
+        'border'      => '0',
+        'cellspacing' => '0',
+        'cellpadding' => '5',
+        'class'       => '']);
 
-   $missing = "<img src=\"" . IMAGE_URL . "/missing.gif\" alt=\"\" />";
+    $missing = "<img src=\"" . IMAGE_URL . "/missing.gif\" alt=\"\" />";
 
-   print "<tr class=\"dclite\"><td>$missing</td><td width=\"100%\">
+    print "<tr class=\"dclite\"><td>$missing</td><td width=\"100%\">
           <p class=\"dcerrortitle\">$title<br />
           <span class=\"dcerrorsubject\">$error_heading</span></p></td></tr>";
-   print "<tr class=\"dclite\"><td colspan=\"2\">$errors
+    print "<tr class=\"dclite\"><td colspan=\"2\">$errors
           <p>" . $in['lang']['contact_admin'] . " <br />
           <a href=\"javascript:history.back()\">" . $in['lang']['click_to_goback'] . "</a></p>
           </td></tr>";
- 
-   end_table();
+
+    end_table();
 
 
-   print_tail();
+    print_tail();
 
 
 }
@@ -257,32 +261,33 @@ function print_error_page($error_heading,$errors,$title = '') {
 ///////////////////////////////////////////////////////
 // function print_alert_page
 ///////////////////////////////////////////////////////
-function print_alert_page($heading,$mesg) {
+function print_alert_page($heading, $mesg)
+{
 
-  global $in;
+    global $in;
 
-   print_head($in['lang']['request_alert']);
+    print_head($in['lang']['request_alert']);
 
-   // include top template file
-   include_top('error.html');
+    // include top template file
+    include_top('error.html');
 
-   begin_table(array(
-         'border'=>'0',
-         'cellspacing' => '0',
-         'cellpadding' => '5',
-         'class'=>'') );
+    begin_table([
+        'border'      => '0',
+        'cellspacing' => '0',
+        'cellpadding' => '5',
+        'class'       => '']);
 
-   $missing = "<img src=\"" . IMAGE_URL . "/missing.gif\"  alt=\"\" />";
+    $missing = "<img src=\"" . IMAGE_URL . "/missing.gif\"  alt=\"\" />";
 
-   print "<tr class=\"dclite\"><td>$missing</td><td width=\"100%\">
+    print "<tr class=\"dclite\"><td>$missing</td><td width=\"100%\">
           <p class=\"dcerrortitle\">$heading<br /></p></td></tr>";
-   print "<tr class=\"dclite\"><td colspan=\"2\">$mesg<p>" . $in['lang']['contact_admin'] . "</p>
+    print "<tr class=\"dclite\"><td colspan=\"2\">$mesg<p>" . $in['lang']['contact_admin'] . "</p>
           </td></tr>";
- 
-   end_table();
+
+    end_table();
 
 
-   print_tail();
+    print_tail();
 
 
 }
@@ -290,29 +295,30 @@ function print_alert_page($heading,$mesg) {
 ///////////////////////////////////////////////////////
 // function print_success_page
 ///////////////////////////////////////////////////////
-function print_success_page($heading,$mesg) {
+function print_success_page($heading, $mesg)
+{
 
-   print_head($in['lang']['request_completed']);
+    print_head($in['lang']['request_completed']);
 
-   // include top template file
-   include_top('success.html');
+    // include top template file
+    include_top('success.html');
 
-   begin_table(array(
-         'border'=>'0',
-         'cellspacing' => '0',
-         'cellpadding' => '5',
-         'class'=>'') );
+    begin_table([
+        'border'      => '0',
+        'cellspacing' => '0',
+        'cellpadding' => '5',
+        'class'       => '']);
 
-   $missing = "<img src=\"" . IMAGE_URL . "/missing.gif\"  alt=\"\" />";
+    $missing = "<img src=\"" . IMAGE_URL . "/missing.gif\"  alt=\"\" />";
 
-   print "<tr class=\"dclite\"><td>$missing</td><td width=\"100%\">
+    print "<tr class=\"dclite\"><td>$missing</td><td width=\"100%\">
           <p class=\"dcerrortitle\">$heading<br /></p></td></tr>";
-   print "<tr class=\"dclite\"><td colspan=\"2\">$mesg
+    print "<tr class=\"dclite\"><td colspan=\"2\">$mesg
           </td></tr>";
- 
-   end_table();
 
-   print_tail();
+    end_table();
+
+    print_tail();
 
 }
 

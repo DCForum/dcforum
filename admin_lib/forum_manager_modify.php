@@ -138,12 +138,12 @@ function forum_manager_modify() {
       $forum_moderators = get_all_moderators();
 
       // Get forum moderators
-      $this_forum_moderators_hash = get_forum_moderators($in['forum']);
+      $__this_forum_moderators_hash = get_forum_moderators($in['forum']);
 
       // In order to use it in form, we strip off keys
-      $this_forum_moderators = array();
-      while(list($key,$val) = each($this_forum_moderators_hash)) {
-         array_push($this_forum_moderators,$key);
+      $__this_forum_moderators = array();
+     foreach($__this_forum_moderators_hash as $key => $val) {
+         $__this_forum_moderators[] = $key;
       }
 
       // Get forum types
@@ -154,9 +154,9 @@ function forum_manager_modify() {
 
       $forum_tree['0'] = 'Top Level Forum';
 
-      while(list($key,$val) = each($forum_form)) {
+     foreach($forum_form as $key => $val) {
 
-         $fields = split('[\|]',$forum_form[$key]['form']);
+         $fields = explode('|',$forum_form[$key]['form']);
          $form_type = array_shift($fields);
          $required = array_pop($fields);
 
@@ -172,7 +172,7 @@ function forum_manager_modify() {
               break;
 
             case 'moderator':
-              $form = form_element($key,$form_type,$forum_moderators,$this_forum_moderators);
+              $form = form_element($key,$form_type,$forum_moderators,$__this_forum_moderators);
               print "<tr><td class=\"dcdark\"> " . $forum_form[$key]['title'] . "<br />" .
                  $forum_form[$key]['desc'] . "
                  </td><td class=\"dclite\">$form</td></tr>\n";
@@ -207,7 +207,7 @@ function forum_manager_modify() {
          }
  
          if ($required)
-            array_push($required_fields,$key);
+             $required_fields[] = $key;
 
       }
 

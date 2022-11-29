@@ -167,26 +167,26 @@ function change_account_info() {
       $error = array();
 
       if ($in['name'] == '') {
-         array_push($error,$in['lang']['name_blank']);
+          $error[] = $in['lang']['name_blank'];
       }
       elseif (! is_alphanumericplus($in['name'])) {
-         array_push($error,$in['lang']['name_invalid']);
+          $error[] = $in['lang']['name_invalid'];
       }
 
 
       // Check email syntax
       if ($in['email'] == '') {
-            array_push($error,$in['lang']['email_blank']);
+          $error[] = $in['lang']['email_blank'];
       }
       elseif (! check_email($in['email'])) {
-            array_push($error,$in['lang']['email_invalid']);
+          $error[] = $in['lang']['email_invalid'];
       }
       else {
          // Email is valid but is it used by another user?
          $owner = check_dup_email($in['email']);
          if ($owner and $owner != $in['user_info']['username']) {
-            array_push($error,$in['lang']['dup_email_1'] 
-                        . ": $owner " . $in['lang']['dup_email_2']);
+             $error[] = $in['lang']['dup_email_1']
+                 . ": $owner " . $in['lang']['dup_email_2'];
          }
       }
 
@@ -201,8 +201,8 @@ function change_account_info() {
          $in['email'] = db_escape_string($in['email']);
 
          $q = "UPDATE " . DB_USER . "
-                  SET name = '$in[name]',
-                      email = '$in[email]',
+                  SET name = '{$in['name']}',
+                      email = '{$in['email']}',
                       reg_date = reg_date,
                       last_date = last_date
                 WHERE id = '$u_id' ";
@@ -210,8 +210,8 @@ function change_account_info() {
 
          // we need to also update the sessions table?
          $q = "UPDATE " . DB_SESSION . "
-                  SET name = '$in[name]',
-                      email = '$in[email]'
+                  SET name = '{$in['name']}',
+                      email = '{$in['email']}'
                 WHERE u_id = '$u_id' ";
          db_query($q);
          
@@ -308,10 +308,10 @@ function change_password() {
       $error = array();
 
       if ($in['new_password'] == '') {
-         array_push($error,$in['lang']['new_password_blank']);
+          $error[] = $in['lang']['new_password_blank'];
       }
       if ($in['new_password_2'] == '') {
-         array_push($error,$in['lang']['new_password_blank']);
+          $error[] = $in['lang']['new_password_blank'];
       }
 
       // First check current password
@@ -324,11 +324,11 @@ function change_password() {
       db_free($result);
 
       if (my_crypt($in['current_password'],$row['password']) != $row['password']) {
-         array_push($error,$in['lang']['current_password_incorrect']);
+          $error[] = $in['lang']['current_password_incorrect'];
       }
 
       if ($in['new_password'] != $in['new_password_2']) {
-         array_push($error,$in['lang']['two_passwords_different']);
+          $error[] = $in['lang']['two_passwords_different'];
       }
       
 
@@ -438,7 +438,7 @@ function change_profile() {
 
          $ok_fields = array();
 
-         while(list($key,$val) = each($param_profile)) {
+        foreach($param_profile as $key => $val) {
             if ($val['status'] == 'on' and $in[$key]) {
 
                switch($key) {
@@ -509,7 +509,7 @@ function change_preference() {
       else {
 
          $ok_fields = array();
-         while(list($key,$val) = each($param_preference)) {
+        foreach($param_preference as $key => $val) {
             if ($key == 'ut')
                $in[$key] = $time_zone[$in[$key]]['location'] . " (" .
                            $time_zone[$in[$key]]['offset'] . " GMT)";
@@ -555,7 +555,7 @@ function forum_subscription() {
       if ($in['select']) {
          foreach ($in['select'] as $id) {
             $q = "INSERT INTO " . DB_FORUM_SUB . "
-                       VALUES('',
+                       VALUES(null,
                               '$u_id',
                               '$id') ";
 
@@ -607,7 +607,7 @@ function forum_subscription() {
             </tr>";
 
 
-         while(list($key,$val) = each($forum_tree)) {
+        foreach($forum_tree as $key => $val) {
             $forum_info = get_forum_info($key);
             print "<tr class=\"dcdark\">
                   <td class=\"dcdark\">";
@@ -925,7 +925,7 @@ function inbox() {
               FROM   " . DB_INBOX . " AS i,
                      " . DB_USER . " AS u
              WHERE   u.id = i.from_id
-               AND   i.id = '$in[m_id]'
+               AND   i.id = '{$in['m_id']}'
                AND   i.to_id = '$u_id'
             ORDER BY date DESC";
       $result = db_query($q);
@@ -990,7 +990,7 @@ function inbox() {
       }
       else {
          $q = "INSERT INTO " . DB_INBOX_LOG . "
-                  VALUES('','$u_id',NOW()) ";
+                  VALUES(null,'$u_id',NOW()) ";
       }
 
       db_query($q);
@@ -1306,7 +1306,7 @@ function user_menu() {
    );
       
 
-   while (list($key,$val) = each($menu_array)) {
+  foreach($menu_array as $key => $val) {
       $href =  DCF . "?az=$in[az]&saz=$key";
       $title = $menu_array[$key]['title'];
       $image_src = "<img src=\"" . IMAGE_URL . "/" . 
@@ -1369,16 +1369,16 @@ function send_mesg() {
 
    // Put input checks
    if (! is_numeric($in['u_id']))
-      array_push($error,$in['lang']['invalid_user_id']);
+       $error[] = $in['lang']['invalid_user_id'];
 
    if ($in['u_id'] == $in['user_info']['id'])
-     array_push($error,$in['lang']['you_are_trying']);
+       $error[] = $in['lang']['you_are_trying'];
 
    // Get recipient information
    $to_user_info = get_user_info($in['u_id']);
 
    if ($to_user_info['username'] == '')
-     array_push($error,$in['lang']['no_such_user']);
+       $error[] = $in['lang']['no_such_user'];
 
    if ($error) {
       print_error_page($in['lang']['send_mesg_error'],$error);
@@ -1393,12 +1393,12 @@ function send_mesg() {
       $in['subject'] = trim($in['subject']);
 
       if ($in['subject'] == '')
-	array_push($error,$in['lang']['empty_subject']);
+          $error[] = $in['lang']['empty_subject'];
 
       $in['message'] = trim($in['message']);
 
       if ($in['message'] == '')
-	array_push($error,$in['lang']['empty_message']);
+          $error[] = $in['lang']['empty_message'];
 
       if ($error) {
          print_error_mesg($in['lang']['send_mesg_error'],$error);
@@ -1423,7 +1423,7 @@ function send_mesg() {
             $subject = $row['var_subject'];
             $message = $row['var_message'];
 
-            $this_url = ROOT_URL . "/" . DCF;
+            $__this_url = ROOT_URL . "/" . DCF;
 
 	    //            $mesg_subject = htmlspecialchars($in['subject']);
 	    //            $mesg_message = htmlspecialchars($in['message']);
@@ -1437,7 +1437,7 @@ function send_mesg() {
             $desc .= $in['lang']['message'] . ": $mesg_message";
 
             // replace $MARKER with proper variable
-            $message = preg_replace("/#URL#/",$this_url,$message);
+            $message = preg_replace("/#URL#/",$__this_url,$message);
             $message = preg_replace("/#MARKER#/",$desc,$message);
             $message .= "\n\n" . SETUP_ADMIN_SIGNATURE;
 

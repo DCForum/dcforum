@@ -44,5 +44,3 @@ $in['lang']['moved_message'] = "Dieses Thema wurde vom Moderator des Forums vers
 // Get subscription message
 $in['lang']['subscription_header'] = "Neue Beiträge in";
 $in['lang']['posted_by'] = "Eingetragen von";
-
-?>

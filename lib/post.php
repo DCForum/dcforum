@@ -106,7 +106,7 @@ function post() {
 
       if (trim($in['subject']) == ''
           or trim($in['message']) == '') {
-	array_push($post_error,$in['lang']['e_subject_blank']);
+          $post_error[] = $in['lang']['e_subject_blank'];
       }
 
       if (! $in['user_info']['id']) {
@@ -114,16 +114,16 @@ function post() {
 
          // blank guest name bug
          if ($in['name'] == '')
-	   array_push($post_error,$in['lang']['e_name_blank']);
+             $post_error[] = $in['lang']['e_name_blank'];
 
          if (! is_username($in['name']))
-	   array_push($post_error,$in['lang']['e_name_invalid']);
+             $post_error[] = $in['lang']['e_name_invalid'];
 
          if (strlen($in['name']) > SETUP_NAME_LENGTH_MAX)
-            array_push($post_error,$in['lang']['e_name_long'] ." " . SETUP_NAME_LENGTH_MAX);
+             $post_error[] = $in['lang']['e_name_long'] . " " . SETUP_NAME_LENGTH_MAX;
 
          if (registered_username($in['name']))
-	   array_push($post_error,$in['lang']['e_name_dup']);
+             $post_error[] = $in['lang']['e_name_dup'];
 
       }
 
@@ -288,7 +288,7 @@ function send_topic_subscription($forum_id,$topic_id,$mesg_id,$u_id) {
    if ($num_rows > 0) {
 
       while($row = db_fetch_array($result)) {
-         array_push($bcc_arr,$row['email']);
+          $bcc_arr[] = $row['email'];
       }
 
       // At this point, Bcc list is at least 1
@@ -303,13 +303,13 @@ function send_topic_subscription($forum_id,$topic_id,$mesg_id,$u_id) {
 
       $from = SETUP_AUTH_ADMIN_EMAIL_ADDRESS;
 
-      $this_row = get_message_notice('topic_subscription');
-      $subject = $this_row['var_subject'];
-      $message = $this_row['var_message'];
-      $this_url = ROOT_URL . "/" . DCF . "?az=show_topic&forum=$forum_id&topic_id=$topic_id#$mesg_id";
+      $__this_row = get_message_notice('topic_subscription');
+      $subject = $__this_row['var_subject'];
+      $message = $__this_row['var_message'];
+      $__this_url = ROOT_URL . "/" . DCF . "?az=show_topic&forum=$forum_id&topic_id=$topic_id#$mesg_id";
 
       // replace $MARKER with proper variable
-      $message = preg_replace("/#MARKER#/",$this_url,$message);
+      $message = preg_replace("/#MARKER#/",$__this_url,$message);
       $message .= "\n\n" . SETUP_ADMIN_SIGNATURE;
 
       $header    = "From: $from\r\n";
@@ -358,8 +358,8 @@ function notify_admin($forum_id,$topic_id,$mesg_id,$moderators,$username) {
 
    if (SETUP_EMAIL_TO_MOD == 'yes' and is_array($moderators)) {
       $temp_arr = array();
-      while (list($key,$val) = each($moderators)) {
-         array_push($temp_arr,"'$key'");
+     foreach($moderators as $key => $val) {
+         $temp_arr[] = "'$key'";
       }
       $moderator_list = implode(",",$temp_arr);
       if ($moderator_list) {
@@ -380,15 +380,15 @@ function notify_admin($forum_id,$topic_id,$mesg_id,$moderators,$username) {
    $bcc_list = implode(', ',array_keys($bcc_arr));
 
    if ($topic_id != 0) {
-      $this_url = ROOT_URL . "/" . DCF . "?az=show_topic&forum=$forum_id&topic_id=$topic_id#$mesg_id";
+      $__this_url = ROOT_URL . "/" . DCF . "?az=show_topic&forum=$forum_id&topic_id=$topic_id#$mesg_id";
    }
    else {
-      $this_url = ROOT_URL . "/" . DCF . "?az=show_topic&forum=$forum_id&topic_id=$mesg_id";
+      $__this_url = ROOT_URL . "/" . DCF . "?az=show_topic&forum=$forum_id&topic_id=$mesg_id";
    }
 
    $subject = $in['lang']['email_subject'];
    $message = $in['lang']['email_message'] . " $username.\n\n";
-   $message .= "\n\n$this_url";
+   $message .= "\n\n$__this_url";
    $message .= "\n\n" . SETUP_ADMIN_SIGNATURE;
 
    $header    = "From: $from\r\n";
@@ -423,7 +423,7 @@ function get_num_replies() {
    $mesg_table = mesg_table_name($in['forum']);
    $q = "SELECT replies
            FROM $mesg_table
-          WHERE id = '$in[topic_id]' ";
+          WHERE id = '{$in['topic_id']}' ";
    $result = db_query($q);
    $row = db_fetch_array($result);
    db_free($result);

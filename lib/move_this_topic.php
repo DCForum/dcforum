@@ -125,7 +125,7 @@ function move_this_topic_form() {
 
    // Get forum tree
    $forum_tree = get_forum_tree();
-   $this_forum_tree = array();
+   $__this_forum_tree = array();
 
    // mod.2002.11.07.03
    // Also list moderator in the access list
@@ -136,12 +136,12 @@ function move_this_topic_form() {
    $result = db_query($q);
    while($row = db_fetch_array($result)) {
       if ($in['forum'] != $row['forum_id'])
-         $this_forum_tree[$row['forum_id']] = $forum_tree[$row['forum_id']];
+         $__this_forum_tree[$row['forum_id']] = $forum_tree[$row['forum_id']];
    }
    db_free($result);
 
    if ($in['user_info']['g_id'] < 99) {
-      $forum_tree = $this_forum_tree;
+      $forum_tree = $__this_forum_tree;
    }
 
 

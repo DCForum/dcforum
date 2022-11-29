@@ -70,14 +70,14 @@ function upgrade_manager_import_forum_info() {
       if ($output) {
          $forum_order++;
          // $fields = conf id, conf name, conf desc, status
-         $fields = split('[\|]',$output);
+         $fields = explode('|',$output);
          $conf_id = $fields['0'];
          $conf_name = db_escape_string($fields['1']);
          $conf_desc = db_escape_string($fields['2']);
          $conf_status = $fields['3'];
 
          $sql = "INSERT INTO " . DB_FORUM . "
-           VALUES ('',
+           VALUES(null,
                    '0',
                    '99',
                    '$forum_order',
@@ -137,7 +137,7 @@ function upgrade_manager_import_forum_info() {
 
          $forum_order++;
          // $fields = password, username, group, firstname, lastname, email, status
-         $fields = split('[\|]',$output);
+         $fields = explode('|',$output);
          $old_forum_id = $fields['0'];
          $parent_id = $conf_ids[$fields['1']];
          $forum_name = db_escape_string($fields['2']);
@@ -154,7 +154,7 @@ function upgrade_manager_import_forum_info() {
 
 
          $sql = "INSERT INTO " . DB_FORUM . "
-           VALUES ('',
+           VALUES(null,
                    '$parent_id',
                    '$forum_type',
                    '$forum_order',
@@ -186,7 +186,7 @@ function upgrade_manager_import_forum_info() {
 
          foreach ($f_mods as $mod) {
             $q = "INSERT INTO " . DB_MODERATOR . "
-                    VALUES('','$moderator_list[$mod]','$forum_id') ";
+                    VALUES(null,'{$moderator_list['$mod']}','$forum_id') ";
 
             db_query($q);
          }
@@ -236,7 +236,7 @@ function import_private_forum_list($old_forum_id,$forum_id) {
          $output = preg_replace("/[\r\n]/","",$output);
          if ($output) {
             $output = db_escape_string($output);
-            array_push($user_list,"'$output'");
+             $user_list[] = "'$output'";
          }
       }
       fclose($fh);
@@ -251,7 +251,7 @@ function import_private_forum_list($old_forum_id,$forum_id) {
          $result = db_query($q);
          while($row = db_fetch_array($result)) {
             $q = "INSERT INTO " . DB_PRIVATE_FORUM_LIST . "
-                    VALUES('','$row[id]','$forum_id') ";
+                    VALUES(null,'{$row['id']}','$forum_id') ";
             db_query($q);
          }
          db_free($result);

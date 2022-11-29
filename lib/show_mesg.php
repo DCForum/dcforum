@@ -113,10 +113,10 @@ function show_mesg() {
 // mod.2002.11.17.02
 // In response to bug in show_mesg
    $rows = get_replies($in['forum_table'],$in['topic_id']);
-   foreach ($rows as $this) {
-      if ($this['id'] == $in['mesg_id']) {
-         $row['reply_id'] = $this['reply_id'];
-         $row['parent_reply_id'] = $this['parent_reply_id'];
+   foreach ($rows as $__this) {
+      if ($__this['id'] == $in['mesg_id']) {
+         $row['reply_id'] = $__this['reply_id'];
+         $row['parent_reply_id'] = $__this['parent_reply_id'];
       }
    }
    reset($rows);

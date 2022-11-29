@@ -41,16 +41,16 @@ function topic_manager_main_form() {
 
 
    $forum_tree = get_forum_tree();
-   $this_forum_tree = array();
+   $__this_forum_tree = array();
 
-   while(list($key,$val) = each($forum_tree)) {
+  foreach($forum_tree as $key => $val) {
       if ($in['access_list'][$key] != '') {
-         $this_forum_tree[$key] = $val;
+         $__this_forum_tree[$key] = $val;
       }
    }
 
    if ($in['user_info']['g_id'] < 99) {
-      $forum_tree = $this_forum_tree;
+      $forum_tree = $__this_forum_tree;
    }
 
 
@@ -281,10 +281,10 @@ function topic_manager_list_topics() {
 
    if ($in['forum']) {
       print form_element("forum","hidden",$in['forum'],"");
-      $this_forum = $in['forum'];
+      $__this_forum = $in['forum'];
    }
    else {
-      $this_forum = $in['from_forum'];
+      $__this_forum = $in['from_forum'];
    }
 
    begin_table(array(
@@ -317,7 +317,7 @@ function topic_manager_list_topics() {
               class=\"dcdark\"><input type=\"$form_type\" name=\"$form_name\"
               value=\"$row[id]\" \></td><td 
               class=\"dclite\"><a href=\"" . DCF . "?az=show_topic";
-            print "&forum=$this_forum&topic_id=$row[id]&mesg_id=$row[id]\"
+            print "&forum=$__this_forum&topic_id=$row[id]&mesg_id=$row[id]\"
               target=\"_blank\">$subject</a></td><td 
               class=\"dclite\">$row[author_name]</td><td 
               class=\"dclite\">$date</td><td 

@@ -27,54 +27,51 @@
 // 	$Id: add_buddy.php,v 1.1 2003/04/14 09:34:44 david Exp $	
 //
 //////////////////////////////////////////////////////////////////////////
-function add_buddy() {
+function add_buddy()
+{
 
-   // Global variables
-   global $in;
+    // Global variables
+    global $in;
 
-   select_language("/lib/add_buddy.php");
+    select_language("/lib/add_buddy.php");
 
-   // print head
-   print_head($in['lang']['page_title']);
+    // print head
+    print_head($in['lang']['page_title']);
 
-   // include top template file
-   include_top();
+    // include top template file
+    include_top();
 
-   // first check and see that this person doesn't already
-   // have this user in the buddy list
+    // first check and see that this person doesn't already
+    // have this user in the buddy list
 
-   if (is_dup_buddy()) {  
-      print_alert_page($in['lang']['e_header'],$in['lang']['e_already']);
-   }
-   // Or, is this person adding him/her self???
-   elseif ($in['u_id'] == $in['user_info']['id']) {
-      print_alert_page($in['lang']['e_header'],$in['lang']['e_self']);
-   }
+    if (is_dup_buddy()) {
+        print_alert_page($in['lang']['e_header'], $in['lang']['e_already']);
+    } // Or, is this person adding him/her self???
+    else if ($in['u_id'] == $in['user_info']['id']) {
+        print_alert_page($in['lang']['e_header'], $in['lang']['e_self']);
+    } // Any errors???
+    else {
 
-   // Any errors???
-   else {
+        $error = add_a_buddy();
+        if ($error) {
+            print_alert_page($in['lang']['e_header'], $in['lang']['e_no_such_user']);
+        } else {
 
-      $error = add_a_buddy();
-      if ($error) {
-         print_alert_page($in['lang']['e_header'],$in['lang']['e_no_such_user']);
-      }
-      else {
-
-         $mesg = "<p>" . $in['lang']['ok_mesg'] . "</p>
+            $mesg = "<p>" . $in['lang']['ok_mesg'] . "</p>
                    <p>" . $in['lang']['select_option'] . "</p><p>
                    <a href=\"" . DCF . "\">" . $in['lang']['option_1'] . "</a> |
                    <a href=\"javascript:history.back()\">" . $in['lang']['option_2'] . "</a> |
                    <a href=\"" . DCF . "?az=user&saz=buddy_list\">" . $in['lang']['option_3'] . "</a>
                    </p>";
-                   print_success_page($in['lang']['page_header'],$mesg);
+            print_success_page($in['lang']['page_header'], $mesg);
 
-      }
-   }
+        }
+    }
 
-   // include top template file
-   include_bottom();
+    // include top template file
+    include_bottom();
 
-   print_tail();
+    print_tail();
 
 }
 
@@ -84,25 +81,25 @@ function add_buddy() {
 //
 //////////////////////////////////////////////////////////////////////////
 
-function is_dup_buddy() {
+function is_dup_buddy()
+{
 
-   global $in;
+    global $in;
 
-   $q = "SELECT id
+    $q = "SELECT id
            FROM " . DB_BUDDY . "
           WHERE u_id = '" . $in['user_info']['id'] . "'
-            AND b_id = '$in[u_id]' ";
+            AND b_id = '{$in['u_id']}' ";
 
-   $result = db_query($q);
-   $num_rows = db_num_rows($result);
-   db_free($result);
+    $result = db_query($q);
+    $num_rows = db_num_rows($result);
+    db_free($result);
 
-   if ($num_rows > 0) {
-      return 1;
-   }
-   else {
-      return;
-   }
+    if ($num_rows > 0) {
+        return 1;
+    } else {
+        return;
+    }
 
 }
 
@@ -112,27 +109,28 @@ function is_dup_buddy() {
 // function add_a_buddy
 //
 //////////////////////////////////////////////////////////////////////////
-function add_a_buddy() {
+function add_a_buddy()
+{
 
-   global $in;
+    global $in;
 
-   // Only add a buddy if $in[u_id] is a valid user
+    // Only add a buddy if $in[u_id] is a valid user
 
-   $buddy_user_info = get_user_info($in['u_id']);
-   if ($buddy_user_info['id']) {
+    $buddy_user_info = get_user_info($in['u_id']);
+    if ($buddy_user_info['id']) {
 
-      $q = "INSERT INTO " . DB_BUDDY . "
+        $q = "INSERT INTO " . DB_BUDDY . "
                  VALUES(
-                     '',
-                     '" . $in['user_info']['id'] ."',
-                     '$in[u_id]',
+                     null,
+                     '" . $in['user_info']['id'] . "',
+                     '{$in['u_id']}',
                      NOW()   ) ";
-      db_query($q);
+        db_query($q);
 
-      return 0;
-   }
-   else {
-      return 1;
-   }
+        return 0;
+    } else {
+        return 1;
+    }
 }
+
 ?>

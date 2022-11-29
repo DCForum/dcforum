@@ -36,16 +36,12 @@
 // function db_connect
 //
 //////////////////////////////////////////////////////////
-function db_connect () {
-   $dbh = @mysql_connect(DB_HOST,
-                     DB_USERNAME,
-                     DB_PASSWORD);
-   if ($dbh && mysql_select_db(DB_NAME)) {
-      return ($dbh);
-   }
-   else {
-      return (FALSE);
-   }
+function db_connect()
+{
+    global $__dbh;
+    $__dbh = @mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+
+    return $__dbh ?: false;
 }
 
 //////////////////////////////////////////////////////////
@@ -53,9 +49,9 @@ function db_connect () {
 // function db_free
 //
 //////////////////////////////////////////////////////////
-function db_free ($result) {
-      mysql_free_result($result);
-      return;
+function db_free($result)
+{
+    mysqli_free_result($result);
 }
 
 //////////////////////////////////////////////////////////
@@ -63,9 +59,9 @@ function db_free ($result) {
 // function db_close
 //
 //////////////////////////////////////////////////////////
-function db_close($dbh) {
-   mysql_close($dbh);
-   return;
+function db_close($dbh)
+{
+    mysqli_close($dbh);
 }
 
 //////////////////////////////////////////////////////////
@@ -73,14 +69,16 @@ function db_close($dbh) {
 // function db_query
 //
 //////////////////////////////////////////////////////////
-function db_query($sql) {
+function db_query($sql)
+{
 
-  global $in;
-   $result = mysql_query($sql) 
-      or my_die("Query error - Please notify administrator of this site");
+    global $in;
+    global $__dbh;
+    $result = mysqli_query($__dbh, $sql)
+    or my_die("Query error - Please notify administrator of this site");
 
-   $in['num_q']++;
-   return $result;
+    $in['num_q']++;
+    return $result;
 }
 
 //////////////////////////////////////////////////////////
@@ -88,9 +86,9 @@ function db_query($sql) {
 // function db_fetch_array
 //
 //////////////////////////////////////////////////////////
-function db_fetch_array($result) {
-   $row = mysql_fetch_array($result);
-   return $row;
+function db_fetch_array($result)
+{
+    return mysqli_fetch_array($result);
 }
 
 //////////////////////////////////////////////////////////
@@ -98,9 +96,9 @@ function db_fetch_array($result) {
 // function db_fetch_row
 //
 //////////////////////////////////////////////////////////
-function db_fetch_row($result) {
-   $row = mysql_fetch_row($result);
-   return $row;
+function db_fetch_row($result)
+{
+    return mysqli_fetch_row($result);
 }
 
 //////////////////////////////////////////////////////////
@@ -108,8 +106,9 @@ function db_fetch_row($result) {
 // function db_num_rows
 //
 //////////////////////////////////////////////////////////
-function db_num_rows($result) {
-   return mysql_num_rows($result);
+function db_num_rows($result)
+{
+    return mysqli_num_rows($result);
 }
 
 //////////////////////////////////////////////////////////
@@ -117,8 +116,10 @@ function db_num_rows($result) {
 // function db_escape_string
 //
 //////////////////////////////////////////////////////////
-function db_escape_string ($str) {
-   return mysql_escape_string($str);
+function db_escape_string($str)
+{
+    global $__dbh;
+    return mysqli_escape_string($__dbh, $str);
 }
 
 //////////////////////////////////////////////////////////
@@ -126,9 +127,10 @@ function db_escape_string ($str) {
 // function db_data_seek
 //
 //////////////////////////////////////////////////////////
-function db_data_seek($result, $row) {
-   mysql_data_seek($result,$row);
-   return $result;
+function db_data_seek($result, $row)
+{
+    mysqli_data_seek($result, $row);
+    return $result;
 }
 
 //////////////////////////////////////////////////////////
@@ -136,8 +138,10 @@ function db_data_seek($result, $row) {
 // function db_insert_id
 //
 //////////////////////////////////////////////////////////
-function db_insert_id() {
-   return mysql_insert_id();
+function db_insert_id()
+{
+    global $__dbh;
+    return mysqli_insert_id($__dbh);
 }
 
 //////////////////////////////////////////////////////////
@@ -145,8 +149,8 @@ function db_insert_id() {
 // function db_affected_rows
 //
 //////////////////////////////////////////////////////////
-function db_affected_rows() {
-   return mysql_affected_rows();
+function db_affected_rows()
+{
+    global $__dbh;
+    return mysqli_affected_rows($__dbh);
 }
-
-?>

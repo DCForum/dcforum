@@ -82,9 +82,9 @@ function upload_files() {
          // it can be added back to the attachment textbox
          $new_list = array();
          $attachments = upload_file_list($post_id,$in['mesg_id']); 
-         while (list($id,$type) = each($attachments)) {
+        foreach($attachments as $id => $type) {
             $file = $id . "." . $type;
-            array_push($new_list,$file);
+            $new_list[] = $file;
          }
          // Put em there, buddy....
          $attachment = implode(",",$new_list);
@@ -125,24 +125,24 @@ function upload_files() {
       // If $_FILES['file_upload'] is empty and file_upload text is not there...
     //      if ($_FILES['file_upload'] == '' and $in['file_upload'] == '') {
       if ($_FILES['file_upload'] == '' and $in['file_upload']) {
-         array_push($error, $in['lang']['select_file_mesg']);
+          $error[] = $in['lang']['select_file_mesg'];
          log_error($in['user_info']['id'],'File upload error','Invalid file type');
       }
 
 
       // See if MAX_FILE_SIZE was altered
       if ($in[MAX_FILE_SIZE] != $max_size) {
-	 array_push($error,$in['lang']['max_file_invalid']);
+          $error[] = $in['lang']['max_file_invalid'];
          log_error($in['user_info']['id'],'File upload error','Maximum file size has beeb altered');
       }
 
       // See if the file has valid extension type
       if ($in['file_type'] == '') {
-         array_push($error, $in['lang']['select_file_type_mesg']);
+          $error[] = $in['lang']['select_file_type_mesg'];
          log_error($in['user_info']['id'],'File upload error','Invalid file type');
       }
       elseif (! $allowed_files[$in['file_type']]) {
-         array_push($error, $in['lang']['invalid_file_type']);
+          $error[] = $in['lang']['invalid_file_type'];
          log_error($in['user_info']['id'],'File upload error','Invalid file type');
       }
 
@@ -158,7 +158,7 @@ function upload_files() {
 
             $file_id = log_upload($in['user_info']['id'],$in['forum'],$post_id,$in['file_type']);
             $filename = $file_id . "." . $in['file_type'];
-            $this_url = USER_URL. "/" . $filename;
+            $__this_url = USER_URL. "/" . $filename;
 
             move_uploaded_file($_FILES['file_upload']['tmp_name'],USER_DIR . "/" . $filename);
 
@@ -173,7 +173,7 @@ function upload_files() {
                         self.opener.document.thisform.attachments.value = \"$attachment\\n\";
                      }
                      self.opener.document.thisform.message.value
-                      = self.opener.document.thisform.message.value + \"\\n\\n$this_url\\n\"'>";
+                      = self.opener.document.thisform.message.value + \"\\n\\n$__this_url\\n\"'>";
             }
             else {
                // mod.2002.11.07.08
@@ -190,7 +190,7 @@ function upload_files() {
             }
 
 
-            $output = $in['lang']['ok_mesg'] . "<br />&nbsp;<br />$this_url<br />&nbsp;<br />";
+            $output = $in['lang']['ok_mesg'] . "<br />&nbsp;<br />$__this_url<br />&nbsp;<br />";
 
             $num_upload_files ++;
 
@@ -271,7 +271,7 @@ function upload_form() {
 
    print "<tr class=\"dclite\"><td class=\"dclite\"><select name=\"file_type\">";
 
-   while(list($key,$val) = each($allowed_files)) {
+  foreach($allowed_files as $key => $val) {
 
       if ($key == SETUP_FILE_UPLOAD_DEFAULT) {
 	$checked = 'selected';
@@ -313,7 +313,7 @@ function log_error($u_id,$event,$event_info) {
   $remote_addr = $_SERVER['REMOTE_ADDR'];
 
    $q = "INSERT INTO " . DB_SECURITY . "
-          VALUES ('',
+          VALUES(null,
                   '$u_id',
                   '$event',
                   '$event_info',
@@ -336,7 +336,7 @@ function log_upload($u_id,$forum_id,$post_id,$file_type) {
   $remote_addr = $_SERVER['REMOTE_ADDR'];
 
    $q = "INSERT INTO " . DB_UPLOAD . "
-          VALUES ('',
+          VALUES(null,
                   '$u_id',
                   '$forum_id',
                   '0',
@@ -490,7 +490,7 @@ function delete_upload_files_form($post_id,$mesg_id) {
 
    $attachments = upload_file_list($post_id,$mesg_id);
 
-   while (list($id,$type) = each($attachments)) {
+  foreach($attachments as $id => $type) {
          $file = USER_URL . "/" . $id . "." . $type;
          print "<tr class=\"dclite\"><td class=\"dclite\">
          <input type=\"checkbox\" name=\"delete[]\" value=\"$id\" /> 

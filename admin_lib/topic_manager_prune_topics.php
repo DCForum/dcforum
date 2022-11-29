@@ -69,7 +69,7 @@ function topic_manager_prune_topics() {
          $total_mesg_count = 0;
 
          // Ok, for each forum ($key)
-         while(list($key,$value) = each ($forum_tree)) {
+        foreach($forum_tree as $key => $value) {
 
             $forum_info = get_forum_info($key);
             $ids = array();
@@ -90,7 +90,7 @@ function topic_manager_prune_topics() {
                         AND last_date < $in[prune_date] ";
                $result = db_query($q);
                while($row = db_fetch_array($result)) {
-                  array_push($ids,$row['id']);
+                   $ids[] = $row['id'];
                }
                db_free($result);
 
@@ -173,7 +173,7 @@ function topic_manager_prune_topics() {
               class=\"dclite\">
             <p>Your query found following number of topics in each forum:</p>\n";
 
-      while(list($key,$value) = each ($forum_tree)) {
+     foreach($forum_tree as $key => $value) {
 
          $forum_info = get_forum_info($key);
          if ($forum_info['type'] == 99) {

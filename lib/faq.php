@@ -86,9 +86,9 @@ function list_faq() {
 
   global $in;
       
-   while(list($key,$val) = each($in['lang']['faq_topic'])) {
+  foreach($in['lang']['faq_topic'] as $key => $val) {
       print "<strong>$val</strong><ul class=\"dc\"> ";
-      while(list($s_key,$s_val) = each($in['lang'][$key])) {
+     foreach($in['lang'][$key] as $s_key => $s_val) {
 	$faq_id = $s_key;
         $faq_q = $s_val['q'];
         $faq_a = $s_val['a'];

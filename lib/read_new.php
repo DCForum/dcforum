@@ -101,7 +101,7 @@ function read_new() {
       $hits_max = 100;
       $total_hits = 0;
 
-      while (list($forum,$forum_info) = each($in['forum_list'])) {
+     foreach($in['forum_list'] as $forum => $forum_info) {
 
          if ($in['user_info']['uh'] == 'yes') {
             // use $in['user_info'][$in['forum']] as time stamp
@@ -219,19 +219,19 @@ function search_forum($forum,$forum_date) {
 
       // put matched result into the search param
       $qq = "INSERT INTO " . DB_SEARCH_CACHE . "
-                     VALUES('',
+                     VALUES(null,
                              '$session_id',
                              NOW(),
                              '$forum',
-                             '$row[id]',
-                             '$row[type]',
-                             '$row[topic_lock]',
-                             '$row[mesg_date]',
-                             '$row[last_date]',
+                             '{$row['id']}',
+                             '{$row['type']}',
+                             '{$row['topic_lock']}',
+                             '{$row['mesg_date']}',
+                             '{$row['last_date']}',
                              '$subject',
-                             '$row[author_name]',
-                             '$row[last_author]',
-                             '$row[replies]') ";
+                             '{$row['author_name']}',
+                             '{$row['last_author']}',
+                             '{$row['replies']}') ";
       db_query($qq);
    }
 

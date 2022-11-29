@@ -59,7 +59,7 @@ function upgrade_manager_import_misc_user_info() {
 
    // OK, let's take care of the ratings file
 
-   while(list($id,$username) = each($user_name)) {
+  foreach($user_name as $id => $username) {
       $username = rawurlencode($username);
       if (file_exists("$rating_dir/$username.txt")) {
 
@@ -96,7 +96,7 @@ function upgrade_manager_import_misc_user_info() {
                   $score = 0;
 
                $q = "INSERT INTO " . DB_USER_RATING . "
-                       VALUES('','$id','$r_id','$score','$comment','$date') ";
+                       VALUES(null,'$id','$r_id','$score','$comment','$date') ";
                db_query($q);
             }
          }
@@ -119,10 +119,10 @@ function upgrade_manager_import_misc_user_info() {
 
    while($row = db_fetch_array($result)) {
       $qq = "UPDATE " . DB_USER . "
-                SET points = '$row[score]',
-                    num_votes = '$row[count]',
+                SET points = '{$row['score']}',
+                    num_votes = '{$row['count']}',
                     reg_date = reg_date
-              WHERE id = '$row[u_id]' ";
+              WHERE id = '{$row['u_id']}' ";
       db_query($qq);
 
    }

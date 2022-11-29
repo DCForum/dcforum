@@ -142,7 +142,7 @@ function data_util_recover() {
              <td class=\"dcheading\">Select</td><td class=\"dcheading\">Table name</td></tr>\n";
 
 
-      while(list($key,$val) = each ($table_list)) {
+     foreach($table_list as $key => $val) {
          print "<tr class=\"dclite\">
              <td class=\"dcdark\"><input type=\"checkbox\" name=\"selected[]\"
                   value=\"$key\" /></td><td>$key</td></tr>\n";
@@ -221,7 +221,7 @@ function get_file_list($dir,$f_ext) {
          $name = substr($file,0,strrpos($file, '.'));
 	 if ($ext == ".$f_ext") {
             $name = substr($name,0,strrpos($name, '.'));
-            array_push($file_list,$name);
+         $file_list[] = $name;
 	 }
       }
       closedir($dir_stream);

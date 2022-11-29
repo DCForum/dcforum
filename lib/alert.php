@@ -69,7 +69,7 @@ function alert() {
    $result = get_message(mesg_table_name($in['forum']),$in['mesg_id']);
 
    if (db_num_rows($result) < 1) {
-      array_push($error,$in['lang']['no_such_topic']);
+       $error[] = $in['lang']['no_such_topic'];
    }
    else {
       $row = db_fetch_array($result);
@@ -111,8 +111,8 @@ function alert() {
       $in['moderators'] = get_forum_moderators($in['forum']);
       if (is_array($in['moderators'])) {
          $temp_arr = array();
-         while (list($key,$val) = each($in['moderators'])) {
-            array_push($temp_arr,"'$key'");
+        foreach($in['moderators'] as $key => $val) {
+            $temp_arr[] = "'$key'";
          }
          $moderator_list = implode(",",$temp_arr);
          if ($moderator_list) {

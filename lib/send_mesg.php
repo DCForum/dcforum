@@ -44,16 +44,16 @@ function send_mesg() {
 
    // Put input checks
    if (! is_numeric($in['u_id']))
-      array_push($error,$in['lang']['invalid_user_id']);
+       $error[] = $in['lang']['invalid_user_id'];
 
    if ($in['u_id'] == $in['user_info']['id'])
-     array_push($error,$in['lang']['send_to_self']);
+       $error[] = $in['lang']['send_to_self'];
 
    // Get recipient information
    $to_user_info = get_user_info($in['u_id']);
 
    if ($to_user_info['username'] == '')
-      array_push($error,"No such user");
+       $error[] = "No such user";
 
    if ($error) {
       print_error_page($in['lang']['error_header'], $error);
@@ -86,12 +86,12 @@ function send_mesg() {
       $in['subject'] = trim($in['subject']);
 
       if ($in['subject'] == '')
-	array_push($error,$in['lang']['empty_subject']);
+          $error[] = $in['lang']['empty_subject'];
 
       $in['message'] = trim($in['message']);
 
       if ($in['message'] == '')
-	array_push($error,$in['lang']['empty_message']);
+          $error[] = $in['lang']['empty_message'];
 
       if ($error) {
          print "<tr class=\"dclite\">
@@ -119,7 +119,7 @@ function send_mesg() {
             $subject = $row['var_subject'];
             $message = $row['var_message'];
 
-            $this_url = ROOT_URL . "/" . DCF;
+            $__this_url = ROOT_URL . "/" . DCF;
 
 	    //            $mesg_subject = htmlspecialchars($in['subject']);
 	    //            $mesg_message = htmlspecialchars($in['message']);
@@ -133,7 +133,7 @@ function send_mesg() {
             $desc .= $in['lang']['message'] . ": $mesg_message";
 
             // replace $MARKER with proper variable
-            $message = preg_replace("/#URL#/",$this_url,$message);
+            $message = preg_replace("/#URL#/",$__this_url,$message);
             $message = preg_replace("/#MARKER#/",$desc,$message);
             $message .= "\n\n" . SETUP_ADMIN_SIGNATURE;
 

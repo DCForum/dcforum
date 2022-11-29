@@ -249,7 +249,7 @@ function display_access_summary() {
          print "<tr class=\"dcdark\"><td>User</td>
                     <td>Log entries</td><td>No. of posts</td></tr>\n";
 
-      while(list($key,$val) = each ($user_list)) {
+     foreach($user_list as $key => $val) {
 
          print "<tr class=\"dclite\"><td>$val[username]</td>
                     <td>$val[count]</td>

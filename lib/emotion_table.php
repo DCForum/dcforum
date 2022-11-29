@@ -52,7 +52,7 @@ function emotion_table() {
           $in['lang']['smilies'] . "</th><th>" . 
           $in['lang']['shortcut'] . "</th></tr>";
 
-   while(list($key,$val) = each($emotion_icons)) {
+  foreach($emotion_icons as $key => $val) {
 
       print "<tr class=\"dcdark\"><td class=\"dclite\"><a href=\"javascript:smilie_remote('$key')\"><img 
              src=\"" . IMAGE_URL . "/" . $val . "\" border=\"0\" alt=\"\" /></a></td><td 

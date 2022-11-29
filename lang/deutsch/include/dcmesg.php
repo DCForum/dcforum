@@ -98,5 +98,3 @@ $in['lang']['request_alert'] = "Anfrage-Hinweis";
 
 // print_success_page
 $in['lang']['request_completed'] = "Anfrage vollständig";
-
-?>

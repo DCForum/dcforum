@@ -53,18 +53,18 @@ function upgrade_manager_update_from_125_126() {
 
    print "Adding default upload file to the setup table...";
    $q = "INSERT INTO " . DB_SETUP . "
-                 VALUES ('','file_upload_default','txt','user_option') ";
+                 VALUES(null,'file_upload_default','txt','user_option') ";
 
    //   db_query($q);
    print "...done.<br />";
 
    print "Adding user preference for daylight savings time...";
-   $q = "ALTER TABLE " . DB_USER . " ADD COLUMN utt ENUM('yes','no') NOT NULL DEFAULT 'no' AFTER ut ";
+   $q = "ALTER TABLE " . DB_USER . " ADD COLUMN utt ENUM('yes','no') NULL DEFAULT 'no' AFTER ut ";
 
    //   db_query($q);
 
    print "Adding user preference for daylight savings time...";
-   $q = "ALTER TABLE " . DB_SESSION . " ADD COLUMN utt ENUM('yes','no') NOT NULL DEFAULT 'no' AFTER ut ";
+   $q = "ALTER TABLE " . DB_SESSION . " ADD COLUMN utt ENUM('yes','no') NULL DEFAULT 'no' AFTER ut ";
 
    db_query($q);
 

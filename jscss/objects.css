@@ -1,321 +1,71 @@
 /* Form objects */
 
 #dc_search_form {
-	position: absolute;
-	visibility: hidden;
-	background-color: #FFFFFF;
-	color: #000099;
-	font-family: verdana;
+    position: absolute;
+    visibility: hidden;
+    background-color: #FFFFFF;
+    color: #000099;
+    font-family: verdana, sans-serif;
 }
 
 #menu_1 {
-	position: absolute;
-	visibility: hidden;
-	background-color: #FFFFFF;
+    position: absolute;
+    visibility: hidden;
+    background-color: #FFFFFF;
 }
 
 #menu_2 {
-	position: absolute;
-	visibility: hidden;
-	background-color: #FFFFFF;
+    position: absolute;
+    visibility: hidden;
+    background-color: #FFFFFF;
 }
 
 #menu_3 {
-	position: absolute;
-	visibility: hidden;
-	background-color: #FFFFFF;
-	color: #000099;
-	font-family: verdana;
-	font-size: 10px;
-	border-width: thin;
-	border-color: #000000;
-	border-style: solid;
-	padding: 10px;
+    position: absolute;
+    visibility: hidden;
+    background-color: #FFFFFF;
+    color: #000099;
+    font-family: verdana, sans-serif;
+    font-size: 10px;
+    border-width: thin;
+    border-color: #000000;
+    border-style: solid;
+    padding: 10px;
 }
 
 
 /* menu table attributes */
 
 .dc_menu_table {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-        font-size: 10px;
-	background-color: #FFFFFF;
-	border-top: none;
-	border-left: none;
-	border-right: thin solid #000000;
-	border-bottom: thin solid #000000;
-	padding: 0px;
-	margin: 0px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    background-color: #FFFFFF;
+    border-top: none;
+    border-left: none;
+    border-right: thin solid #000000;
+    border-bottom: thin solid #000000;
+    padding: 0;
+    margin: 0;
 }
 
 .dc_menu_td {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 10px;
     font-weight: bold;
-	color: #000099;
-	background-color: #DDDDDD;
-	border: none;
-	padding: 5px;
-	margin: 0px;
+    color: #000099;
+    background-color: #DDDDDD;
+    border: none;
+    padding: 5px;
+    margin: 0;
 }
 
 .dc_menu_header {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 10px;
     font-weight: bold;
-	color: #FFFFFF;
-	background-color: #999999;
-	border: none;
-	padding: 5px;
-	margin: 0px;
+    color: #FFFFFF;
+    background-color: #999999;
+    border: none;
+    padding: 5px;
+    margin: 0;
 }
-
-   
--->
-</STYLE>
-<script language="JavaScript" type="text/javascript">
-
-// define globals
-var show_object = 0;
-var slide_speed = 15;
-var clip_left = 0;
-var clip_top = 0;
-var top_offset = 20;
-var current_object = null;
-var menu_bgcolor = '#EEEEEE';
-var menu_color = '#000099';
-var menu_highlight_bgcolor = '#999999';
-var menu_highlight_color = '#ffffff';
-
-// define some background menu colors?
-
-// close all menu windows
-//
-function dc_close_all() {
-   dc_close_menu('dc_search_form');
-   dc_close_menu('menu_1');
-   dc_close_menu('menu_2');
-   dc_close_menu('menu_3');
-}
-
-// function dc_get_obj_id
-// return object id of the event item
-function dc_get_obj_id(evt) {
-   var object_id = (evt.target) ? evt.target.id : ((evt.srcElement) ? evt.srcElement.id : null);
-   return object_id;
-}
-
-function dc_toggle_menu(evt,objectID) {
-
-   if (show_object == 0) {
-      show_object = 1;
-	  dc_open_menu(evt,objectID);
-	}
-	else {
-		show_object = 0;
-	  	dc_close_menu(objectID);
-	}
-}
-
-function dc_open_menu(evt,objectID) {
-
-   var object = document.getElementById(objectID);
-   var object3 = document.getElementById(dc_get_obj_id(evt));
-
-   object.style.top = object3.offsetTop + top_offset;
-   object.style.left = object3.offsetLeft;
-
-   // reset clip area
-   clip_left = 0;
-   clip_top = 0;
-
-//   if (current_object != objectID) {
-   if (show_object) {
-       dc_close_all();
-	   object.style.clip="rect(0 " + clip_left + " " + clip_top + " 0)";   
-	   object.style.visibility = "visible";
-	   dc_slide_open(objectID);
-   }
-
-   //current_object = objectID;
-   
-}
-
-function dc_slide_open(objectID) {
-   var object = document.getElementById(objectID);
-
-   var obj_w = object.offsetWidth + 30;
-   var obj_h = object.offsetHeight + 30;
-
-   clip_left += Math.floor(obj_w/slide_speed);
-   clip_top += Math.floor(obj_h/slide_speed);
-   
-   object.style.clip="rect(0 " + clip_left + " " + clip_top + " 0)";   
-
-   if (clip_left < 1.1*obj_w && clip_top < 1.1*obj_h ) {
-      object.style.clip="rect(0 " + clip_left + " " + clip_top + " 0)";
-      object_timeout_id = setTimeout("dc_slide_open('" + objectID + "')",10);
-   }
-   else {
-//      clearTimeout("dc_slide_open(" + object_timeout_id + ")");
-   }
-
-}
-
-
-function dc_close_menu(objectID) {
-   var object = document.getElementById(objectID);
-   if (object.style.visibility == 'visible')
-      dc_slide_close(objectID);
-}
-
-function dc_slide_close(objectID) {
-   var object = document.getElementById(objectID);
-
-   var obj_w = object.offsetWidth;
-   var obj_h = object.offsetHeight;
-
-   clip_left -= Math.floor(obj_w/slide_speed);
-   clip_top -= Math.floor(obj_h/slide_speed);
-
-   if (clip_left > 0 && clip_top > 0) {
-      object.style.clip="rect(0 " + clip_left + " " + clip_top + " 0)";
-      object_timeout_id = setTimeout("dc_slide_close('" + objectID + "')",10);
-   }
-   else {
-      object.style.visibility = "hidden";
-//      clearTimeout("dc_slide_close(" + objectID + ")");
-   }
-}
-
-function dc_highlight_cell(this_cell,this_url) {
-   this_cell.style.cursor = 'pointer';
-   this_cell.style.background = menu_highlight_bgcolor;
-   this_cell.style.color = menu_highlight_color;
-   window.status = this_url;
-}
-
-function dc_unhighlight_cell(this_cell) {
-   this_cell.style.background = menu_bgcolor;
-   this_cell.style.color = menu_color;
-   window.status = '';
-}
-
-function dc_jump_to(this_url) {
-   location.href = this_url;
-}
-
-</script>
-
-<!-- objects used in this section -->
-
-<div id="dc_search_form">
-<table class="dc_menu_table">
-<tr><td class="dc_menu_header">
-<p class="dc_align_right">Search Tool</p> 
-</td>
-</tr>
-<tr><td class="dc_menu_td">
-<p>
-<form name="search_form" id="search_form" method="post" action="">
-    <input type="text" name="textfield" />
-    <input type="submit" name="Submit" value="Search" />
-  </form>
-</p>
-</td></tr>
-</table>
-
-</div>
-
-<div id="menu_1">
-<table class="dc_menu_table">
-<tr><td class="dc_menu_header">
-Message Tools
-</td></tr>
-<tr><td class="dc_menu_td" onMouseOver="dc_highlight_cell(this,'Printer-friendly page') " 
-   onMouseOut="dc_unhighlight_cell(this);" onClick="dc_jump_to('http://www.boston.com')">
-    Printer-friendly page
-</td></tr>
-<tr><td class="dc_menu_td" onMouseOver="dc_highlight_cell(this,'Reply to this message')" 
-   onMouseOut="dc_unhighlight_cell(this)" onClick="dc_jump_to('http://www.boston.com')">
-  Reply
-</td></tr>
-<tr><td class="dc_menu_td" onMouseOver="dc_highlight_cell(this,'Reply to this message with quote')" 
-   onMouseOut="dc_unhighlight_cell(this)" onClick="dc_jump_to('http://www.boston.com')">
-  Reply with quote
-</td></tr>
-<tr><td class="dc_menu_td" onMouseOver="dc_highlight_cell(this,'Goto Main Forum Page');" 
-   onMouseOut="dc_unhighlight_cell(this)" onClick="dc_jump_to('http://www.boston.com')">
-  Top<br />
-</td></tr>
-</table>
-</div>
-
-<div id="menu_2">
-
-<table class="dc_menu_table">
-<tr><td class="dc_menu_header">
-Forum Tools
-</td></tr>
-
-<tr><td class="dc_menu_td" onMouseOver="dc_highlight_cell(this,'Printer-friendly page') " 
-   onMouseOut="dc_unhighlight_cell(this);" onClick="dc_jump_to('http://www.boston.com')">
-    Choose Classic Mode
-</td></tr>
-<tr><td class="dc_menu_td" onMouseOver="dc_highlight_cell(this,'Reply to this message')" 
-   onMouseOut="dc_unhighlight_cell(this)" onClick="dc_jump_to('http://www.boston.com')">
-  Expand Topics
-</td></tr>
-<tr><td class="dc_menu_td" onMouseOver="dc_highlight_cell(this,'Reply to this message with quote')" 
-   onMouseOut="dc_unhighlight_cell(this)" onClick="dc_jump_to('http://www.boston.com')">
-  Linear Mode
-</td></tr>
-<tr><td class="dc_menu_td" onMouseOver="dc_highlight_cell(this,'Goto Main Forum Page');" 
-   onMouseOut="dc_unhighlight_cell(this)" onClick="dc_jump_to('http://www.boston.com')">
-   Threaded Mode
-</td></tr>
-</table>
-</div>
-
-<div id="menu_3">
-  <a href="home.html">Edit account information</a><br />
-  <a href="http://www.whlincoln.org">Change your password</a><br />
-  <a href="home.html">Edit your profile</a><br />
-  <a href="home.html">Edit your preference</a><br />
-  <a href="home.html">Forum Subscription</a><br />
-  <a href="home.html">Topic Subscription</a><br />
-  <a href="home.html">Bookmarks</a><br />
-</div>
-
-</head>
-
-<body bgcolor="#EEEEEE">
-
-
-<p><a id="search_link" href="javascript:void('')" onclick="dc_toggle_menu(event,'dc_search_form');" 
-   onmouseover="dc_open_menu(event,'dc_search_form');">Search</a> 
-   | 
-     <a id="menu_link" href="javascript:void('')" onclick="dc_toggle_menu(event,'menu_1');"  onmouseover="dc_open_menu(event,'menu_1');">Message Tools</a> 
-   | 
-   <a id="menu_link_2" href="javascript:void('')" onclick="dc_toggle_menu(event,'menu_2');"  onmouseover="dc_open_menu(event,'menu_2');">Topic Tools</a> 
-   | 
-   <a id="menu_link_3" href="javascript:void('')" onclick="dc_toggle_menu(event,'menu_3');"  onmouseover="dc_open_menu(event,'menu_3');">User Menu</a> 
-
-  <br />
-  I received this email but not the order email. Can you post it into this
-email and to this email address? I do not have a junk mail filter unless it
-is being blocked by our server people.I received this email but not the order
-   email. Can you post it into this email and to this email address? I do not
-   have a junk mail filter unless it
-is being blocked by our server people.I received this email but not the order
-   email. Can you post it into this email and to this email address? I do not
-   have a junk mail filter unless it
-is being blocked by our server people.I received this email but not the order
-   email. Can you post it into this email and to this email address? I do not
-   have a junk mail filter unless it
-is being blocked by our server people.I received this email but not the order
-email. Can you post it into this email and to this email address? I</p>
-
-
-</body>
-</html>

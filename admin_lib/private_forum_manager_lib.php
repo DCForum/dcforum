@@ -44,7 +44,7 @@ function list_members() {
       // allowed in this forum
       $q = "SELECT u_id
            FROM " . DB_PRIVATE_FORUM_LIST . "
-          WHERE forum_id = '$in[forum]' ";
+          WHERE forum_id = '{$in['forum']}' ";
       $result = db_query($q);
       while($row = db_fetch_array($result)) {
          $has_access[$row['u_id']] = 1;
@@ -150,7 +150,7 @@ function list_private_forums() {
       // allowed in this forum
       $q = "SELECT forum_id
            FROM " . DB_PRIVATE_FORUM_LIST . "
-          WHERE u_id = '$in[select]' ";
+          WHERE u_id = '{$in['select']}' ";
       $result = db_query($q);
       while($row = db_fetch_array($result)) {
          $has_access[$row['forum_id']] = 1;
@@ -194,7 +194,7 @@ function list_private_forums() {
             </tr>";
 
 
-   while(list($key,$val) = each($forum_tree)) {
+  foreach($forum_tree as $key => $val) {
       print "<tr class=\"dcdark\"><td class=\"dcdark\">";
       $in['moderators'] = get_forum_moderators($key);
       if ($in['saz'] == 'forum') {
@@ -266,21 +266,21 @@ function reconcile_private_forum_list() {
 
    $private_forums = get_private_forums();
 
-   foreach (array_keys($private_forums) as $this_forum) {
+   foreach (array_keys($private_forums) as $__this_forum) {
 
       $user_array = array();
       // First get list of users who are already
       // allowed in this forum
       $q = "SELECT u_id
            FROM " . DB_PRIVATE_FORUM_LIST . "
-          WHERE forum_id = '$this_forum' ";
+          WHERE forum_id = '$__this_forum' ";
       $result = db_query($q);
       while($row = db_fetch_array($result)) {
-         array_push($user_array,$row['u_id']);
+          $user_array[] = $row['u_id'];
       }
       db_free($result);
 
-      remove_users_from_child_forums($this_forum,$user_array);
+      remove_users_from_child_forums($__this_forum,$user_array);
 
    }
 
@@ -292,7 +292,7 @@ function reconcile_private_forum_list() {
 // function remove_users_from_child_forums
 //
 ///////////////////////////////////////////////////////////////
-function remove_users_from_child_forums($this_forum,$user_array) {
+function remove_users_from_child_forums($__this_forum,$user_array) {
 
    $forums = array();
    // we need remove unchecked users from
@@ -302,7 +302,7 @@ function remove_users_from_child_forums($this_forum,$user_array) {
 
    $user_list = "'" . $user_list . "'";
 
-   get_child_branch($this_forum,$forums);
+   get_child_branch($__this_forum,$forums);
 
    foreach ($forums as $forum) {
          $q = "DELETE FROM " . DB_PRIVATE_FORUM_LIST . "
@@ -318,26 +318,26 @@ function remove_users_from_child_forums($this_forum,$user_array) {
 // function add_users_to_private_forums
 //
 ///////////////////////////////////////////////////////////////
-function add_users_to_private_forums($this_forum,$user_array) {
+function add_users_to_private_forums($__this_forum,$user_array) {
 
-   prune_private_forum_access_table($this_forum,'');
+   prune_private_forum_access_table($__this_forum,'');
 
 
       // We need to add the user to the private forum list
       // for all parent forums as well
-      $forums = array($this_forum);
-      get_forum_ancestors($this_forum,$parents);
-      while(list($id,$val) = each($parents)) {
+      $forums = array($__this_forum);
+      get_forum_ancestors($__this_forum,$parents);
+     foreach($parents as $id => $val) {
          $type = $parents[$id]['type'];
          if ($type == 40)
-            array_push($forums,$id);
+             $forums[] = $id;
       }
       
       foreach ($forums as $forum) {
          if ($user_array) {
             foreach ($user_array as $u_id) {
                $q = "INSERT INTO " . DB_PRIVATE_FORUM_LIST . "
-                      VALUES('','$u_id','$forum') ";
+                      VALUES(null,'$u_id','$forum') ";
                db_query($q);
             }
          }
@@ -353,21 +353,21 @@ function add_users_to_private_forums($this_forum,$user_array) {
 //
 ///////////////////////////////////////////////////////////////
 
-function prune_private_forum_access_table($this_forum,$this_user) {
+function prune_private_forum_access_table($__this_forum,$__this_user) {
 
-   if ($this_forum and $this_user) {
+   if ($__this_forum and $__this_user) {
 
       $q = "DELETE FROM " . DB_PRIVATE_FORUM_LIST . "
-                     WHERE forum_id = '$this_forum'
-                       AND u_id = '$this_user' ";
+                     WHERE forum_id = '$__this_forum'
+                       AND u_id = '$__this_user' ";
    }
-   elseif ($this_forum) {
+   elseif ($__this_forum) {
       $q = "DELETE FROM " . DB_PRIVATE_FORUM_LIST . "
-                     WHERE forum_id = '$this_forum' ";
+                     WHERE forum_id = '$__this_forum' ";
    }
-   elseif ($this_user) {
+   elseif ($__this_user) {
       $q = "DELETE FROM " . DB_PRIVATE_FORUM_LIST . "
-                     WHERE u_id = '$this_user' ";
+                     WHERE u_id = '$__this_user' ";
    }
 
    db_query($q);

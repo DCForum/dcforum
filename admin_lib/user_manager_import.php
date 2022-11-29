@@ -60,12 +60,12 @@ function user_manager_import() {
 
       if ($output) {
          // $fields = password, username, group, firstname, lastname, email, status
-         $fields = split('[\|]',$output);
+         $fields = explode('|',$output);
          $name = "$fields[3] $fields[4]";
          $group_id = $group_user[$fields[2]];
          $sql = "INSERT INTO " . DB_USER . "
            (username,password,g_id,status,name,email,reg_date,last_date)
-           VALUES ('$fields[1]','$fields[0]',$group_id,'$fields[6]','$name','$fields[5]',NOW(),NOW()) ";
+           VALUES ('{$fields['1']}','{$fields['0']}',$group_id,'{$fields['6']}','$name','{$fields['5']}',NOW(),NOW()) ";
          db_query($sql);
       }
 

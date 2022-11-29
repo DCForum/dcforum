@@ -27,146 +27,144 @@
 // 	$Id: retrieve_password.php,v 1.1 2003/04/14 09:33:54 david Exp $	
 //
 ////////////////////////////////////////////////////////////////////////
-function retrieve_password() {
+function retrieve_password()
+{
 
-   global $in;
+    global $in;
 
-   select_language("/lib/retrieve_password.php");
+    select_language("/lib/retrieve_password.php");
 
-   include(INCLUDE_DIR . "/auth_lib.php");
+    include(INCLUDE_DIR . "/auth_lib.php");
 
-   if (SETUP_AUTH_ALLOW_RETRIEVE_PASSWORD != 'yes') {
-      output_error_mesg("Disabled Option");
-      return;
-   }
+    if (SETUP_AUTH_ALLOW_RETRIEVE_PASSWORD != 'yes') {
+        output_error_mesg("Disabled Option");
+        return;
+    }
 
-   print_head($in['lang']['page_title']);
+    print_head($in['lang']['page_title']);
 
-   // include top template file
-   include_top();
+    // include top template file
+    include_top();
 
-   include_menu();
+    include_menu();
 
-   begin_table(array(
-         'border'=>'0',
-         'cellspacing' => '1',
-         'cellpadding' => '5',
-         'class'=>'') 
-  );
+    begin_table([
+        'border'      => '0',
+        'cellspacing' => '1',
+        'cellpadding' => '5',
+        'class'       => '',
+    ]);
 
 
-   print "<tr class=\"dcheading\"><td class=\"dcheading\">" . $in['lang']['page_header'] . "</td></tr>
+    print "<tr class=\"dcheading\"><td class=\"dcheading\">" . $in['lang']['page_header'] . "</td></tr>
           <tr class=\"dclite\"><td>";
 
 
-   if ($in['saz']) {
+    if ($in['saz']) {
 
-      $error = array();
-      // check username and email input
-      $in['username'] = trim($in['username']);
-      $in['email'] = trim($in['email']);
+        $error = [];
+        // check username and email input
+        $in['username'] = trim($in['username']);
+        $in['email'] = trim($in['email']);
 
-      if ($in['username'] == '') {
-         array_push($error,$in['lang']['e_blank_username']);
-      }
-      if ($in['email'] == '') {
-	array_push($error,$in['lang']['e_blank_email']);
-      }
-      elseif (! check_email($in['email']) ) {
-	array_push($error,$in['lang']['e_invalid_email']);
+        if ($in['username'] == '') {
+            $error[] = $in['lang']['e_blank_username'];
+        }
+        if ($in['email'] == '') {
+            $error[] = $in['lang']['e_blank_email'];
+        } else if (!check_email($in['email'])) {
+            $error[] = $in['lang']['e_invalid_email'];
 
-      }
+        }
 
-      if ($error) {
-         print_error_mesg($in['lang']['e_header'],$error);
-         lost_password_form();
-      }
-      else {
-         $username = db_escape_string($in['username']);
-         $email = db_escape_string($in['email']);
+        if ($error) {
+            print_error_mesg($in['lang']['e_header'], $error);
+            lost_password_form();
+        } else {
+            $username = db_escape_string($in['username']);
+            $email = db_escape_string($in['email']);
 
-         // check and see if username and email matches
+            // check and see if username and email matches
 
-         $q = "SELECT id
+            $q = "SELECT id
                  FROM " . DB_USER . "
                 WHERE username = '$username'
                   AND email = '$email' ";
 
-         $result = db_query($q);
-         $num_rows = db_num_rows($result);
-         $row = db_fetch_array($result);
-         db_free($result);
+            $result = db_query($q);
+            $num_rows = db_num_rows($result);
+            $row = db_fetch_array($result);
+            db_free($result);
 
-         if ($num_rows < 1) {
-            print_error_mesg($in['lang']['e_no_match']);
-            $in['username'] = '';
-            $in['email'] = '';
-            lost_password_form();
-         }
-         // Ok, username and password checks out...
-         // generate new password and send
-         else {
+            if ($num_rows < 1) {
+                print_error_mesg($in['lang']['e_no_match']);
+                $in['username'] = '';
+                $in['email'] = '';
+                lost_password_form();
+            }
+            // Ok, username and password checks out...
+            // generate new password and send
+            else {
 
-            $password = random_text(); 
-            $salt = get_salt();
-            $encrypted_password = my_crypt($password,$salt);
-            $q = "UPDATE " . DB_USER . "
+                $password = random_text();
+                $salt = get_salt();
+                $encrypted_password = my_crypt($password, $salt);
+                $q = "UPDATE " . DB_USER . "
                      SET password = '$encrypted_password',
                          reg_date = reg_date
-                   WHERE id = '$row[id]' ";
-            db_query($q);
+                   WHERE id = '{$row['id']}' ";
+                db_query($q);
 
-            $to = $email;
-            $from = SETUP_AUTH_ADMIN_EMAIL_ADDRESS;
-            $extra = "-f$from";
+                $to = $email;
+                $from = SETUP_AUTH_ADMIN_EMAIL_ADDRESS;
+                $extra = "-f$from";
 
-            $row = get_message_notice('lost_password');
+                $row = get_message_notice('lost_password');
 
-            $subject = $row['var_subject'];
-            $message = $row['var_message'];
+                $subject = $row['var_subject'];
+                $message = $row['var_message'];
 
-            $this_url = ROOT_URL . "/" . DCF;
-            $this_mark = $in['lang']['your_new_password_is'] . " \n\n\t$password";
+                $__this_url = ROOT_URL . "/" . DCF;
+                $__this_mark = $in['lang']['your_new_password_is'] . " \n\n\t$password";
 
-            // replace $MARKER with proper variable
-            $message = preg_replace("/#URL#/",$this_url,$message);
-            $message = preg_replace("/#MARKER#/",$this_mark,$message);
-            $message .= "\n\n" . SETUP_ADMIN_SIGNATURE;
+                // replace $MARKER with proper variable
+                $message = preg_replace("/#URL#/", $__this_url, $message);
+                $message = preg_replace("/#MARKER#/", $__this_mark, $message);
+                $message .= "\n\n" . SETUP_ADMIN_SIGNATURE;
 
-            $header    = "From: $from\r\n";
-            $header   .= "Reply-To: $from\r\n";
-            $header   .= "MIME-Version: 1.0\r\n";
-            $header   .= "Content-Type: text/plain; charset=iso-8859-1\r\n";
-            $header   .= "X-Priority: 3\r\n";
-            $header   .= "X-Mailer: PHP / ".phpversion()."\r\n";
+                $header = "From: $from\r\n";
+                $header .= "Reply-To: $from\r\n";
+                $header .= "MIME-Version: 1.0\r\n";
+                $header .= "Content-Type: text/plain; charset=iso-8859-1\r\n";
+                $header .= "X-Priority: 3\r\n";
+                $header .= "X-Mailer: PHP / " . phpversion() . "\r\n";
 
-            mail($to,$subject,$message,$header);
-
-
-            // Send the message
-	    //            mail($to,$subject,$message,"Reply-To: $from","-f$from");
-
-            print_ok_mesg($in['lang']['ok_mesg']);
-
-         }
-      }
-   }
-   else {
-
-      print_inst_mesg($in['lang']['inst_mesg']);
-      lost_password_form();
-   }
- 
-
-   print "</td></tr>";
-
-   end_table();
+                mail($to, $subject, $message, $header);
 
 
-   // include bottom template file
-   include_bottom();
+                // Send the message
+                //            mail($to,$subject,$message,"Reply-To: $from","-f$from");
 
-   print_tail();
+                print_ok_mesg($in['lang']['ok_mesg']);
+
+            }
+        }
+    } else {
+
+        print_inst_mesg($in['lang']['inst_mesg']);
+        lost_password_form();
+    }
+
+
+    print "</td></tr>";
+
+    end_table();
+
+
+    // include bottom template file
+    include_bottom();
+
+    print_tail();
 
 }
 
@@ -175,23 +173,24 @@ function retrieve_password() {
 // function lost_password_form
 //
 ////////////////////////////////////////////////////////////////////////
-function lost_password_form() {
+function lost_password_form()
+{
 
-   global $in;
+    global $in;
 
-   
-   begin_form(DCF);
-   print form_element("az","hidden",$in['az'],"");
-   print form_element("saz","hidden","Send","");
 
-   begin_table(array(
-         'border'=>'0',
-         'width' => '300',
-         'cellspacing' => '1',
-         'cellpadding' => '5',
-         'class'=>'') 
-   );
-     print "<tr class=\"dcdark\"><td 
+    begin_form(DCF);
+    print form_element("az", "hidden", $in['az'], "");
+    print form_element("saz", "hidden", "Send", "");
+
+    begin_table([
+            'border'      => '0',
+            'width'       => '300',
+            'cellspacing' => '1',
+            'cellpadding' => '5',
+            'class'       => '']
+    );
+    print "<tr class=\"dcdark\"><td 
           nowrap=\"nowrap\">" . $in['lang']['your_username'] . "</td><td 
           width=\"100%\"><input type=\"text\" name=\"username\"
           size=\"40\" value=\"\" /></td></tr>
@@ -202,9 +201,10 @@ function lost_password_form() {
           <tr class=\"dcdark\"><td>&nbsp;</td><td><input 
           type=\"submit\" value=\"" . $in['lang']['button_submit'] . "\" /></td></tr>";
 
-   end_table();
+    end_table();
 
-   end_form();
+    end_form();
 
 }
+
 ?>

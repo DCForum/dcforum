@@ -120,7 +120,7 @@ function announcement_manager_edit() {
       $q = "SELECT UNIX_TIMESTAMP(e_date) as e_date,
                    subject, message
               FROM " . DB_ANNOUNCEMENT . "
-             WHERE id = '$in[id]' ";
+             WHERE id = '{$in['id']}' ";
 
       $result = db_query($q);
       $row = db_fetch_array($result);
@@ -221,12 +221,12 @@ function announcement_preview() {
    $id = $in['id'];
    $subject = htmlspecialchars($in['subject']);
    $message = htmlspecialchars($in['message']);
-   $this_message = nl2br($message);
+   $__this_message = nl2br($message);
 
    print "<tr class=\"dclite\"><td 
               class=\"dclite\">Expiration date: $e_date<br />
               Subject: $subject<br />
-              <p>$this_message</p></td></tr>";
+              <p>$__this_message</p></td></tr>";
 
    print "<tr class=\"dclite\"><td 
               class=\"dclite\">";
@@ -274,7 +274,7 @@ function announcement_update() {
                a_date = a_date,
                subject = '$subject',
                message = '$message'
-          WHERE id = '$in[id]' ";
+          WHERE id = '{$in['id']}' ";
 
    db_query($q);
 
@@ -318,7 +318,7 @@ function announcement_add() {
    $message = db_escape_string($in['message']);
 
    $q = "INSERT INTO " . DB_ANNOUNCEMENT . "
-         VALUES('',NOW(),'$e_date','$subject','$message') ";
+         VALUES(null,NOW(),'$e_date','$subject','$message') ";
 
    db_query($q);
 

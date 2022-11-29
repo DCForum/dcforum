@@ -71,7 +71,7 @@ $dbh = db_connect() or my_die("Couldn't connect to the database.  Please make su
 
 // Make sure dcuser and dcsession tables are upto 1.2 compatible
 if (! file_exists(TEMP_DIR . "/alter_table_11_12.lock")) {
-      $q = "ALTER TABLE " . DB_USER . " CHANGE pp uw CHAR(30) NOT NULL DEFAULT 'english' ";
+      $q = "ALTER TABLE " . DB_USER . " CHANGE pp uw CHAR(30) NULL DEFAULT 'english' ";
       db_query($q);
 
       $q = "ALTER TABLE " . DB_SESSION . " ADD COLUMN uw CHAR(30) AFTER uj";

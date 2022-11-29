@@ -57,10 +57,10 @@ function general_manage_user_files() {
       if ($in['delete']) {
 
          foreach ($in['delete'] as $filename) {
-            $this = explode('.',$filename);
+            $__this = explode('.',$filename);
             $q = "DELETE 
                     FROM " . DB_UPLOAD . "
-                   WHERE id = '$this[0]' ";
+                   WHERE id = '{$__this['0']}' ";
             db_query($q);
             if (file_exists(USER_DIR . "/$filename")) {
                unlink(USER_DIR . "/$filename");
@@ -118,7 +118,7 @@ function display_file_list() {
    $q = "SELECT *,
                 UNIX_TIMESTAMP(date) AS date
            FROM " . DB_UPLOAD . "
-          WHERE u_id = '$in[u_id]' ";
+          WHERE u_id = '{$in['u_id']}' ";
 
    $result = db_query($q);
 
@@ -203,7 +203,7 @@ function display_user_list() {
 
    print "<tr class=\"dcdark\"><td>Username</td><td># of 
       files</td><td>Total Disk Usage (KBytes)</td></tr>";   
-   while(list($key,$val) = each($user_list)) {
+  foreach($user_list as $key => $val) {
       $u_id = $key;
       $dsize = ceil($user_list[$key]['dsize'] / 1000);
       print "<tr class=\"dclite\"><td><a href=\"" . DCA . 

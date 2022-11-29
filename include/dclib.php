@@ -33,14 +33,14 @@
 // function my_setcookie
 //
 ///////////////////////////////////////////////////////////
-function my_setcookie($name,$value,$expires = "") {
+function my_setcookie($name, $value, $expires = "")
+{
 
-  if ($expires) {
-      setcookie($name,$value,$expires,"/",COOKIE_DOMAIN,0);
-  }
-  else {
-      setcookie($name,$value);
-  }
+    if ($expires) {
+        setcookie($name, $value, $expires, "/", COOKIE_DOMAIN, 0);
+    } else {
+        setcookie($name, $value);
+    }
 }
 
 /////////////////////////////////////////////////////
@@ -49,34 +49,37 @@ function my_setcookie($name,$value,$expires = "") {
 // and creates a long string using & as
 // the delimiter
 /////////////////////////////////////////////////////
-function zip_cookie($arr) {
+function zip_cookie($arr)
+{
 
-   $outarr = array();
-   while(list($key,$value) = each($arr)) {
-      $kvpair = implode('=',array($key,$value));
-      array_push($outarr,$kvpair);
-   }
-   return base64_encode(implode('&',$outarr));
+    $outarr = [];
+    foreach ($arr as $key => $value) {
+        $kvpair = implode('=', [$key, $value]);
+        $outarr[] = $kvpair;
+    }
+    return base64_encode(implode('&', $outarr));
 }
 
 /////////////////////////////////////////////////////
 // function unzip_cookie
 /////////////////////////////////////////////////////
-function unzip_cookie($str) {
+function unzip_cookie($str)
+{
 
-   $str = base64_decode($str);
-   $tmparr = explode('&',$str);
-   while(list($key,$value) = each($tmparr)) {
-      $kv_array = explode('=',$value);
-      $outarr[$kv_array['0']] = $kv_array['1'];
-   }
-   return $outarr;
+    $str = base64_decode($str);
+    $tmparr = explode('&', $str);
+    foreach ($tmparr as $key => $value) {
+        $kv_array = explode('=', $value);
+        $outarr[$kv_array['0']] = $kv_array['1'];
+    }
+    return $outarr;
 }
 
 /////////////////////////////////////////////////////
 // function print_head
 /////////////////////////////////////////////////////
-function print_head($title) {
+function print_head($title)
+{
 
 //   print_no_cache_header();
 
@@ -92,15 +95,15 @@ function print_head($title) {
 //    print "     PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n";
 //    print "     \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n";
 
-   print "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">\n";
-   print "<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\">\n";
-   print "<head>\n";
-   print "   <title>" . DCFTITLE . " - $title</title>\n";
+    print "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">\n";
+    print "<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\">\n";
+    print "<head>\n";
+    print "   <title>" . DCFTITLE . " - $title</title>\n";
     print "   <meta http-equiv=\"Content-Type\" content=\"text/html\" />\n";
-   print "   <meta http-equiv=\"Content-Style-Type\" content=\"text/css\" />\n";
-   print "   <link rel=\"stylesheet\" type=\"text/css\" href=\"jscss/dc.css\" />\n";
-   print "   <script src=\"jscss/dcf.js\" type=\"text/JavaScript\"></script>\n";
-   print "</head>\n";
+    print "   <meta http-equiv=\"Content-Style-Type\" content=\"text/css\" />\n";
+    print "   <link rel=\"stylesheet\" type=\"text/css\" href=\"jscss/dc.css\" />\n";
+    print "   <script src=\"jscss/dcf.js\" type=\"text/JavaScript\"></script>\n";
+    print "</head>\n";
 
 
 }
@@ -109,14 +112,15 @@ function print_head($title) {
 /////////////////////////////////////////////////////
 // function print_no_cache_header
 /////////////////////////////////////////////////////
-function print_no_cache_header() {
+function print_no_cache_header()
+{
 
-   // Expire the output so that it doesn't get cached
-   header("Expires: Fri, 18 Jan 2002 00:00:00 GMT");
-   header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-   header("Cache-Control: no-store, no-cache, must-revalidate");
-   header("Cache-Control: post-check=0, pre-check=0", false);
-   header("Pragma: no-cache");
+    // Expire the output so that it doesn't get cached
+    header("Expires: Fri, 18 Jan 2002 00:00:00 GMT");
+    header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+    header("Cache-Control: no-store, no-cache, must-revalidate");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
 
 }
 
@@ -124,8 +128,9 @@ function print_no_cache_header() {
 /////////////////////////////////////////////////////
 // function print_tail
 /////////////////////////////////////////////////////
-function print_tail() {
-   print "</html>\n";
+function print_tail()
+{
+    print "</html>\n";
 }
 
 ////////////////////////////////////////////////////////
@@ -133,13 +138,14 @@ function print_tail() {
 // function generate_session_id
 //
 ////////////////////////////////////////////////////////
-function generate_session_id() {
+function generate_session_id()
+{
 
-   $pid = getmypid();
-   mt_srand(time());
-   $rand = mt_rand(1,60000);
-   $session = implode('', unpack("H*", pack("Nnn",time(),$pid,$rand)));
-   return $session;
+    $pid = getmypid();
+    mt_srand(time());
+    $rand = mt_rand(1, 60000);
+    $session = implode('', unpack("H*", pack("Nnn", time(), $pid, $rand)));
+    return $session;
 
 }
 
@@ -150,9 +156,10 @@ function generate_session_id() {
 // prints headers for refreshing to another page
 //
 //////////////////////////////////////////////////////////////
-function print_refresh_page($url,$time) {
+function print_refresh_page($url, $time)
+{
 
-   print <<<END
+    print <<<END
 <html>
 <head>
 <META HTTP-EQUIV="Refresh" CONTENT="$time; URL=$url">
@@ -166,14 +173,15 @@ END;
 // function print_default_page
 //
 //////////////////////////////////////////////////////////////
-function print_default_page($title,$mesg) {
+function print_default_page($title, $mesg)
+{
 
-   print_no_cache_header();      
-   print_head($title);
-   include_top();
-   print "$mesg";
-   include_bottom();
-   print_tail();
+    print_no_cache_header();
+    print_head($title);
+    include_top();
+    print "$mesg";
+    include_bottom();
+    print_tail();
 
 }
 
@@ -183,14 +191,14 @@ function print_default_page($title,$mesg) {
 // returns 1 if this user is a guest
 //
 /////////////////////////////////////////////////////////////////
-function is_guest($u_id) {
+function is_guest($u_id)
+{
 
-   if ($u_id and $u_id != 100000) {
-      return 0;
-   }
-   else {
-      return 1;
-   }
+    if ($u_id and $u_id != 100000) {
+        return 0;
+    } else {
+        return 1;
+    }
 
 }
 
@@ -199,14 +207,14 @@ function is_guest($u_id) {
 // function proper_string
 //
 //////////////////////////////////////////////////////////////////
-function proper_string($num,$this_temp) {
+function proper_string($num, $__this_temp)
+{
 
-   if ($num == 1) {
-      return $num . " " . $this_temp;
-   }
-   else {
-      return $num . " " . $this_temp . "s";
-   }
+    if ($num == 1) {
+        return $num . " " . $__this_temp;
+    } else {
+        return $num . " " . $__this_temp . "s";
+    }
 }
 
 
@@ -215,10 +223,11 @@ function proper_string($num,$this_temp) {
 // Checks to see if the template exists
 //
 //////////////////////////////////////////////////////////////////
-function include_top($template = 'top.html') {
+function include_top($template = 'top.html')
+{
 
-   if (file_exists(TEMPLATE_DIR . "/$template"))
-      include_once(TEMPLATE_DIR . "/$template");
+    if (file_exists(TEMPLATE_DIR . "/$template"))
+        include_once(TEMPLATE_DIR . "/$template");
 
 }
 
@@ -227,36 +236,38 @@ function include_top($template = 'top.html') {
 // Checks to see if the template exists
 //
 //////////////////////////////////////////////////////////////////
-function include_bottom($template = 'bottom.html') {
+function include_bottom($template = 'bottom.html')
+{
 
-   begin_table(array(
-         'border'=>'0',
-         'cellspacing' => '0',
-         'cellpadding' => '5',
-         'class'=>'') );
-   print "<tr class=\"dclite\"><td class=\"dcfooter\">" . 
-          DCCOPYRIGHT . "</td></tr>";
-   end_table();
+    begin_table([
+        'border'      => '0',
+        'cellspacing' => '0',
+        'cellpadding' => '5',
+        'class'       => '']);
+    print "<tr class=\"dclite\"><td class=\"dcfooter\">" .
+        DCCOPYRIGHT . "</td></tr>";
+    end_table();
 
-   if (file_exists(TEMPLATE_DIR . "/$template"))
-      include_once(TEMPLATE_DIR . "/$template");
+    if (file_exists(TEMPLATE_DIR . "/$template"))
+        include_once(TEMPLATE_DIR . "/$template");
 
-   
+
 }
 
 //////////////////////////////////////////////////////////////////
 // function dc_zip_param
 //
 //////////////////////////////////////////////////////////////////
-function dc_zip_param($in_array) {
+function dc_zip_param($in_array)
+{
 
-   $temp_array = array();
-   while(list($key,$value) = each($in_array)) {
-      if ($value)
-         array_push($temp_array,"$key#$value");
-   }
-   $out_str = implode('^',$temp_array);
-   return $out_str;
+    $temp_array = [];
+    foreach ($in_array as $key => $value) {
+        if ($value)
+            $temp_array[] = "$key#$value";
+    }
+    $out_str = implode('^', $temp_array);
+    return $out_str;
 }
 
 //////////////////////////////////////////////////////////////////
@@ -264,18 +275,19 @@ function dc_zip_param($in_array) {
 // function dc_unzip_param
 //
 //////////////////////////////////////////////////////////////////
-function dc_unzip_param($in_str) {
+function dc_unzip_param($in_str)
+{
 
-   $tmp_array = array();
-   $kv_array = array();
+    $tmp_array = [];
+    $kv_array = [];
 
-   $tmp_array = explode('^',$in_str);
-   foreach($tmp_array as $kv_pair) {
-      $fields = explode('#',$kv_pair);
-      $kv_array[$fields['0']] = $fields['1'];
-   }
+    $tmp_array = explode('^', $in_str);
+    foreach ($tmp_array as $kv_pair) {
+        $fields = explode('#', $kv_pair);
+        $kv_array[$fields['0']] = $fields['1'];
+    }
 
-   return $kv_array;
+    return $kv_array;
 }
 
 
@@ -285,9 +297,10 @@ function dc_unzip_param($in_str) {
 // for future use
 //
 //////////////////////////////////////////////////////////////////
-function tr($str) {
+function tr($str)
+{
 
-   return $str;
+    return $str;
 
 }
 
@@ -298,40 +311,39 @@ function tr($str) {
 // $in is a global variable
 //
 /////////////////////////////////////////////////////
-function get_form_data() {
+function get_form_data()
+{
 
-   global $in;
-   //   global $HTTP_GET_VARS;
-   //global $HTTP_POST_VARS;
-   //global $REQUEST_METHOD;
+    global $in;
+    //   global $HTTP_GET_VARS;
+    //global $HTTP_POST_VARS;
+    //global $REQUEST_METHOD;
 
-   //   global $HTTP_REFERER;
+    //   global $HTTP_REFERER;
 
-   // Make sure the form data doesn't have additional slashes
-   // On the other hand, if the $val is an array, leave it alone
-   while (list($key,$val)=each($_GET)) {
-      if (is_array($val)) {
-         $in[$key] = $val;
-      }
-      elseif ($val != '') {
-         $in[$key] = ini_get('magic_quotes_gpc') ? stripslashes($val) : $val;
-      }
-   }
-   while (list($key,$val)=each($_POST)) {
-      if (is_array($val)) {
-         $in[$key] = $val;
-      }
-      elseif ($val != '') {
-         $in[$key] = ini_get('magic_quotes_gpc') ? stripslashes($val) : $val;
-      }
-   }
+    // Make sure the form data doesn't have additional slashes
+    // On the other hand, if the $val is an array, leave it alone
+    foreach ($_GET as $key => $val) {
+        if (is_array($val)) {
+            $in[$key] = $val;
+        } else if ($val != '') {
+            $in[$key] = ini_get('magic_quotes_gpc') ? stripslashes($val) : $val;
+        }
+    }
+    foreach ($_POST as $key => $val) {
+        if (is_array($val)) {
+            $in[$key] = $val;
+        } else if ($val != '') {
+            $in[$key] = ini_get('magic_quotes_gpc') ? stripslashes($val) : $val;
+        }
+    }
 
-   // Also, see if POST or GET was used
-   // Used for checking hacking
-   $in['request_method'] = $_SERVER['REQUEST_METHOD'] ?
-       strtolower($_SERVER['REQUEST_METHOD']) : 'post';
+    // Also, see if POST or GET was used
+    // Used for checking hacking
+    $in['request_method'] = $_SERVER['REQUEST_METHOD'] ?
+        strtolower($_SERVER['REQUEST_METHOD']) : 'post';
 
-   $in['http_referer'] = $_SERVER['HTTP_REFERER'];
+    $in['http_referer'] = $_SERVER['HTTP_REFERER'];
 
 }
 
@@ -357,9 +369,10 @@ function get_form_data() {
 // function my_die
 //
 /////////////////////////////////////////////////////
-function my_die ($error_mesg) {
-   print "$error_mesg<br />";
-   exit();
+function my_die($error_mesg)
+{
+    print "$error_mesg<br />";
+    exit();
 }
 
 /////////////////////////////////////////////////////
@@ -367,16 +380,17 @@ function my_die ($error_mesg) {
 // function invalid_referer
 //
 /////////////////////////////////////////////////////
-function invalid_referer() {
+function invalid_referer()
+{
 
 
-   if (SETUP_AUTH_CHECK_REFERER == 'yes') {
-      $this_url = ROOT_URL;
-      if ($_SERVER['HTTP_REFERER']) {  // Check and make sure $HTTP_REFERER is not NULL
-         $match = ereg($this_url,$_SERVER['HTTP_REFERER']) ? 0 : 1;
-      }
-   }
-   return $match;
+    if (SETUP_AUTH_CHECK_REFERER == 'yes') {
+        $__this_url = ROOT_URL;
+        if ($_SERVER['HTTP_REFERER']) {  // Check and make sure $HTTP_REFERER is not NULL
+            $match = ereg($__this_url, $_SERVER['HTTP_REFERER']) ? 0 : 1;
+        }
+    }
+    return $match;
 
 }
 
@@ -385,20 +399,43 @@ function invalid_referer() {
 // function select_language
 //
 //////////////////////////////////////////////////////////
-function select_language($module) {
+function select_language($module)
+{
 
-   global $in;
+    global $in;
 
-   // Fix to ensure that email notification is sent using admin's default email
-   if ($in['admin_lang'] and file_exists(LANG_DIR . "/". $in['admin_lang'] . $module)) {
-      include(LANG_DIR . "/" . $in['admin_lang'] . $module);
-   }
-   elseif (file_exists(LANG_DIR . "/" . SETUP_USER_LANGUAGE . $module)) {
-      include(LANG_DIR . "/" . SETUP_USER_LANGUAGE . $module);
-   }
-   else {
-      include(LANG_DIR . "/english" . $module);
-   }
+    // Fix to ensure that email notification is sent using admin's default email
+    if ($in['admin_lang'] and file_exists(LANG_DIR . "/" . $in['admin_lang'] . $module)) {
+        include(LANG_DIR . "/" . $in['admin_lang'] . $module);
+    } else if (defined('SETUP_USER_LANGUAGE') && file_exists(LANG_DIR . "/" . SETUP_USER_LANGUAGE . $module)) {
+        include(LANG_DIR . "/" . SETUP_USER_LANGUAGE . $module);
+    } else {
+        include(LANG_DIR . "/english" . $module);
+    }
 
 }
-?>
+
+function legacy_each(&$arr)
+{
+    if ($arr === null) return null;
+    $k = key($arr);
+    $v = current($arr);
+    $r = is_null($k) ? false : [1 => $v, 'value' => $v, 0 => $k, 'key' => $k];
+    next($arr);
+    return $r;
+}
+
+function dump()
+{
+    echo '<pre dir="ltr" style="background: #fff; color:#000">';
+    foreach (func_get_args() as $arg) var_dump($arg);
+    echo '</pre>';
+}
+
+function dd()
+{
+    echo '<pre dir="ltr" style="background: #fff; color:#000">';
+    foreach (func_get_args() as $arg) var_dump($arg);
+    echo '</pre>';
+    die;
+}

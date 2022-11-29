@@ -24,28 +24,41 @@
 //    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 //
-         'cellpadding' => '5',
-         'class'=>'') );
 
-   while(list($key,$this_array) = each($in['lang']['html_ref'])) {
+// attempted fix 2022-11-28
+select_language("/lib/  html_reference.php");
 
-     // $key is table heading
-      print "<tr class=\"dcheading\"><td 
+print_head($in['lang']['page_title']);
+
+include(INCLUDE_DIR . "/form_info.php");
+
+$mesg = $in['lang']['page_desc'] . "<br /><a href=\"javascript:window.close();\">" .
+    $in['lang']['click_to_close'] . "</a>";
+
+print_inst_mesg($mesg);
+
+begin_table([
+    'border'      => '0',
+    'cellspacing' => '1',
+    'cellpadding' => '5',
+    'class'       => '',
+]);
+
+foreach ($in['lang']['html_ref'] as $key => $__this_array) {
+
+    // $key is table heading
+    print "<tr class=\"dcheading\"><td 
          class=\"dcheading\" colspan=\"2\">$key</td></tr>";
-      while(list($this_key,$this_val) = each ($this_array)) {
-         print "<tr class=\"dcdark\"><td 
-            class=\"dcdark\">$this_key</td><td 
-            class=\"dclite\">$this_val</td>
+    foreach ($__this_array as $__this_key => $__this_val) {
+        print "<tr class=\"dcdark\"><td 
+            class=\"dcdark\">$__this_key</td><td 
+            class=\"dclite\">$__this_val</td>
             </tr>";
 
-      }
-   
-   }
-
-   end_table();
-
-   print_tail();
+    }
 
 }
 
-?>
+end_table();
+
+print_tail();

@@ -101,7 +101,7 @@ function mark() {
       }
       else {
          $q = "INSERT INTO " . DB_USER_TIME_MARK . "
-                    VALUES('','$u_id','$forum',NOW() )";
+                    VALUES(null,'$u_id','$forum',NOW() )";
          db_query($q);
       }
       $current_time_marks[$forum] = time();
@@ -109,8 +109,8 @@ function mark() {
 
    reset($current_time_marks);
    $cookie_thing = array();
-   while (list($forum,$marker) = each($current_time_marks)) {
-      array_push($cookie_thing,"$forum#$marker");
+  foreach($current_time_marks as $forum => $marker) {
+      $cookie_thing[] = "$forum#$marker";
    }
 
    // Update the session table
@@ -148,7 +148,7 @@ function get_forum_list($forum_id = '') {
                 FROM " . DB_FORUM;
       $result = db_query($q);
       while($row = db_fetch_array($result)) {
-         array_push($forum_list, $row['id']);
+          $forum_list[] = $row['id'];
       }
       db_free($result);
    }
@@ -178,7 +178,7 @@ function get_forum_branch($parent_id) {
     $result = db_query($q);
 
     while($row = db_fetch_array($result)) {
-            array_push($forum_branch,$row['id']);
+        $forum_branch[] = $row['id'];
             get_child_branch($row['id'],$forum_branch);
     }
     db_free($result);
@@ -208,7 +208,7 @@ function update_forum_marks($child_forum,$forum,$u_id,&$user_time_marks,&$curren
    // There are same level folders
    $rows = get_forums($forum);
 
-   while(list($key,$row) = each($rows)) {
+  foreach($rows as $key => $row) {
       if ($row['id'] != $child_forum)
           if ($row['last_date'] > $current_time_marks[$row['id']] and 
              $current_time_marks[$forum] < $row['last_date'])   {
@@ -250,7 +250,7 @@ function update_forum_marks($child_forum,$forum,$u_id,&$user_time_marks,&$curren
       // otherwise, update
       else {
          $q = "INSERT INTO " . DB_USER_TIME_MARK . "
-                    VALUES('','$u_id','$forum',NOW() )";
+                    VALUES(null,'$u_id','$forum',NOW() )";
          db_query($q);
       }
 

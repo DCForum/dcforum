@@ -90,13 +90,13 @@ function make_topic() {
                         last_date = NOW(),
                             mesg_date = mesg_date,
                             edit_date = edit_date
-                  WHERE id = '$in[mesg_id]' ";
+                  WHERE id = '{$in['mesg_id']}' ";
         db_query($q);
 
         // For each $row id, update top_id
         foreach ($rows as $id) {      
     	      $q = " UPDATE $from_forum_table 
-                        SET top_id = '$in[mesg_id]',
+                        SET top_id = '{$in['mesg_id']}',
                             last_date = last_date,
                             mesg_date = mesg_date,
                             edit_date = edit_date
@@ -111,7 +111,7 @@ function make_topic() {
                          last_date = last_date,
                             mesg_date = mesg_date,
                             edit_date = edit_date
-                  WHERE id = '$in[topic_id]' ";
+                  WHERE id = '{$in['topic_id']}' ";
          db_query($q);
 
         // Next if to_forum is not same as from_forum, move the topic
@@ -227,19 +227,19 @@ function create_forum_tree() {
    $sorted_forum_list = sort_forum_list($in['forum_list']);
 
    // construct directory style of tree
-   foreach ($sorted_forum_list as $this_array) {
-      $this_forum_id = $this_array['0'];
-      $this_level = $this_array['1'];
+   foreach ($sorted_forum_list as $__this_array) {
+      $__this_forum_id = $__this_array['0'];
+      $__this_level = $__this_array['1'];
 
-      if (is_array($in['forum_list'][$this_forum_id])) {
+      if (is_array($in['forum_list'][$__this_forum_id])) {
 	 $indent = "";
-	 for ($j=0;$j<$this_level;$j++) $indent .= "&nbsp;&nbsp;&nbsp;&nbsp;";
-         if ($this_level > 0) {
-   	    $forum_tree[$this_forum_id] = $indent . "|-- " . 
-              $in['forum_list'][$this_forum_id]['name'] . " (" . $in['forum_list'][$this_forum_id]['forum_type'] . ")";
+	 for ($j=0;$j<$__this_level;$j++) $indent .= "&nbsp;&nbsp;&nbsp;&nbsp;";
+         if ($__this_level > 0) {
+   	    $forum_tree[$__this_forum_id] = $indent . "|-- " . 
+              $in['forum_list'][$__this_forum_id]['name'] . " (" . $in['forum_list'][$__this_forum_id]['forum_type'] . ")";
          }
          else {
-   	    $forum_tree[$this_forum_id] = $in['forum_list'][$this_forum_id]['name'] . " (" . $in['forum_list'][$this_forum_id]['forum_type'] . ")";
+   	    $forum_tree[$__this_forum_id] = $in['forum_list'][$__this_forum_id]['name'] . " (" . $in['forum_list'][$__this_forum_id]['forum_type'] . ")";
          }
       }
    }

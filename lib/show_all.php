@@ -66,16 +66,16 @@ function show_all() {
    if (SETUP_DISPLAY_NUM_USERS == 'yes') {
       // Get user count
       $user_count = get_user_count();
-      array_push($temp_array,"<span class=\"dcemp\">$user_count</span> " . $in['lang']['registered_members']);
+       $temp_array[] = "<span class=\"dcemp\">$user_count</span> " . $in['lang']['registered_members'];
    }
    if ($in['user_info']['id']) {
-      array_push($temp_array,$in['lang']['logged_in_as'] . " <span class=\"dcemp\">" 
-         . $in['user_info']['username'] . "</span>");
+       $temp_array[] = $in['lang']['logged_in_as'] . " <span class=\"dcemp\">"
+           . $in['user_info']['username'] . "</span>";
    }
    else {
       if (SETUP_AUTH_ALLOW_REGISTRATION == 'yes') {
-         array_push($temp_array,$in['lang']['firsttime'] . " <a href=\"" . DCF . 
-                "?az=register\">" . $in['lang']['please_register'] . "</a>");
+          $temp_array[] = $in['lang']['firsttime'] . " <a href=\"" . DCF .
+              "?az=register\">" . $in['lang']['please_register'] . "</a>";
       }
    }
 
@@ -132,11 +132,11 @@ function show_all() {
    $last_flag = array();
 
    // $sorted_forum_list returns $id and $level in array   
-   foreach ($sorted_forum_list as $this_array) {
+   foreach ($sorted_forum_list as $__this_array) {
 
       // $key and $level - $key is really the forum ID
-      $key = $this_array['0'];
-      $level = $this_array['1'];
+      $key = $__this_array['0'];
+      $level = $__this_array['1'];
       // If top level, re-initialize
       if ($level == 0) {
          $prev_level = $level;
@@ -161,9 +161,9 @@ function show_all() {
    reset ($sorted_forum_list);
 
    // construct directory style of tree
-   foreach ($sorted_forum_list as $this_array) {
-      $key = $this_array['0'];
-      $level = $this_array['1'];
+   foreach ($sorted_forum_list as $__this_array) {
+      $key = $__this_array['0'];
+      $level = $__this_array['1'];
 
       $row = $in['forum_list'][$key];
 

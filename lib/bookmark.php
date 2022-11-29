@@ -94,7 +94,7 @@ function bookmark() {
 
       // add this topic to the bookmark list
       $q = "INSERT INTO " . DB_BOOKMARK . "
-                VALUES('',
+                VALUES(null,
                        '$u_id',
                        '$topic_id',
                        '$forum_id',

@@ -58,12 +58,12 @@ function subscription_manager_user() {
    if ($in['ssaz'] == 'update') {
 
       $q = "DELETE FROM " . DB_FORUM_SUB . "
-                  WHERE u_id = '$in[u_id]' ";
+                  WHERE u_id = '{$in['u_id']}' ";
       db_query($q);
 
       foreach ($in['select'] as $forum_id) {
          $q = "INSERT INTO " . DB_FORUM_SUB . "
-                VALUES('','$in[u_id]','$forum_id') ";
+                VALUES(null,'{$in['u_id']}','$forum_id') ";
          db_query($q);
       }
 

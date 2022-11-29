@@ -231,20 +231,20 @@ function show_topic() {
                        "&topic_id=$in[topic_id]&mesg_id=&page=$page&mode=full\">View all</a>]";
          if ($in['sub_topic_id']) {
            print "<br />Subthread pages: ";
-           
-           array_push($temp_array,"<a href=\"" . DCF . "?az=$in[az]&forum=$in[forum]" .
-                       "&topic_id=$in[topic_id]&mesg_id=&page=$page\">Top</a>");
+
+             $temp_array[] = "<a href=\"" . DCF . "?az=$in[az]&forum=$in[forum]" .
+                 "&topic_id=$in[topic_id]&mesg_id=&page=$page\">Top</a>";
 
            $j=1;
 
-	   while(list($key,$val) = each($row_info)) {
+	  foreach($row_info as $key => $val) {
 
               if ($in['sub_topic_id'] == $key ) {
-                 array_push($temp_array,"<strong>$j</strong>");
+                  $temp_array[] = "<strong>$j</strong>";
               }
               else {
-                 array_push($temp_array,"<a href=\"" . DCF . "?az=$in[az]&forum=$in[forum]" .
-                       "&topic_id=$in[topic_id]&sub_topic_id=$key&mesg_id=&page=$page\">$j</a>");
+                  $temp_array[] = "<a href=\"" . DCF . "?az=$in[az]&forum=$in[forum]" .
+                      "&topic_id=$in[topic_id]&sub_topic_id=$key&mesg_id=&page=$page\">$j</a>";
               }
               $j++;    
            }
@@ -540,11 +540,11 @@ function show_topic() {
 function get_row_info($rows) {
 
   $row_info = array();
-  while(list($key,$row) = each($rows)) {
+ foreach($rows as $key => $row) {
     if ($row['level'] == 1)
-      $this_id = $row['id'];
+      $__this_id = $row['id'];
 
-      $row_info[$this_id]++;
+      $row_info[$__this_id]++;
 
   }
   return $row_info;

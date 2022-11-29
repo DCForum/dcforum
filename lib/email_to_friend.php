@@ -64,7 +64,7 @@ function email_to_friend() {
    $error = array();
    $result = get_message(mesg_table_name($in['forum']),$in['topic_id']);
    if (db_num_rows($result) < 1) {
-      array_push($error,$in['lang']['no_such_topic']);
+       $error[] = $in['lang']['no_such_topic'];
    }
    else {
       $row = db_fetch_array($result);
@@ -92,24 +92,24 @@ function email_to_friend() {
       $in['message'] = trim($in['message']);
 
       if ($in['from_name'] == '') {
-	array_push($error,$in['lang']['e_from_name_blank']);
+          $error[] = $in['lang']['e_from_name_blank'];
       }
       if ($in['from_email'] == '') {
-	array_push($error,$in['lang']['e_from_email_blank']);
+          $error[] = $in['lang']['e_from_email_blank'];
       }
       elseif (! check_email($in['from_email']) ) {
-	array_push($error,$in['lang']['e_from_email_syntax']);
+          $error[] = $in['lang']['e_from_email_syntax'];
 
       }
 
       if ($in['to_name'] == '') {
-	array_push($error,$in['lang']['e_to_name_blank']);
+          $error[] = $in['lang']['e_to_name_blank'];
       }
       if ($in['to_email'] == '') {
-	array_push($error,$in['lang']['e_to_email_blank']);
+          $error[] = $in['lang']['e_to_email_blank'];
       }
       elseif (! check_email($in['to_email']) ) {
-	array_push($error,$in['lang']['e_to_email_syntax']);
+          $error[] = $in['lang']['e_to_email_syntax'];
       }
 
       if ($error) {
@@ -126,17 +126,17 @@ function email_to_friend() {
          $from = $in['user_info']['email'];
 	 //         $extra = "-f$from";
 
-         $this_row = get_message_notice('email_to_friend');
-         $this_subject = $this_row['var_subject'];
-         $this_message = $this_row['var_message'];
-         $this_url = ROOT_URL . "/" . DCF;
-         $topic_url = $this_url . 
+         $__this_row = get_message_notice('email_to_friend');
+         $__this_subject = $__this_row['var_subject'];
+         $__this_message = $__this_row['var_message'];
+         $__this_url = ROOT_URL . "/" . DCF;
+         $topic_url = $__this_url . 
             "?az=show_topic&forum=$in[forum]&topic_id=$in[topic_id]";
 
          // replace $MARKER with proper variable
-         $this_message = preg_replace("/#URL#/",$this_url,$this_message);
+         $__this_message = preg_replace("/#URL#/",$__this_url,$__this_message);
 
-         $message = $this_message . "\n";
+         $message = $__this_message . "\n";
          $message .= "=========================================================\n";
          $message .= $in['lang']['from'] . ": $in[from_name]  ($in[from_email]) \n";
          $message .= "$in[to_name],\n";
@@ -151,10 +151,10 @@ function email_to_friend() {
          $header .= "X-Priority: 3\r\n";
          $header .= "X-Mailer: PHP / ".phpversion()."\r\n";
 
-         mail($to,$this_subject,$message,$header);
+         mail($to,$__this_subject,$message,$header);
 
 
-	 //         mail($to,$this_subject,$message,"","-f$from");
+	 //         mail($to,$__this_subject,$message,"","-f$from");
 
          print "<tr class=\"dclite\"><td 
                  class=\"dclite\" colspan=\"2\">" . $in['lang']['ok_mesg'] . "</td></tr>";

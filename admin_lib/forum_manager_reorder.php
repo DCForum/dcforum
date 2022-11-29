@@ -48,7 +48,7 @@ function forum_manager_reorder() {
       while($row = db_fetch_array($result)) {
          $id = $row['id'];
          $q = "UPDATE " . DB_FORUM . 
-              " SET forum_order = '$in[$id]',
+              " SET forum_order = '{$in['$id']}',
                     last_date = last_date
                 WHERE id = '$id' ";
          db_query($q); 
@@ -73,7 +73,7 @@ function forum_manager_reorder() {
               class=\"dclite\" colspan=\"2\"><p>Forums were 
               reordered. Here is the new forum order:<p>";
 
-      while(list($key,$val) = each ($forum_tree)) {
+     foreach($forum_tree as $key => $val) {
          print "&nbsp;&nbsp; $val<br />";
       }
       print "<p><a href=\"" . DCA . "?az=forum_manager&saz=reorder\">Click 
@@ -119,7 +119,7 @@ function forum_manager_reorder() {
          'class'=>'') );
 
       $forum_order = 0;
-      while(list($key,$val) = each ($forum_tree)) {
+     foreach($forum_tree as $key => $val) {
 
          $forum_order++;
          print "<tr><td class=\"dclite\"><input type=\"text\"
@@ -165,11 +165,11 @@ function show_folder($parent_id) {
    if ($num_result > 0) {
       $output .= "<ul class=\"dctoc\">\n";
       while($row = db_fetch_array($result)) {
-         $this_name = $row['name'];
-         $this_id = $row['id'];
+         $__this_name = $row['name'];
+         $__this_id = $row['id'];
          $output .= "<li class=\"dctoc\">
-             <a href=\"dcboard.php?az=show_topics&forum=$this_id\">$this_name</a></li>";
-         $output .= show_folder($this_id);
+             <a href=\"dcboard.php?az=show_topics&forum=$__this_id\">$__this_name</a></li>";
+         $output .= show_folder($__this_id);
       }
       $output .= "</ul>\n";
    }

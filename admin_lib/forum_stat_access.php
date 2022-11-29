@@ -340,7 +340,7 @@ function display_access_summary() {
                     <td>Total posts</td>
                     </td></tr>\n";
 
-      while(list($key,$val) = each ($stat)) {
+     foreach($stat as $key => $val) {
 
          $log_bar_size = ceil(180 * $val['log'] / ($most['log']['count'] + 1));
          $post_bar_size = ceil(180 * $val['posts'] / ($most['posts']['count'] + 1));
@@ -451,7 +451,7 @@ function display_access_summary() {
                     $hour_most['posts']['hourdate'] . ")</td>
                     </td></tr>\n";
 
-      while(list($key,$val) = each ($hour_stat)) {
+     foreach($hour_stat as $key => $val) {
 
          $log_bar_size = ceil(180 * $val['log'] / ($hour_most['log']['count'] + 1));
          $post_bar_size = ceil(180 * $val['posts'] / ($hour_most['posts']['count'] + 1));
@@ -513,7 +513,7 @@ function display_forum_summary() {
    $forum_tree = get_forum_tree($in['access_list']);
    $post_count = array();
    $max_count = 0;
-   while(list($key,$val) = each($forum_tree)) {
+  foreach($forum_tree as $key => $val) {
 
       $forum_table = mesg_table_name($key);
       $forum_info = get_forum_info($key);
@@ -547,7 +547,7 @@ function display_forum_summary() {
                     <td>Total posts</td></tr>\n";
 
 
-      while(list($key,$val) = each ($forum_tree)) {
+     foreach($forum_tree as $key => $val) {
 
          $bar_size = ceil(200 * $post_count[$key] / ($max_count + 1));
 

@@ -56,7 +56,7 @@ $in['lang']['e_sharing'] = "Gemeinsamer Modus ist ungültig";
 $in['lang']['e_repeat'] = "Wiederholungsmarkierung ist ungültig";
 $in['lang']['e_end_option'] = "Option für Enddatum ist ungültig";
 $in['lang']['e_end_month'] = "Enddatum (Monat) ist ungültig";
-$in['lang']['e_end_day'] =  "Enddatum (Tag) ist ungültig";
+$in['lang']['e_end_day'] = "Enddatum (Tag) ist ungültig";
 $in['lang']['e_end_year'] = "Enddatum (Jahr) ist ungültig";
 
 $in['lang']['ok_mesg_posted'] = "Dein Ereignis wurde eingetragen.";
@@ -173,5 +173,3 @@ $in['lang']['to'] = "an";
 $in['lang']['posted_by'] = "Eingetragen von";
 $in['lang']['on'] = "am";
 $in['lang']['last_edited_on'] = "Zuletzt bearbeitet am";
-
-?>

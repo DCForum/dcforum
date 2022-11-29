@@ -59,15 +59,8 @@ function filter_non_number_chars($in_string) {
 /////////////////////////////////////////////////////
 function check_email($str) {
 
-// mod.2002.11.16.01   
-   $str = strtolower($str);
-
-   return ereg( 
-               '^([a-z0-9_]|\\-|\\.)+'.
-               '@'.
-               '(([a-z0-9_]|\\-)+\\.)+'.
-               '[a-z]{2,4}$',
-               $str);
+// mod.2002.11.16.01
+   return filter_var($str, FILTER_VALIDATE_EMAIL);
 }
 
 /////////////////////////////////////////////////////
@@ -85,7 +78,7 @@ function is_username($str) {
 
    // add to following list if you want to allow other
    // characters
-   if (preg_match('/[^\w\s\-\.\@]/i',$str)) {
+   if (preg_match('/[^\w\s\-.@]/i',$str)) {
       return 0;
    }
    else {
@@ -132,7 +125,7 @@ function is_alphanumericplus($str) {
 
    // add to following list if you want to allow other
    // characters
-   if (preg_match('/[^\w\s\-\.]/i',$str)) {
+   if (preg_match('/[^\w\s\-.]/i',$str)) {
       return 0;
    }
    else {
@@ -188,7 +181,7 @@ function is_alpha($str) {
 // function convert_html
 /////////////////////////////////////////////////////
 function convert_html($str) {
-   $str = preg_replace('/\[([^]]+)\]/','<\\1>',$str);
+   $str = preg_replace('/\[([^]]+)]/','<\\1>',$str);
    return $str;
 
    // Translate [] to <>
@@ -203,14 +196,14 @@ function clean_string($str) {
    // Strip off any dangerous HTML tags
    // this include <img src tag
    // 3/7/2003 - added back img tag...take care of this in pre_url_link
-   $str = preg_replace('/\[\s*\/?(body|script|object|embed|applet|form|input|textarea|iframe|\n)[^\]]*\]/i','',$str);
+   $str = preg_replace('/\[\s*\/?(body|script|object|embed|applet|form|input|textarea|iframe|\n)[^]]*]/i','',$str);
 
    // Strip off javascript tags
-   $str = preg_replace('/\[[^\]].*(javascript|vbscript)[^\]]*\]([^\[])*\[[^\]]*[^\]]\]/i','',$str);
+   $str = preg_replace('/\[[^]].*(javascript|vbscript)[^]]*]([^\[])*\[[^]]*[^]]]/i','',$str);
    
-   $badword_list = preg_replace("/,[\s]*?,/i",',',SETUP_AUTH_BAD_WORD_LIST);
+   $badword_list = preg_replace("/,\s*?,/i",',',SETUP_AUTH_BAD_WORD_LIST);
    $badword_list = preg_replace("/,$/i",'',$badword_list);
-   $badword_list = preg_replace("/[\s]*?,[\s]*?/i",'|',$badword_list);
+   $badword_list = preg_replace("/\s*?,\s*?/i",'|',$badword_list);
 
    // badword filter...check for word boundary
 
@@ -234,7 +227,7 @@ function filter_html_attributes($str) {
 
   //   $str =~ s{\[([^\](link|font)].*?)(\s)*?\]}{\[$1\]}gi;
 
-   $str = preg_replace('/\[([^\]](link|font|span).*?)(\s[^\]].*?)?\]/','[$1]',$str);
+   $str = preg_replace('/\[([^]](link|font|span).*?)(\s[^]].*?)?]/','[$1]',$str);
    return $str;
 
 }
@@ -258,11 +251,11 @@ function myhtmlspecialchars($str) {
    if (SETUP_HTML_ALLOWED == 'yes') {
       // Translate [] to <>
       $str = preg_replace('/[\r\cM]/','',$str);
-      $str = preg_replace('/\[(\/)?code\]\n/','[\\1pre]',$str);
+      $str = preg_replace('/\[(\/)?code]\n/','[\\1pre]',$str);
       $str = preg_replace('/\n/','[br /]',$str);
    }
    else {
-      $str = preg_replace('/\[([^\]].*?)\]/','',$str);
+      $str = preg_replace('/\[([^]].*?)]/','',$str);
       $str = preg_replace('/[\r\cM]/','',$str);
       $str = preg_replace('/\n/','[br /]',$str);
    }
@@ -282,7 +275,7 @@ function myhtmlspecialchars($str) {
 
    // Translate [] to <>
 
-   $str = preg_replace('/\[([^\]].*?)\]/','<\\1>',$str);
+   $str = preg_replace('/\[([^]].*?)]/','<\\1>',$str);
 
    return $str;
 
@@ -298,15 +291,15 @@ function pre_url_link($str) {
    $str = preg_replace('/</','&lt;',$str);
    $str = preg_replace('/>/','&gt;',$str);  
 
-   $str = preg_replace('{\[img src="([^"]*)"(.*)\]}i',"$1",$str);
+   $str = preg_replace('{\[img src="([^"]*)"(.*)]}i',"$1",$str);
 
    $str = preg_replace('{
-      \[\s*a\s+href\s*=\s*"\s*http://\s*([^"].*?)\s*"\]
-      \s*(.*?)\s*\[\s*/a\s*\]}xi',"[link:$1|$2]",$str);
+      \[\s*a\s+href\s*=\s*"\s*http://\s*([^"].*?)\s*"]
+      \s*(.*?)\s*\[\s*/a\s*]}xi',"[link:$1|$2]",$str);
 
    $str = preg_replace('{
-      \[\s*a\s+href\s*=\s*"\s*mailto:\s*([^"].*?)\s*"\]
-      \s*(.*?)\s*\[\s*/a\s*\]}xi',"[email:$1|$2]",$str);
+      \[\s*a\s+href\s*=\s*"\s*mailto:\s*([^"].*?)\s*"]
+      \s*(.*?)\s*\[\s*/a\s*]}xi',"[email:$1|$2]",$str);
 
    return $str;
 }
@@ -319,7 +312,7 @@ function pre_url_link($str) {
 function post_url_link($str) {
 
    $eval_links = '$link = clean_link("$1","$2","$3")';
-   $str = preg_replace('{\[(link:|email:)([^\|].*?)\|([^\]].*?)\]}ei',"$eval_links",$str);
+   $str = preg_replace('{\[(link:|email:)([^|].*?)\|([^]].*?)]}ei',"$eval_links",$str);
    return $str;
 }
 
@@ -330,7 +323,7 @@ function post_url_link($str) {
 //////////////////////////////////////////////////////////
 function clean_link($type,$link,$name) {
 
-   $link = preg_replace('/(\[|\]|>|>|object|embed|applet|form|input|textarea|iframe|eval|javascript:)/i','',$link);
+   $link = preg_replace('/(\[|]|>|>|object|embed|applet|form|input|textarea|iframe|eval|javascript:)/i','',$link);
    if ($type == 'link:') {
       $link = 'http://' . $link;
    }
@@ -375,7 +368,7 @@ function url_link($text) {
 
    $eval_links = '$link = eval_links("$urls","$1")';
 
-   $text = preg_replace("{\b(($urls:[$any]+?)|(www\.[$domain]+\.[$tld]{2,6}(/[$any]+)*)|(ftp\.[$domain]+\.[$tld]{2,6}(/[$any]+)*)|([$email]+\@[$domain]+\.[$tld]{2,6}))(?=[$punc]*[^$any]|\&gt\;|\Z)}ei",
+   $text = preg_replace("{\b(($urls:[$any]+?)|(www\.[$domain]+\.[$tld]{2,6}(/[$any]+)*)|(ftp\.[$domain]+\.[$tld]{2,6}(/[$any]+)*)|([$email]+@[$domain]+\.[$tld]{2,6}))(?=[$punc]*[^$any]|&gt;|\Z)}ei",
            "$eval_links",$text);
 
    return $text;
@@ -391,7 +384,7 @@ function url_link($text) {
 function image_link($text) {
 
    $image_type = '(gif|jpg|png|jpeg)';
-   $text = preg_replace('{\s*"\s*http://\s*([^"\.].*?\.gif$)}i',"[img src=\"$1\"]",$text);
+   $text = preg_replace('{\s*"\s*http://\s*([^".].*?\.gif$)}i',"[img src=\"$1\"]",$text);
    return $text;
 
 }
@@ -451,7 +444,7 @@ function check_required_fields($in) {
 
    foreach ($required_fields as $required_field) {
       if ($in[$required_field] == '') {
-         array_push($error,$required_field);
+          $error[] = $required_field;
       }
    }
 
@@ -465,7 +458,7 @@ function check_required_fields($in) {
 //////////////////////////////////////////////////////
 function is_image_filename($string) {
 
-   if ($string and preg_match("/^(\w[^\.]*?)\.(gif|jpg|png)$/",$string)) {
+   if ($string and preg_match("/^(\w[^.]*?)\.(gif|jpg|png)$/",$string)) {
       return 1;
    }
    else {
@@ -481,7 +474,7 @@ function is_image_filename($string) {
 ////////////////////////////////////////////////////////
 function is_url($url) {
 
-   if (preg_match('{\bhttp://\s*([^\.].*?)}i',$url)) {
+   if (preg_match('{\bhttp://\s*([^.].*?)}i',$url)) {
      return 1;
    }
    else {
@@ -497,7 +490,7 @@ function is_url($url) {
 ////////////////////////////////////////////////////////
 function is_image_url($url) {
 
-   if (preg_match('{\bhttp://\s*([^\.].*?\.(gif|jpg|png)$)}i',$url)) {
+   if (preg_match('{\bhttp://\s*([^.].*?\.(gif|jpg|png)$)}i',$url)) {
      return 1;
    }
    else {

@@ -51,35 +51,35 @@ function setting() {
       $new_stting = array();
       $q = "SELECT var_key
               FROM " . DB_SETUP . "
-             WHERE var_type = '$in[saz]'";
+             WHERE var_type = '{$in['saz']}'";
       $result = db_query($q);
 
       while($record = db_fetch_array($result)) {
-            $this_key = $record['var_key'];
-            $this_value = $in[$this_key];
+            $__this_key = $record['var_key'];
+            $__this_value = $in[$__this_key];
 
             // if bad_word_list, filter and modify
-            if ($this_key == 'auth_bad_word_list') {
+            if ($__this_key == 'auth_bad_word_list') {
 	      $bad_word_array = array();
  	      // Remove control characters
-	       $this_value = preg_replace("/[\r\n]/","",$this_value);
-	       $this_value = explode(",",$this_value);
-               foreach ($this_value as $bad_word) {
+	       $__this_value = preg_replace("/[\r\n]/","",$__this_value);
+	       $__this_value = explode(",",$__this_value);
+               foreach ($__this_value as $bad_word) {
                   $bad_word = trim($bad_word);
                   if ($bad_word != "") {
-		    array_push($bad_word_array,$bad_word);
+                      $bad_word_array[] = $bad_word;
                   }
                }
-               $this_value = implode(",",$bad_word_array);
+               $__this_value = implode(",",$bad_word_array);
             }
 
-            $this_value = db_escape_string($this_value);
+            $__this_value = db_escape_string($__this_value);
             $sq = "UPDATE " . DB_SETUP . "
-                      SET var_value = '$this_value'
-                    WHERE var_key = '$this_key'";
+                      SET var_value = '$__this_value'
+                    WHERE var_key = '$__this_key'";
             db_query($sq);
-            $title = $setup_vars[$this_key]['title'];
-            $new_setting[$title] = htmlspecialchars($this_value);
+            $title = $setup_vars[$__this_key]['title'];
+            $new_setting[$title] = htmlspecialchars($__this_value);
 
       }
       db_free($result);
@@ -96,7 +96,7 @@ function setting() {
               <br />Changes have been made.  Following
               is the new settings:</td></tr>\n";
 
-      while(list($key,$val) = each($new_setting)) {
+     foreach($new_setting as $key => $val) {
             print "<tr class=\"dclite\"><th class=\"dcdark\" width=\"50%\">
               $key</td><td class=\"dclite\" width=\"50%\">$val
               </td></tr>\n";
@@ -110,7 +110,7 @@ function setting() {
 
       $q = "SELECT var_key, var_value
                  FROM " . DB_SETUP . "
-                WHERE var_type = '$in[saz]'";
+                WHERE var_type = '{$in['saz']}'";
       $result = db_query($q);
 
 
@@ -140,7 +140,7 @@ function setting() {
             $title = $setup_vars[$key]['title'];
             $desc = $setup_vars[$key]['desc'];
 
-            $fields = split('[\|]',$setup_vars[$key]['form']);
+            $fields = explode('|',$setup_vars[$key]['form']);
             $form_type = array_shift($fields);
             $required = array_pop($fields);
 
@@ -200,7 +200,7 @@ function setting() {
             }
 
             if ($required) {
-               array_push($required_fields,$record['var_key']);
+                $required_fields[] = $record['var_key'];
             }
  
             $temp = form_element($record['var_key'],$form_type,$fields,$record['var_value']);

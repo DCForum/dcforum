@@ -69,17 +69,17 @@ function upgrade_manager_update_from_1000_1001() {
       $th_next = '';
 
       $qq = "DESC $mesg_table ";
-      $this_result = db_query($qq);
+      $__this_result = db_query($qq);
 
-      while($this_row = db_fetch_array($this_result)) {
-         if ($this_row['Field'] == 'th_order')
+      while($__this_row = db_fetch_array($__this_result)) {
+         if ($__this_row['Field'] == 'th_order')
             $th_order = 1;
 
-         if ($this_row['Field'] == 'th_next')
+         if ($__this_row['Field'] == 'th_next')
             $th_next = 1;
 
       }
-      db_free($this_result);
+      db_free($__this_result);
 
       if ($th_order) {
          $qq = "ALTER TABLE $mesg_table

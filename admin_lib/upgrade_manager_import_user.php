@@ -111,7 +111,7 @@ function upgrade_manager_import_user() {
       if ($output) {
 
          // $fields = password, username, group, firstname, lastname, email, status
-         $fields = split('[\|]',$output);
+         $fields = explode('|',$output);
          $fields['1'] = trim($fields['1']);
 
          $name = "$fields[3] $fields[4]";
@@ -178,9 +178,9 @@ function upgrade_manager_import_user() {
 
                   if (isset($profile_array[$key])) {
                      $val = $profile_array[$key];
-                     array_push($key_arr,$key);
+                      $key_arr[] = $key;
 //                     $val = db_escape_string($val);
-                     array_push($val_arr,"'$val'");
+                      $val_arr[] = "'$val'";
                   }
                }
 
@@ -205,8 +205,8 @@ function upgrade_manager_import_user() {
                 $fields['6'] = db_escape_string($fields['6']);
 
               $sql .= ") 
-                      VALUES ('$fields[1]','$fields[0]',$group_id,
-                       '$fields[6]','$name','$fields[5]',
+                      VALUES ('{$fields['1']}','{$fields['0']}',$group_id,
+                       '{$fields['6']}','$name','{$fields['5']}',
                       '$member_since',
                        NOW(),
                       '$post_count' ";
@@ -230,8 +230,8 @@ function upgrade_manager_import_user() {
                    reg_date,
                    last_date,
                    num_posts )
-                   VALUES ('$fields[1]','$fields[0]',$group_id,
-                        '$fields[6]','$name','$fields[5]',
+                   VALUES ('{$fields['1']}','{$fields['0']}',$group_id,
+                        '{$fields['6']}','$name','{$fields['5']}',
                    '$member_since',
                    NOW(),
                    '$post_count' ) ";

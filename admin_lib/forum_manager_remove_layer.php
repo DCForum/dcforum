@@ -196,11 +196,11 @@ function show_folder($parent_id) {
    if ($num_result > 0) {
       $output .= "<ul class=\"dctoc\">\n";
       while($row = db_fetch_array($result)) {
-         $this_name = $row['name'];
-         $this_id = $row['id'];
+         $__this_name = $row['name'];
+         $__this_id = $row['id'];
          $output .= "<li class=\"dctoc\">
-             <a href=\"dcboard.php?az=show_topics&forum=$this_id\">$this_name</a></li>";
-         $output .= show_folder($this_id);
+             <a href=\"dcboard.php?az=show_topics&forum=$__this_id\">$__this_name</a></li>";
+         $output .= show_folder($__this_id);
       }
       $output .= "</ul>\n";
    }

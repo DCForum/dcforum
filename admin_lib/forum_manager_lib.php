@@ -118,7 +118,7 @@ function remove_forum_stuff($forum_id) {
 
    while($row = db_fetch_array($result)) {
       $qq = "DELETE FROM " . DB_POLL_VOTES . "
-                  WHERE poll_id = '$row[id]' ";
+                  WHERE poll_id = '{$row['id']}' ";
       db_query($qq);
    }
    db_free($result);
@@ -159,7 +159,7 @@ function remove_forum_stuff($forum_id) {
 // update forum information based on admin's input
 //
 /////////////////////////////////////////////////////////////////////
-function check_forum_tree_integrity($parent_id,$this_type) {
+function check_forum_tree_integrity($parent_id,$__this_type) {
 
    $forum_type = get_forum_types();
 
@@ -171,12 +171,12 @@ function check_forum_tree_integrity($parent_id,$this_type) {
    db_free($result);
 
    $parent_forum_type = strtolower( $forum_type[$row['type']] );
-   $this_forum_type = strtolower( $forum_type[$this_type] );
+   $__this_forum_type = strtolower( $forum_type[$__this_type] );
 
    if ($row['type'] < 99) {
-      if ($row['type'] > 20  and $row['type'] > $this_type) {
+      if ($row['type'] > 20  and $row['type'] > $__this_type) {
 
-         $error = "You are trying to put a $this_forum_type forum
+         $error = "You are trying to put a $__this_forum_type forum
                 below a  $parent_forum_type forum. <br />";
 
          if ($row['type'] == 30) {
@@ -225,11 +225,11 @@ function update_forum ($in) {
                 name = '$forum_name',
                 description = '$forum_desc',
                 last_date = last_date,
-                mode = '$in[mode]',
+                mode = '{$in['mode']}',
                 status = '$status',
                 top_template = '$top_template',
                 bottom_template = '$bottom_template'
-          WHERE id = '$in[id]' ";
+          WHERE id = '{$in['id']}' ";
    db_query($q);
 
    // if not conferencem, then update moderator list
@@ -319,7 +319,7 @@ function update_subscription_list($id,$forum_type) {
                     WHERE g_id > 1 ";
          $q_result = db_query($q_sub);
          while($row=db_fetch_array($q_result)) {
-            array_push($members,"'$row[id]'");
+             $members[] = "'{$row['id']}'";
          }
          db_free($q_result);
          $members = implode(',',$members);
@@ -380,7 +380,7 @@ function add_moderators($moderators,$forum_id) {
    if ($moderators) {
       foreach ($moderators as $moderator) {
          $q = "INSERT INTO " . DB_MODERATOR . "
-                 VALUES('','$moderator','$forum_id') ";
+                 VALUES(null,'$moderator','$forum_id') ";
          db_query($q);
       }
    }

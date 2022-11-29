@@ -84,11 +84,11 @@ function printer_friendly() {
       print "<tr class=\"dcdark\"><td nowrap=\"nowrap\">" . $in['lang']['topic_subject'] . "</td><td 
          width=\"100%\">$subject</td></tr>";
 
-      $this_url = ROOT_URL . "/" . DCF . 
+      $__this_url = ROOT_URL . "/" . DCF . 
          "?az=show_topic&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$in[mesg_id]";
 
       print "<tr class=\"dcdark\"><td nowrap=\"nowrap\">" .
-         $in['lang']['topic_url'] . "</td><td width=\"100%\">$this_url</td></tr>";
+         $in['lang']['topic_url'] . "</td><td width=\"100%\">$__this_url</td></tr>";
 
       if ($row['type'] != 1) {
          print_message($row);
@@ -109,11 +109,11 @@ function printer_friendly() {
       print "<tr class=\"dcdark\"><td nowrap=\"nowrap\">" . $in['lang']['topic_subject'] . "</td><td 
          width=\"100%\">$subject</td></tr>";
 
-      $this_url = ROOT_URL . "/" . DCF . 
+      $__this_url = ROOT_URL . "/" . DCF . 
          "?az=show_topic&forum=$in[forum]&topic_id=$in[topic_id]";
 
       print "<tr class=\"dcdark\"><td nowrap=\"nowrap\">" . 
-             $in['lang']['topic_url'] . "</td><td width=\"100%\">$this_url</td></tr>";
+             $in['lang']['topic_url'] . "</td><td width=\"100%\">$__this_url</td></tr>";
 
       // Is it poll or normal message?
       if ($row['type'] != 1) {

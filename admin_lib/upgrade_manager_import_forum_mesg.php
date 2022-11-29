@@ -59,7 +59,7 @@ function upgrade_manager_import_forum_mesg() {
    while(!feof($fh)) {
          $output = fgets($fh,256);
          chop($output);
-         $fields = split('[\|]',$output);
+         $fields = explode('|',$output);
          if ($fields['0'] == "time_offset")
             $time_offset = $fields['1'];
    }
@@ -70,9 +70,9 @@ function upgrade_manager_import_forum_mesg() {
    include (INCLUDE_DIR . "/form_info.php");
 
    $current_forum = isset($in['current_forum']) ? $in['current_forum'] : 0;
-   $this = get_next_forum($current_forum);
+   $__this = get_next_forum($current_forum);
 
-   if ($this == '999999') {   // Ok, we are done processing
+   if ($__this == '999999') {   // Ok, we are done processing
        print_head('Administration Utility - upgrade manager');
        include_top();
        include("menu.php");
@@ -82,9 +82,9 @@ function upgrade_manager_import_forum_mesg() {
        exit;
    }
 
-   $forum_id = $this['id'];
-   $forum_name = $this['name'];
-   $forum_type = $this['type'];
+   $forum_id = $__this['id'];
+   $forum_name = $__this['name'];
+   $forum_type = $__this['type'];
 
    // private and restricted forums
    if ($forum_type == 30 or $forum_type == 40) {
@@ -136,7 +136,7 @@ function upgrade_manager_import_forum_mesg() {
    while(!feof($fh)) {
          $output = fgets($fh,2048);
          chop($output);
-         $fields = split('[\|]',$output);
+         $fields = explode('|',$output);
          // 0 = forum ID
          // 1 = topic_id
          // 2 = mesg_id
@@ -207,7 +207,7 @@ function get_file_list() {
       $name = substr($file,0,strrpos($file, '.'));
       if ($ext == '.txt') {
 
-            array_push($file_list,$name);
+          $file_list[] = $name;
       }
    }
 
@@ -247,17 +247,17 @@ function import_topic($user_id,$ip_list,$topic_id) {
       'Nov' => '11',
       'Dec' => '12' );
 
-   $this_file = $setup['maindir'] . "/" . $setup['forum'] . "/Data/$topic_id.txt";
+   $__this_file = $setup['maindir'] . "/" . $setup['forum'] . "/Data/$topic_id.txt";
 
-   // $this_file does exists but doesn't hurt to recheck
-   if (file_exists($this_file) ) {
+   // $__this_file does exists but doesn't hurt to recheck
+   if (file_exists($__this_file) ) {
 
       // to be determined later...
       $last_timestamp = 0;
       $last_author = '';
 
       $rating = 0;
-      $datafh = fopen("$this_file","r");
+      $datafh = fopen("$__this_file","r");
 
       // Process the first line - contains various topic information
       $firstline = fgets($datafh,1024);
@@ -272,7 +272,7 @@ function import_topic($user_id,$ip_list,$topic_id) {
                $score = floor(($score + 1)/2);
                $rating += $score;
                $q = "INSERT INTO " . DB_TOPIC_RATING . "
-                     VALUES('','100000','$setup[forum_id]','$topic_id','$score','000.000.000.000') ";
+                     VALUES(null,'100000','{$setup['forum_id']}','$topic_id','$score','000.000.000.000') ";
                db_query($q);
          }
             $rating = $rating / $num_ratings;
@@ -343,17 +343,17 @@ function import_topic($user_id,$ip_list,$topic_id) {
             $last_edit_timestamp = '';
 
             // First pull off updated_body
-            preg_match('/^(\[updated:([^\]]|\n).*?\])/',$body,$updated_body);
+            preg_match('/^(\[updated:([^]]|\n).*?])/',$body,$updated_body);
 
             // print "$updated_body[0]<br />";
 
             // Pull off UPDATE text and save it to $last_edit
-            preg_match('/\[updated:LAST EDITED ON (([^\]\|]|\n).*)\]/',$updated_body['0'],$last_edit);
+            preg_match('/\[updated:LAST EDITED ON (([^]|]|\n).*)]/',$updated_body['0'],$last_edit);
 
             // print "$last_edit[1]<br />";
               
             // Ok, match dates and stuff
-            preg_match('/([^-].*)-([^-].*)-([^-].*)\sAT\s([^:].*):([^\&].*)&nbsp;([^\s\(].*)\s([^\s].*)/',$last_edit['1'],$dates);
+            preg_match('/([^-].*)-([^-].*)-([^-].*)\sAT\s([^:].*):([^&].*)&nbsp;([^\s(].*)\s(\S.*)/',$last_edit['1'],$dates);
 
             $month = $month_array[$dates['1']];
             $day = $dates['2'];
@@ -369,11 +369,11 @@ function import_topic($user_id,$ip_list,$topic_id) {
 
 
             // Now pull off author
-            preg_match('/([^-].*)-([^-].*)-([^-].*)\sAT\s([^:].*):([^\&].*)&nbsp;([^\s\(].*)\s([^\s].*)\sby\s([^\(].*)\s(.*)/',$last_edit['1'],$dates);
+            preg_match('/([^-].*)-([^-].*)-([^-].*)\sAT\s([^:].*):([^&].*)&nbsp;([^\s(].*)\s(\S.*)\sby\s([^(].*)\s(.*)/',$last_edit['1'],$dates);
             $edit_author = db_escape_string($dates['8']);
 
             // Delete [updated]
-            $body = preg_replace('/(\[updated:([^\]\|]|\n).*\])/','',$body);
+            $body = preg_replace('/(\[updated:([^]|]|\n).*])/','',$body);
             $body = preg_replace("/\r/","",$body);
 
             $body = db_escape_string($body);
@@ -417,7 +417,7 @@ function import_topic($user_id,$ip_list,$topic_id) {
 //                                   '0',
 //                                   '1',
                $sql = "INSERT INTO $setup[forum_table]
-                            VALUES('',
+                            VALUES(null,
                                    '',
                                    '',
                                    '$topic_type',
@@ -508,7 +508,7 @@ function import_topic($user_id,$ip_list,$topic_id) {
 //                                   '1',
 
                   $sql = "INSERT INTO $setup[forum_table]
-                            VALUES('',
+                            VALUES(null,
                                    '$top_id',
                                    '$parent',
                                    '$mesg_type',
@@ -582,7 +582,7 @@ function get_old_forum_id($forum_name) {
       $output = fgets($fh,1024);
       chop($output);
       if ($output) {
-         $fields = split('[\|]',$output);
+         $fields = explode('|',$output);
          if ($forum_name == $fields['2'])
             $forum_id = $fields['0'];
      }
@@ -617,7 +617,7 @@ function get_next_forum($current_forum) {
       }
 
       while($row = db_fetch_array($result)) {
-         array_push($list,array('id'=>$row['id'],'name'=>$row['name'],'type'=>$row['type']));
+          $list[] = ['id' => $row['id'], 'name' => $row['name'], 'type' => $row['type']];
       }
 
       db_free($result);
@@ -637,7 +637,7 @@ function import_ip($u_id,$f_id,$m_id,$ip,$date) {
    $u_id = $u_id > 0 ? $u_id : 100000;
 
    $q = "INSERT INTO " . DB_IP . "
-            VALUES('','$u_id','$f_id','$m_id','$ip','$date') ";
+            VALUES(null,'$u_id','$f_id','$m_id','$ip','$date') ";
 
    db_query($q);
 
@@ -668,14 +668,14 @@ function import_attachment($author_id,$forum_id,$topic_id,$mesg_id,$timestamp,$a
           $file_type = $file_array['1'];
 
           $q = "INSERT INTO " . DB_UPLOAD . "
-                  VALUES('','$author_id','$forum_id','$mesg_id','000.000.000.000',
+                  VALUES(null,'$author_id','$forum_id','$mesg_id','000.000.000.000',
                   '$file_type','','$timestamp') ";
 
           db_query($q);
 
           $attachment_id = db_insert_id();
           $new_file_name = $attachment_id . '.' . $file_type;
-          array_push($new_array,$new_file_name);
+          $new_array[] = $new_file_name;
 
           copy(OLD_MAIN_DIR . "/User_files/$a_file", USER_DIR . "/$new_file_name");
 

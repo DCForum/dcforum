@@ -72,7 +72,7 @@ $in['lang']['pf_title'] = 'Bundesland';
 $in['lang']['pf_desc'] = '';
 
 $in['lang']['pg_title'] = 'Staat';
-$in['lang']['pg_desc'] =  '';
+$in['lang']['pg_desc'] = '';
 
 $in['lang']['ph_title'] = 'Homepage';
 $in['lang']['ph_desc'] = 'Falls du eine Homepage hast, die vollständige URL';
@@ -90,7 +90,6 @@ $in['lang']['pk_desc'] = 'Signatur die du in deinen Beiträgen benutzen möchtes
                  Maximal 255 Zeichen erlaubt.';
 
 
-
 // preference parameters
 
 $in['lang']['ut_title'] = 'Deine Zeitzone';
@@ -98,7 +97,7 @@ $in['lang']['ut_desc'] = 'Wähle eine andere Zeitzone aus, um alle Zeit- und Dat
 						auf deine Zeitzone bezogen anzuzeigen. Standard ist GMT.';
 
 $in['lang']['uu_title'] = 'Datumsbegrenzung';
-$in['lang']['uu_desc'] = 'Nur Beiträge anzeigen, deren letztes Änderungsdatum innerhalb des gewählten Zeitraumes liegt.'; 
+$in['lang']['uu_desc'] = 'Nur Beiträge anzeigen, deren letztes Änderungsdatum innerhalb des gewählten Zeitraumes liegt.';
 
 $in['lang']['uv_title'] = 'Anzeigestil von Beiträgen';
 $in['lang']['uv_desc'] = 'Wähle einen Anzeigestil für die Beiträge';
@@ -141,7 +140,7 @@ $in['lang']['uj_title'] = 'Möchtest du deine Signatur für jeden Beitrag bearbe
 $in['lang']['uj_desc'] = 'Bei "yes" wird deine Signatur mit in das Texteingabefeld eingefügt 
 						und du kannst sie ändern oder löschen. Ansonsten wird deine Signatur 
 						immer automatisch angehängt. <br />
-						Hinweis: Du musst dafür vorher eine Signatur in deinem Profil angelegt haben.'; 
+						Hinweis: Du musst dafür vorher eine Signatur in deinem Profil angelegt haben.';
 
 // forum parameters
 // do need to modify this section...only affects admin program
@@ -212,5 +211,3 @@ $in['lang']['allowed_files_jpg'] = 'JPEG-Grafik';
 $in['lang']['allowed_files_gif'] = 'GIF-Grafik';
 $in['lang']['allowed_files_zip'] = 'ZIP-gepackte Datei';
 $in['lang']['allowed_files_tar'] = 'TAR-gepackte Datei';
-
-?>

@@ -55,7 +55,7 @@ function rate_user() {
    $q = "SELECT id
            FROM " . DB_USER_RATING . "
           WHERE r_id = '$r_id'
-            AND u_id = '$in[u_id]' ";
+            AND u_id = '{$in['u_id']}' ";
    $result = db_query($q);
    $num_rows = db_num_rows($result);
    db_free($result);
@@ -73,15 +73,15 @@ function rate_user() {
       $error = array();
 
       if (! is_numeric($in['rating'])) {
-	 array_push($error,$in['lang']['e_invalid_score']);
+          $error[] = $in['lang']['e_invalid_score'];
       }
 
       if (! ($in['rating'] == 0 or $in['rating'] == 1 or $in['rating'] == -1)) {
-	 array_push($error,$in['lang']['e_invalid_score_1']);
+          $error[] = $in['lang']['e_invalid_score_1'];
       }
 
       if (! is_numeric($in['u_id'])) {
-         array_push($error,$in['lang']['e_invalid_user_id']);
+          $error[] = $in['lang']['e_invalid_user_id'];
       }
 
       if ($error) {
@@ -97,11 +97,11 @@ function rate_user() {
 
          // Record this new rating
          $q = "INSERT INTO " . DB_USER_RATING . "
-                VALUES ('',
-                        '$in[u_id]',
+                VALUES(null,
+                        '{$in['u_id']}',
                         '$r_id',
-                        '$in[rating]',
-                        '$in[comment]',
+                        '{$in['rating']}',
+                        '{$in['comment']}',
                          NOW() ) ";
          db_query($q);
 
@@ -110,7 +110,7 @@ function rate_user() {
          $q = "SELECT SUM(score) as points, 
                       COUNT(id) as num_votes
                  FROM " . DB_USER_RATING . "
-                WHERE u_id = '$in[u_id]'
+                WHERE u_id = '{$in['u_id']}'
              GROUP BY u_id ";
 
          $result = db_query($q);
@@ -119,11 +119,11 @@ function rate_user() {
 
          // Update user database
          $q = "UPDATE " . DB_USER . "
-                  SET points = '$row[points]',
-                      num_votes = '$row[num_votes]',
+                  SET points = '{$row['points']}',
+                      num_votes = '{$row['num_votes']}',
                       last_date = last_date,
                       reg_date = reg_date
-                WHERE id = '$in[u_id]' ";
+                WHERE id = '{$in['u_id']}' ";
          db_query($q);
 
          print_ok_mesg($in['lang']['ok_mesg']);

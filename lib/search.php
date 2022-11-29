@@ -192,8 +192,8 @@ function get_search_query($forum) {
          $query_array_2 = array();
          foreach ($keywords as $keyword) {
             $keyword = db_escape_string($keyword);
-            array_push($query_array, " subject LIKE '%$keyword%' ");
-            array_push($query_array_2, " message LIKE '%$keyword%' ");
+             $query_array[] = " subject LIKE '%$keyword%' ";
+             $query_array_2[] = " message LIKE '%$keyword%' ";
          }
          $search_field_query = implode("$in[search_logic]", $query_array);
          $search_field_query_2 = implode("$in[search_logic]", $query_array_2);
@@ -204,7 +204,7 @@ function get_search_query($forum) {
       case 'subject': 
          foreach ($keywords as $keyword) {
             $keyword = db_escape_string($keyword);
-            array_push($query_array, " subject LIKE '%$keyword%' ");
+             $query_array[] = " subject LIKE '%$keyword%' ";
          }
          $search_field_query = implode("$in[search_logic]", $query_array);
          break;
@@ -212,13 +212,13 @@ function get_search_query($forum) {
       case 'message':
          foreach ($keywords as $keyword) {
             $keyword = db_escape_string($keyword);
-            array_push($query_array, " message LIKE '%$keyword%' ");
+             $query_array[] = " message LIKE '%$keyword%' ";
          }
          $search_field_query = implode("$in[search_logic]", $query_array);
          break;
 
       case 'author_name':
-         $search_field_query = "author_name = '$in[keyword]' ";
+         $search_field_query = "author_name = '{$in['keyword']}' ";
          break;
 
    }
@@ -309,19 +309,19 @@ function search_forum($forum) {
          $t_row['author_name'] = db_escape_string($t_row['author_name']);
          
          $qq = "INSERT INTO " . DB_SEARCH_CACHE . "
-                     VALUES('',
+                     VALUES(null,
                              '$session_id',
                              NOW(),
                              '$forum',
                              '$topic_id',
-                             '$t_row[type]',
-                             '$t_row[topic_lock]',
-                             '$t_row[mesg_date]',
-                             '$t_row[last_date]',
+                             '{$t_row['type']}',
+                             '{$t_row['topic_lock']}',
+                             '{$t_row['mesg_date']}',
+                             '{$t_row['last_date']}',
                              '$subject',
-                             '$t_row[author_name]',
-                             '$t_row[last_author]',
-                             '$t_row[replies]') ";
+                             '{$t_row['author_name']}',
+                             '{$t_row['last_author']}',
+                             '{$t_row['replies']}') ";
 
          db_query($qq);
 

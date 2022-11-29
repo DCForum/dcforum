@@ -138,7 +138,7 @@ function view_rating($u_id) {
 
    $result = db_query($q);
    $row = db_fetch_array($result);
-   $this_user = $row['username'];
+   $__this_user = $row['username'];
    db_free($result);
 
    if (SETUP_ALLOW_DISABLE_USER_RATING == 'yes' 
@@ -206,7 +206,7 @@ function view_rating($u_id) {
 
 
    print "<tr class=\"dclite\">
-             <td colspan=\"4\">" . $in['lang']['rating_for'] . " $this_user <br />"
+             <td colspan=\"4\">" . $in['lang']['rating_for'] . " $__this_user <br />"
              . $in['lang']['total_score'] . ":  $total_score " . $in['lang']['points'] . "<br />"
              . $in['lang']['feedbacks'] . ": $votes )
              $positives " . $in['lang']['positive'] . " <img src=\"" . $score_icon['2'] . "\" alt=\"\" />,  
@@ -304,7 +304,7 @@ function list_ratings() {
 
          $qq = "SELECT SUM(score) as score, count(u_id) as votes
                   FROM " . DB_USER_RATING . "
-                 WHERE u_id = '$row[id]'
+                 WHERE u_id = '{$row['id']}'
                 GROUP BY u_id ";
         
          $qq_result = db_query($qq);
@@ -359,7 +359,7 @@ function index_menu() {
            FROM " . DB_USER_RATING ;
    $result = db_query($q);
    while($row = db_fetch_array($result)) {
-      array_push($in_list,"'$row[u_id]'");
+       $in_list[] = "'{$row['u_id']}'";
    }
    db_free($result);
 
@@ -411,7 +411,7 @@ function index_menu() {
             'class'=>'') 
    );
 
-   while(list($key,$val) = each($index_map)) {
+  foreach($index_map as $key => $val) {
 
       print "<tr class=\"dcdark\">";
 

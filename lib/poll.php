@@ -106,23 +106,23 @@ function poll() {
    if ($in['poll']) {
 
       if (trim($in['subject']) == '')
-	array_push($post_error,$in['lang']['e_subject_blank']);
+          $post_error[] = $in['lang']['e_subject_blank'];
 
       if (! $in['user_info']['id']) {
          $in['name'] = trim($in['name']);
          if ($in['name'] == '') {
-	   array_push($post_error,$in['lang']['e_name_blank']);
+             $post_error[] = $in['lang']['e_name_blank'];
          }
          if (! is_username($in['name'])) {
-	   array_push($post_error,$in['lang']['e_name_invalid']);
+             $post_error[] = $in['lang']['e_name_invalid'];
          }
 
          if (strlen($in['name']) > SETUP_NAME_LENGTH_MAX) {
-            array_push($post_error,$in['lang']['e_name_long'] . " " . SETUP_NAME_LENGTH_MAX);
+             $post_error[] = $in['lang']['e_name_long'] . " " . SETUP_NAME_LENGTH_MAX;
          }
 
-         if (registered_username($in['name'])) { 
-            array_push($post_error,$in['lang']['e_name_dup']);
+         if (registered_username($in['name'])) {
+             $post_error[] = $in['lang']['e_name_dup'];
          }
       }
 

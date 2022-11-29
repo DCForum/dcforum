@@ -158,7 +158,7 @@ function gm_time($server_time = 0) {
 //////////////////////////////////////////////////////
 //
 // function sql_timestamp
-// converts unix timestamp to TIMESTAMP(14) format
+// converts unix timestamp to TIMESTAMP format
 //
 //////////////////////////////////////////////////////
 function sql_timestamp($date) {
@@ -179,9 +179,9 @@ function current_date() {
       $current_location = "GMT" ;
    }
    else {
-      $this_temp = SETUP_USER_TIME_OFFSET/3600;
+      $__this_temp = SETUP_USER_TIME_OFFSET/3600;
       $current_location = 
-          $this_temp . " GMT";
+          $__this_temp . " GMT";
    }
 
    return "$current_date ($current_location)";

@@ -112,7 +112,7 @@ if ($in['az'] == 'main' and $in['saz']) {
               <br />$desc</td></tr>\n";
 
       print "<tr class=\"dclite\"><td class=\"dclite\"><ul>\n";
-      while(list($skey,$sval) = each($sub_cat) ) {
+     foreach($sub_cat as $skey => $sval) {
             print "<li> <a href=\"" . DCA . "?az=$in[saz]&saz=$skey\">$sval[title]</a> </li>";
       }
       print "</ul></td></tr>";

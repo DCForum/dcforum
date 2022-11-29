@@ -82,7 +82,7 @@ function private_forum_manager_view() {
          foreach ($in['select'] as $forum_user_id) {
             $forum_user_array = explode(',',$forum_user_id);
             $q = "INSERT INTO " . DB_PRIVATE_FORUM_LIST . "
-                VALUES('','$forum_user_array[1]','$forum_user_array[0]') ";
+                VALUES(null,'{$forum_user_array['1']}','{$forum_user_array['0']}') ";
             db_query($q);
          }
       }
@@ -141,7 +141,7 @@ function display_access_map() {
    print "<tr class=\"dcheading\">
             <td class=\"dcheading\">Users \ Private Forums</td>";
 
-   while(list($key,$val) = each($private_forums)) {
+  foreach($private_forums as $key => $val) {
       if ($in['access_list'][$key])
          print "<td class=\"dcheading\">$val</td>";
    }
@@ -170,7 +170,7 @@ function display_access_map() {
       print "<tr class=\"dcdark\">
                <td class=\"dcdark\">$row[username]</td>";
 
-      while(list($key,$val) = each($private_forums)) {
+     foreach($private_forums as $key => $val) {
          if ($in['access_list'][$key]) {
             print "<td class=\"dclite\"><input type=\"checkbox\"
                name=\"select[]\" value=\"$key,$row[id]\"";

@@ -285,7 +285,7 @@ function create_ip_table()
           forum_id  INT UNSIGNED NOT NULL,
            mesg_id  INT UNSIGNED NOT NULL,
                 ip  CHAR(16) NOT NULL,
-              date  TIMESTAMP NOT NULL,
+              date  TIMESTAMP NULL,
             PRIMARY KEY (id) )";
     db_query($q);
 
@@ -328,7 +328,7 @@ function create_security_table()
              event  CHAR(50),
         event_info  CHAR(200),
                 ip  CHAR(16) NOT NULL,
-              date  TIMESTAMP NOT NULL,
+              date  TIMESTAMP NULL,
             PRIMARY KEY (id) )";
     db_query($q);
 
@@ -351,7 +351,7 @@ function create_forum_log_table()
              event  CHAR(50),
         event_info  CHAR(50),
                 ip  CHAR(16) NOT NULL,
-              date  TIMESTAMP NOT NULL,
+              date  TIMESTAMP NULL,
             PRIMARY KEY (id) )";
     db_query($q);
 
@@ -375,7 +375,7 @@ function create_upload_log_table()
            post_id  CHAR(200) NOT NULL,
          file_type  CHAR(5) NOT NULL,
                 ip  CHAR(16) NOT NULL,
-              date  TIMESTAMP NOT NULL,
+              date  TIMESTAMP NULL,
             PRIMARY KEY (id) )";
     db_query($q);
 
@@ -398,7 +398,7 @@ function create_user_rating_table()
               r_id  INT UNSIGNED NOT NULL,
              score  TINYINT NOT NULL,
            comment  CHAR(200) NULL,
-              date  TIMESTAMP NOT NULL,
+              date  TIMESTAMP NULL,
             PRIMARY KEY (id) )";
     db_query($q);
 
@@ -418,7 +418,7 @@ function create_user_time_mark_table()
                 id  INT UNSIGNED AUTO_INCREMENT NOT NULL,
               u_id  INT UNSIGNED NOT NULL,
           forum_id  INT UNSIGNED NOT NULL,
-              date  TIMESTAMP NOT NULL,
+              date  TIMESTAMP NULL,
             PRIMARY KEY (id) )";
     db_query($q);
 
@@ -553,13 +553,13 @@ function create_search_cache_table()
     $q = "CREATE TABLE IF NOT EXISTS " . DB_SEARCH_CACHE . " (
                 id  INT UNSIGNED NOT NULL AUTO_INCREMENT,
         session_id  CHAR(20) NOT NULL,
-       search_date  TIMESTAMP NOT NULL,
+       search_date  TIMESTAMP NULL,
           forum_id  INT UNSIGNED NOT NULL,
           topic_id  INT UNSIGNED NOT NULL,
         topic_type  tinyint UNSIGNED NOT NULL,
         topic_lock  ENUM('on','off') NULL DEFAULT 'off',
-         mesg_date  TIMESTAMP NOT NULL,
-         last_date  TIMESTAMP NOT NULL,
+         mesg_date  TIMESTAMP NULL,
+         last_date  TIMESTAMP NULL,
            subject  CHAR(200) NOT NULL,
        author_name  CHAR(50) NOT NULL,
        last_author  CHAR(50) NOT NULL,
@@ -582,7 +582,7 @@ function create_search_param_table()
     $q = "CREATE TABLE IF NOT EXISTS " . DB_SEARCH_PARAM . " (
                     id  INT UNSIGNED NOT NULL AUTO_INCREMENT,
             session_id  CHAR(20) NOT NULL,
-           search_date  TIMESTAMP NOT NULL,
+           search_date  TIMESTAMP NULL,
                keyword  CHAR(100) NOT NULL,
            search_mode  ENUM('Word','Pattern') NULL DEFAULT 'Word',
           search_logic  ENUM('Or','And') NULL DEFAULT 'Or',
@@ -650,7 +650,7 @@ function create_inbox_table()
            from_id INT UNSIGNED NOT NULL,
            subject CHAR(200) NOT NULL,
            message TEXT NOT NULL,
-              date TIMESTAMP NOT NULL,
+              date TIMESTAMP NULL,
             PRIMARY KEY (id),
             INDEX index_1 (to_id) )";
 
@@ -671,8 +671,8 @@ function create_announcement_table()
 
     $q = "CREATE TABLE IF NOT EXISTS " . DB_ANNOUNCEMENT . " (
                 id INT UNSIGNED AUTO_INCREMENT NOT NULL,
-            a_date TIMESTAMP NOT NULL,
-            e_date TIMESTAMP NOT NULL,
+            a_date TIMESTAMP NULL,
+            e_date TIMESTAMP NULL,
            subject CHAR(200) NOT NULL,
            message TEXT NOT NULL,
            PRIMARY KEY (id) )";
@@ -1118,7 +1118,7 @@ function create_task_table()
     $q = "CREATE TABLE IF NOT EXISTS " . DB_TASK . " (
                 id  INT UNSIGNED AUTO_INCREMENT NOT NULL,
               task  CHAR(20),
-              date  TIMESTAMP NOT NULL,
+              date  TIMESTAMP NULL,
             PRIMARY KEY (id) )";
     db_query($q);
 
@@ -1189,8 +1189,8 @@ function create_event_table()
 
     $q = "CREATE TABLE IF NOT EXISTS " . DB_EVENT . " (
                 id  INT UNSIGNED AUTO_INCREMENT NOT NULL,
-         post_date  TIMESTAMP NOT NULL,
-         last_date  TIMESTAMP NOT NULL,
+         post_date  TIMESTAMP NULL,
+         last_date  TIMESTAMP NULL,
               type  TINYINT UNSIGNED NOT NULL,
          repeat_id  INT UNSIGNED NOT NULL,
          author_id  INT UNSIGNED NOT NULL,
@@ -1199,9 +1199,9 @@ function create_event_table()
              title  CHAR(100) NOT NULL,
               note  TEXT NOT NULL,
            all_day  ENUM('yes','no') NULL DEFAULT 'no',
-        start_date  TIMESTAMP NOT NULL,
+        start_date  TIMESTAMP NULL,
           duration  INT UNSIGNED NOT NULL,
-          end_date  TIMESTAMP NOT NULL,
+          end_date  TIMESTAMP NULL,
             PRIMARY KEY (id) )";
     db_query($q);
 
@@ -1252,7 +1252,7 @@ function create_inbox_log_table()
     $q = "CREATE TABLE IF NOT EXISTS " . DB_INBOX_LOG . " (
                 id  INT UNSIGNED AUTO_INCREMENT NOT NULL,
               u_id  INT UNSIGNED NOT NULL,
-              date  TIMESTAMP NOT NULL,
+              date  TIMESTAMP NULL,
             PRIMARY KEY (id) )";
     db_query($q);
 

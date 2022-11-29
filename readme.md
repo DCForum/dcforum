@@ -39,6 +39,7 @@ ASAP.
 * Replaced `each` with `legacy_each`.
 * Migrated `split('[\|]',` to `explode('|',`.
 * Modified `check_email` to use `filter_var`.
+* Changed all `timestamp not null` to `timestamp null`, to avoid `ON UPDATE CURRENT_TIMESTAMP()` (assuming it is provided when ever needed).
 
 #### 1.27.1
 

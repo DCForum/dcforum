@@ -23,7 +23,7 @@ ASAP.
 
 ### Changelog
 
-#### Dev
+#### 1.27.1-php8.1
 
 * Converted "while each" loops to `foreach`.
 * Migrated `mysql` functions to `mysqli`.

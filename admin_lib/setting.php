@@ -55,31 +55,31 @@ function setting() {
       $result = db_query($q);
 
       while($record = db_fetch_array($result)) {
-            $this_key = $record['var_key'];
-            $this_value = $in[$this_key];
+            $__this_key = $record['var_key'];
+            $__this_value = $in[$__this_key];
 
             // if bad_word_list, filter and modify
-            if ($this_key == 'auth_bad_word_list') {
+            if ($__this_key == 'auth_bad_word_list') {
 	      $bad_word_array = array();
  	      // Remove control characters
-	       $this_value = preg_replace("/[\r\n]/","",$this_value);
-	       $this_value = explode(",",$this_value);
-               foreach ($this_value as $bad_word) {
+	       $__this_value = preg_replace("/[\r\n]/","",$__this_value);
+	       $__this_value = explode(",",$__this_value);
+               foreach ($__this_value as $bad_word) {
                   $bad_word = trim($bad_word);
                   if ($bad_word != "") {
                       $bad_word_array[] = $bad_word;
                   }
                }
-               $this_value = implode(",",$bad_word_array);
+               $__this_value = implode(",",$bad_word_array);
             }
 
-            $this_value = db_escape_string($this_value);
+            $__this_value = db_escape_string($__this_value);
             $sq = "UPDATE " . DB_SETUP . "
-                      SET var_value = '$this_value'
-                    WHERE var_key = '$this_key'";
+                      SET var_value = '$__this_value'
+                    WHERE var_key = '$__this_key'";
             db_query($sq);
-            $title = $setup_vars[$this_key]['title'];
-            $new_setting[$title] = htmlspecialchars($this_value);
+            $title = $setup_vars[$__this_key]['title'];
+            $new_setting[$title] = htmlspecialchars($__this_value);
 
       }
       db_free($result);

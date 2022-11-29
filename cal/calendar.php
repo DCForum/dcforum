@@ -516,15 +516,15 @@ function get_events_month(&$events_list) {
 	          // Go thru each day of the month
                   for ($k=1;$k<$s_last_day + 1;$k++) {
 
-                     $this_date_time= $start_date_time + ($k-1)*$sec_in_day;
-                     $this_day = date("d",$this_date_time);
-                     $this_month = date("m",$this_date_time);
+                     $__this_date_time= $start_date_time + ($k-1)*$sec_in_day;
+                     $__this_day = date("d",$__this_date_time);
+                     $__this_month = date("m",$__this_date_time);
 
-                     if ($this_date_time >= $event_start_date_time
-                            and $this_date_time < $event_stop_date_time) {
+                     if ($__this_date_time >= $event_start_date_time
+                            and $__this_date_time < $event_stop_date_time) {
 
-			$days_diff = floor(($this_date_time - $event_start_date_time)/$sec_in_day);
-                        $w_day = date('w',$this_date_time);
+			$days_diff = floor(($__this_date_time - $event_start_date_time)/$sec_in_day);
+                        $w_day = date('w',$__this_date_time);
                 
                         if ($row['opt1_2'] == '1') {  // day
 
@@ -551,7 +551,7 @@ function get_events_month(&$events_list) {
                            if ($w_day == $first_week_day 
                                  or $w_day == $first_week_day + 2 
                                  or $w_day == $first_week_day + 4) {
-                              $days_diff = floor(($this_date_time - $event_start_date_time)/$sec_in_day) ;
+                              $days_diff = floor(($__this_date_time - $event_start_date_time)/$sec_in_day) ;
                               $weeks_diff = floor($days_diff/7);
                               if ($weeks_diff%$opt1_1 == 0) {
                                   if (! isset($events_list[$k]) ) $events_list[$k] = array();
@@ -562,7 +562,7 @@ function get_events_month(&$events_list) {
                         elseif ($row['opt1_2'] == '6') {  // Tu and Thur
                            if ($w_day == $first_week_day 
                                  or $w_day == $first_week_day + 2) {
-                              $days_diff = floor(($this_date_time - $event_start_date_time)/$sec_in_day) ;
+                              $days_diff = floor(($__this_date_time - $event_start_date_time)/$sec_in_day) ;
                               $weeks_diff = floor($days_diff/7);
                               if ($weeks_diff%$opt1_1 == 0) {
                                   if (! isset($events_list[$k]) ) $events_list[$k] = array();
@@ -574,7 +574,7 @@ function get_events_month(&$events_list) {
                         elseif ($row['opt1_2'] == '7') {  // M-F
 
                            if ($w_day > $first_week_day - 1 and $w_day < $first_week_day + 5) {
-                              $days_diff = floor(($this_date_time - $event_start_date_time)/$sec_in_day);
+                              $days_diff = floor(($__this_date_time - $event_start_date_time)/$sec_in_day);
                               $weeks_diff = floor($days_diff/7);
                               if ($weeks_diff%$opt1_1 == 0) {
                                   if (! isset($events_list[$k]) ) $events_list[$k] = array();
@@ -585,7 +585,7 @@ function get_events_month(&$events_list) {
                         }
                         elseif ($row['opt1_2'] == '8') {  // Sa and Sun
                            if ($w_day == 0 or $w_day == 6) {
-                              $days_diff = floor(($this_date_time - $event_start_date_time)/$sec_in_day) ;
+                              $days_diff = floor(($__this_date_time - $event_start_date_time)/$sec_in_day) ;
                               $weeks_diff = floor($days_diff/7);
                               if ($weeks_diff%$opt1_1 == 0) {
                                   if (! isset($events_list[$k]) ) $events_list[$k] = array();
@@ -594,7 +594,7 @@ function get_events_month(&$events_list) {
                            }
                         }
 
-		     } // end of if ($this_...
+		     } // end of if ($__this_...
 		  } // End of for $k=1:
                }
 
@@ -620,8 +620,8 @@ function get_events_month(&$events_list) {
                $week_day['5'] = array();
 
                for ($k=1;$k<8;$k++) {
-                  $this_date_time= $start_date_time + ($k-1)*$sec_in_day;
-                  $w_day = date('w',$this_date_time);
+                  $__this_date_time= $start_date_time + ($k-1)*$sec_in_day;
+                  $w_day = date('w',$__this_date_time);
                   $week_day['1'][$w_day] = $k - 1;
                   $week_day['2'][$w_day] = $k + 6;
                   $week_day['3'][$w_day] = $k + 13;
@@ -630,8 +630,8 @@ function get_events_month(&$events_list) {
 
  
                for ($k=$s_last_day;$k>$s_last_day - 7;$k--) {
-                  $this_date_time= $start_date_time + $k*$sec_in_day;
-                  $w_day = date('w',$this_date_time);
+                  $__this_date_time= $start_date_time + $k*$sec_in_day;
+                  $w_day = date('w',$__this_date_time);
                   $week_day['5'][$w_day] = $k;
                }
 
@@ -885,15 +885,15 @@ function get_events_week(&$events_list) {
 	          // Go thru each day of the month
                   for ($k=1;$k<$s_last_day + 1;$k++) {
 
-                     $this_date_time= $start_date_time + ($k-1)*$sec_in_day;
-                     $this_day = date("d",$this_date_time);
-                     $this_month = date("m",$this_date_time);
+                     $__this_date_time= $start_date_time + ($k-1)*$sec_in_day;
+                     $__this_day = date("d",$__this_date_time);
+                     $__this_month = date("m",$__this_date_time);
 
-                     if ($this_date_time >= $event_start_date_time
-                            and $this_date_time < $event_stop_date_time) {
+                     if ($__this_date_time >= $event_start_date_time
+                            and $__this_date_time < $event_stop_date_time) {
 
-			$days_diff = floor(($this_date_time - $event_start_date_time)/$sec_in_day);
-                        $w_day = date('w',$this_date_time);
+			$days_diff = floor(($__this_date_time - $event_start_date_time)/$sec_in_day);
+                        $w_day = date('w',$__this_date_time);
                 
                         if ($row['opt1_2'] == '1') {  // day
 
@@ -920,7 +920,7 @@ function get_events_week(&$events_list) {
                            if ($w_day == $first_week_day 
                                  or $w_day == $first_week_day + 2 
                                  or $w_day == $first_week_day + 4) {
-                              $days_diff = floor(($this_date_time - $event_start_date_time)/$sec_in_day) ;
+                              $days_diff = floor(($__this_date_time - $event_start_date_time)/$sec_in_day) ;
                               $weeks_diff = floor($days_diff/7);
                               if ($weeks_diff%$opt1_1 == 0) {
                                   if (! isset($events_list[$k]) ) $events_list[$k] = array();
@@ -931,7 +931,7 @@ function get_events_week(&$events_list) {
                         elseif ($row['opt1_2'] == '6') {  // Tu and Thur
                            if ($w_day == $first_week_day 
                                  or $w_day == $first_week_day + 2) {
-                              $days_diff = floor(($this_date_time - $event_start_date_time)/$sec_in_day) ;
+                              $days_diff = floor(($__this_date_time - $event_start_date_time)/$sec_in_day) ;
                               $weeks_diff = floor($days_diff/7);
                               if ($weeks_diff%$opt1_1 == 0) {
                                   if (! isset($events_list[$k]) ) $events_list[$k] = array();
@@ -943,7 +943,7 @@ function get_events_week(&$events_list) {
                         elseif ($row['opt1_2'] == '7') {  // M-F
 
                            if ($w_day > $first_week_day - 1 and $w_day < $first_week_day + 5) {
-                              $days_diff = floor(($this_date_time - $event_start_date_time)/$sec_in_day);
+                              $days_diff = floor(($__this_date_time - $event_start_date_time)/$sec_in_day);
                               $weeks_diff = floor($days_diff/7);
                               if ($weeks_diff%$opt1_1 == 0) {
                                   if (! isset($events_list[$k]) ) $events_list[$k] = array();
@@ -954,7 +954,7 @@ function get_events_week(&$events_list) {
                         }
                         elseif ($row['opt1_2'] == '8') {  // Sa and Sun
                            if ($w_day == 0 or $w_day == 6) {
-                              $days_diff = floor(($this_date_time - $event_start_date_time)/$sec_in_day) ;
+                              $days_diff = floor(($__this_date_time - $event_start_date_time)/$sec_in_day) ;
                               $weeks_diff = floor($days_diff/7);
                               if ($weeks_diff%$opt1_1 == 0) {
                                   if (! isset($events_list[$k]) ) $events_list[$k] = array();
@@ -963,7 +963,7 @@ function get_events_week(&$events_list) {
                            }
                         }
 
-		     } // end of if ($this_...
+		     } // end of if ($__this_...
 		  } // End of for $k=1:
                }
 
@@ -989,8 +989,8 @@ function get_events_week(&$events_list) {
                $week_day['5'] = array();
 
                for ($k=1;$k<8;$k++) {
-                  $this_date_time= $start_date_time + ($k-1)*$sec_in_day;
-                  $w_day = date('w',$this_date_time);
+                  $__this_date_time= $start_date_time + ($k-1)*$sec_in_day;
+                  $w_day = date('w',$__this_date_time);
                   $week_day['1'][$w_day] = $k - 1;
                   $week_day['2'][$w_day] = $k + 6;
                   $week_day['3'][$w_day] = $k + 13;
@@ -999,8 +999,8 @@ function get_events_week(&$events_list) {
 
  
                for ($k=$s_last_day;$k>$s_last_day - 7;$k--) {
-                  $this_date_time= $start_date_time + $k*$sec_in_day;
-                  $w_day = date('w',$this_date_time);
+                  $__this_date_time= $start_date_time + $k*$sec_in_day;
+                  $w_day = date('w',$__this_date_time);
                   $week_day['5'][$w_day] = $k;
                }
 

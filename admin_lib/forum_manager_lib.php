@@ -159,7 +159,7 @@ function remove_forum_stuff($forum_id) {
 // update forum information based on admin's input
 //
 /////////////////////////////////////////////////////////////////////
-function check_forum_tree_integrity($parent_id,$this_type) {
+function check_forum_tree_integrity($parent_id,$__this_type) {
 
    $forum_type = get_forum_types();
 
@@ -171,12 +171,12 @@ function check_forum_tree_integrity($parent_id,$this_type) {
    db_free($result);
 
    $parent_forum_type = strtolower( $forum_type[$row['type']] );
-   $this_forum_type = strtolower( $forum_type[$this_type] );
+   $__this_forum_type = strtolower( $forum_type[$__this_type] );
 
    if ($row['type'] < 99) {
-      if ($row['type'] > 20  and $row['type'] > $this_type) {
+      if ($row['type'] > 20  and $row['type'] > $__this_type) {
 
-         $error = "You are trying to put a $this_forum_type forum
+         $error = "You are trying to put a $__this_forum_type forum
                 below a  $parent_forum_type forum. <br />";
 
          if ($row['type'] == 30) {

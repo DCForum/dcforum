@@ -303,13 +303,13 @@ function send_topic_subscription($forum_id,$topic_id,$mesg_id,$u_id) {
 
       $from = SETUP_AUTH_ADMIN_EMAIL_ADDRESS;
 
-      $this_row = get_message_notice('topic_subscription');
-      $subject = $this_row['var_subject'];
-      $message = $this_row['var_message'];
-      $this_url = ROOT_URL . "/" . DCF . "?az=show_topic&forum=$forum_id&topic_id=$topic_id#$mesg_id";
+      $__this_row = get_message_notice('topic_subscription');
+      $subject = $__this_row['var_subject'];
+      $message = $__this_row['var_message'];
+      $__this_url = ROOT_URL . "/" . DCF . "?az=show_topic&forum=$forum_id&topic_id=$topic_id#$mesg_id";
 
       // replace $MARKER with proper variable
-      $message = preg_replace("/#MARKER#/",$this_url,$message);
+      $message = preg_replace("/#MARKER#/",$__this_url,$message);
       $message .= "\n\n" . SETUP_ADMIN_SIGNATURE;
 
       $header    = "From: $from\r\n";
@@ -380,15 +380,15 @@ function notify_admin($forum_id,$topic_id,$mesg_id,$moderators,$username) {
    $bcc_list = implode(', ',array_keys($bcc_arr));
 
    if ($topic_id != 0) {
-      $this_url = ROOT_URL . "/" . DCF . "?az=show_topic&forum=$forum_id&topic_id=$topic_id#$mesg_id";
+      $__this_url = ROOT_URL . "/" . DCF . "?az=show_topic&forum=$forum_id&topic_id=$topic_id#$mesg_id";
    }
    else {
-      $this_url = ROOT_URL . "/" . DCF . "?az=show_topic&forum=$forum_id&topic_id=$mesg_id";
+      $__this_url = ROOT_URL . "/" . DCF . "?az=show_topic&forum=$forum_id&topic_id=$mesg_id";
    }
 
    $subject = $in['lang']['email_subject'];
    $message = $in['lang']['email_message'] . " $username.\n\n";
-   $message .= "\n\n$this_url";
+   $message .= "\n\n$__this_url";
    $message .= "\n\n" . SETUP_ADMIN_SIGNATURE;
 
    $header    = "From: $from\r\n";

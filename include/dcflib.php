@@ -1221,21 +1221,21 @@ function get_forums($parent_id)
 
     $rows = [];
 
-    foreach ($sorted_forum_list as $this_array) {
+    foreach ($sorted_forum_list as $__this_array) {
 
-        $this_row_id = $this_array['0'];
-        $this_level = $this_array['1'];
+        $__this_row_id = $__this_array['0'];
+        $__this_level = $__this_array['1'];
 
-        if ($this_row_id == $parent_id) {
+        if ($__this_row_id == $parent_id) {
             $ok_forum = 1;
-            $parent_level = $this_level;
+            $parent_level = $__this_level;
         } else if ($ok_forum) {
 
-            $row = $in['forum_list'][$this_row_id];
-            if ($this_level == $parent_level + 1) {
-                $row['num_folders'] = get_child($sorted_forum_list, $in['forum_list'], $this_row_id, $this_level);
+            $row = $in['forum_list'][$__this_row_id];
+            if ($__this_level == $parent_level + 1) {
+                $row['num_folders'] = get_child($sorted_forum_list, $in['forum_list'], $__this_row_id, $__this_level);
                 $rows[] = $row;
-            } else if ($this_level == $parent_level) {
+            } else if ($__this_level == $parent_level) {
                 $ok_forum = 0;
             }
 
@@ -1255,12 +1255,12 @@ function get_forums($parent_id)
 //
 ////////////////////////////////////////////////////////////////
 
-function get_parent_forum($this_id)
+function get_parent_forum($__this_id)
 {
     // query statement
     $q = "SELECT parent_id
            FROM " . DB_FORUM . "
-          WHERE id = '$this_id'
+          WHERE id = '$__this_id'
             AND status = 'on'";
     $result = db_query($q);
     $row = db_fetch_array($result);
@@ -1276,7 +1276,7 @@ function get_parent_forum($this_id)
 //
 ////////////////////////////////////////////////////////////////
 
-function get_forum_info($this_id)
+function get_forum_info($__this_id)
 {
     // query statement
     $q = "SELECT f.*,
@@ -1285,7 +1285,7 @@ function get_forum_info($this_id)
            FROM " . DB_FORUM . " AS f,
                 " . DB_FORUM_TYPE . " AS t
           WHERE t.id = f.type
-            AND f.id = $this_id";
+            AND f.id = $__this_id";
     $result = db_query($q);
     $row = db_fetch_array($result);
     db_free($result);
@@ -1299,7 +1299,7 @@ function get_forum_info($this_id)
 // given forum ID, return its ancestors
 //
 ////////////////////////////////////////////////////////////////
-function get_forum_ancestors($this_id, &$parents)
+function get_forum_ancestors($__this_id, &$parents)
 {
 
     // query statement
@@ -1307,7 +1307,7 @@ function get_forum_ancestors($this_id, &$parents)
                 parent_id,
                 type
            FROM " . DB_FORUM . "
-          WHERE id = $this_id
+          WHERE id = $__this_id
             AND status = 'on'";
 
     $result = db_query($q);
@@ -1315,7 +1315,7 @@ function get_forum_ancestors($this_id, &$parents)
 
     $parent_id = $row['parent_id'];
 
-    if ($parent_id > 0) {   // $this_id has parents
+    if ($parent_id > 0) {   // $__this_id has parents
         // query statement
         $q = "SELECT name, type
               FROM " . DB_FORUM . "
@@ -1392,24 +1392,24 @@ function get_all_moderators()
 // function get_forum_tree
 //
 // Return forum tree structure
-// IF $this_id = '', default structure
+// IF $__this_id = '', default structure
 //
-// If $this_id = ID, then return without this ID
+// If $__this_id = ID, then return without this ID
 // 
 ////////////////////////////////////////////////////////////////
-function get_forum_tree($access_list = 'all', $this_id = '')
+function get_forum_tree($access_list = 'all', $__this_id = '')
 {
 
     global $in;
 
     $parent_form_fields = [];
 
-    if (is_array($this_id)) {
-        foreach ($this_id as $this_temp) {
-            $not_in_list[$this_temp] = 1;
+    if (is_array($__this_id)) {
+        foreach ($__this_id as $__this_temp) {
+            $not_in_list[$__this_temp] = 1;
         }
     } else {
-        $not_in_list[$this_id] = 1;
+        $not_in_list[$__this_id] = 1;
     }
 
     // get parents list
@@ -1450,15 +1450,15 @@ function get_forum_tree($access_list = 'all', $this_id = '')
             $q .= " ORDER BY f.forum_order";
 
             $result = db_query($q);
-            while ($this_row = db_fetch_array($result)) {
-                if ($access_list[$this_row['id']] or $access_list == 'all') {
+            while ($__this_row = db_fetch_array($result)) {
+                if ($access_list[$__this_row['id']] or $access_list == 'all') {
 
-                    if (!$not_in_list[$this_row['id']])
-                        $parent_form_fields[$this_row['id']] =
-                            "&nbsp;&nbsp;|-- $this_row[name] ($this_row[forum_type])\n";
+                    if (!$not_in_list[$__this_row['id']])
+                        $parent_form_fields[$__this_row['id']] =
+                            "&nbsp;&nbsp;|-- $__this_row[name] ($__this_row[forum_type])\n";
 
                     $indent = 4;
-                    child_folder($this_row['id'], $access_list, $parent_form_fields, $indent);
+                    child_folder($__this_row['id'], $access_list, $parent_form_fields, $indent);
                 }
             }
             db_free($result);
@@ -1503,17 +1503,17 @@ function child_folder($parent_id, $access_list, &$parent_form_fields, &$indent)
     $result = db_query($q);
 
     $num_result = db_num_rows($result);
-    $this_indent = '';
+    $__this_indent = '';
     if ($num_result > 0) {
         for ($j = 0; $j < $indent; $j++)
-            $this_indent .= "&nbsp;";
+            $__this_indent .= "&nbsp;";
 
         while ($row = db_fetch_array($result)) {
             if ($access_list[$row['id']] or $access_list == 'all') {
-                $this_name = "$row[name] ($row[forum_type])";
-                $this_id = $row['id'];
-                $parent_form_fields[$this_id] = $this_indent . "|-- " . $this_name;
-                child_folder($this_id, $access_list, $parent_form_fields, $indent);
+                $__this_name = "$row[name] ($row[forum_type])";
+                $__this_id = $row['id'];
+                $parent_form_fields[$__this_id] = $__this_indent . "|-- " . $__this_name;
+                child_folder($__this_id, $access_list, $parent_form_fields, $indent);
             }
         }
     }
@@ -2196,16 +2196,16 @@ function is_bad_ip()
 
     $ip_arr = explode('.', $_SERVER['REMOTE_ADDR']);
 
-    $this_ip = implode('.', array_slice($ip_arr, 0, SETUP_IP_BLOCKING_LEVEL));
+    $__this_ip = implode('.', array_slice($ip_arr, 0, SETUP_IP_BLOCKING_LEVEL));
 
     if (SETUP_IP_BLOCKING_LEVEL == 4) {
         $q = "SELECT count(id) as count
               FROM " . DB_BAD_IP . "
-             WHERE ip = '$this_ip' ";
+             WHERE ip = '$__this_ip' ";
     } else {
         $q = "SELECT count(id) as count
               FROM " . DB_BAD_IP . "
-             WHERE ip LIKE '$this_ip.%' ";
+             WHERE ip LIKE '$__this_ip.%' ";
     }
 
     $result = db_query($q);
@@ -2297,9 +2297,9 @@ function send_subscription()
 
     // Get forum subscription message
     $from = SETUP_AUTH_ADMIN_EMAIL_ADDRESS;
-    $this_row = get_message_notice('forum_subscription');
-    $subject = $this_row['var_subject'];
-    $message = $this_row['var_message'];
+    $__this_row = get_message_notice('forum_subscription');
+    $subject = $__this_row['var_subject'];
+    $message = $__this_row['var_message'];
     $message .= "\n\n" . SETUP_ADMIN_SIGNATURE . "\n\n\n\n";
 
     // Forum message body
@@ -2462,9 +2462,9 @@ function get_child(&$sorted_forum_list, $forum_list, $parent_id, &$level)
 
             // add this child to the sorted forum list
             $sorted_forum_list[] = [$key, $level];
-            $this_num = get_child($sorted_forum_list, $forum_list, $key, $level);
+            $__this_num = get_child($sorted_forum_list, $forum_list, $key, $level);
 
-            if ($this_num < 1 and $val['type'] == 99) {
+            if ($__this_num < 1 and $val['type'] == 99) {
                 array_pop($sorted_forum_list);
                 $count_child--;
             }

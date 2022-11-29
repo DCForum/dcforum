@@ -244,7 +244,7 @@ th {
    border-style : dotted;
    border-width : 1px;
    border-color : #000099;
-   margin : 0px 0px 0px 0px;
+   margin : 0 0 0 0;
    padding : 5px;
 }
 
@@ -258,7 +258,7 @@ th {
    border-width : 1px;
    border-color : #000099;
    background-color : #DDDDDD;
-   margin : -5px 0px 0px 0px;
+   margin : -5px 0 0 0;
    padding : 5px;
 }
 

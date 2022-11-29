@@ -44,15 +44,15 @@ begin_table([
     'class'       => '',
 ]);
 
-foreach ($in['lang']['html_ref'] as $key => $this_array) {
+foreach ($in['lang']['html_ref'] as $key => $__this_array) {
 
     // $key is table heading
     print "<tr class=\"dcheading\"><td 
          class=\"dcheading\" colspan=\"2\">$key</td></tr>";
-    foreach ($this_array as $this_key => $this_val) {
+    foreach ($__this_array as $__this_key => $__this_val) {
         print "<tr class=\"dcdark\"><td 
-            class=\"dcdark\">$this_key</td><td 
-            class=\"dclite\">$this_val</td>
+            class=\"dcdark\">$__this_key</td><td 
+            class=\"dclite\">$__this_val</td>
             </tr>";
 
     }

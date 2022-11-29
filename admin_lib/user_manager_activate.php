@@ -120,12 +120,12 @@ function send_activation_email($u_id) {
    $subject = $row['var_subject'];
    $message = $row['var_message'];
 
-   $this_url = ROOT_URL . "/" . DCF;
+   $__this_url = ROOT_URL . "/" . DCF;
 
    $desc = "Your account is now active. \n";
 
    // replace $MARKER with proper variable
-   $message = preg_replace("/#URL#/",$this_url,$message);
+   $message = preg_replace("/#URL#/",$__this_url,$message);
    $message = preg_replace("/#MARKER#/",$desc,$message);
    $message .= "\n\n" . SETUP_ADMIN_SIGNATURE;
 

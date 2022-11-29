@@ -221,12 +221,12 @@ function announcement_preview() {
    $id = $in['id'];
    $subject = htmlspecialchars($in['subject']);
    $message = htmlspecialchars($in['message']);
-   $this_message = nl2br($message);
+   $__this_message = nl2br($message);
 
    print "<tr class=\"dclite\"><td 
               class=\"dclite\">Expiration date: $e_date<br />
               Subject: $subject<br />
-              <p>$this_message</p></td></tr>";
+              <p>$__this_message</p></td></tr>";
 
    print "<tr class=\"dclite\"><td 
               class=\"dclite\">";

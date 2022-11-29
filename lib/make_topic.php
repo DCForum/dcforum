@@ -227,19 +227,19 @@ function create_forum_tree() {
    $sorted_forum_list = sort_forum_list($in['forum_list']);
 
    // construct directory style of tree
-   foreach ($sorted_forum_list as $this_array) {
-      $this_forum_id = $this_array['0'];
-      $this_level = $this_array['1'];
+   foreach ($sorted_forum_list as $__this_array) {
+      $__this_forum_id = $__this_array['0'];
+      $__this_level = $__this_array['1'];
 
-      if (is_array($in['forum_list'][$this_forum_id])) {
+      if (is_array($in['forum_list'][$__this_forum_id])) {
 	 $indent = "";
-	 for ($j=0;$j<$this_level;$j++) $indent .= "&nbsp;&nbsp;&nbsp;&nbsp;";
-         if ($this_level > 0) {
-   	    $forum_tree[$this_forum_id] = $indent . "|-- " . 
-              $in['forum_list'][$this_forum_id]['name'] . " (" . $in['forum_list'][$this_forum_id]['forum_type'] . ")";
+	 for ($j=0;$j<$__this_level;$j++) $indent .= "&nbsp;&nbsp;&nbsp;&nbsp;";
+         if ($__this_level > 0) {
+   	    $forum_tree[$__this_forum_id] = $indent . "|-- " . 
+              $in['forum_list'][$__this_forum_id]['name'] . " (" . $in['forum_list'][$__this_forum_id]['forum_type'] . ")";
          }
          else {
-   	    $forum_tree[$this_forum_id] = $in['forum_list'][$this_forum_id]['name'] . " (" . $in['forum_list'][$this_forum_id]['forum_type'] . ")";
+   	    $forum_tree[$__this_forum_id] = $in['forum_list'][$__this_forum_id]['name'] . " (" . $in['forum_list'][$__this_forum_id]['forum_type'] . ")";
          }
       }
    }

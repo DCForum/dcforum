@@ -138,7 +138,7 @@ function view_rating($u_id) {
 
    $result = db_query($q);
    $row = db_fetch_array($result);
-   $this_user = $row['username'];
+   $__this_user = $row['username'];
    db_free($result);
 
    if (SETUP_ALLOW_DISABLE_USER_RATING == 'yes' 
@@ -206,7 +206,7 @@ function view_rating($u_id) {
 
 
    print "<tr class=\"dclite\">
-             <td colspan=\"4\">" . $in['lang']['rating_for'] . " $this_user <br />"
+             <td colspan=\"4\">" . $in['lang']['rating_for'] . " $__this_user <br />"
              . $in['lang']['total_score'] . ":  $total_score " . $in['lang']['points'] . "<br />"
              . $in['lang']['feedbacks'] . ": $votes )
              $positives " . $in['lang']['positive'] . " <img src=\"" . $score_icon['2'] . "\" alt=\"\" />,  

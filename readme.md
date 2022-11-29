@@ -13,7 +13,7 @@ DCFroum was a commercial project but in its last stages was released under GPL l
 I maid several attempts to find the original owner of the rights (DC Scripts),  
 But I did not have much success.  
 If you have claims to any of the rights related to this project (code, artwork, trademarks, etc.)   
-Please create a [github issue](https://github.com/DCForum/dcforum/issues/new) with your claim and I will address it
+Please create a [GitHub issue](https://github.com/DCForum/dcforum/issues/new) with your claim and I will address it
 ASAP.
 
 ### Requirements
@@ -30,7 +30,7 @@ ASAP.
 * Migrated `define` statements to `const`.
 * Renamed `dcsetup.php` to `dcsetup.example.php` and added to gitignore.
 * Added `dd` and `dump` functions to `dclib.php`.
-* Migrated `array_push` on singles elements to `[]`.
+* Migrated `array_push` on singles to `[]`.
 * Removed timestamp size from mysql tables.
 * Migrated empty strings on auto increment to null on sql inserts.
 * Wrapped all array access in strings to `'{$arr['key']}'`.
@@ -40,6 +40,7 @@ ASAP.
 * Migrated `split('[\|]',` to `explode('|',`.
 * Modified `check_email` to use `filter_var`.
 * Changed all `timestamp not null` to `timestamp null`, to avoid `ON UPDATE CURRENT_TIMESTAMP()` (assuming it is provided when ever needed).
+* Replaced all instances of `$this` to `$__this`.
 
 #### 1.27.1
 

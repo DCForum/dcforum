@@ -191,7 +191,7 @@ function view_profile($u_id) {
        foreach($param_profile as $key => $val) {
 
             $title = $param_profile[$key]['title'];
-            $this_val = '';
+            $__this_val = '';
 
             if ($key != 'pk' and $param_profile[$key]['status'] == 'on') {
 
@@ -199,34 +199,34 @@ function view_profile($u_id) {
 
                   case 'pc':
                      if (is_image_url($row[$key])) {
-                         $this_val = "<img src=\"" . $row[$key] . "\">";
+                         $__this_val = "<img src=\"" . $row[$key] . "\">";
                      }
                      elseif (is_image_filename($row[$key])) {
-                         $this_val = "<img src=\"" . AVATAR_URL . 
+                         $__this_val = "<img src=\"" . AVATAR_URL . 
                              "/" . $row[$key] . "\" alt=\"\" />";
                      }
                      break;
 
                   case 'ph':
                      if (is_url($row[$key])) {
-                         $this_val = "<a href=\"" . $row[$key] 
+                         $__this_val = "<a href=\"" . $row[$key] 
                              . "\">$row[$key]</a>";
                      }
                      break;
 
                   case 'pj':
-                     $this_val = nl2br(htmlspecialchars($row[$key]));
+                     $__this_val = nl2br(htmlspecialchars($row[$key]));
                      break;
 
                   default:
-                     $this_val = htmlspecialchars($row[$key]);
+                     $__this_val = htmlspecialchars($row[$key]);
                      break;
                }
 
-               if ($this_val)
+               if ($__this_val)
                print "<tr class=\"dclite\">
                <td class=\"dcdark\">$title</td>
-               <td class=\"dclite\">$this_val</td>
+               <td class=\"dclite\">$__this_val</td>
                </tr>";
 
             }

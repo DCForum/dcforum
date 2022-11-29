@@ -231,12 +231,12 @@ function set_session($row)
 
     // Retrieve some info
     if ($row['uh'] == 'yes') {
-        $this_array = [];
+        $__this_array = [];
         $time_mark = get_user_time_mark($row['id']);
         foreach ($time_mark as $forum_id => $date) {
-            $this_array[] = "$forum_id#$date";
+            $__this_array[] = "$forum_id#$date";
         }
-        $time_mark = implode('^', $this_array);
+        $time_mark = implode('^', $__this_array);
 //      $in[DC_COOKIE][DC_TIME_MARK] = $time_mark;
     }
 

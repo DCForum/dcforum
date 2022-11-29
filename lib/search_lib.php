@@ -279,18 +279,18 @@ function search_forum_tree() {
    $sorted_forum_list = sort_forum_list($in['forum_list']);
 
    // construct directory style of tree
-   foreach ($sorted_forum_list as $this_array) {
-      $this_forum_id = $this_array['0'];
-      $this_level = $this_array['1'];
+   foreach ($sorted_forum_list as $__this_array) {
+      $__this_forum_id = $__this_array['0'];
+      $__this_level = $__this_array['1'];
 
-      if (is_array($in['forum_list'][$this_forum_id])) {
+      if (is_array($in['forum_list'][$__this_forum_id])) {
 	 $indent = "";
-	 for ($j=0;$j<$this_level;$j++) $indent .= "&nbsp;&nbsp;&nbsp;&nbsp;";
-         if ($this_level > 0) {
-   	    $forum_tree[$this_forum_id] = $indent . "|-- " . $in['forum_list'][$this_forum_id]['name'];
+	 for ($j=0;$j<$__this_level;$j++) $indent .= "&nbsp;&nbsp;&nbsp;&nbsp;";
+         if ($__this_level > 0) {
+   	    $forum_tree[$__this_forum_id] = $indent . "|-- " . $in['forum_list'][$__this_forum_id]['name'];
          }
          else {
-   	    $forum_tree[$this_forum_id] = $in['forum_list'][$this_forum_id]['name'];
+   	    $forum_tree[$__this_forum_id] = $in['forum_list'][$__this_forum_id]['name'];
          }
       }
    }
@@ -319,26 +319,26 @@ function search_forum_list($select_forum = 0) {
 
       $ok_forum = 0;
 
-      foreach ($sorted_forum_list as $this_array) {
+      foreach ($sorted_forum_list as $__this_array) {
 
-         $this_forum_id = $this_array['0'];
-         $this_level = $this_array['1'];
+         $__this_forum_id = $__this_array['0'];
+         $__this_level = $__this_array['1'];
 
-         if ($this_forum_id == $select_forum) {
+         if ($__this_forum_id == $select_forum) {
 
-             $forum_tree[] = $this_forum_id;
+             $forum_tree[] = $__this_forum_id;
 
             if ($in['recursive_search'] == 'Yes')
 	       $ok_forum = 1;
 
 
-	    $ok_level = $this_level;
+	    $ok_level = $__this_level;
 
          }
 	 elseif ($ok_forum) {
-            if ($ok_level < $this_level) {
-               if ($in['forum_list'][$this_forum_id]['type'] < 99)
-                   $forum_tree[] = $this_forum_id;
+            if ($ok_level < $__this_level) {
+               if ($in['forum_list'][$__this_forum_id]['type'] < 99)
+                   $forum_tree[] = $__this_forum_id;
             }
             else {
 	      $ok_forum = 0;
@@ -353,12 +353,12 @@ function search_forum_list($select_forum = 0) {
 
    else {
 
-      foreach ($sorted_forum_list as $this_array) {
+      foreach ($sorted_forum_list as $__this_array) {
 
-         $this_forum_id = $this_array['0'];
+         $__this_forum_id = $__this_array['0'];
          // If not conference, search
-         if ($in['forum_list'][$this_forum_id]['type'] < 99)
-             $forum_tree[] = $this_forum_id;
+         if ($in['forum_list'][$__this_forum_id]['type'] < 99)
+             $forum_tree[] = $__this_forum_id;
 
       }
 

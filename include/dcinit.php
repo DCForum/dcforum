@@ -59,9 +59,9 @@ function get_setup_info()
            FROM " . DB_SETUP;
     $result = db_query($q);
 
-    while ($this_row = db_fetch_array($result)) {
-        $key = "SETUP_" . strtoupper($this_row['var_key']);
-        define("$key", $this_row['var_value']);
+    while ($__this_row = db_fetch_array($result)) {
+        $key = "SETUP_" . strtoupper($__this_row['var_key']);
+        define("$key", $__this_row['var_value']);
     }
     db_free($result);
 

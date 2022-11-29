@@ -158,7 +158,7 @@ function upload_files() {
 
             $file_id = log_upload($in['user_info']['id'],$in['forum'],$post_id,$in['file_type']);
             $filename = $file_id . "." . $in['file_type'];
-            $this_url = USER_URL. "/" . $filename;
+            $__this_url = USER_URL. "/" . $filename;
 
             move_uploaded_file($_FILES['file_upload']['tmp_name'],USER_DIR . "/" . $filename);
 
@@ -173,7 +173,7 @@ function upload_files() {
                         self.opener.document.thisform.attachments.value = \"$attachment\\n\";
                      }
                      self.opener.document.thisform.message.value
-                      = self.opener.document.thisform.message.value + \"\\n\\n$this_url\\n\"'>";
+                      = self.opener.document.thisform.message.value + \"\\n\\n$__this_url\\n\"'>";
             }
             else {
                // mod.2002.11.07.08
@@ -190,7 +190,7 @@ function upload_files() {
             }
 
 
-            $output = $in['lang']['ok_mesg'] . "<br />&nbsp;<br />$this_url<br />&nbsp;<br />";
+            $output = $in['lang']['ok_mesg'] . "<br />&nbsp;<br />$__this_url<br />&nbsp;<br />";
 
             $num_upload_files ++;
 

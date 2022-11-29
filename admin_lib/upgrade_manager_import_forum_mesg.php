@@ -70,9 +70,9 @@ function upgrade_manager_import_forum_mesg() {
    include (INCLUDE_DIR . "/form_info.php");
 
    $current_forum = isset($in['current_forum']) ? $in['current_forum'] : 0;
-   $this = get_next_forum($current_forum);
+   $__this = get_next_forum($current_forum);
 
-   if ($this == '999999') {   // Ok, we are done processing
+   if ($__this == '999999') {   // Ok, we are done processing
        print_head('Administration Utility - upgrade manager');
        include_top();
        include("menu.php");
@@ -82,9 +82,9 @@ function upgrade_manager_import_forum_mesg() {
        exit;
    }
 
-   $forum_id = $this['id'];
-   $forum_name = $this['name'];
-   $forum_type = $this['type'];
+   $forum_id = $__this['id'];
+   $forum_name = $__this['name'];
+   $forum_type = $__this['type'];
 
    // private and restricted forums
    if ($forum_type == 30 or $forum_type == 40) {
@@ -247,17 +247,17 @@ function import_topic($user_id,$ip_list,$topic_id) {
       'Nov' => '11',
       'Dec' => '12' );
 
-   $this_file = $setup['maindir'] . "/" . $setup['forum'] . "/Data/$topic_id.txt";
+   $__this_file = $setup['maindir'] . "/" . $setup['forum'] . "/Data/$topic_id.txt";
 
-   // $this_file does exists but doesn't hurt to recheck
-   if (file_exists($this_file) ) {
+   // $__this_file does exists but doesn't hurt to recheck
+   if (file_exists($__this_file) ) {
 
       // to be determined later...
       $last_timestamp = 0;
       $last_author = '';
 
       $rating = 0;
-      $datafh = fopen("$this_file","r");
+      $datafh = fopen("$__this_file","r");
 
       // Process the first line - contains various topic information
       $firstline = fgets($datafh,1024);

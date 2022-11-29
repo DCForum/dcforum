@@ -282,20 +282,20 @@ function update_user_setting($param = 'default')
     switch ($param) {
 
         case 'profile':
-            $this_param = $param_profile;
+            $__this_param = $param_profile;
             break;
 
         case 'preference':
-            $this_param = $param_preference;
+            $__this_param = $param_preference;
             break;
 
         default:
-            $this_param = array_merge($param_profile, $param_preference);
+            $__this_param = array_merge($param_profile, $param_preference);
             break;
 
     }
 
-    foreach ($this_param as $key => $val) {
+    foreach ($__this_param as $key => $val) {
 
         $hide = 0;
         // trim leading and trailing white spaces
@@ -303,7 +303,7 @@ function update_user_setting($param = 'default')
 
 // mod.2002.11.07.06 - added input checker for preference and profile
         // if the status is off, null it
-        if ($this_param[$key]['status'] == 'off') {
+        if ($__this_param[$key]['status'] == 'off') {
             $in[$key] = '';
         }
 
@@ -448,13 +448,13 @@ function update_user_setting($param = 'default')
 
         // escape all the data
         $in[$key] = preg_replace("/\r+/", "", $in[$key]);
-        $this_val = db_escape_string($in[$key]);
+        $__this_val = db_escape_string($in[$key]);
 
         // set up sql input
         if ($hide == 1) {
             $query_array[] = "$key = '" . $param_preference[$key]['value'] . "'";
         } else {
-            $query_array[] = "$key = '" . $this_val . "'";
+            $query_array[] = "$key = '" . $__this_val . "'";
         }
 
     }
@@ -531,16 +531,16 @@ function user_setting_form($param = 'full')
     switch ($param) {
 
         case 'profile':
-            $this_param = $param_profile;
+            $__this_param = $param_profile;
             break;
 
         case 'preference':
 
-            $this_param = $param_preference;
+            $__this_param = $param_preference;
             break;
 
         case 'full':
-            $this_param = array_merge($param_profile, $param_preference);
+            $__this_param = array_merge($param_profile, $param_preference);
             break;
 
         default:
@@ -554,10 +554,10 @@ function user_setting_form($param = 'full')
     if ($in['ssaz'] == '') {
 
         $query_array = [];
-        foreach ($this_param as $key => $val) {
+        foreach ($__this_param as $key => $val) {
             $query_array[] = $key;
         }
-        reset($this_param);
+        reset($__this_param);
 
         $select_fields = implode(',', $query_array);
         $q = "SELECT $select_fields
@@ -567,7 +567,7 @@ function user_setting_form($param = 'full')
         $result = db_query($q);
         $row = db_fetch_array($result);
         db_free($result);
-        foreach ($this_param as $key => $val) {
+        foreach ($__this_param as $key => $val) {
             $in[$key] = $row[$key];
         }
     }

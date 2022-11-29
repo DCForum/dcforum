@@ -35,22 +35,22 @@ select_language("/include/dcftopiclib.php");
 // function quote_message
 //
 ////////////////////////////////////////////////////////////////
-function quote_message($in_message) {
+function quote_message($in_message)
+{
 
-  if (SETUP_QUOTE_STYLE != 'dcf') {
-    $message = '[div class="dcquote"][div class="dcquoteheader"]Quote[/div]' . "\n"
-. $in_message . '
+   if (SETUP_QUOTE_STYLE != 'dcf') {
+      $message = '[div class="dcquote"][div class="dcquoteheader"]Quote[/div]' . "\n"
+          . $in_message . '
 [/div]';
-  }
-  else {
-     $message_array = explode("\n",$in_message);
-     foreach ($message_array as $line) {
-        $message .= ">" . $line . "\n";
-     }
-     $message = wordwrap($message,SETUP_QUOTE_WRAP,"\n>");
+   } else {
+      $message_array = explode("\n", $in_message);
+      foreach ($message_array as $line) {
+         $message .= ">" . $line . "\n";
+      }
+      $message = wordwrap($message, SETUP_QUOTE_WRAP, "\n>");
 
-  }
-  return $message;
+   }
+   return $message;
 
 }
 
@@ -60,41 +60,41 @@ function quote_message($in_message) {
 // checks to see if the author id is 100000
 // If so, the username is "$author_name without a link"
 ////////////////////////////////////////////////////////////////
-function check_author($author,$author_id,$author_name,$group_id) {
+function check_author($author, $author_id, $author_name, $group_id)
+{
 
    switch ($group_id) {
 
       case '99':
          if (SETUP_ADMIN_ICON)
-            $group_icon = "<img src=\"" . IMAGE_URL . "/" . 
-            SETUP_ADMIN_ICON . "\" border=\"0\" alt=\"\" />";
+            $group_icon = "<img src=\"" . IMAGE_URL . "/" .
+                SETUP_ADMIN_ICON . "\" border=\"0\" alt=\"\" />";
          break;
 
       case '20':
          if (SETUP_MODERATOR_ICON)
-         $group_icon = "<img src=\"" . IMAGE_URL . "/" . 
-         SETUP_MODERATOR_ICON . "\" border=\"0\" alt=\"\" />";
+            $group_icon = "<img src=\"" . IMAGE_URL . "/" .
+                SETUP_MODERATOR_ICON . "\" border=\"0\" alt=\"\" />";
          break;
 
       case '10':
          if (SETUP_TEAM_ICON)
-         $group_icon = "<img src=\"" . IMAGE_URL . "/" . 
-         SETUP_TEAM_ICON . "\" border=\"0\" alt=\"\" />";
+            $group_icon = "<img src=\"" . IMAGE_URL . "/" .
+                SETUP_TEAM_ICON . "\" border=\"0\" alt=\"\" />";
          break;
 
       default:
-        break;
+         break;
    }
 
 
    if ($author_id == 100000 or $author == '') {
 
-        $author = "<span class=\"dcauthorlink\">$author_name</span>";
+      $author = "<span class=\"dcauthorlink\">$author_name</span>";
 
-   }
-   else {
-      $author = "$group_icon<a href=\"" . DCF . 
-                     "?az=user_profiles&u_id=$author_id\" 
+   } else {
+      $author = "$group_icon<a href=\"" . DCF .
+          "?az=user_profiles&u_id=$author_id\" 
                      class=\"dcauthorlink\">$author</a>";
    }
 
@@ -107,28 +107,27 @@ function check_author($author,$author_id,$author_name,$group_id) {
 // function message_stuff
 //
 ///////////////////////////////////////////////////////////////
-function message_stuff($row) {
+function message_stuff($row)
+{
 
    global $in;
 
    if (SETUP_ALLOW_AVATAR == 'yes') {
       if (is_image_filename($row['pc'])) {
          if (file_exists(AVATAR_DIR . "/" . $row['pc'])) {
-             $avatar = "<img src=\"" . AVATAR_URL . 
-                     "/" . $row['pc'] . "\" height=\"48\" 
+            $avatar = "<img src=\"" . AVATAR_URL .
+                "/" . $row['pc'] . "\" height=\"48\" 
                      width=\"48\" alt=\"\" /> <br />&nbsp;&nbsp;<br />";
          }
-      }
-      elseif (is_url($row['pc'])) {
+      } else if (is_url($row['pc'])) {
          $avatar = "<img src=\"$row[pc]\" height=\"48\" 
             width=\"48\" alt=\"\" /> <br />&nbsp;&nbsp;<br />";
       }
    }
 
    if ($row['reg_date'] > 0) {
-      $member_since = format_date($row['reg_date'],'s');
-   }
-   else {
+      $member_since = format_date($row['reg_date'], 's');
+   } else {
       $member_since = '';
    }
 
@@ -144,13 +143,12 @@ function message_stuff($row) {
    if ($row['ug'] == 'yes') {
 
       if ($row['num_votes'] > 0) {
-         $user_rating = "<span class=\"dcinfo\">$row[num_votes] " . $in['lang']['votes'] . ", <a href=\"" . DCF . 
-                  "?az=user_ratings&u_id=$row[u_id]\">$row[points] " . $in['lang']['points'] . "</a></span>";
-      }
-      else {
+         $user_rating = "<span class=\"dcinfo\">$row[num_votes] " . $in['lang']['votes'] . ", <a href=\"" . DCF .
+             "?az=user_ratings&u_id=$row[u_id]\">$row[points] " . $in['lang']['points'] . "</a></span>";
+      } else {
          if ($in['user_info']['ug'] == 'yes')
-            $user_rating = "<span class=\"dcinfo\"><a href=\"javascript:makeRemote('" . 
-                     DCF . "?az=rate_user&u_id=$row[u_id]')\">" . $in['lang']['rate_this_user'] . "</a></span>";
+            $user_rating = "<span class=\"dcinfo\"><a href=\"javascript:makeRemote('" .
+                DCF . "?az=rate_user&u_id=$row[u_id]')\">" . $in['lang']['rate_this_user'] . "</a></span>";
       }
 
    }
@@ -158,35 +156,35 @@ function message_stuff($row) {
    // Email icon
    if ($row['uc'] == 'yes' or SETUP_ALLOW_DISABLE_EMAIL == 'no')
       $mesg_icon .= "<a href=\""
-                    . DCF . "?az=send_email&u_id=$row[u_id]\"><img 
+          . DCF . "?az=send_email&u_id=$row[u_id]\"><img 
                     src=\"" . IMAGE_URL . "/email.gif\" border=\"0\" 
-                    alt=\"" . $in['lang']['click_to_send_email'] . "\" /></a>"; 
+                    alt=\"" . $in['lang']['click_to_send_email'] . "\" /></a>";
 
    // private message icon
    if ($row['ub'] == 'yes' or SETUP_ALLOW_DISABLE_INBOX == 'no')
-            $mesg_icon .= " <a href=\""
-               . DCF . "?az=send_mesg&u_id=$row[u_id]\"><img 
+      $mesg_icon .= " <a href=\""
+          . DCF . "?az=send_mesg&u_id=$row[u_id]\"><img 
                src=\"" . IMAGE_URL . "/mesg.gif\" border=\"0\" 
-               alt=\"" . $in['lang']['click_to_send_message'] . "\" /></a>"; 
+               alt=\"" . $in['lang']['click_to_send_message'] . "\" /></a>";
 
 
    // profiles icons
    if ($row['ua'] == 'no' or SETUP_ALLOW_DISABLE_PROFILE == 'no')
-            $mesg_icon .= "<a href=\""
-               . DCF . "?az=user_profiles&u_id=$row[u_id]\"><img
+      $mesg_icon .= "<a href=\""
+          . DCF . "?az=user_profiles&u_id=$row[u_id]\"><img
                src=\"" . IMAGE_URL . "/profile_small.gif\" border=\"0\" 
-               alt=\"" . $in['lang']['click_to_view_profile'] . "\" /></a>"; 
+               alt=\"" . $in['lang']['click_to_view_profile'] . "\" /></a>";
 
    // add to buddy list icon
    $mesg_icon .= "<a href=\""
-               . DCF . "?az=add_buddy&u_id=$row[u_id]\"><img 
+       . DCF . "?az=add_buddy&u_id=$row[u_id]\"><img 
                src=\"" . IMAGE_URL . "/mesg_add_buddy.gif\" border=\"0\" 
-               alt=\"" . $in['lang']['click_to_add_buddy'] . "\" /></a>"; 
+               alt=\"" . $in['lang']['click_to_add_buddy'] . "\" /></a>";
 
 
    if ($row['pb']) {
-     $row['pb'] = urlencode($row['pb']);
-            $mesg_icon .= "<a 
+      $row['pb'] = urlencode($row['pb']);
+      $mesg_icon .= "<a 
                href=\"aim:goim?screenname=$row[pb]&message=Are+you+there?\"><img 
                src=\"" . IMAGE_URL . "/aolim.gif\" 
                alt=\"" . $in['lang']['click_to_aol'] . "\" border=\"0\" /></a>";
@@ -199,8 +197,8 @@ function message_stuff($row) {
 //               alt=\"" . $in['lang']['click_to_icq'] . "\" 
 //               width=\"18\" height=\"18\" border=\"0\" /></a>";
 
-         if ($row['pa'])
-            $mesg_icon .= "<a href=\"http://web.icq.com/whitepages/message_me/1,,,00.icq?uin=$row[pa]&action=message\"><img src=\"http://web.icq.com/whitepages/online?icq=$row[pa]&img=5\" 
+   if ($row['pa'])
+      $mesg_icon .= "<a href=\"http://web.icq.com/whitepages/message_me/1,,,00.icq?uin=$row[pa]&action=message\"><img src=\"http://web.icq.com/whitepages/online?icq=$row[pa]&img=5\" 
               alt=\"" . $in['lang']['click_to_icq'] . "\" 
               width=\"18\" height=\"18\" border=\"0\" /></a>";
 
@@ -211,14 +209,13 @@ function message_stuff($row) {
 //               width=\"18\" height=\"18\" border=\"0\" /></a>";
 
 
-
-   $return_stuff = array(
-          'member_since' => $member_since,
-          'num_posts' => $num_posts,
-          'user_rating' => $user_rating,
-          'mesg_icon' => $mesg_icon,
-          'avatar' => $avatar,
-          'signature' => $signature );
+   $return_stuff = [
+       'member_since' => $member_since,
+       'num_posts'    => $num_posts,
+       'user_rating'  => $user_rating,
+       'mesg_icon'    => $mesg_icon,
+       'avatar'       => $avatar,
+       'signature'    => $signature];
 
 
    return $return_stuff;
@@ -231,7 +228,8 @@ function message_stuff($row) {
 // function display_message
 //
 ////////////////////////////////////////////////////////////////
-function display_message($row,&$message_icons) {
+function display_message($row, &$message_icons)
+{
 
    global $in;
 
@@ -242,8 +240,7 @@ function display_message($row,&$message_icons) {
        and $in[DC_COOKIE][DC_DISCUSSION_MODE] != 'linear'
        and $in['az'] == 'show_topic') {
       $table_width = '100%';
-   }
-   else {
+   } else {
       $table_width = SETUP_TABLE_WIDTH;
    }
 
@@ -251,7 +248,7 @@ function display_message($row,&$message_icons) {
    $border_class = "dcborder";
    if (is_new_message($row['mesg_date']))
       $border_class = "dcbordernew";
-      
+
    // will need spacer
    $spacer = $in['spacer'];
 
@@ -267,45 +264,45 @@ function display_message($row,&$message_icons) {
    // Format message
    // Data is also cleaned here as well...
    $message = $row['message'];
-   $message = format_message($message,$row['message_format']);
+   $message = format_message($message, $row['message_format']);
 
    if ($row['use_signature']) {
       // Note, signature should always be message formatted to 0
-      $signature = format_message(clean_string($message_stuff[$author_id]['signature']),'0');
+      $signature = format_message(clean_string($message_stuff[$author_id]['signature']), '0');
       $message .= "</p><p class=\"dcmessage\">$signature</p>";
    }
 
 
    // If smilies....
    if ($row['disable_smilies'] != 1 and $row['message_format'] != 1)
-      $message = emotion_icons($message,$in['emotion_icon_list']);
+      $message = emotion_icons($message, $in['emotion_icon_list']);
 
    // escape subject
 //      $subject = $row['subject'];
 
-   $subject = htmlspecialchars($row['subject'],ENT_NOQUOTES);
+   $subject = htmlspecialchars($row['subject'], ENT_NOQUOTES);
 //   $subject = trim_subject($row['subject']);
 
    // attachment
    if ($row['attachments']) {
       // Take care of the attachment
-      $attachment_list = preg_replace("/\s+/","",$row['attachments']);
-      $attachments = explode(",",$attachment_list);
+      $attachment_list = preg_replace("/\s+/", "", $row['attachments']);
+      $attachments = explode(",", $attachment_list);
       $attachment_list = '';
       $attachment_number = 0;
       foreach ($attachments as $attachment) {
          $attachment_number++;
-         $fields = explode(".",$attachment);
-         $attachment_list .= "<a href=\"" . DCF . 
-            "?az=view_attachment&file_id=$fields[0]\"><img
-            src=\"" . IMAGE_URL . "/" . $fields[1] . ".gif\" border=\"0\" /></a><a href=\"" . DCF . 
-            "?az=view_attachment&file_id=$fields[0]\">" . $in['lang']['attachment'] . "
+         $fields = explode(".", $attachment);
+         $attachment_list .= "<a href=\"" . DCF .
+             "?az=view_attachment&file_id=$fields[0]\"><img
+            src=\"" . IMAGE_URL . "/" . $fields[1] . ".gif\" border=\"0\" /></a><a href=\"" . DCF .
+             "?az=view_attachment&file_id=$fields[0]\">" . $in['lang']['attachment'] . "
             #$attachment_number, ($fields[1] file)</a><br />";
-     }
+      }
    }
 
    // Author name
-   $author = check_author($row['author'],$row['author_id'],$row['author_name'],$row['g_id']);
+   $author = check_author($row['author'], $row['author_id'], $row['author_name'], $row['g_id']);
    $author_id = $row['author_id'];
 
    $mesg_date = format_date($row['mesg_date']);
@@ -324,16 +321,15 @@ function display_message($row,&$message_icons) {
    if ($reply_id > 0) {
 
       if ($in['az'] == 'show_topic') {
-         $in_response_to = $in['lang']['in_response_to'] . " <a href=\"#$parent_id\">" . 
-                           $in['lang']['reply_no'] . " " .
-                           $parent_reply_id . "</a><br />";
-      }
-      else {
+         $in_response_to = $in['lang']['in_response_to'] . " <a href=\"#$parent_id\">" .
+             $in['lang']['reply_no'] . " " .
+             $parent_reply_id . "</a><br />";
+      } else {
 
-         $in_response_to = $in['lang']['in_response_to'] ." <a href=\"" . DCF . 
-                  "?az=show_mesg&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$parent_id\">" . 
-                   $in['lang']['in_response_to'] . " " . 
-                   $parent_reply_id . "</a><br />";
+         $in_response_to = $in['lang']['in_response_to'] . " <a href=\"" . DCF .
+             "?az=show_mesg&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$parent_id\">" .
+             $in['lang']['in_response_to'] . " " .
+             $parent_reply_id . "</a><br />";
       }
       $in_response_to = "<span class=\"dcinfo\">$in_response_to</span>";
 
@@ -356,24 +352,21 @@ function display_message($row,&$message_icons) {
 
    // Member since link
    if ($member_since) {
-         if (SETUP_USER_MESSAGE_STYLE == 'ubb')  {
-            $member_since = $in['lang']['member_since'] . "<br />" . $member_since;
-         }
-         else {
-            $member_since = $in['lang']['member_since'] . " " . $member_since;
-         }
+      if (SETUP_USER_MESSAGE_STYLE == 'ubb') {
+         $member_since = $in['lang']['member_since'] . "<br />" . $member_since;
+      } else {
+         $member_since = $in['lang']['member_since'] . " " . $member_since;
       }
-      else {
-         $member_since = $in['lang']['charter_member'];
+   } else {
+      $member_since = $in['lang']['charter_member'];
    }
 
    $member_since = "<span class=\"dcdate\">$member_since</span>";
 
    if ($in['user_info']['id'] and SETUP_USER_RATING == 'yes' and $user_rating) {
-      if (SETUP_USER_MESSAGE_STYLE == 'ubb')  {
+      if (SETUP_USER_MESSAGE_STYLE == 'ubb') {
          $member_stat .= "<br />" . $user_rating;
-      }
-      else {
+      } else {
          $member_stat .= ", " . $user_rating;
       }
    }
@@ -385,11 +378,11 @@ function display_message($row,&$message_icons) {
 
       $edit_az = 'edit_poll';
       // Create poll page
-      $poll_body = create_poll_body($in['forum'],$in['topic_id']);
+      $poll_body = create_poll_body($in['forum'], $in['topic_id']);
 
       $subject = $in['lang']['poll_question'] . ": " . $subject;
 
-      $message =<<<END
+      $message = <<<END
       <p class=\"dcmessage\">$message</p>
       <p>$attachment_list</p></ul>
       <table class="dcborder" cellspacing="0" cellpadding="0" align="center" 
@@ -399,9 +392,7 @@ function display_message($row,&$message_icons) {
       </table></td></tr></table>
       <p>&nbsp;&nbsp;</p>
 END;
-   }
-
-   else {
+   } else {
       $edit_az = 'edit';
       $message = "<p class=\"dcmessage\">$message</p>";
       // If signature, then we need to add it to the message
@@ -410,35 +401,35 @@ END;
          $message .= "<p>$attachment_list</p>";
    }
 
-   $left_links_array = array();
+   $left_links_array = [];
 
    // create left and right message links
    if (SETUP_AUTH_ALERT == 'yes')
-       $left_links_array[] = "<a href=\"" . DCF .
-           "?az=alert&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\">" . $in['lang']['alert'] . "</a> ";
+      $left_links_array[] = "<a href=\"" . DCF .
+          "?az=alert&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\">" . $in['lang']['alert'] . "</a> ";
 
    if (SETUP_DISPLAY_IP_ADDRESS == 'yes' or
        is_forum_moderator())
-       $left_links_array[] = "<a href=\"" . DCF .
-           "?az=view_ip&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\">" . $in['lang']['ip'] . "</a> ";
+      $left_links_array[] = "<a href=\"" . DCF .
+          "?az=view_ip&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\">" . $in['lang']['ip'] . "</a> ";
 
 
-	 // mod.2003.03.14.01
+   // mod.2003.03.14.01
    if ($row['top_id'] and is_forum_moderator()) {
-       $left_links_array[] = "<a href=\"" . DCF .
-           "?az=set_topic&saz=delete_message&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\" 
+      $left_links_array[] = "<a href=\"" . DCF .
+          "?az=set_topic&saz=delete_message&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\" 
           onclick=\"return confirm('" . $in['lang']['delete_confirm'] . "')\">" . $in['lang']['delete'] . "</a>\n";
 
-       $left_links_array[] = "<a href=\"" . DCF .
-           "?az=make_topic&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\" 
+      $left_links_array[] = "<a href=\"" . DCF .
+          "?az=make_topic&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\" 
           onclick=\"return confirm('" . $in['lang']['move_subthread_confirm'] . "')\">" .
-           $in['lang']['move_subthread'] . "</a>\n";
+          $in['lang']['move_subthread'] . "</a>\n";
    }
 
-   $left_links = implode(" | ",$left_links_array);
+   $left_links = implode(" | ", $left_links_array);
 
-   $right_links = "<a href=\"" . DCF . 
-      "?az=printer_friendly&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\">" . $in['lang']['printer_friendly'] . "</a>\n";
+   $right_links = "<a href=\"" . DCF .
+       "?az=printer_friendly&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\">" . $in['lang']['printer_friendly'] . "</a>\n";
 
    if ($row['topic_lock'] != 'on') {
 
@@ -449,18 +440,18 @@ END;
       // OR user is admin
       // OR user is this forum's moderator
       if ((SETUP_EDIT_ALLOWED == 'yes' and $in['user_info']['id'] == $row['author_id'])
-             or is_forum_moderator() ) {
+          or is_forum_moderator()) {
          $right_links .= "
-         <a href=\"" . DCF . 
-         "?az=$edit_az&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\">" . $in['lang']['edit'] . "</a> | ";
+         <a href=\"" . DCF .
+             "?az=$edit_az&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\">" . $in['lang']['edit'] . "</a> | ";
       }
 
       $right_links .= "
-         <a href=\"" . DCF . 
-         "?az=post&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\">" . $in['lang']['reply'] . "</a> |
-         <a href=\"" . DCF . 
-         "?az=post&quote=yes&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\">" . $in['lang']['reply_with_quote'] .
-         "</a>\n";
+         <a href=\"" . DCF .
+          "?az=post&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\">" . $in['lang']['reply'] . "</a> |
+         <a href=\"" . DCF .
+          "?az=post&quote=yes&forum=$in[forum]&topic_id=$in[topic_id]&mesg_id=$row[id]\">" . $in['lang']['reply_with_quote'] .
+          "</a>\n";
    }
 
    // If displaying topic, add Top link
@@ -474,8 +465,6 @@ END;
       $member_stat = '<br />';
    }
 
-
-   
 
    // Different layout style
    switch (SETUP_USER_MESSAGE_STYLE) {
@@ -508,31 +497,32 @@ END;
 //
 ////////////////////////////////////////////////////////////////////
 
-function format_message($message,$format) {
+function format_message($message, $format)
+{
 
-      switch ($format) {
+   switch ($format) {
 
-         // DCF format
-         case 0;
-            $message = myhtmlspecialchars($message);
+      // DCF format
+      case 0;
+         $message = myhtmlspecialchars($message);
 
-            $message = preg_replace("/\&l;/","[",$message);
-            $message = preg_replace("/\&r;/","]",$message);
-            break;
+         $message = preg_replace("/\&l;/", "[", $message);
+         $message = preg_replace("/\&r;/", "]", $message);
+         break;
 
-         // Plain text
-         case 1;
-            $message = htmlspecialchars($message);
-            $message = preg_replace("/\r/","",$message);
-            $message = wordwrap($message,SETUP_QUOTE_WRAP,"\n");
-            $message = "<pre class=\"dcplain\">$message</pre>";
-            break;
-
-
-      }
+      // Plain text
+      case 1;
+         $message = htmlspecialchars($message);
+         $message = preg_replace("/\r/", "", $message);
+         $message = wordwrap($message, SETUP_QUOTE_WRAP, "\n");
+         $message = "<pre class=\"dcplain\">$message</pre>";
+         break;
 
 
-      return $message;
+   }
+
+
+   return $message;
 }
 
 
@@ -541,12 +531,13 @@ function format_message($message,$format) {
 // function emotion_icon
 //
 ////////////////////////////////////////////////////////////////
-function emotion_icons($message,$emotion_icon_list) {
+function emotion_icons($message, $emotion_icon_list)
+{
 
    include(INCLUDE_DIR . "/form_info.php");
 
    $eval_string = '$icon = eval_emotion_icon($emotion_icons,"$1")';
-   $message = preg_replace("/[^(mailto:)]($emotion_icon_list|\A$emotion_icon_list)/e","$eval_string",$message);
+   $message = preg_replace("/[^(mailto:)]($emotion_icon_list|\A$emotion_icon_list)/e", "$eval_string", $message);
 
    return $message;
 
@@ -557,17 +548,18 @@ function emotion_icons($message,$emotion_icon_list) {
 // function emotion_icon_list
 //
 ////////////////////////////////////////////////////////////////
-function emotion_icon_list() {
+function emotion_icon_list()
+{
 
    // Emotion icon hash
    include(INCLUDE_DIR . "/form_info.php");
-   $emotion_icon_array = array();
-  foreach($emotion_icons as $key => $val) {
+   $emotion_icon_array = [];
+   foreach ($emotion_icons as $key => $val) {
       $emotion_icon_array[] = $key;
    }
-   $emotion_icon_list = implode('|',$emotion_icon_array);
-   $emotion_icon_list = preg_replace("/([\(\)\*\+\-\&\;])/","\ $1",$emotion_icon_list);
-   $emotion_icon_list = preg_replace("/\s+/","",$emotion_icon_list);
+   $emotion_icon_list = implode('|', $emotion_icon_array);
+   $emotion_icon_list = preg_replace("/([\(\)\*\+\-\&\;])/", "\ $1", $emotion_icon_list);
+   $emotion_icon_list = preg_replace("/\s+/", "", $emotion_icon_list);
 
    return $emotion_icon_list;
 }
@@ -578,8 +570,9 @@ function emotion_icon_list() {
 // function eval_emotion_icon
 //
 ////////////////////////////////////////////////////////////////
-function eval_emotion_icon($emotion_icons,$this_temp) {
-   return " <img src=\"" . IMAGE_URL . "/" . $emotion_icons[$this_temp] . "\" alt=\"\" />";
+function eval_emotion_icon($emotion_icons, $__this_temp)
+{
+   return " <img src=\"" . IMAGE_URL . "/" . $emotion_icons[$__this_temp] . "\" alt=\"\" />";
 }
 
 ////////////////////////////////////////////////////////////////
@@ -587,51 +580,54 @@ function eval_emotion_icon($emotion_icons,$this_temp) {
 // end_ul
 //
 ////////////////////////////////////////////////////////////////
-function end_ul($n) {
-   for ($k=0;$k<$n;$k++) {
+function end_ul($n)
+{
+   for ($k = 0; $k < $n; $k++) {
       print "</ul></p>";
    }
-}   
+}
 
 ////////////////////////////////////////////////////////////////
 //
 // insert_ul
 //
 ////////////////////////////////////////////////////////////////
-function insert_ul($p,$c) {
+function insert_ul($p, $c)
+{
    if ($p < $c) {
       print "<ul class=\"dctoc\">\n";
-   }
-   elseif ($p > $c) {
+   } else if ($p > $c) {
       $num = $p - $c;
-      for ($j=0;$j<$num;$j++) {
+      for ($j = 0; $j < $num; $j++) {
          print "</ul>\n";
       }
    }
 }
+
 ////////////////////////////////////////////////////////////////
 //
 // end_dl
 //
 ////////////////////////////////////////////////////////////////
-function end_dl($n) {
-   for ($k=0;$k<$n;$k++) {
+function end_dl($n)
+{
+   for ($k = 0; $k < $n; $k++) {
       print "</dl></p>";
    }
-}   
+}
 
 ////////////////////////////////////////////////////////////////
 //
 // insert_dl
 //
 ////////////////////////////////////////////////////////////////
-function insert_dl($p,$c) {
+function insert_dl($p, $c)
+{
    if ($p < $c) {
       print "<dl class=\"dctoc\">\n";
-   }
-   elseif ($p > $c) {
+   } else if ($p > $c) {
       $num = $p - $c;
-      for ($j=0;$j<$num;$j++) {
+      for ($j = 0; $j < $num; $j++) {
          print "</dl>\n";
       }
    }
@@ -642,32 +638,32 @@ function insert_dl($p,$c) {
 // topic_page_links
 //
 ////////////////////////////////////////////////////////////////
-function topic_page_links($num_messages,$top_id,$current_page) {
+function topic_page_links($num_messages, $top_id, $current_page)
+{
 
    global $in;
 
-   $page_links_array = array();
+   $page_links_array = [];
 
    if ($current_page < 1 and $in['az'] != 'show_topics')
       $current_page = 1;
 
    // compute total number of pages required
-   $pages = floor (($num_messages-1)/SETUP_MESSAGES_PER_PAGE) + 1;
-   
+   $pages = floor(($num_messages - 1) / SETUP_MESSAGES_PER_PAGE) + 1;
+
    $q_str = DCF . "?az=show_topic&forum=$in[forum]&topic_id=$top_id&mesg_id=$top_id&page=$in[page]";
 
    if ($pages > 1) {
 
-      for ($j=1; $j <= $pages; $j++) {
+      for ($j = 1; $j <= $pages; $j++) {
          if ($j == $current_page) {
-             $page_links_array[] = "$j";
-         }
-         else {
-             $page_links_array[] = "<a href=\"$q_str&topic_page=$j\">$j</a>";
+            $page_links_array[] = "$j";
+         } else {
+            $page_links_array[] = "<a href=\"$q_str&topic_page=$j\">$j</a>";
          }
       }
 
-      $page_links = implode(' | ',$page_links_array);
+      $page_links = implode(' | ', $page_links_array);
       $page_links = $in['lang']['pages'] . " " . $page_links;
    }
 
@@ -680,18 +676,18 @@ function topic_page_links($num_messages,$top_id,$current_page) {
 // function get_topic_icon
 //
 //////////////////////////////////////////////////////////////
-function get_topic_icon($type,$lock,$date,$replies,$topic_pin) {
+function get_topic_icon($type, $lock, $date, $replies, $topic_pin)
+{
 
-  global $topic_icons;
+   global $topic_icons;
 
    if ($type == '') {
       $image = 'reply_message.gif';
-   }
-   else {
+   } else {
       $image = $topic_icons[$type]['image'];
    }
 
-   if ($lock == 'on') 
+   if ($lock == 'on')
       $image = 'locked_' . $image;
 
    if (is_new_message($date))
@@ -712,12 +708,14 @@ function get_topic_icon($type,$lock,$date,$replies,$topic_pin) {
    return $image;
 
 }
+
 //////////////////////////////////////////////////////////////
 //
 // function is_new_message
 //
 //////////////////////////////////////////////////////////////
-function is_new_message ($date) {
+function is_new_message($date)
+{
 
    global $in;
 
@@ -728,8 +726,7 @@ function is_new_message ($date) {
       // use $in['user_info'][$in['forum']] as time stampe
       $time_diff = $date - $in['user_info']['mark'][$in['forum']];
 
-   }
-   else {
+   } else {
 
       // User is using last visited time to keep track of the time...
       $time_diff = $date - $in[DC_COOKIE][DC_TIME_STAMP];
@@ -747,7 +744,8 @@ function is_new_message ($date) {
 // function get_folder_icon
 //
 //////////////////////////////////////////////////////////////
-function get_folder_icon($forum_id,$type,$mode,$date) {
+function get_folder_icon($forum_id, $type, $mode, $date)
+{
 
    global $in;
 
@@ -755,8 +753,7 @@ function get_folder_icon($forum_id,$type,$mode,$date) {
    if ($in['user_info']['uh'] == 'yes') {
       // use $in['user_info'][$in['forum']] as time stampe
       $time_diff = $date - $in['user_info']['mark'][$forum_id];
-   }
-   else {
+   } else {
       // User is using last visited time to keep track of the time...
       $time_diff = $date - $in[DC_COOKIE][DC_TIME_STAMP];
    }
@@ -764,12 +761,11 @@ function get_folder_icon($forum_id,$type,$mode,$date) {
    // include topic type configuration info
    include(INCLUDE_DIR . "/form_info.php");
 
-   if ($type == '99' or $type =='Conference') {
+   if ($type == '99' or $type == 'Conference') {
       $image = 'conference.gif';
-   }
-   else {
+   } else {
       $image = 'folder.gif';
-      if ($mode == 'on') 
+      if ($mode == 'on')
          $image = 'locked_' . $image;
    }
 
@@ -789,7 +785,8 @@ function get_folder_icon($forum_id,$type,$mode,$date) {
 // Preview message before posting
 //
 ///////////////////////////////////////////////////////////////
-function preview_message() {
+function preview_message()
+{
 
    global $in;
 
@@ -800,18 +797,18 @@ function preview_message() {
    // trim subject and clean it for display
    $subject = trim_subject($in['subject']);
 
-   $message = format_message(clean_string($in['message']),$in['message_format']);
+   $message = format_message(clean_string($in['message']), $in['message_format']);
 
    // If smilies and message format is not plain text
    if ($in['disable_smilies'] != 1 and $in['message_format'] != 1)
-      $message = emotion_icons($message,$emotion_icon_list);
+      $message = emotion_icons($message, $emotion_icon_list);
 
 
-   begin_table(array(
-         'border'=>'0',
-         'cellspacing' => '1',
-         'cellpadding' => '5',
-         'class'=>'') );
+   begin_table([
+       'border'      => '0',
+       'cellspacing' => '1',
+       'cellpadding' => '5',
+       'class'       => '']);
    print "<tr class=\"dcdark\"><td class=\"dcheading\" 
               colspan=\"2\">" . $in['lang']['preview_your_message'] . "</td></tr>\n";
    print "<tr class=\"dcdark\"><td class=\"dclite\" 
@@ -828,7 +825,8 @@ function preview_message() {
 // function post_message
 // 
 ///////////////////////////////////////////////////////////////
-function post_message() {
+function post_message()
+{
 
    global $in;
 
@@ -836,8 +834,7 @@ function post_message() {
    if ($in['user_info']['id']) {
       $in['u_id'] = $in['user_info']['id'];
       $in['author_name'] = $in['user_info']['username'];
-   }
-   else {
+   } else {
       $in['u_id'] = 100000;
       $in['author_name'] = $in['name'];
    }
@@ -847,8 +844,8 @@ function post_message() {
    $in['parent_id'] = $in['mesg_id'] ? $in['mesg_id'] : 0;
 
    if ($in['parent_id']) {
-      update_topic_info($in['forum_table'],$in['forum_mode'],
-                      $in['parent_id'],$in['top_id'],$in['author_name']);
+      update_topic_info($in['forum_table'], $in['forum_mode'],
+          $in['parent_id'], $in['top_id'], $in['author_name']);
    }
 
    // add new message to the table
@@ -857,15 +854,14 @@ function post_message() {
    $mesg_id = add_new_message();
 
    $topic_id = $in['topic_id'] > 0 ? $in['topic_id'] : $mesg_id;
- 
+
    // Now, see if this user want to be off the subscription list
 
    if ($in['user_info']['id'] and SETUP_EMAIL_NOTIFICATION == 'yes') {
       if ($in['subscribe']) {
-         subscribe_to_topic($in['forum'],$in['user_info']['id'],$topic_id);
-      }
-      elseif ($in['unsubscribe']) {
-         unsubscribe_to_topic($in['forum'],$in['user_info']['id'],$topic_id);
+         subscribe_to_topic($in['forum'], $in['user_info']['id'], $topic_id);
+      } else if ($in['unsubscribe']) {
+         unsubscribe_to_topic($in['forum'], $in['user_info']['id'], $topic_id);
       }
    }
 
@@ -879,7 +875,8 @@ function post_message() {
 // generate message post form
 //
 ///////////////////////////////////////////////////////////
-function post_form() {
+function post_form()
+{
 
    global $in;
 
@@ -896,10 +893,9 @@ function post_form() {
 
    // See if this is a topic OR a message
    if ($in['az'] == 'edit') {
-            if ($in['mesg_id'] == $in['topic_id'])
-               $is_a_topic = 1;
-   }
-   else {
+      if ($in['mesg_id'] == $in['topic_id'])
+         $is_a_topic = 1;
+   } else {
       if ($in['mesg_id'] == '')
          $is_a_topic = 1;
 
@@ -911,27 +907,27 @@ function post_form() {
 
    }
 
-   if (! $is_a_topic and $in['preview'] == ''  and SETUP_SHOW_ORIG_MESG == 'yes') {
+   if (!$is_a_topic and $in['preview'] == '' and SETUP_SHOW_ORIG_MESG == 'yes') {
 
-   // If smilies and message format is not plain text
+      // If smilies and message format is not plain text
 
 
       // Format message
       // Data is also cleaned here as well...
       //     $message = htmlspecialchars($in['message']);
-      $message = format_message($in['message'],$in['message_format']);
+      $message = format_message($in['message'], $in['message_format']);
 
 
       // Prepare emotion_icon_list
       $in['emotion_icon_list'] = emotion_icon_list();
       if ($in['disable_smilies'] != 1 and $in['message_format'] != 1)
-         $message = emotion_icons($message,$in['emotion_icon_list']);
+         $message = emotion_icons($message, $in['emotion_icon_list']);
 
-      begin_table(array(
-            'border'=>'0',
-            'cellspacing' => '1',
-            'cellpadding' => '5',
-            'class'=>'') );      
+      begin_table([
+          'border'      => '0',
+          'cellspacing' => '1',
+          'cellpadding' => '5',
+          'class'       => '']);
 
       print "<tr class=\"dcdark\"><td class=\"dcheading\" 
               colspan=\"2\">" . $in['lang']['orig_message'] . "</td></tr>\n";
@@ -949,174 +945,163 @@ function post_form() {
    // Reply with quot         
    if ($in['quote']) {
       $in['message'] = quote_message($in['message']);
-   }
-   elseif ($in['preview']) {
+   } else if ($in['preview']) {
       // do nothing
-   }
-   elseif ($in['error']) {
+   } else if ($in['error']) {
       // do nothing
-   }
-   elseif ($in['az'] != 'edit') {
+   } else if ($in['az'] != 'edit') {
       $in['message'] = '';
    }
 
 
+   begin_table([
+       'border'      => '0',
+       'cellspacing' => '1',
+       'cellpadding' => '5',
+       'class'       => '']);
 
-   begin_table(array(
-         'border'=>'0',
-         'cellspacing' => '1',
-         'cellpadding' => '5',
-         'class'=>'') );      
-
-      print "<tr class=\"dcdark\"><td class=\"dcheading\" 
+   print "<tr class=\"dcdark\"><td class=\"dcheading\" 
               colspan=\"2\">" . $in['lang']['your_message'] . "</td></tr>\n";
 
-      if ($in['user_info']['id'] == '')  {
-	// mod.2003.03.03.01
-         $name = $in['name'] ? $in['name'] : $in[DC_COOKIE][DC_GUEST_NAME];
-         $name = htmlspecialchars($name);
-         $form = form_element("guest_name","text","60",$name,"$tab_index");
-              print "<tr class=\"dcdark\"><th class=\"dcright\">" . $in['lang']['name'] . "</th><td
+   if ($in['user_info']['id'] == '') {
+      // mod.2003.03.03.01
+      $name = $in['name'] ? $in['name'] : $in[DC_COOKIE][DC_GUEST_NAME];
+      $name = htmlspecialchars($name);
+      $form = form_element("guest_name", "text", "60", $name, "$tab_index");
+      print "<tr class=\"dcdark\"><th class=\"dcright\">" . $in['lang']['name'] . "</th><td
               class=\"dcleft\" width=\"100%\">$form</td></tr>\n";
+   }
+
+   $tab_index++;
+
+   // If show topic icons
+   if ($is_a_topic) {
+      $topic_form_fields = [];
+      foreach ($topic_icons as $key => $val) {
+         $topic_icon_id = $key;
+         if ($topic_icon_id != 1) {
+            $desc = $topic_icons[$key]['desc'];
+            $icon = $topic_icons[$key]['image'];
+            $topic_form_fields[$key] = "<img src=\"" .
+                IMAGE_URL . "/new_$icon\" alt=\"\" /> 
+                     $desc&nbsp;&nbsp;&nbsp;&nbsp;";
+         }
       }
+
+      $form = form_element("type", "radio_plus",
+          $topic_form_fields, $in['type'], "$tab_index");
 
       $tab_index++;
 
-      // If show topic icons
-      if ($is_a_topic) {
-            $topic_form_fields = array();
-           foreach($topic_icons as $key => $val) {
-               $topic_icon_id = $key;
-               if ($topic_icon_id != 1) {
-                     $desc = $topic_icons[$key]['desc'];
-                     $icon = $topic_icons[$key]['image'];
-                     $topic_form_fields[$key]= "<img src=\"" . 
-                     IMAGE_URL . "/new_$icon\" alt=\"\" /> 
-                     $desc&nbsp;&nbsp;&nbsp;&nbsp;";
-               }
-            }
-
-            $form = form_element("type","radio_plus",
-                    $topic_form_fields,$in['type'],"$tab_index");
-
-	    $tab_index++;
-
-            print "<tr class=\"dcdark\"><th class=\"dcright\">" . $in['lang']['topic_type'] . "</th><td
+      print "<tr class=\"dcdark\"><th class=\"dcright\">" . $in['lang']['topic_type'] . "</th><td
                   class=\"dcleft\">$form</t></tr>\n";
 
-      }
+   }
 
-      // If this is a topic, display PIN option
-      // Only for the administrator and moderator
-      if ($is_a_topic and is_forum_moderator()) {
-               $checked = $in['topic_pin'] ? 'checked' : '';
-               print "<tr class=\"dcdark\"><th class=\"dcright\">" . $in['lang']['pin_topic'] . "</th><td
+   // If this is a topic, display PIN option
+   // Only for the administrator and moderator
+   if ($is_a_topic and is_forum_moderator()) {
+      $checked = $in['topic_pin'] ? 'checked' : '';
+      print "<tr class=\"dcdark\"><th class=\"dcright\">" . $in['lang']['pin_topic'] . "</th><td
                      class=\"dcleft\"><input type=\"checkbox\" 
                      name=\"topic_pin\" value=\"1\" $checked tabindex=\"$tab_index\" />" .
-                     $in['lang']['check_to_pin'] . "</td></tr>\n";
-	       $tab_index++;
-      }
-      elseif ($is_a_topic and $in['topic_pin']) {
-         print form_element("topic_pin","hidden",$in['topic_pin'],"");
-      }
-
-      if ($in['az'] != 'post') 
-         $checked = $in['message_format'] ? 'checked' : '';
-
-      print "<tr class=\"dcdark\"><th class=\"dcright\">" . 
-              $in['lang']['message_format'] ."</th><td
-              class=\"dcleft\"><input type=\"checkbox\"
-              name=\"message_format\" value=\"1\" $checked tabindex=\"$tab_index\" />" . 
-              $in['lang']['check_plain'] . "</td></tr>\n";
-
+          $in['lang']['check_to_pin'] . "</td></tr>\n";
       $tab_index++;
+   } else if ($is_a_topic and $in['topic_pin']) {
+      print form_element("topic_pin", "hidden", $in['topic_pin'], "");
+   }
 
-      $form = form_element("subject","text","60",$in['subject'],"$tab_index");
-              print "<tr class=\"dcdark\"><th class=\"dcright\">" . 
-                 $in['lang']['subject'] . "</th><td
+   if ($in['az'] != 'post')
+      $checked = $in['message_format'] ? 'checked' : '';
+
+   print "<tr class=\"dcdark\"><th class=\"dcright\">" .
+       $in['lang']['message_format'] . "</th><td
+              class=\"dcleft\"><input type=\"checkbox\"
+              name=\"message_format\" value=\"1\" $checked tabindex=\"$tab_index\" />" .
+       $in['lang']['check_plain'] . "</td></tr>\n";
+
+   $tab_index++;
+
+   $form = form_element("subject", "text", "60", $in['subject'], "$tab_index");
+   print "<tr class=\"dcdark\"><th class=\"dcright\">" .
+       $in['lang']['subject'] . "</th><td
                  class=\"dcleft\" width=\"100%\">$form</td></tr>\n";
-	      $tab_index++;
+   $tab_index++;
 
-      // clean up $in['message']
-      // For some reason, \r is placed in the text string...no idea why
-      $in['message'] = preg_replace('/\r/','',$in['message']);
+   // clean up $in['message']
+   // For some reason, \r is placed in the text string...no idea why
+   $in['message'] = preg_replace('/\r/', '', $in['message']);
 
-      if ($signature)
-         $in['message'] .= "\n\n$signature";
-      
-      if (SETUP_HTML_ALLOWED == 'yes') {
+   if ($signature)
+      $in['message'] .= "\n\n$signature";
 
-	//         $message_note = "<p class=\"dcemp\">" . $in['lang']['html_enabled'] . "</p>";
-          $message_note = "<p class=\"dcemp\">" . $in['lang']['html_enabled'] .                       "<br /><a href=\"javascript:makeRemote('" . DCF . "?az=html_reference')\">" . 
-                       $in['lang']['html_reference'] . "</a></p>";
-      }
-      else {
-         $message_note = "<p class=\"dcemp\">" . $in['lang']['html_disabled'] ."</p>";
-      }
+   if (SETUP_HTML_ALLOWED == 'yes') {
 
+      //         $message_note = "<p class=\"dcemp\">" . $in['lang']['html_enabled'] . "</p>";
+      $message_note = "<p class=\"dcemp\">" . $in['lang']['html_enabled'] . "<br /><a href=\"javascript:makeRemote('" . DCF . "?az=html_reference')\">" .
+          $in['lang']['html_reference'] . "</a></p>";
+   } else {
+      $message_note = "<p class=\"dcemp\">" . $in['lang']['html_disabled'] . "</p>";
+   }
 
 
+   if (SETUP_USE_GRAPHIC_EMOTICONS == 'yes') {
 
-      if (SETUP_USE_GRAPHIC_EMOTICONS == 'yes') {
+      $message_note .= "<p class=\"dcemp\">" . $in['lang']['smilies_on'] . " <br />";
 
-         $message_note .= "<p class=\"dcemp\">" . $in['lang']['smilies_on'] . " <br />";
-
-         if (SETUP_SHOW_EMOTICONS_ON_FORMS == 'yes') {
-            $message_note .=  $in['lang']['smilies_on_desc'] . "<br />";
-            $message_note .= smilie_table();
-         }
-         else {
-            $message_note .= "<a href=\"javascript:makeRemote('" . DCF . 
-            "?az=emotion_table')\">" .  $in['lang']['smilies_lookup'] . "</a>";
-         }
-
-            print "</p>";
-
-      }
-      else {
-         $message_note .= "<p class=\"dcemp\">" . $in['lang']['smilies_off'] . "</p>";
+      if (SETUP_SHOW_EMOTICONS_ON_FORMS == 'yes') {
+         $message_note .= $in['lang']['smilies_on_desc'] . "<br />";
+         $message_note .= smilie_table();
+      } else {
+         $message_note .= "<a href=\"javascript:makeRemote('" . DCF .
+             "?az=emotion_table')\">" . $in['lang']['smilies_lookup'] . "</a>";
       }
 
-      $form = form_element("message","textarea",
-              array(SETUP_TEXTAREA_ROWS,SETUP_TEXTAREA_COLS),$in['message'],"$tab_index");
-              print "<tr class=\"dcdark\"><th class=\"dcright\"
+      print "</p>";
+
+   } else {
+      $message_note .= "<p class=\"dcemp\">" . $in['lang']['smilies_off'] . "</p>";
+   }
+
+   $form = form_element("message", "textarea",
+       [SETUP_TEXTAREA_ROWS, SETUP_TEXTAREA_COLS], $in['message'], "$tab_index");
+   print "<tr class=\"dcdark\"><th class=\"dcright\"
                      nowrap=\"nowrap\">" . $in['lang']['message'] . "<br />$message_note</th><td
               class=\"dcleft\">$form</td></tr>\n";
-	      $tab_index++;
+   $tab_index++;
 
 
-      if (SETUP_FILE_UPLOAD == 'yes' and ! is_guest($in['user_info']['id']))  {
-         $form = form_element("attachments","text","60",$in['attachments'],"$tab_index");
+   if (SETUP_FILE_UPLOAD == 'yes' and !is_guest($in['user_info']['id'])) {
+      $form = form_element("attachments", "text", "60", $in['attachments'], "$tab_index");
 
-         // We need to determine whether to pass mesg_id or not
-         $this_mesg_id = '';
-         if ($in['az'] == 'edit')
-	   $this_mesg_id = $in['mesg_id'];
+      // We need to determine whether to pass mesg_id or not
+      $__this_mesg_id = '';
+      if ($in['az'] == 'edit')
+         $__this_mesg_id = $in['mesg_id'];
 
-              print "<tr class=\"dcdark\"><th class=\"dcright\">" . $in['lang']['attachment'] . "</th><td
+      print "<tr class=\"dcdark\"><th class=\"dcright\">" . $in['lang']['attachment'] . "</th><td
                  class=\"dcleft\">$form<br />
-                 <a href=\"javascript:makeRemote('" . DCF . 
-                 "?az=upload_files&forum=$in[forum]&mesg_id=$this_mesg_id')\">" . $in['lang']['click_to_choose_file'] . "</a>";
+                 <a href=\"javascript:makeRemote('" . DCF .
+          "?az=upload_files&forum=$in[forum]&mesg_id=$__this_mesg_id')\">" . $in['lang']['click_to_choose_file'] . "</a>";
 
-	      if ($in['az'] == 'edit' and $in['attachments'])
-                 print "<br /><a href=\"javascript:makeRemote('" . DCF . 
-                          "?az=upload_files&saz=delete_select&forum=$in[forum]&mesg_id=$this_mesg_id')\">" .
-                          $in['lang']['click_to_delete_file'] . "</a>";
+      if ($in['az'] == 'edit' and $in['attachments'])
+         print "<br /><a href=\"javascript:makeRemote('" . DCF .
+             "?az=upload_files&saz=delete_select&forum=$in[forum]&mesg_id=$__this_mesg_id')\">" .
+             $in['lang']['click_to_delete_file'] . "</a>";
 
-         print "</td></tr>\n";
+      print "</td></tr>\n";
 
-	 $tab_index++;
-      }
+      $tab_index++;
+   }
 
    // If user is registeres with a signature file
    // Give user the option to not put signature in post   
 
-   if (($in['user_info']['id'] != '') and ($in['user_info']['uj'] != 'yes'))  {    
+   if (($in['user_info']['id'] != '') and ($in['user_info']['uj'] != 'yes')) {
       $user_info = get_user_info($in['user_info']['id']);
       if ($user_info['pk'] != '') {
          $signature_box = 1;
-      }
-      else {
+      } else {
          $signature_box = 0;
       }
    }
@@ -1126,14 +1111,13 @@ function post_form() {
       print "<tr class=\"dcdark\"><th class=\"dcright\">";
 
       if ($in['add_signature'] or !$in['preview']) {
-			print "<input type=\"checkbox\" 
+         print "<input type=\"checkbox\" 
            name=\"add_signature\" value=\"1\" checked=\"checked\" tabindex=\"$tab_index\" />";
-			$tab_index++;
-      }
-      else {
-                   print "<input type=\"checkbox\" name=\"add_signature\" value=\"1\" 
+         $tab_index++;
+      } else {
+         print "<input type=\"checkbox\" name=\"add_signature\" value=\"1\" 
                       tabindex=\"$tab_index\" />";
-		   $tab_index++;
+         $tab_index++;
       }
 
       print "</th><td class=\"dcleft\">" . $in['lang']['check_signature'] . "</td></tr>\n";
@@ -1141,62 +1125,60 @@ function post_form() {
    }
 
 
-      $checked = $in['disable_smilies'] == 1 ? 'checked' : '';
+   $checked = $in['disable_smilies'] == 1 ? 'checked' : '';
 
-      print "<tr class=\"dcdark\"><th class=\"dcright\"><input
+   print "<tr class=\"dcdark\"><th class=\"dcright\"><input
               type=\"checkbox\" name=\"disable_smilies\" value=\"1\" 
 $checked tabindex=\"$tab_index\" /></th><td
               class=\"dcleft\">" . $in['lang']['no_emotion_icons'] . "</td></tr>\n";
-      $tab_index++;
+   $tab_index++;
 
-      if (! is_guest($in['user_info']['id']) and SETUP_EMAIL_NOTIFICATION == 'yes')  {
-         if ( is_subscribed($in['forum'],$in['user_info']['id'],$in['topic_id']) ) {
-              $checked = $in['unsubscribe'] ? ' checked' : '';
-              print "<tr class=\"dcdark\"><th class=\"dcright\"><input
+   if (!is_guest($in['user_info']['id']) and SETUP_EMAIL_NOTIFICATION == 'yes') {
+      if (is_subscribed($in['forum'], $in['user_info']['id'], $in['topic_id'])) {
+         $checked = $in['unsubscribe'] ? ' checked' : '';
+         print "<tr class=\"dcdark\"><th class=\"dcright\"><input
               type=\"checkbox\" name=\"unsubscribe\" value=\"1\" $checked tabindex=\"$tab_index\" /></th><td
               class=\"dcleft\">" . $in['lang']['pf_topic_unsubscribe'] . "</td></tr>\n";
-	      $tab_index++;
-         }
-         else {
-              $checked = $in['subscribe'] ? ' checked' : '';
-              print "<tr class=\"dcdark\"><th class=\"dcright\"><input
+         $tab_index++;
+      } else {
+         $checked = $in['subscribe'] ? ' checked' : '';
+         print "<tr class=\"dcdark\"><th class=\"dcright\"><input
               type=\"checkbox\" name=\"subscribe\" value=\"1\"$checked tabindex=\"$tab_index\" /></th><td
               class=\"dcleft\">" . $in['lang']['pf_topic_subscribe'] . "</td></tr>\n";
-	      $tab_index++;
-         }
+         $tab_index++;
       }
+   }
 
-      if ($in['az'] == 'edit') {
-         $button_val = $in['lang']['update_message'];
-      }
-      else {
-         $button_val = $in['lang']['post_message'];
-      }
+   if ($in['az'] == 'edit') {
+      $button_val = $in['lang']['update_message'];
+   } else {
+      $button_val = $in['lang']['post_message'];
+   }
 
-      print "<tr><th class=\"dcdark\"> &nbsp;&nbsp;
+   print "<tr><th class=\"dcdark\"> &nbsp;&nbsp;
              </th><td class=\"dcdark\"> <input type=\"submit\"
              name=\"$in[az]\" value=\"$button_val\" tabindex=\"$tab_index\" /> <input type=\"submit\"
              name=\"preview\" value=\"" . $in['lang']['preview_message'] . "\" tabindex=\"\" />
              </td></tr>\n";
 
-      end_table();
+   end_table();
 
    // various hidden tags
-   print form_element("az","hidden",$in['az'],"");
+   print form_element("az", "hidden", $in['az'], "");
 
-   print form_element("forum","hidden",$in['forum'],"");
+   print form_element("forum", "hidden", $in['forum'], "");
 
    if ($in['topic_id'])
-         print form_element("topic_id","hidden",$in['topic_id'],"");
+      print form_element("topic_id", "hidden", $in['topic_id'], "");
 
    if ($in['mesg_id'])
-         print form_element("mesg_id","hidden",$in['mesg_id'],"");
+      print form_element("mesg_id", "hidden", $in['mesg_id'], "");
 
    if ($in['post_id'])
-         print form_element("post_id","hidden",$in['post_id'],"");
-         
+      print form_element("post_id", "hidden", $in['post_id'], "");
 
-      end_form();
+
+   end_form();
 
 }
 
@@ -1206,22 +1188,23 @@ $checked tabindex=\"$tab_index\" /></th><td
 //
 //////////////////////////////////////////////////////////
 
-function set_post_form_cookie($forum,$topic,$mesg) {
+function set_post_form_cookie($forum, $topic, $mesg)
+{
 
-      $post_id = generate_session_id();
+   $post_id = generate_session_id();
 
-      $post_cookie = array(
-         'post_id' => $post_id,
-         'forum_id' => $forum,
-         'topic_id' => $topic,
-         'mesg_id' => $mesg,
-         'remote_ip' => $_SERVER['REMOTE_ADDR'] );
+   $post_cookie = [
+       'post_id'   => $post_id,
+       'forum_id'  => $forum,
+       'topic_id'  => $topic,
+       'mesg_id'   => $mesg,
+       'remote_ip' => $_SERVER['REMOTE_ADDR']];
 
-      $post_cookie_str = zip_cookie($post_cookie);
+   $post_cookie_str = zip_cookie($post_cookie);
 
-      my_setcookie(DC_POST_COOKIE,$post_cookie_str);
+   my_setcookie(DC_POST_COOKIE, $post_cookie_str);
 
-      return $post_id;
+   return $post_id;
 
 }
 
@@ -1231,25 +1214,22 @@ function set_post_form_cookie($forum,$topic,$mesg) {
 //
 /////////////////////////////////////////////////////////
 
-function is_valid_post($cookie,$post_id,$forum_id,$topic_id,$mesg_id) {
+function is_valid_post($cookie, $post_id, $forum_id, $topic_id, $mesg_id)
+{
 
 
    $post_cookie = unzip_cookie($cookie);
 
    if ($post_id and $post_id != $post_cookie['post_id']) {
       return 0;
-   }
-   elseif ($forum_id and  $forum_id != $post_cookie['forum_id']) {
+   } else if ($forum_id and $forum_id != $post_cookie['forum_id']) {
       return 0;
-   }
-   elseif ($topic_id and $topic_id != $post_cookie['topic_id']) {
+   } else if ($topic_id and $topic_id != $post_cookie['topic_id']) {
       return 0;
-   }
-   elseif ($mesg_id and $mesg_id != $post_cookie['mesg_id']) {
+   } else if ($mesg_id and $mesg_id != $post_cookie['mesg_id']) {
       return 0;
-   }
-   else {
-      my_setcookie(DC_POST_COOKIE,'');
+   } else {
+      my_setcookie(DC_POST_COOKIE, '');
       return 1;
    }
 
@@ -1261,7 +1241,8 @@ function is_valid_post($cookie,$post_id,$forum_id,$topic_id,$mesg_id) {
 // function get_pn_index
 //
 /////////////////////////////////////////////////////////
-function get_pn_index($forum_table,$days,$topic_id,$order_by,$type) {
+function get_pn_index($forum_table, $days, $topic_id, $order_by, $type)
+{
 
    global $in;
 
@@ -1272,8 +1253,7 @@ function get_pn_index($forum_table,$days,$topic_id,$order_by,$type) {
        or $order_by == 'views'
        or $order_by == 'rating') {
       $order_by .= " DESC";
-   }
-   else {
+   } else {
       $order_by .= " ASC";
    }
 
@@ -1283,8 +1263,7 @@ function get_pn_index($forum_table,$days,$topic_id,$order_by,$type) {
               FROM   " . DB_SEARCH_CACHE . "
              WHERE   session_id = '$session_id'
           ORDER BY forum_id, last_date DESC ";
-   }
-   else {
+   } else {
       // First get the list of all top level records
       $q = "   SELECT    id
                  FROM    $forum_table
@@ -1298,45 +1277,40 @@ function get_pn_index($forum_table,$days,$topic_id,$order_by,$type) {
 
    $result = db_query($q);
 
-   while($row = db_fetch_array($result)) {
+   while ($row = db_fetch_array($result)) {
       if ($type == 'search') {
          if ($next) {
             $next_topic_id = $row['topic_id'];
             $next_forum_id = $row['forum_id'];
             $next = 0;
-         }
-         elseif ($row['topic_id'] == $topic_id) {
+         } else if ($row['topic_id'] == $topic_id) {
             $next = 1;
          }
 
          if ($row['topic_id'] == $topic_id) {
             $previous_topic_id = $previous;
             $previous_forum_id = $previous_forum;
-         }
-         else {
-             $previous = $row['topic_id'];
-             $previous_forum = $row['forum_id'];
+         } else {
+            $previous = $row['topic_id'];
+            $previous_forum = $row['forum_id'];
          }
 
          if ($next_topic_id) {
             break;
          }
 
-      }
-      else {
+      } else {
          if ($next) {
             $next_topic_id = $row['id'];
             $next = 0;
-         }
-         elseif ($row['id'] == $topic_id) {
+         } else if ($row['id'] == $topic_id) {
             $next = 1;
          }
 
          if ($row['id'] == $topic_id) {
             $previous_topic_id = $previous;
-         }
-         else {
-             $previous = $row['id'];
+         } else {
+            $previous = $row['id'];
          }
 
          if ($next_topic_id) {
@@ -1347,7 +1321,7 @@ function get_pn_index($forum_table,$days,$topic_id,$order_by,$type) {
 
    db_free($result);
 
-   return array($previous_topic_id, $next_topic_id, $previous_forum_id,$next_forum_id);
+   return [$previous_topic_id, $next_topic_id, $previous_forum_id, $next_forum_id];
 
 }
 
@@ -1356,14 +1330,15 @@ function get_pn_index($forum_table,$days,$topic_id,$order_by,$type) {
 // function pn_link
 //
 /////////////////////////////////////////////////////////
-function pn_link($az,$forum,$days,$topic_id,$order_by,$type) {
+function pn_link($az, $forum, $days, $topic_id, $order_by, $type)
+{
 
    global $in;
 
    $forum_table = mesg_table_name($forum);
 
-   $pn_array = get_pn_index($forum_table,$days,
-           $topic_id,$order_by,$type);
+   $pn_array = get_pn_index($forum_table, $days,
+       $topic_id, $order_by, $type);
 
    $previous_topic = $pn_array['0'];
    $next_topic = $pn_array['1'];
@@ -1371,43 +1346,38 @@ function pn_link($az,$forum,$days,$topic_id,$order_by,$type) {
    if ($type == 'search') {
       $previous_forum = $pn_array['2'];
       $next_forum = $pn_array['3'];
-   }
-   else {
+   } else {
       $previous_forum = $forum;
       $next_forum = $forum;
    }
    if ($type == 'search') {
       $desc = " match";
-      $pn_link = "<a href=\"" . DCF . 
-            "?az=search&hits_per_page=25&page=1\">" . $in['lang']['search_result_set'] . "</a> | ";
-   }
-   elseif ($type == 'read_new') {
+      $pn_link = "<a href=\"" . DCF .
+          "?az=search&hits_per_page=25&page=1\">" . $in['lang']['search_result_set'] . "</a> | ";
+   } else if ($type == 'read_new') {
       $desc = " match";
-      $pn_link = "<a href=\"" . DCF . 
-            "?az=read_new&page=1\">" . $in['lang']['search_result_set'] . "</a> | ";
-   }
-   else {
+      $pn_link = "<a href=\"" . DCF .
+          "?az=read_new&page=1\">" . $in['lang']['search_result_set'] . "</a> | ";
+   } else {
       $desc = " " . $in['lang']['topic'];
    }
 
    if ($previous_topic) {
-         $pn_link .= " <a href=\"" . DCF . 
-            "?az=$az&forum=$previous_forum&topic_id=$previous_topic&mesg_id=$previous_topic&listing_type=$type&page=$in[page]\">" .
-            $in['lang']['previous'] . " $desc</a> | ";
-   }
-   else {
+      $pn_link .= " <a href=\"" . DCF .
+          "?az=$az&forum=$previous_forum&topic_id=$previous_topic&mesg_id=$previous_topic&listing_type=$type&page=$in[page]\">" .
+          $in['lang']['previous'] . " $desc</a> | ";
+   } else {
       $pn_link .= $in['lang']['first'] . " $desc | ";
    }
 
    if ($next_topic) {
-      $pn_link .=  " <a href=\"" . DCF . 
-         "?az=$az&forum=$next_forum&topic_id=$next_topic&mesg_id=$next_topic&listing_type=$type&page=$in[page]\">" . 
-         $in['lang']['next'] . " $desc</a>\n";
-   }
-   else {
+      $pn_link .= " <a href=\"" . DCF .
+          "?az=$az&forum=$next_forum&topic_id=$next_topic&mesg_id=$next_topic&listing_type=$type&page=$in[page]\">" .
+          $in['lang']['next'] . " $desc</a>\n";
+   } else {
       $pn_link .= $in['lang']['last'] . " $desc";
    }
-   
+
    return $pn_link;
 
 }
@@ -1418,14 +1388,15 @@ function pn_link($az,$forum,$days,$topic_id,$order_by,$type) {
 // function create_poll_body
 //
 ////////////////////////////////////////////////////////////////
-function create_poll_body($forum_id,$topic_id) {
+function create_poll_body($forum_id, $topic_id)
+{
 
-  global $in;
+   global $in;
 
    include(INCLUDE_DIR . "/form_info.php");
 
    // array to hold poll result for creating body
-   $poll_result = array();
+   $poll_result = [];
 
 
    // Pull off poll choices from poll db
@@ -1441,11 +1412,11 @@ function create_poll_body($forum_id,$topic_id) {
    $poll_id = $row['id'];
 
    // list poll answers
-  foreach($poll_choice as $key => $val) {
+   foreach ($poll_choice as $key => $val) {
       if ($row[$key]) {
-         $temp = explode('_',$key);
-         $this_id = $temp['1'];
-         $poll_result[$this_id]['answer'] = $row[$key];
+         $temp = explode('_', $key);
+         $__this_id = $temp['1'];
+         $poll_result[$__this_id]['answer'] = $row[$key];
       }
    }
    // reset $poll_choice array
@@ -1465,7 +1436,7 @@ function create_poll_body($forum_id,$topic_id) {
    $max_count = 0;
    $total_count = 0;
 
-   while($row = db_fetch_array($result)) {
+   while ($row = db_fetch_array($result)) {
       $choice = $row['vote'];
       $count = $row['count_vote'];
       $total_count += $count;
@@ -1479,33 +1450,33 @@ function create_poll_body($forum_id,$topic_id) {
    // start $poll_body
    $poll_body = "<tr class=\"dcdark\">
            <td class=\"dcdark\" colspan=\"3\">" . $in['lang']['poll_result'] . " ($total_count " .
-           $in['lang']['votes'] . ")</td></tr>";
+       $in['lang']['votes'] . ")</td></tr>";
 
-   $full_size = $max_count > 1 ? 400 * $total_count / $max_count : 400 ;
+   $full_size = $max_count > 1 ? 400 * $total_count / $max_count : 400;
 
-  foreach($poll_choice as $key => $val) {
+   foreach ($poll_choice as $key => $val) {
 
-      $temp = explode('_',$key);
-      $this_id = $temp['1'];
+      $temp = explode('_', $key);
+      $__this_id = $temp['1'];
 
-      if (!$poll_result[$this_id]['count'])
-           $poll_result[$this_id]['count'] = 0;
+      if (!$poll_result[$__this_id]['count'])
+         $poll_result[$__this_id]['count'] = 0;
 
-      if ($poll_result[$this_id]['answer']) {
+      if ($poll_result[$__this_id]['answer']) {
 
          $poll_bar = '';
-         if ($poll_result[$this_id]['count'] > 0) {
-            $bar_size = $full_size * $poll_result[$this_id]['count'] / $total_count;
+         if ($poll_result[$__this_id]['count'] > 0) {
+            $bar_size = $full_size * $poll_result[$__this_id]['count'] / $total_count;
             $poll_bar = "<img src=\"" . IMAGE_URL . "/" . $key . ".gif\" 
                height=\"10\" width=\"$bar_size\" alt=\"\" />";
          }
 
          $poll_body .= "<tr class=\"dclite\"><td 
-            class=\"dclite\">" . $poll_result[$this_id]['answer'] . "</td><td
-            class=\"dclite\"> $poll_bar (" . $poll_result[$this_id]['count'] . 
-            " votes)</td><td
-            class=\"dclite\"><a href=\"" . DCF 
-         . "?az=poll_vote&poll_id=$poll_id&choice=$this_id&";
+            class=\"dclite\">" . $poll_result[$__this_id]['answer'] . "</td><td
+            class=\"dclite\"> $poll_bar (" . $poll_result[$__this_id]['count'] .
+             " votes)</td><td
+            class=\"dclite\"><a href=\"" . DCF
+             . "?az=poll_vote&poll_id=$poll_id&choice=$__this_id&";
          $poll_body .= "forum=$forum_id&topic_id=$topic_id\">" . ucfirst($in['lang']['vote']) . "</a></td></tr>";
 
       }
@@ -1521,7 +1492,8 @@ function create_poll_body($forum_id,$topic_id) {
 //
 ///////////////////////////////////////////////////////////
 
-function poll_form() {
+function poll_form()
+{
 
    global $in;
 
@@ -1530,146 +1502,143 @@ function poll_form() {
    begin_form(DCF);
 
 
-  // See if the user wants the signature as part of the editing text box
-  if ($in['az'] == 'post_poll' and $in['user_info']['uj'] == 'yes') {
-         $signature = $in['user_info']['pk'];
-  }
+   // See if the user wants the signature as part of the editing text box
+   if ($in['az'] == 'post_poll' and $in['user_info']['uj'] == 'yes') {
+      $signature = $in['user_info']['pk'];
+   }
 
 
-  // mod.2002.11.06.03
-  // escape stuff
-   $fields = array('name','subject','choice_1','choice_2','choice_3','choice_4','choice_5','choice_6','message');
+   // mod.2002.11.06.03
+   // escape stuff
+   $fields = ['name', 'subject', 'choice_1', 'choice_2', 'choice_3', 'choice_4', 'choice_5', 'choice_6', 'message'];
    foreach ($fields as $field) {
       if ($in[$field])
          $in[$field] = htmlspecialchars($in[$field]);
-   }      
+   }
 
-   begin_table(array(
-         'border'=>'0',
-         'cellspacing' => '1',
-         'cellpadding' => '5',
-         'class'=>'') );      
+   begin_table([
+       'border'      => '0',
+       'cellspacing' => '1',
+       'cellpadding' => '5',
+       'class'       => '']);
 
    print "<tr class=\"dcdark\"><td class=\"dcheading\" 
               colspan=\"2\">" . $in['lang']['poll_form_header'] . "</td></tr>\n";
 
-      // mod.2002.11.06.03
-      // poll form bug
-      if ($in['user_info']['id'] == '')  {
-         $name = $in['name'] ? $in['name'] : $in[DC_COOKIE][DC_GUEST_NAME];
-         $form = form_element("name","text","60",$name);
-              print "<tr class=\"dcdark\"><th class=\"dcright\">" . $in['lang']['name'] . "</td><td
+   // mod.2002.11.06.03
+   // poll form bug
+   if ($in['user_info']['id'] == '') {
+      $name = $in['name'] ? $in['name'] : $in[DC_COOKIE][DC_GUEST_NAME];
+      $form = form_element("name", "text", "60", $name);
+      print "<tr class=\"dcdark\"><th class=\"dcright\">" . $in['lang']['name'] . "</td><td
               class=\"dcleft\" width=\"100%\">$form</td></tr>\n";
-      }
+   }
 
 
-   $form = form_element("subject","textarea",array("4","60"),$in['subject']);
-              print "<tr class=\"dcdark\"><th class=\"dcdark\">" . $in['lang']['poll_question'] . "</td><td
+   $form = form_element("subject", "textarea", ["4", "60"], $in['subject']);
+   print "<tr class=\"dcdark\"><th class=\"dcdark\">" . $in['lang']['poll_question'] . "</td><td
               class=\"dcdark\" width=\"100%\">$form</td></tr>\n";
 
-     foreach($poll_choice as $key => $val) {
-         $form = form_element("$key","text","60",$in[$key]);
-              print "<tr class=\"dcdark\"><th class=\"dcdark\">$val</td><td
+   foreach ($poll_choice as $key => $val) {
+      $form = form_element("$key", "text", "60", $in[$key]);
+      print "<tr class=\"dcdark\"><th class=\"dcdark\">$val</td><td
               class=\"dcdark\" width=\"100%\">$form</td></tr>\n";
-      }
+   }
 
-     if (is_forum_moderator() ) {
-            $checked = $in['topic_pin'] ? 'checked' : '';
-            print "<tr class=\"dcdark\"><th class=\"dcdark\">" . $in['lang']['pin_poll'] . "</td><td
+   if (is_forum_moderator()) {
+      $checked = $in['topic_pin'] ? 'checked' : '';
+      print "<tr class=\"dcdark\"><th class=\"dcdark\">" . $in['lang']['pin_poll'] . "</td><td
                   class=\"dcdark\"><input type=\"checkbox\" 
                   name=\"topic_pin\" value=\"1\" $checked /> " . $in['lang']['pin_poll_desc'] . "</td></tr>\n";
    }
 
 
-              print "<tr class=\"dcheading\"><td class=\"dcheading\"
+   print "<tr class=\"dcheading\"><td class=\"dcheading\"
               colspan=\"2\">" . $in['lang']['poll_message'] . "</td></tr>\n";
 
-      $checked = $in['message_format'] ? 'checked' : '';
+   $checked = $in['message_format'] ? 'checked' : '';
 
-      print "<tr class=\"dcdark\"><th class=\"dcright\">" . $in['lang']['message_format'] . "</td><td
+   print "<tr class=\"dcdark\"><th class=\"dcright\">" . $in['lang']['message_format'] . "</td><td
               class=\"dcleft\"><input type=\"checkbox\"
               name=\"message_format\" value=\"1\" $checked /> " . $in['lang']['check_plain'] . "</td></tr>\n";
 
-      // clean up $in['message']
-      // For some reason, \r is placed in the text string...no idea why
-      $in['message'] = preg_replace('/\r/','',$in['message']);
+   // clean up $in['message']
+   // For some reason, \r is placed in the text string...no idea why
+   $in['message'] = preg_replace('/\r/', '', $in['message']);
 
-      if ($signature)
-         $in['message'] .= "\n\n$signature";
+   if ($signature)
+      $in['message'] .= "\n\n$signature";
 
-      $form = form_element("message","textarea",
-              array(SETUP_TEXTAREA_ROWS,SETUP_TEXTAREA_COLS),$in['message']);
-              print "<tr class=\"dcdark\"><th class=\"dcdark\">" . $in['lang']['message'] . "</td><td
+   $form = form_element("message", "textarea",
+       [SETUP_TEXTAREA_ROWS, SETUP_TEXTAREA_COLS], $in['message']);
+   print "<tr class=\"dcdark\"><th class=\"dcdark\">" . $in['lang']['message'] . "</td><td
               class=\"dcdark\">$form</td></tr>\n";
 
-	      //      if (! is_guest($in['user_info']['id']))  {
-      if (SETUP_FILE_UPLOAD == 'yes' and ! is_guest($in['user_info']['id']))  {
+   //      if (! is_guest($in['user_info']['id']))  {
+   if (SETUP_FILE_UPLOAD == 'yes' and !is_guest($in['user_info']['id'])) {
 
-         $form = form_element("attachments","text","60","$in[attachments]");
-              print "<tr class=\"dcdark\"><th class=\"dcdark\">Attachments</td><td
+      $form = form_element("attachments", "text", "60", "$in[attachments]");
+      print "<tr class=\"dcdark\"><th class=\"dcdark\">Attachments</td><td
               class=\"dcdark\">$form<br />
-              <a href=\"javascript:makeRemote('" . DCF . 
-              "?az=upload_files&forum=$in[forum]&mesg_id=$in[mesg_id]')\">Click here to 
+              <a href=\"javascript:makeRemote('" . DCF .
+          "?az=upload_files&forum=$in[forum]&mesg_id=$in[mesg_id]')\">Click here to 
               choose your files<a/></td></tr>\n";
-      }
+   }
 
 
-      $checked = $in['disable_smilies'] == 1 ? 'checked' : '';
+   $checked = $in['disable_smilies'] == 1 ? 'checked' : '';
 
-      print "<tr class=\"dcdark\"><th class=\"dcdark\"><input
+   print "<tr class=\"dcdark\"><th class=\"dcdark\"><input
               type=\"checkbox\" name=\"disable_smilies\" value=\"1\" $checked /></td><td
               class=\"dcdark\">" . $in['lang']['no_emotion_icons'] . "</td></tr>\n";
 
-      if (! is_guest($in['user_info']['id']) and SETUP_EMAIL_NOTIFICATION == 'yes')  {
-         if ( is_subscribed($in['forum'],$in['user_info']['id'],$in['topic_id']) ) {
-              $checked = $in['unsubscribe'] ? ' checked' : '';
-              print "<tr class=\"dcdark\"><th class=\"dcdark\"><input
+   if (!is_guest($in['user_info']['id']) and SETUP_EMAIL_NOTIFICATION == 'yes') {
+      if (is_subscribed($in['forum'], $in['user_info']['id'], $in['topic_id'])) {
+         $checked = $in['unsubscribe'] ? ' checked' : '';
+         print "<tr class=\"dcdark\"><th class=\"dcdark\"><input
               type=\"checkbox\" name=\"unsubscribe\" value=\"1\"$checked /></td><td
               class=\"dcdark\">" . $in['lang']['topic_unsubscribe'] . "</td></tr>\n";
-         }
-         else {
-              $checked = $in['subscribe'] ? ' checked' : '';
-              print "<tr class=\"dcdark\"><th class=\"dcdark\"><input
+      } else {
+         $checked = $in['subscribe'] ? ' checked' : '';
+         print "<tr class=\"dcdark\"><th class=\"dcdark\"><input
               type=\"checkbox\" name=\"subscribe\" value=\"1\"$checked /></td><td
               class=\"dcdark\">" . $in['lang']['topic_subscribe'] . "</td></tr>\n";
-         }
       }
+   }
 
-      if ($in['az'] == 'edit_poll') {
-         $button_val = $in['lang']['update_poll'];
-      }
-      else {
-         $button_val = $in['lang']['create_poll'];
-      }
-      print "<tr><th class=\"dcdark\"> &nbsp;&nbsp;
+   if ($in['az'] == 'edit_poll') {
+      $button_val = $in['lang']['update_poll'];
+   } else {
+      $button_val = $in['lang']['create_poll'];
+   }
+   print "<tr><th class=\"dcdark\"> &nbsp;&nbsp;
              </td><td class=\"dcdark\"><input type=\"submit\"
-             name=\"preview\" value=\"" . $in['lang']['preview_poll'] ."\" />
+             name=\"preview\" value=\"" . $in['lang']['preview_poll'] . "\" />
              <input type=\"submit\"
              name=\"$in[az]\" value=\"$button_val\" /></td></tr>\n";
 
-      end_table();
+   end_table();
 
    // various hidden tags
-   print form_element("az","hidden",$in['az'],"");
+   print form_element("az", "hidden", $in['az'], "");
 
-   print form_element("forum","hidden",$in['forum'],"");
+   print form_element("forum", "hidden", $in['forum'], "");
 
    if ($in['topic_id'])
-         print form_element("topic_id","hidden",$in['topic_id'],"");
+      print form_element("topic_id", "hidden", $in['topic_id'], "");
 
    if ($in['mesg_id'])
-         print form_element("mesg_id","hidden",$in['mesg_id'],"");
+      print form_element("mesg_id", "hidden", $in['mesg_id'], "");
 
    if ($in['post_id'])
-         print form_element("post_id","hidden",$in['post_id'],"");
+      print form_element("post_id", "hidden", $in['post_id'], "");
 
    // topic type for poll is 1
-   print form_element("type","hidden","1","");
+   print form_element("type", "hidden", "1", "");
 
-      end_form();
+   end_form();
 
 }
-
 
 
 ///////////////////////////////////////////////////////////////
@@ -1678,7 +1647,8 @@ function poll_form() {
 // Preview message before posting
 //
 ///////////////////////////////////////////////////////////////
-function preview_poll() {
+function preview_poll()
+{
 
    global $in;
 
@@ -1686,29 +1656,29 @@ function preview_poll() {
 
    // convert html special characters 
    $subject = htmlspecialchars(clean_string($in['subject']));
-   $message = format_message($in['message'],$in['message_format']);
+   $message = format_message($in['message'], $in['message_format']);
 
-      begin_table(array(
-         'border'=>'0',
-         'cellspacing' => '1',
-         'cellpadding' => '5',
-         'class'=>'') );
-      print "<tr class=\"dcdark\"><td class=\"dcheading\" 
+   begin_table([
+       'border'      => '0',
+       'cellspacing' => '1',
+       'cellpadding' => '5',
+       'class'       => '']);
+   print "<tr class=\"dcdark\"><td class=\"dcheading\" 
               colspan=\"2\">" . $in['lang']['preview_poll_message'] . "</td></tr>\n";
-      print "<tr class=\"dcdark\"><td class=\"dclite\" 
+   print "<tr class=\"dcdark\"><td class=\"dclite\" 
               colspan=\"2\">
               <strong>" . $in['lang']['poll_question'] . ": $subject</strong>
               <dd> ";
 
-     foreach($poll_choice as $key => $val) {
-         if ($in[$key] != '') {
-            print "<li> $val - $in[$key] </li>\n";
-         }
-      }      
+   foreach ($poll_choice as $key => $val) {
+      if ($in[$key] != '') {
+         print "<li> $val - $in[$key] </li>\n";
+      }
+   }
 
-      print "</dd><p><strong>" . $in['lang']['message'] . "</strong></p><p>
+   print "</dd><p><strong>" . $in['lang']['message'] . "</strong></p><p>
               $message</p></td></tr>\n";
-      end_table();
+   end_table();
 
 }
 
@@ -1719,7 +1689,8 @@ function preview_poll() {
 // 
 ///////////////////////////////////////////////////////////////
 
-function post_poll() {
+function post_poll()
+{
 
    global $in;
 
@@ -1730,14 +1701,13 @@ function post_poll() {
    if ($in['user_info']['id']) {
       $in['u_id'] = $in['user_info']['id'];
       $in['author_name'] = $in['user_info']['username'];
-   }
-   else {
+   } else {
       $in['u_id'] = 100000;
       $in['author_name'] = $in['name'];
    }
 
 
-  foreach($poll_choice as $key => $val) {
+   foreach ($poll_choice as $key => $val) {
       if ($in[$key]) {
          $in[$key] = db_escape_string(htmlspecialchars($in[$key]));
       }
@@ -1765,7 +1735,8 @@ function post_poll() {
 // add new message to the message table
 //
 ///////////////////////////////////////////////////////////////
-function add_new_poll() {
+function add_new_poll()
+{
 
    global $in;
 
@@ -1791,12 +1762,13 @@ function add_new_poll() {
 // function update_poll
 //
 ///////////////////////////////////////////////////////////////
-function update_poll() {
+function update_poll()
+{
 
    global $in;
 
    include(INCLUDE_DIR . "/form_info.php");
-  foreach($poll_choice as $key => $val) {
+   foreach ($poll_choice as $key => $val) {
       if ($in[$key]) {
          $in[$key] = db_escape_string(htmlspecialchars($in[$key]));
       }
@@ -1837,15 +1809,16 @@ function update_poll() {
 // used in show_topic.php and show_mesg.php
 //
 /////////////////////////////////////////////////////////
-function topic_rating_form($forum_id,$topic_id) {
+function topic_rating_form($forum_id, $topic_id)
+{
 
-  global $in;
+   global $in;
 
    begin_form(DCF);
 
-   print form_element("az","hidden","rate_topic","");
-   print form_element("forum","hidden","$forum_id","");
-   print form_element("topic_id","hidden","$topic_id","");
+   print form_element("az", "hidden", "rate_topic", "");
+   print form_element("forum", "hidden", "$forum_id", "");
+   print form_element("topic_id", "hidden", "$topic_id", "");
 
    $rate = $in['lang']['rate_this_topic'];
    $skip_it = $in['lang']['skip_it'];
@@ -1873,48 +1846,49 @@ END;
 //
 ////////////////////////////////////////////////////////////////
 
-function mesg_icon($row) {
+function mesg_icon($row)
+{
 
-  global $in;
+   global $in;
 
    $mesg_icon = '';
 
-         // Email icon
-         if ($row['uc'] == 'yes' or SETUP_ALLOW_DISABLE_EMAIL == 'no') {
-            $mesg_icon .= "<a href=\""
-               . DCF . "?az=send_email&u_id=$row[id]\"><img 
+   // Email icon
+   if ($row['uc'] == 'yes' or SETUP_ALLOW_DISABLE_EMAIL == 'no') {
+      $mesg_icon .= "<a href=\""
+          . DCF . "?az=send_email&u_id=$row[id]\"><img 
                src=\"" . IMAGE_URL . "/email.gif\" border=\"0\" 
-               alt=\"" . $in['lang']['click_to_send_email'] . "\" /></a>"; 
-         }
+               alt=\"" . $in['lang']['click_to_send_email'] . "\" /></a>";
+   }
 
-         // private message icon
-         if ($row['ub'] == 'yes' or SETUP_ALLOW_DISABLE_INBOX == 'no') {
-            $mesg_icon .= "<a href=\""
-               . DCF . "?az=send_mesg&u_id=$row[id]\"><img 
+   // private message icon
+   if ($row['ub'] == 'yes' or SETUP_ALLOW_DISABLE_INBOX == 'no') {
+      $mesg_icon .= "<a href=\""
+          . DCF . "?az=send_mesg&u_id=$row[id]\"><img 
                src=\"" . IMAGE_URL . "/mesg.gif\" border=\"0\" 
-               alt=\"" . $in['lang']['click_to_send_message'] . "\" /></a>"; 
-         }
+               alt=\"" . $in['lang']['click_to_send_message'] . "\" /></a>";
+   }
 
 
-         // profiles icons
-         if ($row['ua'] == 'no' or SETUP_ALLOW_DISABLE_PROFILE == 'no') {
-            $mesg_icon .= "<a href=\""
-               . DCF . "?az=user_profiles&u_id=$row[id]\"><img
+   // profiles icons
+   if ($row['ua'] == 'no' or SETUP_ALLOW_DISABLE_PROFILE == 'no') {
+      $mesg_icon .= "<a href=\""
+          . DCF . "?az=user_profiles&u_id=$row[id]\"><img
                src=\"" . IMAGE_URL . "/profile_small.gif\" border=\"0\" 
-               alt=\"" . $in['lang']['click_to_view_profile'] . "\" /></a>"; 
-         }
+               alt=\"" . $in['lang']['click_to_view_profile'] . "\" /></a>";
+   }
 
-         // add to buddy list icon
-            $mesg_icon .= "<a href=\""
-               . DCF . "?az=add_buddy&u_id=$row[id]\"><img 
+   // add to buddy list icon
+   $mesg_icon .= "<a href=\""
+       . DCF . "?az=add_buddy&u_id=$row[id]\"><img 
                src=\"" . IMAGE_URL . "/mesg_add_buddy.gif\" border=\"0\" 
-               alt=\"" . $in['lang']['click_to_add_buddy'] . "\" /></a>"; 
+               alt=\"" . $in['lang']['click_to_add_buddy'] . "\" /></a>";
 
    if ($row['pb']) {
-     $row['pb'] = urlencode($row['pb']);
-            $mesg_icon .= "<a href=\"aim:goim?screenname=$row[pb]&message=Are+you+there?\"><img 
+      $row['pb'] = urlencode($row['pb']);
+      $mesg_icon .= "<a href=\"aim:goim?screenname=$row[pb]&message=Are+you+there?\"><img 
                src=\"" . IMAGE_URL . "/aolim.gif\" 
-               alt=\"" . $in['lang']['click_to_aol'] . "\" border=\"0\" /></a>"; 
+               alt=\"" . $in['lang']['click_to_aol'] . "\" border=\"0\" /></a>";
 
    }
 //          if ($row['pa'])
@@ -1925,13 +1899,13 @@ function mesg_icon($row) {
 //               width=\"18\" height=\"18\" border=\"0\" /></a>";
 
 
-         if ($row['pa'])
-            $mesg_icon .= "<a href=\"http://web.icq.com/whitepages/message_me/1,,,00.icq?uin=$row[pa]&action=message\"><img src=\"http://web.icq.com/whitepages/online?icq=$row[pa]&img=5\" 
+   if ($row['pa'])
+      $mesg_icon .= "<a href=\"http://web.icq.com/whitepages/message_me/1,,,00.icq?uin=$row[pa]&action=message\"><img src=\"http://web.icq.com/whitepages/online?icq=$row[pa]&img=5\" 
               alt=\"" . $in['lang']['click_to_icq'] . "\" 
               width=\"18\" height=\"18\" border=\"0\" /></a>";
 
 
-    return $mesg_icon;
+   return $mesg_icon;
 
 }
 
@@ -1942,12 +1916,12 @@ function mesg_icon($row) {
 //
 /////////////////////////////////////////////////////////////
 
-function is_subscribed($f_id,$u_id,$t_id) {
+function is_subscribed($f_id, $u_id, $t_id)
+{
 
    if ($t_id < 1) {
       return 0;
-   }
-   else {
+   } else {
       $q = "SELECT id
               FROM " . DB_TOPIC_SUB . "
              WHERE forum_id = '$f_id'
@@ -1959,8 +1933,7 @@ function is_subscribed($f_id,$u_id,$t_id) {
       db_free($result);
       if ($num_rows > 0) {
          return 1;
-      }
-      else {
+      } else {
          return 0;
       }
 
@@ -1974,141 +1947,136 @@ function is_subscribed($f_id,$u_id,$t_id) {
 // Default DCF replies tree generator
 // Use icons and directory-listing like threading style
 /////////////////////////////////////////////////////////////
-function generate_replies_tree($az,$forum,$top_id,$page,$this_id,$rows = '') {
+function generate_replies_tree($az, $forum, $top_id, $page, $__this_id, $rows = '')
+{
 
-   $replies = array();
-   $last_folder = array();
-   $last_flag = array();
+   $replies = [];
+   $last_folder = [];
+   $last_flag = [];
 
    $forum_table = $forum . "_" . DB_MESG_ROOT;
 
 
    // mod.2002.11.03.01
    if ($rows == '') {
-      $rows = get_replies($forum_table,$top_id);
+      $rows = get_replies($forum_table, $top_id);
    }
 
    // mod.2002.11.03.01
    // while($row = db_fetch_array($result)) {
    foreach ($rows as $row) {
 
-     if (! deleted_message($row)) {
+      if (!deleted_message($row)) {
 
-      $date = format_date($row['mesg_date'],'s');
+         $date = format_date($row['mesg_date'], 's');
 
-      $replies[$row['id']]['level'] = $row['level'];
+         $replies[$row['id']]['level'] = $row['level'];
 
-      $subject = trim_subject($row['subject'],SETUP_SUBJECT_LENGTH);
 
-      // mod.2002.11.03.05
-      $mesg_id = $row['id'];
-      $reply_id = $row['reply_id'];
 
-      $topic_icon = get_topic_icon('','off',$row['last_date'],'0','0');
+         $subject = trim_subject($row['subject'], SETUP_SUBJECT_LENGTH);
 
-      $author = check_author($row['author_name'],
-                $row['author_id'],$row['author_name'],$row['g_id']);
+         // mod.2002.11.03.05
+         $mesg_id = $row['id'];
+         $reply_id = $row['reply_id'];
 
-      if ($this_id == $mesg_id) {
+         $topic_icon = get_topic_icon('', 'off', $row['last_date'], '0', '0');
 
-         $replies[$row['id']]['link'] = "$topic_icon <span class=\"dctocsubject\"><strong>$subject</strong></span></td>
+         $author = check_author($row['author_name'],
+             $row['author_id'], $row['author_name'], $row['g_id']);
+
+         if ($__this_id == $mesg_id) {
+
+            $replies[$row['id']]['link'] = "$topic_icon <span class=\"dctocsubject\"><strong>$subject</strong></span></td>
                                          <td><span class=\"dctocmisc\"><div align=\"center\">$author</div></td><td> 
                                         <span class=\"dctocmisc\"><div align=\"center\">$date</div></span></td><td><span 
                                           class=\"dctocmisc\"><div align=\"center\">$reply_id</div></span>\n";
 
 
-      }
-      else {
+         } else {
 
-         if ($az == 'show_topic') {
+            if ($az == 'show_topic') {
 
-            $replies[$row['id']]['link'] = "$topic_icon <a href=\"#$mesg_id";
+               $replies[$row['id']]['link'] = "$topic_icon <a href=\"#$mesg_id";
 
-         }
-         else {
+            } else {
 
-            $replies[$row['id']]['link'] = "$topic_icon <a href=\"" . DCF . "?az=$az&forum=$forum";
-            $replies[$row['id']]['link'] .= "&topic_id=$top_id";
-            $replies[$row['id']]['link'] .= "&mesg_id=$mesg_id&page=$page";
+               $replies[$row['id']]['link'] = "$topic_icon <a href=\"" . DCF . "?az=$az&forum=$forum";
+               $replies[$row['id']]['link'] .= "&topic_id=$top_id";
+               $replies[$row['id']]['link'] .= "&mesg_id=$mesg_id&page=$page";
 
-         }
+            }
 
-         $replies[$row['id']]['link'] .= "\" class=\"dctocsubject\">$subject</a></td> 
+            $replies[$row['id']]['link'] .= "\" class=\"dctocsubject\">$subject</a></td> 
                                     <td><div align=\"center\"><span class=\"dctocmisc\">$author</span></div></td><td> 
                                <div align=\"center\"><span class=\"dctocmisc\">$date</span></div></td><td><div align=\"center\"><span 
                               class=\"dctocmisc\">$reply_id</span></div>\n";
-      }
-
-      $level = $row['level'];
-
-      $key = $row['id'];
-      if ($level == 0) {
-         $prev_level = $level;
-         $last_folder[$level] = $key;
-      }
-      else {
-         if ($level > $prev_level) {
-            $last_folder[$level] = $key;
-            $last_flag[$key] = 1;
          }
-         else {
-            $prev_last_key = $last_folder[$level];
+
+         $level = $row['level'];
+
+         $key = $row['id'];
+         if ($level == 0) {
+            $prev_level = $level;
             $last_folder[$level] = $key;
-            $last_flag[$prev_last_key] = 0;
-            $last_flag[$key] = 1;
+         } else {
+            if ($level > $prev_level) {
+               $last_folder[$level] = $key;
+               $last_flag[$key] = 1;
+            } else {
+               $prev_last_key = $last_folder[$level];
+               $last_folder[$level] = $key;
+               $last_flag[$prev_last_key] = 0;
+               $last_flag[$key] = 1;
+            }
+            $prev_key = $key;
+            $prev_level = $replies[$key]['level'];
          }
-         $prev_key = $key;
-         $prev_level = $replies[$key]['level'];
+
+
       }
-
-
-     }
    }
 
    // mod.2002.11.03.01
 //   db_free($result);
 
 
-
-
-print "<table class=\"dctoc\" cellspacing=\"1\" 
+   print "<table class=\"dctoc\" cellspacing=\"1\" 
           cellpadding=\"0\" width=\"100%\"><tr><td>
 <table width=\"100%\" border=\"0\" cellspacing=\"1\" cellpadding=\"1\">";
 
-             print "<tr class=\"dcheading\">
+   print "<tr class=\"dcheading\">
                 <td class=\"dcheading\">Subject</td>
                 <td class=\"dcheading\"width=\"120\">Author</td>
                 <td class=\"dcheading\"width=\"120\">Message Date</td>
                 <td class=\"dcheading\"width=\"45\">ID</td>";
-        
-            print "</tr>\n";
+
+   print "</tr>\n";
 
    // now go thru each row and construct
    // construct directory style of tree
-  foreach($replies as $key => $val) {
+   foreach ($replies as $key => $val) {
 
       $css_class = toggle_css_class($css_class);
 
       $level = $replies[$key]['level'];
       $level_flag[$level] = $last_flag[$key];
 
-      $this_level = $level > SETUP_LEVEL_MAX ? SETUP_LEVEL_MAX : $level;
+      $__this_level = $level > SETUP_LEVEL_MAX ? SETUP_LEVEL_MAX : $level;
 
       print "<tr class=\"$css_class\"><td>";
-      for ($j=2;$j<$this_level;$j++) {
+      for ($j = 2; $j < $__this_level; $j++) {
          if ($level_flag[$j]) {
             print "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-         }
-         else {
-            print "<img src=\"" . IMAGE_URL . "/middle_mesg_level.gif\" alt=\"\" />"; 
+         } else {
+            print "<img src=\"" . IMAGE_URL . "/middle_mesg_level.gif\" alt=\"\" />";
          }
       }
 
       if ($level > 1) {
          if ($last_flag[$key]) {
             print "<img src=\"" . IMAGE_URL . "/last_mesg_level.gif\" alt=\"\" />";
-         }
-         else {
+         } else {
             print "<img src=\"" . IMAGE_URL . "/mesg_level.gif\" alt=\"\" />";
          }
       }
@@ -2136,84 +2104,81 @@ print "<table class=\"dctoc\" cellspacing=\"1\"
 //
 //
 
-function generate_replies_tree_old($az,$forum,$top_id,$page,$this_id,$rows = '') {
+function generate_replies_tree_old($az, $forum, $top_id, $page, $__this_id, $rows = '')
+{
 
-   $replies = array();
-   $last_folder = array();
-   $last_flag = array();
+   $replies = [];
+   $last_folder = [];
+   $last_flag = [];
 
    $forum_table = $forum . "_" . DB_MESG_ROOT;
 
    // mod.2002.11.03.01
    if ($rows == '') {
-      $rows = get_replies($forum_table,$top_id);
+      $rows = get_replies($forum_table, $top_id);
    }
 
    // mod.2002.11.03.01
    // while($row = db_fetch_array($result)) {
    foreach ($rows as $row) {
 
-     if (! deleted_message($row)) {
+      if (!deleted_message($row)) {
 
-      $date = format_date($row['mesg_date'],'s');
+         $date = format_date($row['mesg_date'], 's');
 
-      $replies[$row['id']]['level'] = $row['level'];
+         $replies[$row['id']]['level'] = $row['level'];
 
-      $subject = trim_subject($row['subject'],SETUP_SUBJECT_LENGTH);
-      // mod.2002.11.03.05
-      $mesg_id = $row['id'];
-      $reply_id = $row['reply_id'];
+         $subject = trim_subject($row['subject'], SETUP_SUBJECT_LENGTH);
+         // mod.2002.11.03.05
+         $mesg_id = $row['id'];
+         $reply_id = $row['reply_id'];
 
-      // mod.2002.11.17.13
-      //      $topic_icon = get_topic_icon('','off',$row['mesg_date'],'0','0');
+         // mod.2002.11.17.13
+         //      $topic_icon = get_topic_icon('','off',$row['mesg_date'],'0','0');
 
-      $topic_icon = get_topic_icon('','off',$row['last_date'],'0','0');
+         $topic_icon = get_topic_icon('', 'off', $row['last_date'], '0', '0');
 
-      $author = check_author($row['author_name'],
-                $row['author_id'],$row['author_name'],$row['g_id']);
+         $author = check_author($row['author_name'],
+             $row['author_id'], $row['author_name'], $row['g_id']);
 
-      if ($this_id == $mesg_id) {
-         $replies[$row['id']]['link'] = "$topic_icon <span class=\"dctocsubject\">$subject</span>,
+         if ($__this_id == $mesg_id) {
+            $replies[$row['id']]['link'] = "$topic_icon <span class=\"dctocsubject\">$subject</span>,
                                          $author, 
                                         <span class=\"dcdate\">$date</span> <span class=\"dcinfo\">#$reply_id</span>\n";
-      }
-      else {
-         if ($az == 'show_topic') {
-            $replies[$row['id']]['link'] = "$topic_icon <a href=\"#$mesg_id";
-         }
-         else {
-            $replies[$row['id']]['link'] = "$topic_icon <a href=\"" . DCF . "?az=$az&forum=$forum";
-            $replies[$row['id']]['link'] .= "&topic_id=$top_id";
-            $replies[$row['id']]['link'] .= "&mesg_id=$mesg_id&page=$page";
-         }
-         $replies[$row['id']]['link'] .= "\" class=\"dctocsubject\">$subject</a>, 
+         } else {
+            if ($az == 'show_topic') {
+               $replies[$row['id']]['link'] = "$topic_icon <a href=\"#$mesg_id";
+            } else {
+               $replies[$row['id']]['link'] = "$topic_icon <a href=\"" . DCF . "?az=$az&forum=$forum";
+               $replies[$row['id']]['link'] .= "&topic_id=$top_id";
+               $replies[$row['id']]['link'] .= "&mesg_id=$mesg_id&page=$page";
+            }
+            $replies[$row['id']]['link'] .= "\" class=\"dctocsubject\">$subject</a>, 
                                     $author, 
                                <span class=\"dcdate\">$date</span>, <span class=\"dcinfo\">#$reply_id</span>\n";
-      }
-
-      $level = $row['level'];
-      $key = $row['id'];
-      if ($level == 0) {
-         $prev_level = $level;
-         $last_folder[$level] = $key;
-      }
-      else {
-         if ($level > $prev_level) {
-            $last_folder[$level] = $key;
-            $last_flag[$key] = 1;
          }
-         else {
-            $prev_last_key = $last_folder[$level];
+
+         $level = $row['level'];
+         $key = $row['id'];
+         if ($level == 0) {
+            $prev_level = $level;
             $last_folder[$level] = $key;
-            $last_flag[$prev_last_key] = 0;
-            $last_flag[$key] = 1;
+         } else {
+            if ($level > $prev_level) {
+               $last_folder[$level] = $key;
+               $last_flag[$key] = 1;
+            } else {
+               $prev_last_key = $last_folder[$level];
+               $last_folder[$level] = $key;
+               $last_flag[$prev_last_key] = 0;
+               $last_flag[$key] = 1;
+            }
+            $prev_key = $key;
+            $prev_level = $replies[$key]['level'];
          }
-         $prev_key = $key;
-         $prev_level = $replies[$key]['level'];
+
+
       }
-
-
-     }
    }
 
    // mod.2002.11.03.01
@@ -2222,27 +2187,25 @@ function generate_replies_tree_old($az,$forum,$top_id,$page,$this_id,$rows = '')
 
    // now go thru each row and construct
    // construct directory style of tree
-  foreach($replies as $key => $val) {
+   foreach ($replies as $key => $val) {
 
       $level = $replies[$key]['level'];
       $level_flag[$level] = $last_flag[$key];
 
-      $this_level = $level > SETUP_LEVEL_MAX ? SETUP_LEVEL_MAX : $level;
+      $__this_level = $level > SETUP_LEVEL_MAX ? SETUP_LEVEL_MAX : $level;
 
-      for ($j=2;$j<$this_level;$j++) {
+      for ($j = 2; $j < $__this_level; $j++) {
          if ($level_flag[$j]) {
             print "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-         }
-         else {
-            print "<img src=\"" . IMAGE_URL . "/middle_mesg_level.gif\" alt=\"\" />"; 
+         } else {
+            print "<img src=\"" . IMAGE_URL . "/middle_mesg_level.gif\" alt=\"\" />";
          }
       }
 
       if ($level > 1) {
          if ($last_flag[$key]) {
             print "<img src=\"" . IMAGE_URL . "/last_mesg_level.gif\" alt=\"\" />";
-         }
-         else {
+         } else {
             print "<img src=\"" . IMAGE_URL . "/mesg_level.gif\" alt=\"\" />";
          }
       }
@@ -2260,61 +2223,59 @@ function generate_replies_tree_old($az,$forum,$top_id,$page,$this_id,$rows = '')
 // generate_replies_tree
 // classic layout style using <ul> and <li>
 /////////////////////////////////////////////////////////////
-function generate_replies_tree_classic($az,$forum,$top_id,$page,$this_id,$rows = '') {
+function generate_replies_tree_classic($az, $forum, $top_id, $page, $__this_id, $rows = '')
+{
 
-   $replies = array();
-   $last_folder = array();
-   $last_flag = array();
+   $replies = [];
+   $last_folder = [];
+   $last_flag = [];
 
-   $deleted_list = array();
+   $deleted_list = [];
 
    $forum_table = $forum . "_" . DB_MESG_ROOT;
 
    // mod.2002.11.03.01
    if ($rows == '') {
-      $rows = get_replies($forum_table,$top_id);
+      $rows = get_replies($forum_table, $top_id);
    }
 
    // mod.2002.11.03.01
    // while($row = db_fetch_array($result)) {
    foreach ($rows as $row) {
 
-      $date = format_date($row['mesg_date'],'s');
+      $date = format_date($row['mesg_date'], 's');
 
       if (deleted_message($row)) {
-	  $deleted_list[$row['id']] = 1;
+         $deleted_list[$row['id']] = 1;
       }
-      
+
       if (is_new_message($row['mesg_date'])) {
-	$new_image = "<img src=\"" . IMAGE_URL . "/newmark.gif\"/> ";
-      }
-      else {
-	$new_image = "";
+         $new_image = "<img src=\"" . IMAGE_URL . "/newmark.gif\"/> ";
+      } else {
+         $new_image = "";
       }
 
       $replies[$row['id']]['level'] = $row['level'];
 
-      $subject = trim_subject($row['subject'],SETUP_SUBJECT_LENGTH);
+      $subject = trim_subject($row['subject'], SETUP_SUBJECT_LENGTH);
       // mod.2002.11.03.05
       $mesg_id = $row['id'];
       $reply_id = $row['reply_id'];
 
-      $topic_icon = get_topic_icon('','off',$row['last_date'],'0','0');
+      $topic_icon = get_topic_icon('', 'off', $row['last_date'], '0', '0');
 
       $author = check_author($row['author_name'],
-                $row['author_id'],$row['author_name'],$row['g_id']);
+          $row['author_id'], $row['author_name'], $row['g_id']);
 
-      if ($this_id == $mesg_id) {
+      if ($__this_id == $mesg_id) {
          $replies[$row['id']]['link'] = "<span class=\"dctocsubject\">$subject</span>,
                                          <span class=\"dcauthor\">$author</span>, 
                                          <span class=\"dcdate\">$date</span> <span 
                                          class=\"dcinfo\">#$reply_id</span> $new_image\n";
-      }
-      else {
+      } else {
          if ($az == 'show_topic') {
             $replies[$row['id']]['link'] = "<a href=\"#$mesg_id";
-         }
-         else {
+         } else {
             $replies[$row['id']]['link'] = "<a href=\"" . DCF . "?az=$az&forum=$forum";
             $replies[$row['id']]['link'] .= "&topic_id=$top_id";
             $replies[$row['id']]['link'] .= "&mesg_id=$mesg_id&page=$page";
@@ -2329,13 +2290,11 @@ function generate_replies_tree_classic($az,$forum,$top_id,$page,$this_id,$rows =
       if ($level == 0) {
          $prev_level = $level;
          $last_folder[$level] = $key;
-      }
-      else {
+      } else {
          if ($level > $prev_level) {
             $last_folder[$level] = $key;
             $last_flag[$key] = 1;
-         }
-         else {
+         } else {
             $prev_last_key = $last_folder[$level];
             $last_folder[$level] = $key;
             $last_flag[$prev_last_key] = 0;
@@ -2349,22 +2308,21 @@ function generate_replies_tree_classic($az,$forum,$top_id,$page,$this_id,$rows =
 
    // now go thru each row and construct
    // construct directory style of tree
-   
+
    $prev_level = -1;
 
 
-  foreach($replies as $key => $val) {
+   foreach ($replies as $key => $val) {
 
       $level = $replies[$key]['level'];
       $level_flag[$level] = $last_flag[$key];
 
-      $this_level = $level > SETUP_LEVEL_MAX ? SETUP_LEVEL_MAX : $level;
+      $__this_level = $level > SETUP_LEVEL_MAX ? SETUP_LEVEL_MAX : $level;
 
       insert_ul($prev_level, $level);
 
-      if (! $deleted_list[$key])
+      if (!$deleted_list[$key])
          print "<li class=\"dctoc\">" . $replies[$key]['link'] . "</li>\n";
-
 
 
       $prev_level = $level;
@@ -2381,38 +2339,39 @@ function generate_replies_tree_classic($az,$forum,$top_id,$page,$this_id,$rows =
 // Default DCF replies tree generator
 // Use icons and directory-listing like threading style
 /////////////////////////////////////////////////////////////
-function generate_sub_replies_tree($az,$forum,$top_id,$page,$this_id,$rows) {
+function generate_sub_replies_tree($az, $forum, $top_id, $page, $__this_id, $rows)
+{
 
    global $in;
 
-   $row = array();
-   $replies = array();
-   $last_folder = array();
-   $last_flag = array();
+   $row = [];
+   $replies = [];
+   $last_folder = [];
+   $last_flag = [];
 
    // mod.2002.11.03.01
    // while($row = db_fetch_array($result)) {
    foreach ($rows as $row) {
 
-      $date = format_date($row['mesg_date'],'s');
+      $date = format_date($row['mesg_date'], 's');
 
       $replies[$row['id']]['level'] = $row['level'];
 
       if ($row['level'] == 1)
-	$sub_topic_id = $row['id'];
+         $sub_topic_id = $row['id'];
 
-      $subject = trim_subject($row['subject'],SETUP_SUBJECT_LENGTH);
+      $subject = trim_subject($row['subject'], SETUP_SUBJECT_LENGTH);
       $mesg_id = $row['id'];
       $reply_id = $row['reply_id'];
 
-      $topic_icon = get_topic_icon('','off',$row['last_date'],'0','0');
+      $topic_icon = get_topic_icon('', 'off', $row['last_date'], '0', '0');
 
       $author = check_author($row['author_name'],
-                $row['author_id'],$row['author_name'],$row['g_id']);
+          $row['author_id'], $row['author_name'], $row['g_id']);
 
 
       $replies[$row['id']]['link'] = "$topic_icon <a href=\"" . DCF . "?az=$az&forum=$forum";
-      $replies[$row['id']]['link'] .= "&topic_id=$top_id&sub_topic_id=$this_id";
+      $replies[$row['id']]['link'] .= "&topic_id=$top_id&sub_topic_id=$__this_id";
       $replies[$row['id']]['link'] .= "&mesg_id=&page=$page#$mesg_id";
       $replies[$row['id']]['link'] .= "\"><span class=\"dctocsubject\">$subject</a>,
                                       <span class=\"dcauthor\">$author</span>,
@@ -2423,13 +2382,11 @@ function generate_sub_replies_tree($az,$forum,$top_id,$page,$this_id,$rows) {
       if ($level == 0) {
          $prev_level = $level;
          $last_folder[$level] = $key;
-      }
-      else {
+      } else {
          if ($level > $prev_level) {
             $last_folder[$level] = $key;
             $last_flag[$key] = 1;
-         }
-         else {
+         } else {
             $prev_last_key = $last_folder[$level];
             $last_folder[$level] = $key;
             $last_flag[$prev_last_key] = 0;
@@ -2444,37 +2401,33 @@ function generate_sub_replies_tree($az,$forum,$top_id,$page,$this_id,$rows) {
 
    // now go thru each row and construct
    // construct directory style of tree
-  foreach($replies as $key => $val) {
-      if ($key == $this_id) {
+   foreach ($replies as $key => $val) {
+      if ($key == $__this_id) {
          $show = 1;
-      }
-      elseif ($show) {
+      } else if ($show) {
 
          $level = $replies[$key]['level'];
          $level_flag[$level] = $last_flag[$key];
-         $this_level = $level > SETUP_LEVEL_MAX ? SETUP_LEVEL_MAX : $level;
+         $__this_level = $level > SETUP_LEVEL_MAX ? SETUP_LEVEL_MAX : $level;
 
          if ($level == 1) {
-	   $show = 0;
-         }
-         else {
-            for ($j=2;$j<$this_level;$j++) {
+            $show = 0;
+         } else {
+            for ($j = 2; $j < $__this_level; $j++) {
                if ($level_flag[$j]) {
                   print "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-               }
-               else {
-                  print "<img src=\"" . IMAGE_URL . "/middle_mesg_level.gif\" alt=\"\" />"; 
+               } else {
+                  print "<img src=\"" . IMAGE_URL . "/middle_mesg_level.gif\" alt=\"\" />";
                }
             }
 
             if ($level > 1) {
                if ($last_flag[$key]) {
                   print "<img src=\"" . IMAGE_URL . "/last_mesg_level.gif\" alt=\"\" />";
-               }
-               else {
+               } else {
                   print "<img src=\"" . IMAGE_URL . "/mesg_level.gif\" alt=\"\" />";
                }
-           }
+            }
 
             print $replies[$key]['link'] . "<br />\n";
          }
@@ -2489,52 +2442,50 @@ function generate_sub_replies_tree($az,$forum,$top_id,$page,$this_id,$rows) {
 }
 
 
-
 /////////////////////////////////////////////////////////////
 //
 // generate_replies_tree
 // classic layout style using <ul> and <li>
 /////////////////////////////////////////////////////////////
-function generate_sub_replies_tree_classic($az,$forum,$top_id,$page,$this_id,$rows) {
+function generate_sub_replies_tree_classic($az, $forum, $top_id, $page, $__this_id, $rows)
+{
 
-   $row = array();
-   $replies = array();
-   $last_folder = array();
-   $last_flag = array();
+   $row = [];
+   $replies = [];
+   $last_folder = [];
+   $last_flag = [];
 
    foreach ($rows as $row) {
 
-      $date = format_date($row['mesg_date'],'s');
+      $date = format_date($row['mesg_date'], 's');
 
       if (is_new_message($row['mesg_date'])) {
-	$new_image = "<img src=\"" . IMAGE_URL . "/newmark.gif\"/> ";
-      }
-      else {
-	$new_image = "";
+         $new_image = "<img src=\"" . IMAGE_URL . "/newmark.gif\"/> ";
+      } else {
+         $new_image = "";
       }
 
       $replies[$row['id']]['level'] = $row['level'];
 
-      $subject = trim_subject($row['subject'],SETUP_SUBJECT_LENGTH);
+      $subject = trim_subject($row['subject'], SETUP_SUBJECT_LENGTH);
 
       // mod.2002.11.03.05
       $mesg_id = $row['id'];
       $reply_id = $row['reply_id'];
 
-      $topic_icon = get_topic_icon('','off',$row['last_date'],'0','0');
+      $topic_icon = get_topic_icon('', 'off', $row['last_date'], '0', '0');
 
       $author = check_author($row['author_name'],
-                $row['author_id'],$row['author_name'],$row['g_id']);
+          $row['author_id'], $row['author_name'], $row['g_id']);
 
-      if ($this_id == $mesg_id) {
+      if ($__this_id == $mesg_id) {
          $replies[$row['id']]['link'] = "<li class=\"dctoc\"><span class=\"dctocsubject\">$subject</span>,
                                          <span class=\"dcauthor\">$author</span>, 
                                          <span class=\"dcdate\">$date</span> <span 
                                          class=\"dcinfo\">#$reply_id</span> $new_image</li>\n";
-      }
-      else {
+      } else {
          $replies[$row['id']]['link'] = "<li class=\"dctoc\"><a href=\"" . DCF . "?az=$az&forum=$forum";
-         $replies[$row['id']]['link'] .= "&topic_id=$top_id&sub_topic_id=$this_id";
+         $replies[$row['id']]['link'] .= "&topic_id=$top_id&sub_topic_id=$__this_id";
          $replies[$row['id']]['link'] .= "&mesg_id=&page=$page#$mesg_id";
          $replies[$row['id']]['link'] .= "\"><span class=\"dctocsubject\">$subject</a>,
                                       <span class=\"dcauthor\">$author</span>,
@@ -2546,13 +2497,11 @@ function generate_sub_replies_tree_classic($az,$forum,$top_id,$page,$this_id,$ro
       if ($level == 0) {
          $prev_level = $level;
          $last_folder[$level] = $key;
-      }
-      else {
+      } else {
          if ($level > $prev_level) {
             $last_folder[$level] = $key;
             $last_flag[$key] = 1;
-         }
-         else {
+         } else {
             $prev_last_key = $last_folder[$level];
             $last_folder[$level] = $key;
             $last_flag[$prev_last_key] = 0;
@@ -2567,28 +2516,26 @@ function generate_sub_replies_tree_classic($az,$forum,$top_id,$page,$this_id,$ro
    // now go thru each row and construct
    // construct directory style of tree   
 
-  foreach($replies as $key => $val) {
+   foreach ($replies as $key => $val) {
       $level = $replies[$key]['level'];
       $level_flag[$level] = $last_flag[$key];
 
-     if ($key == $this_id) {
-        $show = 1;
-        $prev_level = $level;
-     }
-     elseif ($show) {
+      if ($key == $__this_id) {
+         $show = 1;
+         $prev_level = $level;
+      } else if ($show) {
 
 
-      $this_level = $level > SETUP_LEVEL_MAX ? SETUP_LEVEL_MAX : $level;
+         $__this_level = $level > SETUP_LEVEL_MAX ? SETUP_LEVEL_MAX : $level;
 
-      if ($level == 1) {
-	   $show = 0;
-           insert_ul($prev_level, 1);
+         if ($level == 1) {
+            $show = 0;
+            insert_ul($prev_level, 1);
+         } else {
+            insert_ul($prev_level, $level);
+            print $replies[$key]['link'] . "\n";
+         }
       }
-      else {
-         insert_ul($prev_level, $level);
-         print $replies[$key]['link'] . "\n";
-      }
-     }
 
       $prev_level = $level;
 
@@ -2597,15 +2544,15 @@ function generate_sub_replies_tree_classic($az,$forum,$top_id,$page,$this_id,$ro
 }
 
 
-
 /////////////////////////////////////////////////////////
 //
 // function get_indent_string
 //
 /////////////////////////////////////////////////////////
-function get_indent_string($level) {
+function get_indent_string($level)
+{
    $one_indent = "&nbsp;&nbsp;&nbsp;&nbsp";
-   for($j=0;$j<$level - 1;$j++) {
+   for ($j = 0; $j < $level - 1; $j++) {
       $indent .= $one_indent;
    }
    return $indent;
@@ -2617,7 +2564,8 @@ function get_indent_string($level) {
 // function increment_post_count
 //
 /////////////////////////////////////////////////////////
-function increment_post_count($u_id) {
+function increment_post_count($u_id)
+{
 
    $q = "UPDATE " . DB_USER . "
             SET num_posts = num_posts + 1,
@@ -2630,13 +2578,13 @@ function increment_post_count($u_id) {
 }
 
 
-
 /////////////////////////////////////////////////////////
 //
 // function log_ip
 //
 /////////////////////////////////////////////////////////
-function log_ip($u_id,$f_id,$m_id) {
+function log_ip($u_id, $f_id, $m_id)
+{
 
    $u_id = $u_id > 0 ? $u_id : 100000;
 
@@ -2653,11 +2601,12 @@ function log_ip($u_id,$f_id,$m_id) {
 // function edit_allowed
 //
 /////////////////////////////////////////////////////////////////
-function edit_allowed() {
+function edit_allowed()
+{
 
    global $in;
 
-   $edit_time_out = time() - SETUP_EDIT_TIME_OUT*60;
+   $edit_time_out = time() - SETUP_EDIT_TIME_OUT * 60;
 
    if (is_forum_moderator()) {
       return 1;
@@ -2690,13 +2639,11 @@ function edit_allowed() {
       db_free($result);
       if ($row['ip'] == $_SERVER['REMOTE_ADDR']) {
          return 1;
-      }
-      else {
+      } else {
          return 0;
       }
 
-   }
-   // Not a guest - check user ID
+   } // Not a guest - check user ID
    else {
 
       // Check the IP address of the post
@@ -2713,8 +2660,7 @@ function edit_allowed() {
       db_free($result);
       if ($row['u_id'] == $in['user_info']['id']) {
          return 1;
-      }
-      else {
+      } else {
          return 0;
       }
 
@@ -2729,14 +2675,15 @@ function edit_allowed() {
 // function trim_subject
 //
 /////////////////////////////////////////////////////////////
-function trim_subject($subject) {
+function trim_subject($subject)
+{
 
    if (strlen($subject) > SETUP_SUBJECT_LENGTH_MAX)
-      $subject = substr($subject,0,SETUP_SUBJECT_LENGTH_MAX) . "...";
+      $subject = substr($subject, 0, SETUP_SUBJECT_LENGTH_MAX) . "...";
 
    //   return $subject;
 
-   return htmlspecialchars($subject,ENT_NOQUOTES);
+   return htmlspecialchars($subject, ENT_NOQUOTES);
 
 }
 
@@ -2746,22 +2693,23 @@ function trim_subject($subject) {
 // function smilie_table
 //
 /////////////////////////////////////////////////////////////
-function smilie_table() {
+function smilie_table()
+{
 
    include(INCLUDE_DIR . "/form_info.php");
 
    $j = 0;
-  foreach($emotion_icons as $key => $val) {
+   foreach ($emotion_icons as $key => $val) {
       $j++;
-      $this_temp .= "<a href=\"javascript:smilie('$key')\"><img 
+      $__this_temp .= "<a href=\"javascript:smilie('$key')\"><img 
              src=\"" . IMAGE_URL . "/" . $val . "\" border=\"0\" /></a> ";
       if ($j == 4) {
          $j = 0;
-         $this_temp .= "<br />";
+         $__this_temp .= "<br />";
       }
    }
 
-   return $this_temp;
+   return $__this_temp;
 
 }
 
@@ -2773,7 +2721,8 @@ function smilie_table() {
 //
 //////////////////////////////////////////////////////////
 
-function registered_username($name) {
+function registered_username($name)
+{
 
    // mod.2002.11.05.02
    // escape guest name
@@ -2794,7 +2743,8 @@ function registered_username($name) {
 // function display_forum
 //
 /////////////////////////////////////////////////////////////////////////
-function display_forum($row,$css_class,$col_span) {
+function display_forum($row, $css_class, $col_span)
+{
 
 
    global $in;
@@ -2802,25 +2752,25 @@ function display_forum($row,$css_class,$col_span) {
    // NOTE - colspan is the span of the last column
    $moderator_link = '';
    $date = format_date($row['last_date']);
-   $folder_icon = get_folder_icon($row['id'],$row['type'],$row['mode'],$row['last_date']);
-   
+   $folder_icon = get_folder_icon($row['id'], $row['type'], $row['mode'], $row['last_date']);
+
    $moderators = get_forum_moderators($row['id']);
-   $temp_array = array();
+   $temp_array = [];
 
 // mod.2002.11.11.03
 // user_id bug
    if ($moderators) {
-     foreach($moderators as $key => $val) {
+      foreach ($moderators as $key => $val) {
          $temp_array[] = "<a 
                href=\"" . DCF . "?az=user_profiles&u_id=$key\">$val</a>";
       }
-      $moderator_link = implode(", ",$temp_array);
+      $moderator_link = implode(", ", $temp_array);
       $moderator_link = "<br />" . $in['lang']['moderators'] . ": $moderator_link";
    }
-   
+
    if ($row['num_folders'] > 0)
-      $num_folders = proper_string($row['num_folders'],$in['lang']['folder']);
-   
+      $num_folders = proper_string($row['num_folders'], $in['lang']['folder']);
+
    $type = $row['type'] . " " . $in['lang']['forum'];
 
    print "<tr class=\"$css_class\"><td width=\"20\"><a 
@@ -2833,18 +2783,18 @@ function display_forum($row,$css_class,$col_span) {
           <br /><span class=\"dccaption\">$row[description]
           $moderator_link</span></td>
           <td class=\"dcdate\" nowrap=\"nowrap\">$date";
-   
-   $this_subject = trim_subject($row['last_topic_subject']);
-   if ($this_subject and $in['access_list'][$row['id']] ) {
-         $this_subject = substr($this_subject,0,20) . "...";
-         print "<br /><a href=\"" . DCF 
-            . "?az=show_topic&forum=$row[id]&topic_id=$row[last_topic_id]"
-            . "&mesg_id=$row[last_mesg_id]#$row[last_mesg_id]\">$this_subject</a>"
-            . "<br /> " . $in['lang']['by'] . " $row[last_author]<br />";
+
+   $__this_subject = trim_subject($row['last_topic_subject']);
+   if ($__this_subject and $in['access_list'][$row['id']]) {
+      $__this_subject = substr($__this_subject, 0, 20) . "...";
+      print "<br /><a href=\"" . DCF
+          . "?az=show_topic&forum=$row[id]&topic_id=$row[last_topic_id]"
+          . "&mesg_id=$row[last_mesg_id]#$row[last_mesg_id]\">$__this_subject</a>"
+          . "<br /> " . $in['lang']['by'] . " $row[last_author]<br />";
    }
-   
+
    print "</td><td class=\"dcmisc\" nowrap=\"nowrap\" colspan=\"$col_span\">";
-   
+
    if ($num_folders)
       print $num_folders . "<br />";
 
@@ -2856,53 +2806,53 @@ function display_forum($row,$css_class,$col_span) {
 }
 
 
-
 /////////////////////////////////////////////////////////////////////////
 //
 // function display_forum_classic
 //
 /////////////////////////////////////////////////////////////////////////
-function display_forum_classic($row,$css_class) {
+function display_forum_classic($row, $css_class)
+{
 
    global $in;
 
    $moderator_link = '';
    $date = format_date($row['last_date']);
-   $folder_icon = get_folder_icon($row['id'],$row['type'],$row['mode'],$row['last_date']);
-   
-   if ($row['num_folders'] > 0)
-      $num_folders = proper_string($row['num_folders'],$in['lang']['folder']);
-   
-   $type = $row['type'] . " " . $in['lang']['forum'];
-   
+   $folder_icon = get_folder_icon($row['id'], $row['type'], $row['mode'], $row['last_date']);
 
-     print "<td width=\"20\" class=\"$css_class\"><a 
+   if ($row['num_folders'] > 0)
+      $num_folders = proper_string($row['num_folders'], $in['lang']['folder']);
+
+   $type = $row['type'] . " " . $in['lang']['forum'];
+
+
+   print "<td width=\"20\" class=\"$css_class\"><a 
           href=\"" . DCF . "?az=show_topics&forum=$row[id]\">$folder_icon</a>
-          </td><td width=\"50%\"  class=\"$css_class\">"; 
-     print "<a
+          </td><td width=\"50%\"  class=\"$css_class\">";
+   print "<a
           href=\"" . DCF . "?az=show_topics&forum=$row[id]\"><span
           class=\"dclink\">$row[name]</span></a> 
           (<span class=\"dcsmallemp\">$type</span>)<br /><span class=\"dcnormal\">";
 
-     if ($num_folders)
-        print "$num_folders";
+   if ($num_folders)
+      print "$num_folders";
 
-     if ($row['num_topics']) {
+   if ($row['num_topics']) {
 
-        if ($num_folders)
-           print ", ";
+      if ($num_folders)
+         print ", ";
 
-        print " $row[num_topics] " . $in['lang']['topics'] . ",
+      print " $row[num_topics] " . $in['lang']['topics'] . ",
              $row[num_messages] " . $in['lang']['messages'] . "";
-     }
-     print "</span>";
+   }
+   print "</span>";
 
-     print "<br /><span class=\"dcdate\">$date</span>";
-     if ($row['last_topic_subject'] and $in['access_list'][$row['id']] ) {
-         print " <span class=\"dccaption\">" . $in['lang']['by'] . " $row[last_author]</span>";
-     }
+   print "<br /><span class=\"dcdate\">$date</span>";
+   if ($row['last_topic_subject'] and $in['access_list'][$row['id']]) {
+      print " <span class=\"dccaption\">" . $in['lang']['by'] . " $row[last_author]</span>";
+   }
 
-     print "<br /><span class=\"dccaption\">$row[description]
+   print "<br /><span class=\"dccaption\">$row[description]
           $moderator_link</span>";
 
 
@@ -2911,14 +2861,10 @@ function display_forum_classic($row,$css_class) {
 //          print " <span class=\"dccaption\">" . $in['lang']['by'] . " $row[last_author]</span>";
 //      }
 
-     print "</td>";
-   
-   
+   print "</td>";
 
 
 }
-
-
 
 
 ////////////////////////////////////////////////////////////////
@@ -2926,21 +2872,19 @@ function display_forum_classic($row,$css_class) {
 // returns 1 if it is a deleted message
 //
 ////////////////////////////////////////////////////////////////
-function deleted_message($row) {
+function deleted_message($row)
+{
 
 
-  if ($row['type'] == 98) {
-    return 1;
-  }
-  elseif ($row['subject'] == 'Deleted message') {
-    return 1;
-  }
-  else {
-    return 0;
-  }
+   if ($row['type'] == 98) {
+      return 1;
+   } else if ($row['subject'] == 'Deleted message') {
+      return 1;
+   } else {
+      return 0;
+   }
 
 }
-
 
 
 ////////////////////////////////////////////////////////////////
@@ -2950,22 +2894,22 @@ function deleted_message($row) {
 //
 ////////////////////////////////////////////////////////////////
 
-function is_locked_topic($forum_table,$topic_id) {
+function is_locked_topic($forum_table, $topic_id)
+{
 
-  if ($topic_id == '') {
-    return 0;
-  }
+   if ($topic_id == '') {
+      return 0;
+   }
 
    // Check and see if TOPIC is locked
-   $result = get_message($forum_table,$topic_id);
+   $result = get_message($forum_table, $topic_id);
    $row = db_fetch_array($result);
    db_free($result);
 
    if ($row['topic_lock'] == 'on') {
-     return 1;
-   }
-   else {
-     return 0;
+      return 1;
+   } else {
+      return 0;
    }
 
 }

@@ -177,21 +177,21 @@ function show_forums() {
    $new_row = 1;
 
    // for each parent forums and conferences
-   foreach($sorted_forum_list as $this_array) {
+   foreach($sorted_forum_list as $__this_array) {
 
-      $this_row_id = $this_array['0'];
-      $this_level = $this_array['1'];
-      $row = $in['forum_list'][$this_row_id];
+      $__this_row_id = $__this_array['0'];
+      $__this_level = $__this_array['1'];
+      $row = $in['forum_list'][$__this_row_id];
       // correction for how forum_list is read in
       $row['type'] = $row['forum_type'];
 
       // ok, we only want to display the top level stuff
       // if expand conf is on then also include level 1 stuff
-      if ($row['parent_id'] == 0 or ($this_level == 1 and 
+      if ($row['parent_id'] == 0 or ($__this_level == 1 and 
              $in['forum_list'][$row['parent_id']]['forum_type'] == 'Conference' and $expand_conf)) {
 
          // get children forums
-         $row['num_folders']= get_child($sorted_forum_list,$in['forum_list'],$this_row_id,$this_level);
+         $row['num_folders']= get_child($sorted_forum_list,$in['forum_list'],$__this_row_id,$__this_level);
 
       // If we have $ok_display, then we can display stuff
       if ($classic_mode) {
@@ -205,7 +205,7 @@ function show_forums() {
                }
 
            // Conference
-           if ($row['type'] == 'Conference' and $this_level == 0) {
+           if ($row['type'] == 'Conference' and $__this_level == 0) {
 
                   if ($expand_conf) {
 
@@ -253,7 +253,7 @@ function show_forums() {
  	      else {
 
 
-		if ($this_level == 0) {
+		if ($__this_level == 0) {
                   print $dcf_top_forum_header;
                 }
 
@@ -271,7 +271,7 @@ function show_forums() {
               // If conference, we need to make sure there are at
 	      // least one folder that is accessible
 	      // below the forum
-	      if ($row['type'] == 'Conference' and $this_level == 0) {
+	      if ($row['type'] == 'Conference' and $__this_level == 0) {
 
                     if ($expand_conf) {
 
@@ -300,7 +300,7 @@ function show_forums() {
 	      else {
 
 
-		if ($this_level == 0) {
+		if ($__this_level == 0) {
                   print $dcf_top_forum_header;
                 }
 

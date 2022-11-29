@@ -207,13 +207,13 @@ function is_guest($u_id)
 // function proper_string
 //
 //////////////////////////////////////////////////////////////////
-function proper_string($num, $this_temp)
+function proper_string($num, $__this_temp)
 {
 
     if ($num == 1) {
-        return $num . " " . $this_temp;
+        return $num . " " . $__this_temp;
     } else {
-        return $num . " " . $this_temp . "s";
+        return $num . " " . $__this_temp . "s";
     }
 }
 
@@ -385,9 +385,9 @@ function invalid_referer()
 
 
     if (SETUP_AUTH_CHECK_REFERER == 'yes') {
-        $this_url = ROOT_URL;
+        $__this_url = ROOT_URL;
         if ($_SERVER['HTTP_REFERER']) {  // Check and make sure $HTTP_REFERER is not NULL
-            $match = ereg($this_url, $_SERVER['HTTP_REFERER']) ? 0 : 1;
+            $match = ereg($__this_url, $_SERVER['HTTP_REFERER']) ? 0 : 1;
         }
     }
     return $match;

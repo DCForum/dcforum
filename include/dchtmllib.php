@@ -78,7 +78,7 @@ function end_table () {
 //
 /////////////////////////////////////////////////////
 
-function toggle_css_class($css_class) {
+function toggle_css_class($css_class = '') {
    if ($css_class == 'dclite') {
       $css_class = 'dcdark';
    }
@@ -157,15 +157,15 @@ function date_form_element ($default_date,$pre) {
    $days = array();
 
    for ($j=1; $j<32; $j++) {
-      $this_temp = sprintf('%02d',$j);
-       $days[] = $this_temp;
+      $__this_temp = sprintf('%02d',$j);
+       $days[] = $__this_temp;
    }
 
    $years = array();
 
    for ($j=-6; $j<10; $j++) {
-      $this_temp = $default_year + $j;
-       $years[] = $this_temp;
+      $__this_temp = $default_year + $j;
+       $years[] = $__this_temp;
    }
 
 
@@ -229,8 +229,8 @@ function form_element($name,$form_type,$in_value,$default,$tab_index="") {
 
             // $default can be an array
             if (is_array($default)) {
-               foreach ($default as $this_temp) {
-                  if ($this_temp == $key)
+               foreach ($default as $__this_temp) {
+                  if ($__this_temp == $key)
                      $checked = 'checked="checked"';
                }
             }
@@ -260,8 +260,8 @@ function form_element($name,$form_type,$in_value,$default,$tab_index="") {
 
             // $default can be an array
             if (is_array($default)) {
-               foreach ($default as $this_temp) {
-                  if ($this_temp == $key)
+               foreach ($default as $__this_temp) {
+                  if ($__this_temp == $key)
                      $checked = 'checked="checked"';
                }
             }

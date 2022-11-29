@@ -125,12 +125,12 @@ function retrieve_password() {
             $subject = $row['var_subject'];
             $message = $row['var_message'];
 
-            $this_url = ROOT_URL . "/" . DCF;
-            $this_mark = $in['lang']['your_new_password_is'] . " \n\n\t$password";
+            $__this_url = ROOT_URL . "/" . DCF;
+            $__this_mark = $in['lang']['your_new_password_is'] . " \n\n\t$password";
 
             // replace $MARKER with proper variable
-            $message = preg_replace("/#URL#/",$this_url,$message);
-            $message = preg_replace("/#MARKER#/",$this_mark,$message);
+            $message = preg_replace("/#URL#/",$__this_url,$message);
+            $message = preg_replace("/#MARKER#/",$__this_mark,$message);
             $message .= "\n\n" . SETUP_ADMIN_SIGNATURE;
 
             $header    = "From: $from\r\n";

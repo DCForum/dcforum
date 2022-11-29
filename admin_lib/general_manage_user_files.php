@@ -57,10 +57,10 @@ function general_manage_user_files() {
       if ($in['delete']) {
 
          foreach ($in['delete'] as $filename) {
-            $this = explode('.',$filename);
+            $__this = explode('.',$filename);
             $q = "DELETE 
                     FROM " . DB_UPLOAD . "
-                   WHERE id = '{$this['0']}' ";
+                   WHERE id = '{$__this['0']}' ";
             db_query($q);
             if (file_exists(USER_DIR . "/$filename")) {
                unlink(USER_DIR . "/$filename");

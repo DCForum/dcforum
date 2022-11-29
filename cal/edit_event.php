@@ -114,9 +114,9 @@ function edit_event() {
       $current_location = "GMT" ;
    }
    else {
-      $this = SETUP_USER_TIME_OFFSET/3600;
+      $__this = SETUP_USER_TIME_OFFSET/3600;
       $current_location = 
-          $this . " GMT";
+          $__this . " GMT";
    }
 
    print "<p>" . $in['lang']['page_info_1'] . " $current_location. <br />" .

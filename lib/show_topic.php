@@ -542,9 +542,9 @@ function get_row_info($rows) {
   $row_info = array();
  foreach($rows as $key => $row) {
     if ($row['level'] == 1)
-      $this_id = $row['id'];
+      $__this_id = $row['id'];
 
-      $row_info[$this_id]++;
+      $row_info[$__this_id]++;
 
   }
   return $row_info;

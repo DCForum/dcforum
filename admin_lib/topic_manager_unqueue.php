@@ -106,12 +106,12 @@ function topic_manager_unqueue() {
      $forum_tree = get_forum_tree();
 
      if ($in['user_info']['g_id'] < 99) {
-       $this_forum_tree = array();
+       $__this_forum_tree = array();
       foreach($forum_tree as $key => $val) {
 	 if ($in['access_list'][$key] != '')
-	   $this_forum_tree[$key] = $val;
+	   $__this_forum_tree[$key] = $val;
        }
-       $forum_tree = $this_forum_tree;
+       $forum_tree = $__this_forum_tree;
      }
          
 
@@ -200,10 +200,10 @@ function topic_manager_list_messages() {
 
    if ($in['forum']) {
       print form_element("forum","hidden",$in['forum'],"");
-      $this_forum = $in['forum'];
+      $__this_forum = $in['forum'];
    }
    else {
-      $this_forum = $in['from_forum'];
+      $__this_forum = $in['from_forum'];
    }
 
    begin_table(array(
@@ -253,13 +253,13 @@ function topic_manager_list_messages() {
 
          print "<tr class=\"dcdark\"><td class=\"dcdark\" width=\"120\" nowrap=\"nowrap\">
                Topic ID</td><td class=\"dclite\"><a href=\"" . DCF . "?az=show_topic";
-         print "&forum=$this_forum&topic_id=$row[parent_id]&mesg_id=$row[parent_id]\"
+         print "&forum=$__this_forum&topic_id=$row[parent_id]&mesg_id=$row[parent_id]\"
               target=\"_blank\">Topic ID $row[top_id]</a></td></tr>";
 
          print "<tr class=\"dcdark\"><td class=\"dcdark\" width=\"120\" nowrap=\"nowrap\">
                Parent topic ID</td><td class=\"dclite\" width=\"100%\">";
          print "<a href=\"" . DCF . "?az=show_topic";
-         print "&forum=$this_forum&topic_id=$row[parent_id]&mesg_id=$row[parent_id]\"
+         print "&forum=$__this_forum&topic_id=$row[parent_id]&mesg_id=$row[parent_id]\"
               target=\"_blank\">Topic ID $row[parent_id]</a></td></tr>";
       }
 
@@ -327,13 +327,13 @@ function send_topic_subscription($forum_id,$topic_id,$mesg_id,$u_id) {
 
       $from = SETUP_AUTH_ADMIN_EMAIL_ADDRESS;
 
-      $this_row = get_message_notice('topic_subscription');
-      $subject = $this_row['var_subject'];
-      $message = $this_row['var_message'];
-      $this_url = ROOT_URL . "/" . DCF . "?az=show_topic&forum=$forum_id&topic_id=$topic_id#$mesg_id";
+      $__this_row = get_message_notice('topic_subscription');
+      $subject = $__this_row['var_subject'];
+      $message = $__this_row['var_message'];
+      $__this_url = ROOT_URL . "/" . DCF . "?az=show_topic&forum=$forum_id&topic_id=$topic_id#$mesg_id";
 
       // replace $MARKER with proper variable
-      $message = preg_replace("/#MARKER#/",$this_url,$message);
+      $message = preg_replace("/#MARKER#/",$__this_url,$message);
       $message .= "\n\n" . SETUP_ADMIN_SIGNATURE;
 
       $header    = "From: $from\r\n";

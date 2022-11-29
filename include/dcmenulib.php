@@ -1010,8 +1010,8 @@ function MakeArray() {
     $dum_array[] = "\"" . ROOT_URL . "/" . DCF . "\"";
 
 
-   foreach ($sorted_forum_list as $this_temp) {
-      $id = $this_temp['0'];
+   foreach ($sorted_forum_list as $__this_temp) {
+      $id = $__this_temp['0'];
        $dum_array[] = "\"" . ROOT_URL . "/" . DCF . "?az=show_topics&forum=$id\"";
    }
 
@@ -1029,9 +1029,9 @@ var url = new MakeArray($dum)
 <option value=\"" . ROOT_URL . "/" . DCF . "\" />" . $in['lang']['forum_listing'] . " \n";
 
 
-   foreach ($sorted_forum_list as $this_temp) {
-      $id = $this_temp['0'];
-      $lev = $this_temp['1'];
+   foreach ($sorted_forum_list as $__this_temp) {
+      $id = $__this_temp['0'];
+      $lev = $__this_temp['1'];
       $forum_menu .= "<option value=\"" . ROOT_URL . "/" . DCF . "?az=show_topics&forum=$id\" />";
       if ($lev > 0) {
          for ($j=0;$j<$lev;$j++) {

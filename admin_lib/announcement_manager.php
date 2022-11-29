@@ -318,7 +318,7 @@ function announcement_add() {
    $message = db_escape_string($in['message']);
 
    $q = "INSERT INTO " . DB_ANNOUNCEMENT . "
-         VALUES('',NOW(),'$e_date','$subject','$message') ";
+         VALUES(null,NOW(),'$e_date','$subject','$message') ";
 
    db_query($q);
 

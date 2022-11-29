@@ -63,7 +63,7 @@ function private_forum_manager_user() {
       // for each forum
       foreach ($in['select'] as $forum_id) {
          $q = "INSERT INTO " . DB_PRIVATE_FORUM_LIST . "
-                    VALUES('','{$in['u_id']}','$forum_id') ";
+                    VALUES(null,'{$in['u_id']}','$forum_id') ";
          db_query($q);
       }
 

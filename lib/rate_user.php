@@ -97,7 +97,7 @@ function rate_user() {
 
          // Record this new rating
          $q = "INSERT INTO " . DB_USER_RATING . "
-                VALUES ('',
+                VALUES(null,
                         '{$in['u_id']}',
                         '$r_id',
                         '{$in['rating']}',

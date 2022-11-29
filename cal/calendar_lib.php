@@ -1126,7 +1126,7 @@ function insert_event() {
 
 
    $q = "INSERT INTO " . DB_EVENT_REPEAT . "
-             VALUES('','{$in['repeat_type']}',
+             VALUES(null,'{$in['repeat_type']}',
                     '{$in['opt1_1']}','{$in['opt1_2']}',
                     '{$in['opt2_1']}','{$in['opt2_2']}','{$in['opt2_3']}' )";
    db_query($q);
@@ -1134,7 +1134,7 @@ function insert_event() {
    $repeat_id = db_insert_id($q);                    
 
    $q = "INSERT INTO " . DB_EVENT . "
-             VALUES('',NOW(0),'','{$in['type']}','$repeat_id','$author_id','$author_name',
+             VALUES(null,NOW(0),'','{$in['type']}','$repeat_id','$author_id','$author_name',
                     '{$in['mode']}','$title','$note','{$in['all_day']}',
                     '{$in['start_timestamp']}','{$in['duration']}','{$in['end_timestamp']}') ";
    db_query($q);

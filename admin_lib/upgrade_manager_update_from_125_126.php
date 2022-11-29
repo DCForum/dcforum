@@ -53,7 +53,7 @@ function upgrade_manager_update_from_125_126() {
 
    print "Adding default upload file to the setup table...";
    $q = "INSERT INTO " . DB_SETUP . "
-                 VALUES ('','file_upload_default','txt','user_option') ";
+                 VALUES(null,'file_upload_default','txt','user_option') ";
 
    //   db_query($q);
    print "...done.<br />";

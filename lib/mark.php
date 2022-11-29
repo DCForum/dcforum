@@ -101,7 +101,7 @@ function mark() {
       }
       else {
          $q = "INSERT INTO " . DB_USER_TIME_MARK . "
-                    VALUES('','$u_id','$forum',NOW() )";
+                    VALUES(null,'$u_id','$forum',NOW() )";
          db_query($q);
       }
       $current_time_marks[$forum] = time();
@@ -250,7 +250,7 @@ function update_forum_marks($child_forum,$forum,$u_id,&$user_time_marks,&$curren
       // otherwise, update
       else {
          $q = "INSERT INTO " . DB_USER_TIME_MARK . "
-                    VALUES('','$u_id','$forum',NOW() )";
+                    VALUES(null,'$u_id','$forum',NOW() )";
          db_query($q);
       }
 

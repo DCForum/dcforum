@@ -309,7 +309,7 @@ function search_forum($forum) {
          $t_row['author_name'] = db_escape_string($t_row['author_name']);
          
          $qq = "INSERT INTO " . DB_SEARCH_CACHE . "
-                     VALUES('',
+                     VALUES(null,
                              '$session_id',
                              NOW(),
                              '$forum',

@@ -337,7 +337,7 @@ function add_users_to_private_forums($this_forum,$user_array) {
          if ($user_array) {
             foreach ($user_array as $u_id) {
                $q = "INSERT INTO " . DB_PRIVATE_FORUM_LIST . "
-                      VALUES('','$u_id','$forum') ";
+                      VALUES(null,'$u_id','$forum') ";
                db_query($q);
             }
          }

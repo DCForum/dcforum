@@ -50,7 +50,7 @@ function mesg_table_name($forum_id) {
 function subscribe_to_topic($f_id,$u_id,$t_id) {
 
    $q = "INSERT INTO " . DB_TOPIC_SUB . "
-              VALUES('','$u_id','$t_id','$f_id') ";
+              VALUES(null,'$u_id','$t_id','$f_id') ";
    db_query($q);
 
 }
@@ -83,7 +83,7 @@ function log_event($u_id,$e_id,$e_info) {
       $u_id = 100000;
 
    $q = "INSERT INTO " . DB_LOG . "
-              VALUES('',
+              VALUES(null,
                      '$u_id',
                      '$e_id',
                      '$e_info',
@@ -187,7 +187,7 @@ function create_forum ($in) {
    $forum_order++;
 
    $q = "INSERT INTO " . DB_FORUM . "
-              VALUES ('',
+              VALUES(null,
                       '$parent_id',
                       '$forum_type',
                       '$forum_order',
@@ -390,7 +390,7 @@ function add_new_message() {
 //                 '1',
 
    $q = "INSERT INTO $in[forum_table]
-          VALUES('',
+          VALUES(null,
                  '{$in['top_id']}',
                  '{$in['parent_id']}',
                  '{$in['type']}',
@@ -1785,7 +1785,7 @@ function move_message($from_forum_id,$to_forum_id,$topic_id,$mesg_parent_id) {
 //                 '{$row['opt_3']}',
 
      $q = "INSERT INTO $to_table
-          VALUES('',
+          VALUES(null,
                  '$new_top_id',
                  '$new_parent_id',
                  '{$row['type']}',
@@ -2141,7 +2141,7 @@ function update_inbox($to_id,$from_id,$subject,$message) {
    $message = db_escape_string($message);
 
    $q = "INSERT INTO " . DB_INBOX . "
-                   VALUES('',
+                   VALUES(null,
                           '$to_id',
                           '$from_id',
                           '$subject',

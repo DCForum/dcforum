@@ -110,7 +110,7 @@ function update_bad_ip($u_id,$ip) {
    }
    else {
       $q = "INSERT INTO " . DB_BAD_IP . "
-           VALUES('','$u_id','$ip') ";
+           VALUES(null,'$u_id','$ip') ";
 
       db_query($q);
       return 0;

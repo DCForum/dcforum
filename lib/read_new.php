@@ -219,7 +219,7 @@ function search_forum($forum,$forum_date) {
 
       // put matched result into the search param
       $qq = "INSERT INTO " . DB_SEARCH_CACHE . "
-                     VALUES('',
+                     VALUES(null,
                              '$session_id',
                              NOW(),
                              '$forum',

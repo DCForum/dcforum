@@ -96,7 +96,7 @@ function upgrade_manager_import_misc_user_info() {
                   $score = 0;
 
                $q = "INSERT INTO " . DB_USER_RATING . "
-                       VALUES('','$id','$r_id','$score','$comment','$date') ";
+                       VALUES(null,'$id','$r_id','$score','$comment','$date') ";
                db_query($q);
             }
          }

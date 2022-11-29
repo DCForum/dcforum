@@ -62,7 +62,7 @@ function subscription_manager_forum() {
 
       foreach ($in['select'] as $u_id) {
          $q = "INSERT INTO " . DB_FORUM_SUB . "
-                VALUES('','$u_id','{$in['forum']}') ";
+                VALUES(null,'$u_id','{$in['forum']}') ";
          db_query($q);
       }
 

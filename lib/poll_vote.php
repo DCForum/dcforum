@@ -102,7 +102,7 @@ function poll_vote() {
 function add_new_vote($poll_id,$u_id,$choice) {
 
    $q = "INSERT INTO " . DB_POLL_VOTES . "
-           VALUES('',
+           VALUES(null,
                   '$poll_id',
                   '$u_id',
                   '$choice') ";

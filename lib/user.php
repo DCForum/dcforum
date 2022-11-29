@@ -555,7 +555,7 @@ function forum_subscription() {
       if ($in['select']) {
          foreach ($in['select'] as $id) {
             $q = "INSERT INTO " . DB_FORUM_SUB . "
-                       VALUES('',
+                       VALUES(null,
                               '$u_id',
                               '$id') ";
 
@@ -990,7 +990,7 @@ function inbox() {
       }
       else {
          $q = "INSERT INTO " . DB_INBOX_LOG . "
-                  VALUES('','$u_id',NOW()) ";
+                  VALUES(null,'$u_id',NOW()) ";
       }
 
       db_query($q);

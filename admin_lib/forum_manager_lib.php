@@ -380,7 +380,7 @@ function add_moderators($moderators,$forum_id) {
    if ($moderators) {
       foreach ($moderators as $moderator) {
          $q = "INSERT INTO " . DB_MODERATOR . "
-                 VALUES('','$moderator','$forum_id') ";
+                 VALUES(null,'$moderator','$forum_id') ";
          db_query($q);
       }
    }

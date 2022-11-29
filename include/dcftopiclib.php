@@ -1770,7 +1770,7 @@ function add_new_poll() {
    global $in;
 
    $q = "INSERT INTO " . DB_POLL_CHOICES . "
-          VALUES('',
+          VALUES(null,
                  '{$in['forum']}',
                  '{$in['topic_id']}',
                  '{$in['choice_1']}',
@@ -2641,7 +2641,7 @@ function log_ip($u_id,$f_id,$m_id) {
    $u_id = $u_id > 0 ? $u_id : 100000;
 
    $q = "INSERT INTO " . DB_IP . "
-            VALUES('','$u_id','$f_id','$m_id','" . $_SERVER['REMOTE_ADDR'] . "',NOW()) ";
+            VALUES(null,'$u_id','$f_id','$m_id','" . $_SERVER['REMOTE_ADDR'] . "',NOW()) ";
 
    db_query($q);
 

@@ -272,7 +272,7 @@ function import_topic($user_id,$ip_list,$topic_id) {
                $score = floor(($score + 1)/2);
                $rating += $score;
                $q = "INSERT INTO " . DB_TOPIC_RATING . "
-                     VALUES('','100000','{$setup['forum_id']}','$topic_id','$score','000.000.000.000') ";
+                     VALUES(null,'100000','{$setup['forum_id']}','$topic_id','$score','000.000.000.000') ";
                db_query($q);
          }
             $rating = $rating / $num_ratings;
@@ -417,7 +417,7 @@ function import_topic($user_id,$ip_list,$topic_id) {
 //                                   '0',
 //                                   '1',
                $sql = "INSERT INTO $setup[forum_table]
-                            VALUES('',
+                            VALUES(null,
                                    '',
                                    '',
                                    '$topic_type',
@@ -508,7 +508,7 @@ function import_topic($user_id,$ip_list,$topic_id) {
 //                                   '1',
 
                   $sql = "INSERT INTO $setup[forum_table]
-                            VALUES('',
+                            VALUES(null,
                                    '$top_id',
                                    '$parent',
                                    '$mesg_type',
@@ -637,7 +637,7 @@ function import_ip($u_id,$f_id,$m_id,$ip,$date) {
    $u_id = $u_id > 0 ? $u_id : 100000;
 
    $q = "INSERT INTO " . DB_IP . "
-            VALUES('','$u_id','$f_id','$m_id','$ip','$date') ";
+            VALUES(null,'$u_id','$f_id','$m_id','$ip','$date') ";
 
    db_query($q);
 
@@ -668,7 +668,7 @@ function import_attachment($author_id,$forum_id,$topic_id,$mesg_id,$timestamp,$a
           $file_type = $file_array['1'];
 
           $q = "INSERT INTO " . DB_UPLOAD . "
-                  VALUES('','$author_id','$forum_id','$mesg_id','000.000.000.000',
+                  VALUES(null,'$author_id','$forum_id','$mesg_id','000.000.000.000',
                   '$file_type','','$timestamp') ";
 
           db_query($q);

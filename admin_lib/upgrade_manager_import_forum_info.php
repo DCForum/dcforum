@@ -77,7 +77,7 @@ function upgrade_manager_import_forum_info() {
          $conf_status = $fields['3'];
 
          $sql = "INSERT INTO " . DB_FORUM . "
-           VALUES ('',
+           VALUES(null,
                    '0',
                    '99',
                    '$forum_order',
@@ -154,7 +154,7 @@ function upgrade_manager_import_forum_info() {
 
 
          $sql = "INSERT INTO " . DB_FORUM . "
-           VALUES ('',
+           VALUES(null,
                    '$parent_id',
                    '$forum_type',
                    '$forum_order',
@@ -186,7 +186,7 @@ function upgrade_manager_import_forum_info() {
 
          foreach ($f_mods as $mod) {
             $q = "INSERT INTO " . DB_MODERATOR . "
-                    VALUES('','{$moderator_list['$mod']}','$forum_id') ";
+                    VALUES(null,'{$moderator_list['$mod']}','$forum_id') ";
 
             db_query($q);
          }
@@ -251,7 +251,7 @@ function import_private_forum_list($old_forum_id,$forum_id) {
          $result = db_query($q);
          while($row = db_fetch_array($result)) {
             $q = "INSERT INTO " . DB_PRIVATE_FORUM_LIST . "
-                    VALUES('','{$row['id']}','$forum_id') ";
+                    VALUES(null,'{$row['id']}','$forum_id') ";
             db_query($q);
          }
          db_free($result);

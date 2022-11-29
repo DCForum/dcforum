@@ -213,7 +213,7 @@ function save_search_param() {
 
    $keyword = db_escape_string($in['keyword']);
    $q = "INSERT INTO " . DB_SEARCH_PARAM . "
-             VALUES('',
+             VALUES(null,
                     '$session_id',
                     NOW(),
                     '$keyword',

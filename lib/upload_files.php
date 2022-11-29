@@ -313,7 +313,7 @@ function log_error($u_id,$event,$event_info) {
   $remote_addr = $_SERVER['REMOTE_ADDR'];
 
    $q = "INSERT INTO " . DB_SECURITY . "
-          VALUES ('',
+          VALUES(null,
                   '$u_id',
                   '$event',
                   '$event_info',
@@ -336,7 +336,7 @@ function log_upload($u_id,$forum_id,$post_id,$file_type) {
   $remote_addr = $_SERVER['REMOTE_ADDR'];
 
    $q = "INSERT INTO " . DB_UPLOAD . "
-          VALUES ('',
+          VALUES(null,
                   '$u_id',
                   '$forum_id',
                   '0',

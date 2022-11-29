@@ -109,7 +109,7 @@ function upgrade_manager_import_forum_log() {
          $userid = $user_id[$username] ? $user_id[$username] : 100000;
 
          $q = "INSERT INTO " . DB_LOG . "
-                  VALUES('','$userid','{$translate['$event']}','$event_info','{$fields['4']}',$date) ";
+                  VALUES(null,'$userid','{$translate['$event']}','$event_info','{$fields['4']}',$date) ";
 
          db_query($q);
       }

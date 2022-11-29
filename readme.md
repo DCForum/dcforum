@@ -30,6 +30,7 @@ ASAP.
 * Migrated `define` statements to `const`.
 * Renamed `dcsetup.php` to `dcsetup.example.php` and added to gitignore.
 * Added `dd` and `dump` functions to `dclib.php`.
+* Migrated `array_push` on singles elements to `[]`.
 
 #### 1.27.1
 

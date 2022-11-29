@@ -95,7 +95,7 @@ const DCFV = "DCForum+ Version 1.27.1-php8.1";
 
 
 // DCForum+ Version variable
-const DCCOPYRIGHT = "Powered by " . DCFV . " <br />Copyright 1997-2003 DCScripts.com";
+const DCCOPYRIGHT = "Powered by <a href='https://github.com/DCForum/dcforum' target='_blank'>" . DCFV . "</a> <br />Copyright 1997-2003 DCScripts.com";
 
 // You many need to specify $root_dir if PhP's getcwd() doesn't work
 // This is the main /dc directory location

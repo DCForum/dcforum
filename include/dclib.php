@@ -415,16 +415,26 @@ function select_language($module)
 
 }
 
+function legacy_each(&$arr)
+{
+    if ($arr === null) return null;
+    $k = key($arr);
+    $v = current($arr);
+    $r = is_null($k) ? false : [1 => $v, 'value' => $v, 0 => $k, 'key' => $k];
+    next($arr);
+    return $r;
+}
+
 function dump()
 {
-    echo '<pre dir="ltr">';
+    echo '<pre dir="ltr" style="background: #fff; color:#000">';
     foreach (func_get_args() as $arg) var_dump($arg);
     echo '</pre>';
 }
 
 function dd()
 {
-    echo '<pre dir="ltr">';
+    echo '<pre dir="ltr" style="background: #fff; color:#000">';
     foreach (func_get_args() as $arg) var_dump($arg);
     echo '</pre>';
     die;

@@ -26,82 +26,84 @@
 //
 //
 ///////////////////////////////////////////////////////////////////////
-function main() {
+function main()
+{
 
-   // global variables
-   global $in;
+    // global variables
+    global $in;
 
-   print_head("Administration Program");
+    print_head("Administration Program");
 
-   include_top();
+    include_top();
 
-   // Include menu stuff
-   // Here, $menu_link is defined
-   // and can be used for stuff
-   include_once("menu.php");
+    // Include menu stuff
+    // Here, $menu_link is defined
+    // and can be used for stuff
+    include_once("menu.php");
 
-   // If moderator, then only let this user use some parts of the forum
-   if ($in['user_info']['g_id'] == 20) {
-      array_splice($cat,0,7);
-      array_splice($cat,2,3);
-   }
-
-
-   // If saz is defined, then a particular
-   // sub category was selected.
-   // Otherwise list the entire admin functions
-   // Pretty confusing construct, heh?
+    // If moderator, then only let this user use some parts of the forum
+    if ($in['user_info']['g_id'] == 20) {
+        array_splice($cat, 0, 7);
+        array_splice($cat, 2, 3);
+    }
 
 
-   if ($in['saz'] == '') { // if $in[saz] is '', then main listing
+    // If saz is defined, then a particular
+    // sub category was selected.
+    // Otherwise list the entire admin functions
+    // Pretty confusing construct, heh?
 
-     begin_table(array(
-         'border'=>'0',
-         'cellspacing' => '1',
-         'cellpadding' => '5',
-         'class'=>'') );
 
-     $num_cats = count($cat);
-     $num_rows = ceil(count($cat)/2);
+    if ($in['saz'] == '') { // if $in[saz] is '', then main listing
 
-     for ($j=0; $j<$num_rows; $j++) {
-         list($key,$sval) = each($cat);
-         $title = $cat[$key]['title'];
-         $sub_cat = $cat[$key]['sub_cat'];
+        begin_table([
+            'border'      => '0',
+            'cellspacing' => '1',
+            'cellpadding' => '5',
+            'class'       => '',
+        ]);
 
-         print "<tr class=\"dcheading\"><td class=\"dcheading\">
+        $num_cats = count($cat);
+        $num_rows = ceil(count($cat) / 2);
+
+        for ($j = 0; $j < $num_rows; $j++) {
+            [$key, $sval] = legacy_each($cat);
+            $title = $cat[$key]['title'];
+            $sub_cat = $cat[$key]['sub_cat'];
+
+            print "<tr class=\"dcheading\"><td class=\"dcheading\">
             $title</td>\n";
-         $first_col = '';
-        foreach($sub_cat as $skey => $sval) {
-            $first_col .= "<li> <a href=\"" . DCA . 
-            "?az=$key&saz=$skey\">$sval[title]</a></li>";
-         }
+            $first_col = '';
+            foreach ($sub_cat as $skey => $sval) {
+                $first_col .= "<li> <a href=\"" . DCA .
+                    "?az=$key&saz=$skey\">$sval[title]</a></li>";
+            }
 
 
-         list($key,$sval) = each($cat);
-         $title = $cat[$key]['title'];
-         $sub_cat = $cat[$key]['sub_cat'];
+            [$key, $sval] = legacy_each($cat);
+            $title = $cat[$key]['title'];
+            $sub_cat = $cat[$key]['sub_cat'];
 
-         print "<td class=\"dcheading\">
+            print "<td class=\"dcheading\">
             $title</td></tr>\n";
-         print "<tr class=\"dclite\"><td class=\"dclite\" width=\"50%\">$first_col</td>
+            print "<tr class=\"dclite\"><td class=\"dclite\" width=\"50%\">$first_col</td>
                 <td class=\"dclite\" width=\"50%\">";
 
-        foreach($sub_cat as $skey => $sval) {
-            print "<li> <a href=\"" . DCA . "?az=$key&saz=$skey\">$sval[title]</a></li>";
-         }
+            foreach ($sub_cat as $skey => $sval) {
+                print "<li> <a href=\"" . DCA . "?az=$key&saz=$skey\">$sval[title]</a></li>";
+            }
 
-         print "</td></tr>";
+            print "</td></tr>";
 
-     }
+        }
 
-     end_table();
+        end_table();
 
-   }
+    }
 
-   include_bottom();
+    include_bottom();
 
-   print_tail();
+    print_tail();
 
 }
 

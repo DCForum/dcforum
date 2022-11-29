@@ -42,5 +42,3 @@ $in['lang']['sep'] = "Sep";
 $in['lang']['oct'] = "Okt";
 $in['lang']['nov'] = "Nov";
 $in['lang']['dec'] = "Dez";
-
-?>

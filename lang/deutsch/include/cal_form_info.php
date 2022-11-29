@@ -31,7 +31,6 @@
 ///////////////////////////////////////////////////////////////////////////
 
 
-
 // $event_list array
 $in['lang']['event_list_1'] = 'Abendessen';
 $in['lang']['event_list_2'] = 'Abschluss';
@@ -96,6 +95,3 @@ $in['lang']['opt2_3_3'] = '3 Monate';
 $in['lang']['opt2_3_4'] = '4 Monate';
 $in['lang']['opt2_3_6'] = '6 Monate';
 $in['lang']['opt2_3_12'] = 'Jahr';
-
-
-?>

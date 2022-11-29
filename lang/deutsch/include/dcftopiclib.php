@@ -113,7 +113,6 @@ $in['lang']['create_poll'] = "Abstimmung speichern";
 $in['lang']['preview_poll'] = "Vorschau";
 
 
-
 // preview_poll
 $in['lang']['preview_poll_message'] = "Vorschau auf deine Abstimmung";
 
@@ -128,16 +127,14 @@ $in['lang']['rate_it'] = "Bewerten!";
 
 $in['lang']['moderators'] = "Moderatoren";
 $in['lang']['folder'] = "Ordner";
-$in['lang']['forum'] = "Forum";   
+$in['lang']['forum'] = "Forum";
 $in['lang']['topics'] = "Themen";
 $in['lang']['messages'] = "Beiträge";
 $in['lang']['by'] = "von";
-   
+
 
 $in['lang']['replies_to_sub_thread'] = "Antworten auf das Folgethema";
 
 
 $in['lang']['html_reference'] = "HTML Reference";
 
-
-?>

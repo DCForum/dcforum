@@ -34,5 +34,3 @@ $in['lang']['page_header'] = "Folgende IP-Adressen stehen in der Liste der gespe
 
 $in['lang']['not_added'] = "Nicht hinzugefügt. Diese Adresse steht bereits in der Liste.";
 $in['lang']['added'] = "Der IP-Liste hinzugefügt";
-
-?>

@@ -23,7 +23,7 @@ ASAP.
 
 ### Changelog
 
-### Dev
+#### Dev
 
 * Converted "while each" loops to `foreach`.
 * Migrated `mysql` functions to `mysqli`.

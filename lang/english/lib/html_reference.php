@@ -3,51 +3,37 @@
 //
 // html_reference.php
 //
-// DCForum+ Version 1.27
-// September 30, 2009
+// DCForum+ Version 1.25
+// Jan 29, 2004
+// Copyright 1997-2003 DCScripts
+// A division of DC Business Solutions
+// All Rights Reserved
 //
 //
-//    This file is part of DCForum+
-//
-//    DCForum+ is free software; you can redistribute it and/or modify
-//    it under the terms of the GNU General Public License as published by
-//    the Free Software Foundation; either version 2 of the License, or
-//    (at your option) any later version.
-//
-//    DCForum+ is distributed in the hope that it will be useful,
-//    but WITHOUT ANY WARRANTY; without even the implied warranty of
-//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//    GNU General Public License for more details.
-//
-//    You should have received a copy of the GNU General Public License
-//    along with DCForum+; if not, write to the Free Software
-//    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-//
-//
-       ),
 
-   "Text Formatting" => array(
+$in['lang']['page_desc'] = "HTML tags can be used in your message simply by using [ and ]
+      symbols in place of &lt; and &gt; symbols, respectively.";
 
-       "Bold" => "[strong]Text[/strong]",
-       "Italic" => "[i]Text[/i]",
-       "Unerline" => "[u]Text[/u]",
-       "Heading" => "[h1]Text[/h1]"
-       ),
+$in['lang']['special_tags'] = "Special Tags";
+$in['lang']['code'] = "Code";
+$in['lang']['your_code'] = "Your code";
+$in['lang']['href_link'] = "HTML link with text display";
+$in['lang']['href_link_desc'] = "URL is without \"http://\".";
+$in['lang']['example'] = "Example";
+$in['lang']['l_and_r'] = "[ and ]";
+$in['lang']['l_and_r_desc'] = "&l; and &r;";
+$in['lang']['text_formatting'] = "Text Formatting";
 
-   "Links and Images" => array(
+$in['lang']['bold'] = "";
+$in['lang']['italic'] = "";
+$in['lang']['underline'] = "";
 
-       "Hyperlink" => "No tags needed.  Just type the URL.",
-       "Images" => "No tags needed.  Just type the URL."
-       ),
-
-   "Formatted List" => array(
-
-       "Unordered List" => "[ul]<br />[li]<br />[li]<br />...<br />[/ul]",
-         "Ordered List" => "[ol]<br />[li]<br />[li]<br />...<br />[/ol]"
-   )
-
-);
-
-
+$in['lang'][''] = "";
+$in['lang'][''] = "";
+$in['lang'][''] = "";
+$in['lang'][''] = "";
+$in['lang'][''] = "";
+$in['lang'][''] = "";
+$in['lang'][''] = "";
 
 ?>

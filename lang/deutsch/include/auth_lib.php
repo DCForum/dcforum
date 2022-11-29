@@ -83,5 +83,3 @@ $in['lang']['cannot_change_username'] = "Der Username kann nicht geändert werde
 //$in['lang']['group'] = "Group";
 //$in['lang']['status'] = "Status";
 //$in['lang']['submit_form'] = "Submit Form";
-
-?>

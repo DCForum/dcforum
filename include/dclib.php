@@ -407,7 +407,7 @@ function select_language($module)
     // Fix to ensure that email notification is sent using admin's default email
     if ($in['admin_lang'] and file_exists(LANG_DIR . "/" . $in['admin_lang'] . $module)) {
         include(LANG_DIR . "/" . $in['admin_lang'] . $module);
-    } else if (file_exists(LANG_DIR . "/" . SETUP_USER_LANGUAGE . $module)) {
+    } else if (defined('SETUP_USER_LANGUAGE') && file_exists(LANG_DIR . "/" . SETUP_USER_LANGUAGE . $module)) {
         include(LANG_DIR . "/" . SETUP_USER_LANGUAGE . $module);
     } else {
         include(LANG_DIR . "/english" . $module);

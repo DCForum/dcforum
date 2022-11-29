@@ -272,7 +272,7 @@ function import_topic($user_id,$ip_list,$topic_id) {
                $score = floor(($score + 1)/2);
                $rating += $score;
                $q = "INSERT INTO " . DB_TOPIC_RATING . "
-                     VALUES('','100000','$setup[forum_id]','$topic_id','$score','000.000.000.000') ";
+                     VALUES('','100000','{$setup['forum_id']}','$topic_id','$score','000.000.000.000') ";
                db_query($q);
          }
             $rating = $rating / $num_ratings;

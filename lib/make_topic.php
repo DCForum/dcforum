@@ -90,13 +90,13 @@ function make_topic() {
                         last_date = NOW(),
                             mesg_date = mesg_date,
                             edit_date = edit_date
-                  WHERE id = '$in[mesg_id]' ";
+                  WHERE id = '{$in['mesg_id']}' ";
         db_query($q);
 
         // For each $row id, update top_id
         foreach ($rows as $id) {      
     	      $q = " UPDATE $from_forum_table 
-                        SET top_id = '$in[mesg_id]',
+                        SET top_id = '{$in['mesg_id']}',
                             last_date = last_date,
                             mesg_date = mesg_date,
                             edit_date = edit_date
@@ -111,7 +111,7 @@ function make_topic() {
                          last_date = last_date,
                             mesg_date = mesg_date,
                             edit_date = edit_date
-                  WHERE id = '$in[topic_id]' ";
+                  WHERE id = '{$in['topic_id']}' ";
          db_query($q);
 
         // Next if to_forum is not same as from_forum, move the topic

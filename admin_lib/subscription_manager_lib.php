@@ -45,7 +45,7 @@ function list_users() {
            FROM " . DB_FORUM_SUB;
 
    if ($in['saz'] == 'forum')
-      $q .= " WHERE forum_id = '$in[forum]' ";
+      $q .= " WHERE forum_id = '{$in['forum']}' ";
 
    $result = db_query($q);
 
@@ -55,7 +55,7 @@ function list_users() {
       return;
    }
    while($row = db_fetch_array($result)) {
-       $is_subscribed[] = "'$row[u_id]'";
+       $is_subscribed[] = "'{$row['u_id']}'";
    }
    db_free($result);   
 
@@ -162,7 +162,7 @@ function list_forum_tree() {
       // allowed in this forum
       $q = "SELECT forum_id
            FROM " . DB_PRIVATE_FORUM_LIST . "
-          WHERE u_id = '$in[select]' ";
+          WHERE u_id = '{$in['select']}' ";
       $result = db_query($q);
       while($row = db_fetch_array($result)) {
          $has_access[$row['forum_id']] = 1;
@@ -188,7 +188,7 @@ function list_forum_tree() {
       // display the forum listing      
       $q = "  SELECT   forum_id
                 FROM   " . DB_FORUM_SUB . "
-               WHERE   u_id = '$user_info[id]' 
+               WHERE   u_id = '{$user_info['id']}' 
             ORDER BY   forum_id";
       $result = db_query($q);
       // Generated a hash of subscribed forums

@@ -48,7 +48,7 @@ function forum_manager_reorder() {
       while($row = db_fetch_array($result)) {
          $id = $row['id'];
          $q = "UPDATE " . DB_FORUM . 
-              " SET forum_order = '$in[$id]',
+              " SET forum_order = '{$in['$id']}',
                     last_date = last_date
                 WHERE id = '$id' ";
          db_query($q); 

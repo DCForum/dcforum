@@ -120,7 +120,7 @@ function announcement_manager_edit() {
       $q = "SELECT UNIX_TIMESTAMP(e_date) as e_date,
                    subject, message
               FROM " . DB_ANNOUNCEMENT . "
-             WHERE id = '$in[id]' ";
+             WHERE id = '{$in['id']}' ";
 
       $result = db_query($q);
       $row = db_fetch_array($result);
@@ -274,7 +274,7 @@ function announcement_update() {
                a_date = a_date,
                subject = '$subject',
                message = '$message'
-          WHERE id = '$in[id]' ";
+          WHERE id = '{$in['id']}' ";
 
    db_query($q);
 

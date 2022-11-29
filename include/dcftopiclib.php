@@ -1771,14 +1771,14 @@ function add_new_poll() {
 
    $q = "INSERT INTO " . DB_POLL_CHOICES . "
           VALUES('',
-                 '$in[forum]',
-                 '$in[topic_id]',
-                 '$in[choice_1]',
-                 '$in[choice_2]',
-                 '$in[choice_3]',
-                 '$in[choice_4]',
-                 '$in[choice_5]',
-                 '$in[choice_6]') ";
+                 '{$in['forum']}',
+                 '{$in['topic_id']}',
+                 '{$in['choice_1']}',
+                 '{$in['choice_2']}',
+                 '{$in['choice_3']}',
+                 '{$in['choice_4']}',
+                 '{$in['choice_5']}',
+                 '{$in['choice_6']}') ";
 
    db_query($q);
 
@@ -1807,8 +1807,8 @@ function update_poll() {
 
    $q = "SELECT id
            FROM " . DB_POLL_CHOICES . "
-          WHERE forum_id = '$in[forum]'
-            AND topic_id = '$in[topic_id]' ";
+          WHERE forum_id = '{$in['forum']}'
+            AND topic_id = '{$in['topic_id']}' ";
 
    $result = db_query($q);
    $row = db_fetch_array($result);
@@ -1817,12 +1817,12 @@ function update_poll() {
 
    $q = "UPDATE " . DB_POLL_CHOICES . "
             SET
-                 choice_1 = '$in[choice_1]',
-                 choice_2 = '$in[choice_2]',
-                 choice_3 = '$in[choice_3]',
-                 choice_4 = '$in[choice_4]',
-                 choice_5 = '$in[choice_5]',
-                 choice_6 = '$in[choice_6]'
+                 choice_1 = '{$in['choice_1']}',
+                 choice_2 = '{$in['choice_2']}',
+                 choice_3 = '{$in['choice_3']}',
+                 choice_4 = '{$in['choice_4']}',
+                 choice_5 = '{$in['choice_5']}',
+                 choice_6 = '{$in['choice_6']}'
           WHERE  id = '$poll_id' ";
 
    db_query($q);

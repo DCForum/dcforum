@@ -201,8 +201,8 @@ function change_account_info() {
          $in['email'] = db_escape_string($in['email']);
 
          $q = "UPDATE " . DB_USER . "
-                  SET name = '$in[name]',
-                      email = '$in[email]',
+                  SET name = '{$in['name']}',
+                      email = '{$in['email']}',
                       reg_date = reg_date,
                       last_date = last_date
                 WHERE id = '$u_id' ";
@@ -210,8 +210,8 @@ function change_account_info() {
 
          // we need to also update the sessions table?
          $q = "UPDATE " . DB_SESSION . "
-                  SET name = '$in[name]',
-                      email = '$in[email]'
+                  SET name = '{$in['name']}',
+                      email = '{$in['email']}'
                 WHERE u_id = '$u_id' ";
          db_query($q);
          
@@ -925,7 +925,7 @@ function inbox() {
               FROM   " . DB_INBOX . " AS i,
                      " . DB_USER . " AS u
              WHERE   u.id = i.from_id
-               AND   i.id = '$in[m_id]'
+               AND   i.id = '{$in['m_id']}'
                AND   i.to_id = '$u_id'
             ORDER BY date DESC";
       $result = db_query($q);

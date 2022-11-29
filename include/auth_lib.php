@@ -268,20 +268,20 @@ function set_session($row) {
    $q = "INSERT INTO " . DB_SESSION . "
          VALUES('',
                 '$session',
-                '$session_row[id]',
-                '$session_row[username]',
-                '$session_row[g_id]',
-                '$session_row[name]',
-                '$session_row[email]',
-                '$session_row[ut]',
-                '$session_row[utt]',
-                '$session_row[uu]',
-                '$session_row[uv]',
-                '$session_row[ue]',
-                '$session_row[ug]',
-                '$session_row[uh]',
-                '$session_row[uj]',
-                '$session_row[uw]',
+                '{$session_row['id']}',
+                '{$session_row['username']}',
+                '{$session_row['g_id']}',
+                '{$session_row['name']}',
+                '{$session_row['email']}',
+                '{$session_row['ut']}',
+                '{$session_row['utt']}',
+                '{$session_row['uu']}',
+                '{$session_row['uv']}',
+                '{$session_row['ue']}',
+                '{$session_row['ug']}',
+                '{$session_row['uh']}',
+                '{$session_row['uj']}',
+                '{$session_row['uw']}',
                 '$time_mark',
                 NOW()
         ) ";
@@ -376,7 +376,7 @@ function registration_form() {
 
   foreach($param_login as $key => $val_array) {
 
-      if ($key == 'password' and 
+      if ($key == 'password' and
           SETUP_AUTH_REGISTER_VIA_EMAIL == 'yes' and
           $in['this'] == DCF) {
         // do nothing
@@ -428,10 +428,10 @@ function registration_form() {
    $submit = form_element("","submit", $in['lang']['submit'],"");
    print "<tr><td class=\"dcdark\">&nbsp;
               </td><td class=\"dclite\">$submit</td></tr>\n";
- 
+
    // End table
    end_table();
- 
+
    // End form
    end_form();
 
@@ -490,7 +490,7 @@ function check_reg_info() {
    // Also check and make sure certain characters
    // are not present
   foreach($param_login as $key => $val_array) {
-      if ($key == 'password' and 
+      if ($key == 'password' and
          SETUP_AUTH_REGISTER_VIA_EMAIL == 'yes' and
          $in['this'] == DCF) {
 
@@ -559,7 +559,7 @@ function check_reg_info() {
      else {
       $owner = check_dup_email($in['email']);
          if ($owner and $owner != $in['username']) {
-	   $error_mesg .= "<li>" . $in['lang']['dup_email_1'] . ": " 
+	   $error_mesg .= "<li>" . $in['lang']['dup_email_1'] . ": "
                           . $owner . " " . $in['lang']['dup_email_2'] . "</li>";
          }
          // Check bad email address
@@ -591,7 +591,7 @@ function is_bad_email($email) {
    foreach ($bad_emails as $bad_email) {
       if ($email_domain == trim($bad_email) ) {
          return 1;
-      }   
+      }
    }
 
    return 0;
@@ -681,8 +681,8 @@ function add_user() {
 
    $q = "INSERT INTO " . DB_USER . " 
            (username, password, g_id, name, email, status)
-           VALUES('$in[username]','$encrypted_password',
-                  '$in[group]','$in[name]','$in[email]','$in[status]')";
+           VALUES('{$in['username']}','$encrypted_password',
+                  '{$in['group']}','{$in['name']}','{$in['email']}','{$in['status']}')";
 
    db_query($q);
 
@@ -743,7 +743,7 @@ function user_account_form() {
 
   foreach($param_login as $key => $val_array) {
 
-      if ($key == 'password' and 
+      if ($key == 'password' and
           SETUP_AUTH_REGISTER_VIA_EMAIL == 'yes' and
           $in['this'] == DCF) {
         // do nothing
@@ -807,10 +807,10 @@ function user_account_form() {
 
    print "<tr><td class=\"dcdark\">&nbsp;
               </td><td class=\"dclite\">$submit</td></tr>\n";
- 
+
    // End table
    print end_table();
- 
+
    // Append additional hidden fields
    print "$hidden_fields\n";
 
@@ -838,7 +838,7 @@ function user_account_form() {
    if ($in['username'])
       print form_element("username","hidden","$in[username]","");
 
- 
+
    // End form
    print  end_form();
 
@@ -875,11 +875,11 @@ function update_user() {
 
 
    $q = "UPDATE " . DB_USER . " 
-           SET password = '$in[password]',
-               g_id     = '$in[g_id]',
-               name     = '$in[name]',
-               email    = '$in[email]',
-               status   = '$in[status]',
+           SET password = '{$in['password']}',
+               g_id     = '{$in['g_id']}',
+               name     = '{$in['name']}',
+               email    = '{$in['email']}',
+               status   = '{$in['status']}',
                reg_date = reg_date,
                last_date = last_date
          WHERE id = '$u_id' ";
@@ -889,9 +889,9 @@ function update_user() {
    // Also update session table
 
    $q = "UPDATE " . DB_SESSION . " 
-           SET g_id     = '$in[g_id]',
-               name     = '$in[name]',
-               email    = '$in[email]'
+           SET g_id     = '{$in['g_id']}',
+               name     = '{$in['name']}',
+               email    = '{$in['email']}'
          WHERE u_id = '$u_id' ";
 
    db_query($q);

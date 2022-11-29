@@ -223,15 +223,15 @@ function search_forum($forum,$forum_date) {
                              '$session_id',
                              NOW(),
                              '$forum',
-                             '$row[id]',
-                             '$row[type]',
-                             '$row[topic_lock]',
-                             '$row[mesg_date]',
-                             '$row[last_date]',
+                             '{$row['id']}',
+                             '{$row['type']}',
+                             '{$row['topic_lock']}',
+                             '{$row['mesg_date']}',
+                             '{$row['last_date']}',
                              '$subject',
-                             '$row[author_name]',
-                             '$row[last_author]',
-                             '$row[replies]') ";
+                             '{$row['author_name']}',
+                             '{$row['last_author']}',
+                             '{$row['replies']}') ";
       db_query($qq);
    }
 

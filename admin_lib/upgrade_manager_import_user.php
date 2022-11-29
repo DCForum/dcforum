@@ -205,8 +205,8 @@ function upgrade_manager_import_user() {
                 $fields['6'] = db_escape_string($fields['6']);
 
               $sql .= ") 
-                      VALUES ('$fields[1]','$fields[0]',$group_id,
-                       '$fields[6]','$name','$fields[5]',
+                      VALUES ('{$fields['1']}','{$fields['0']}',$group_id,
+                       '{$fields['6']}','$name','{$fields['5']}',
                       '$member_since',
                        NOW(),
                       '$post_count' ";
@@ -230,8 +230,8 @@ function upgrade_manager_import_user() {
                    reg_date,
                    last_date,
                    num_posts )
-                   VALUES ('$fields[1]','$fields[0]',$group_id,
-                        '$fields[6]','$name','$fields[5]',
+                   VALUES ('{$fields['1']}','{$fields['0']}',$group_id,
+                        '{$fields['6']}','$name','{$fields['5']}',
                    '$member_since',
                    NOW(),
                    '$post_count' ) ";

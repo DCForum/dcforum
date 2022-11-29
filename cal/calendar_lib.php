@@ -1126,17 +1126,17 @@ function insert_event() {
 
 
    $q = "INSERT INTO " . DB_EVENT_REPEAT . "
-             VALUES('','$in[repeat_type]',
-                    '$in[opt1_1]','$in[opt1_2]',
-                    '$in[opt2_1]','$in[opt2_2]','$in[opt2_3]' )";
+             VALUES('','{$in['repeat_type']}',
+                    '{$in['opt1_1']}','{$in['opt1_2']}',
+                    '{$in['opt2_1']}','{$in['opt2_2']}','{$in['opt2_3']}' )";
    db_query($q);
 
    $repeat_id = db_insert_id($q);                    
 
    $q = "INSERT INTO " . DB_EVENT . "
-             VALUES('',NOW(0),'','$in[type]','$repeat_id','$author_id','$author_name',
-                    '$in[mode]','$title','$note','$in[all_day]',
-                    '$in[start_timestamp]','$in[duration]','$in[end_timestamp]') ";
+             VALUES('',NOW(0),'','{$in['type']}','$repeat_id','$author_id','$author_name',
+                    '{$in['mode']}','$title','$note','{$in['all_day']}',
+                    '{$in['start_timestamp']}','{$in['duration']}','{$in['end_timestamp']}') ";
    db_query($q);
 
 }
@@ -1167,27 +1167,27 @@ function update_event() {
    // We need to get few things here
 
    $q = "UPDATE " . DB_EVENT_REPEAT . "
-             SET  type = '$in[repeat_type]',
-                  opt1_1 = '$in[opt1_1]',
-                  opt1_2 = '$in[opt1_2]',
-                  opt2_1 = '$in[opt2_1]',
-                  opt2_2 = '$in[opt2_2]',
-                  opt2_3 = '$in[opt2_3]'
-           WHERE id = '$in[repeat_id]' ";
+             SET  type = '{$in['repeat_type']}',
+                  opt1_1 = '{$in['opt1_1']}',
+                  opt1_2 = '{$in['opt1_2']}',
+                  opt2_1 = '{$in['opt2_1']}',
+                  opt2_2 = '{$in['opt2_2']}',
+                  opt2_3 = '{$in['opt2_3']}'
+           WHERE id = '{$in['repeat_id']}' ";
 
    db_query($q);
 
    $q = "UPDATE " . DB_EVENT . "
            SET post_date = post_date,
                last_date = NOW(),
-               type = '$in[type]',
-               mode = '$in[mode]',
+               type = '{$in['type']}',
+               mode = '{$in['mode']}',
                title = '$title',
                note = '$note',
-               all_day = '$in[all_day]',
-               start_date = '$in[start_timestamp]',
-               duration = '$in[duration]',
-               end_date = '$in[end_timestamp]'
+               all_day = '{$in['all_day']}',
+               start_date = '{$in['start_timestamp']}',
+               duration = '{$in['duration']}',
+               end_date = '{$in['end_timestamp']}'
          WHERE id = $in[event_id] ";
 
    db_query($q);

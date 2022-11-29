@@ -200,7 +200,7 @@ function create_forum ($in) {
                       '',
                       '',
                       '',
-                      '$in[mode]',
+                      '{$in['mode']}',
                       '$status',
                       '$top_template',
                       '$bottom_template')";
@@ -386,30 +386,30 @@ function add_new_message() {
    }
 
 // mod.2002.11.07.02
-//                 '$in[th_order]',
+//                 '{$in['th_order']}',
 //                 '1',
 
    $q = "INSERT INTO $in[forum_table]
           VALUES('',
-                 '$in[top_id]',
-                 '$in[parent_id]',
-                 '$in[type]',
-                 '$in[message_format]',
-                 '$in[u_id]',
-                 '$in[author_name]',
+                 '{$in['top_id']}',
+                 '{$in['parent_id']}',
+                 '{$in['type']}',
+                 '{$in['message_format']}',
+                 '{$in['u_id']}',
+                 '{$in['author_name']}',
                  NOW(),
                  '',
                  NOW(),
                  '',
                  '',
-                 '$in[subject]',
-                 '$in[message]',
-                 '$in[attachments]',
+                 '{$in['subject']}',
+                 '{$in['message']}',
+                 '{$in['attachments']}',
                  'off',
-                 '$in[forum_mode]',
+                 '{$in['forum_mode']}',
                  'off',
-                 '$in[topic_pin]',
-                 '$in[disable_smilies]',
+                 '{$in['topic_pin']}',
+                 '{$in['disable_smilies']}',
                  '$use_signature',
                  '0',
                  '0',
@@ -436,7 +436,7 @@ function add_new_message() {
    if ($in['attachments']) {
       $q = "UPDATE " . DB_UPLOAD . "
                SET mesg_id = '$new_id'
-             WHERE post_id = '$in[post_id]' ";
+             WHERE post_id = '{$in['post_id']}' ";
       db_query($q);
    }
 
@@ -473,16 +473,16 @@ function update_message() {
 
       // Update message
       $q = "UPDATE $in[forum_table]
-               SET message_format = '$in[message_format]',
+               SET message_format = '{$in['message_format']}',
                    mesg_date = mesg_date,
                    last_date = NOW(),
                    edit_author = '$last_author',
                    edit_date = NOW(),
-                   subject = '$in[subject]',
-                   message = '$in[message]',
-                   disable_smilies = '$in[disable_smilies]',
-                   attachments = '$in[attachments]'
-             WHERE id = '$in[mesg_id]' ";
+                   subject = '{$in['subject']}',
+                   message = '{$in['message']}',
+                   disable_smilies = '{$in['disable_smilies']}',
+                   attachments = '{$in['attachments']}'
+             WHERE id = '{$in['mesg_id']}' ";
       db_query($q);
 
       // Update topic
@@ -490,7 +490,7 @@ function update_message() {
                SET mesg_date = mesg_date,
                    last_date = NOW(),
                    last_author = '$last_author'
-             WHERE id = '$in[topic_id]' ";
+             WHERE id = '{$in['topic_id']}' ";
       db_query($q);
 
    }
@@ -498,18 +498,18 @@ function update_message() {
    else {
       // Update message
       $q = "UPDATE $in[forum_table]
-               SET message_format = '$in[message_format]',
+               SET message_format = '{$in['message_format']}',
                    mesg_date = mesg_date,
                    last_date = NOW(),
                    edit_author = '$last_author',
                    edit_date = NOW(),
-                   subject = '$in[subject]',
-                   message = '$in[message]',
-                   type = '$in[type]', 
-                   topic_pin = '$in[topic_pin]',
-                   disable_smilies = '$in[disable_smilies]',
-                   attachments = '$in[attachments]'
-             WHERE id = '$in[mesg_id]' ";
+                   subject = '{$in['subject']}',
+                   message = '{$in['message']}',
+                   type = '{$in['type']}', 
+                   topic_pin = '{$in['topic_pin']}',
+                   disable_smilies = '{$in['disable_smilies']}',
+                   attachments = '{$in['attachments']}'
+             WHERE id = '{$in['mesg_id']}' ";
       db_query($q);
    }
 
@@ -527,8 +527,8 @@ function update_message() {
 
      // update attachment table
       $q = "UPDATE " . DB_UPLOAD . "
-               SET mesg_id = '$in[mesg_id]'
-             WHERE post_id = '$in[post_id]' ";
+               SET mesg_id = '{$in['mesg_id']}'
+             WHERE post_id = '{$in['post_id']}' ";
       db_query($q);
 
 
@@ -541,8 +541,8 @@ function update_message() {
       // Get current list of files
       $q = "SELECT id, file_type
               FROM " . DB_UPLOAD . "
-             WHERE forum_id = '$in[forum]'
-             AND mesg_id = '$in[mesg_id]' ";
+             WHERE forum_id = '{$in['forum']}'
+             AND mesg_id = '{$in['mesg_id']}' ";
       db_query($q);
 
       $result = db_query($q);
@@ -556,8 +556,8 @@ function update_message() {
          else {
             $q = "DELETE FROM " . DB_UPLOAD . "
                    WHERE id NOT IN ($in_list)
-                     AND forum_id = '$in[forum]'
-                     AND mesg_id = '$in[mesg_id]' ";
+                     AND forum_id = '{$in['forum']}'
+                     AND mesg_id = '{$in['mesg_id']}' ";
             db_query($q);
             if (file_exists(USER_DIR . "/" . $filename)) {
                unlink(USER_DIR . "/$filename");
@@ -571,8 +571,8 @@ function update_message() {
       // Get current list of files
       $q = "SELECT id, file_type
               FROM " . DB_UPLOAD . "
-             WHERE forum_id = '$in[forum]'
-             AND mesg_id = '$in[mesg_id]' ";
+             WHERE forum_id = '{$in['forum']}'
+             AND mesg_id = '{$in['mesg_id']}' ";
       db_query($q);
 
       $result = db_query($q);
@@ -585,8 +585,8 @@ function update_message() {
       }
 
       $q = "DELETE FROM " . DB_UPLOAD . "
-             WHERE forum_id = '$in[forum]'
-               AND mesg_id = '$in[mesg_id]' ";
+             WHERE forum_id = '{$in['forum']}'
+               AND mesg_id = '{$in['mesg_id']}' ";
       db_query($q);
 
    }
@@ -1771,8 +1771,8 @@ function move_message($from_forum_id,$to_forum_id,$topic_id,$mesg_parent_id) {
      }
 
 // mod.2002.11.07.02
-//                 '$row[th_order]',
-//                 '$row[th_next]',
+//                 '{$row['th_order']}',
+//                 '{$row['th_next']}',
 
     foreach($row as $key => $val) {
         $row[$key] = db_escape_string($val);
@@ -1780,37 +1780,37 @@ function move_message($from_forum_id,$to_forum_id,$topic_id,$mesg_parent_id) {
 
 // mod.2002.11.17.05
 // move signature too
-//                 '$row[opt_1]',
-//                 '$row[opt_2]',
-//                 '$row[opt_3]',
+//                 '{$row['opt_1']}',
+//                 '{$row['opt_2']}',
+//                 '{$row['opt_3']}',
 
      $q = "INSERT INTO $to_table
           VALUES('',
                  '$new_top_id',
                  '$new_parent_id',
-                 '$row[type]',
-                 '$row[message_format]',
-                 '$row[author_id]',
-                 '$row[author_name]',
-                 '$row[mesg_date]',
-                 '$row[last_author]',
-                 '$row[last_date]',
-                 '$row[edit_author]',
-                 '$row[edit_date]',
-                 '$row[subject]',
-                 '$row[message]',
-                 '$row[attachments]',
-                 '$row[topic_lock]',
-                 '$row[topic_queue]',
-                 '$row[topic_hidden]',
-                 '$row[topic_pin]',
-                 '$row[disable_smilies]',
-                 '$row[use_signature]',
-                 '$row[opt_1]',
-                 '$row[opt_2]',
-                 '$row[views]',
-                 '$row[rating]',
-                 '$row[replies]' ) ";
+                 '{$row['type']}',
+                 '{$row['message_format']}',
+                 '{$row['author_id']}',
+                 '{$row['author_name']}',
+                 '{$row['mesg_date']}',
+                 '{$row['last_author']}',
+                 '{$row['last_date']}',
+                 '{$row['edit_author']}',
+                 '{$row['edit_date']}',
+                 '{$row['subject']}',
+                 '{$row['message']}',
+                 '{$row['attachments']}',
+                 '{$row['topic_lock']}',
+                 '{$row['topic_queue']}',
+                 '{$row['topic_hidden']}',
+                 '{$row['topic_pin']}',
+                 '{$row['disable_smilies']}',
+                 '{$row['use_signature']}',
+                 '{$row['opt_1']}',
+                 '{$row['opt_2']}',
+                 '{$row['views']}',
+                 '{$row['rating']}',
+                 '{$row['replies']}' ) ";
 
 
    db_query($q);

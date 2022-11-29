@@ -483,23 +483,23 @@ function update_user_setting($param = 'default') {
       if ($param == 'preference' or $param == 'default') {
          $set_clause = array();
          if ($in['ue'] != '')
-             $set_clause[] = " ue = '$in[ue]'";
+             $set_clause[] = " ue = '{$in['ue']}'";
          if ($in['ug'] != '')
-             $set_clause[] = " ug = '$in[ug]'";
+             $set_clause[] = " ug = '{$in['ug']}'";
          if ($in['uh'] != '')
-             $set_clause[] = " uh = '$in[uh]'";
+             $set_clause[] = " uh = '{$in['uh']}'";
          if ($in['uj'] != '')
-             $set_clause[] = " uj = '$in[uj]'";
+             $set_clause[] = " uj = '{$in['uj']}'";
          if ($in['ut'] != '')
-             $set_clause[] = " ut = '$in[ut]'";
+             $set_clause[] = " ut = '{$in['ut']}'";
          if ($in['utt'] != '')
-             $set_clause[] = " utt = '$in[utt]'";
+             $set_clause[] = " utt = '{$in['utt']}'";
          if ($in['uu'] != '')
-             $set_clause[] = " uu = '$in[uu]'";
+             $set_clause[] = " uu = '{$in['uu']}'";
          if ($in['uv'] != '')
-             $set_clause[] = " uv = '$in[uv]'";
+             $set_clause[] = " uv = '{$in['uv']}'";
          if ($in['uw'] != '')
-             $set_clause[] = " uw = '$in[uw]'";
+             $set_clause[] = " uw = '{$in['uw']}'";
 
          $set_list = implode(",",$set_clause);
 

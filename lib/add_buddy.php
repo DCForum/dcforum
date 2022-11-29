@@ -91,7 +91,7 @@ function is_dup_buddy() {
    $q = "SELECT id
            FROM " . DB_BUDDY . "
           WHERE u_id = '" . $in['user_info']['id'] . "'
-            AND b_id = '$in[u_id]' ";
+            AND b_id = '{$in['u_id']}' ";
 
    $result = db_query($q);
    $num_rows = db_num_rows($result);
@@ -125,7 +125,7 @@ function add_a_buddy() {
                  VALUES(
                      '',
                      '" . $in['user_info']['id'] ."',
-                     '$in[u_id]',
+                     '{$in['u_id']}',
                      NOW()   ) ";
       db_query($q);
 

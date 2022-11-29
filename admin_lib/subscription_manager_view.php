@@ -61,7 +61,7 @@ function subscription_manager_view() {
          foreach ($in['select'] as $forum_user_id) {
             $forum_user_array = explode(',',$forum_user_id);
             $q = "INSERT INTO " . DB_PRIVATE_FORUM_LIST . "
-                VALUES('','$forum_user_array[1]','$forum_user_array[0]') ";
+                VALUES('','{$forum_user_array['1']}','{$forum_user_array['0']}') ";
             db_query($q);
          }
       }

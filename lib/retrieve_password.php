@@ -113,7 +113,7 @@ function retrieve_password() {
             $q = "UPDATE " . DB_USER . "
                      SET password = '$encrypted_password',
                          reg_date = reg_date
-                   WHERE id = '$row[id]' ";
+                   WHERE id = '{$row['id']}' ";
             db_query($q);
 
             $to = $email;

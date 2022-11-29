@@ -217,13 +217,13 @@ function save_search_param() {
                     '$session_id',
                     NOW(),
                     '$keyword',
-                    '$in[search_mode]',
-                    '$in[search_logic]',
-                    '$in[select_forum]',
-                    '$in[recursive_search]',
-                    '$in[search_field]',
-                    '$in[search_days]',
-                    '$in[hits_per_page]' ) ";
+                    '{$in['search_mode']}',
+                    '{$in['search_logic']}',
+                    '{$in['select_forum']}',
+                    '{$in['recursive_search']}',
+                    '{$in['search_field']}',
+                    '{$in['search_days']}',
+                    '{$in['hits_per_page']}' ) ";
 
    db_query($q);
 

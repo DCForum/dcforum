@@ -31,6 +31,9 @@ ASAP.
 * Renamed `dcsetup.php` to `dcsetup.example.php` and added to gitignore.
 * Added `dd` and `dump` functions to `dclib.php`.
 * Migrated `array_push` on singles elements to `[]`.
+* Removed timestamp size from mysql tables.
+* Migrated empty strings on auto increment to null on sql inserts.
+* Wrapped all array access in strings to `'{$arr['key']}'`.
 
 #### 1.27.1
 

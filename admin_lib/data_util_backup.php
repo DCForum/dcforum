@@ -70,7 +70,7 @@ function data_util_backup() {
       while($row = db_fetch_array($result)) {   
          $qq = "DELETE 
                  FROM " . DB_SEARCH_PARAM . "
-                WHERE session_id = '$row[session_id]' ";
+                WHERE session_id = '{$row['session_id']}' ";
          db_query($qq);
       }
 

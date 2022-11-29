@@ -137,7 +137,7 @@ function rate_topic() {
       // exceeds the minimum counts
       if ($row['count'] >= SETUP_TOPIC_RATING_THRESHOLD) {
          $q = "UPDATE $in[forum_table]
-                  SET rating = '$row[score]' 
+                  SET rating = '{$row['score']}' 
                 WHERE id = '$topic_id' ";
 
          db_query($q);

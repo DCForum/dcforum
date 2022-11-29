@@ -51,7 +51,7 @@ function setting() {
       $new_stting = array();
       $q = "SELECT var_key
               FROM " . DB_SETUP . "
-             WHERE var_type = '$in[saz]'";
+             WHERE var_type = '{$in['saz']}'";
       $result = db_query($q);
 
       while($record = db_fetch_array($result)) {
@@ -110,7 +110,7 @@ function setting() {
 
       $q = "SELECT var_key, var_value
                  FROM " . DB_SETUP . "
-                WHERE var_type = '$in[saz]'";
+                WHERE var_type = '{$in['saz']}'";
       $result = db_query($q);
 
 

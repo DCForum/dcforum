@@ -44,7 +44,7 @@ function list_members() {
       // allowed in this forum
       $q = "SELECT u_id
            FROM " . DB_PRIVATE_FORUM_LIST . "
-          WHERE forum_id = '$in[forum]' ";
+          WHERE forum_id = '{$in['forum']}' ";
       $result = db_query($q);
       while($row = db_fetch_array($result)) {
          $has_access[$row['u_id']] = 1;
@@ -150,7 +150,7 @@ function list_private_forums() {
       // allowed in this forum
       $q = "SELECT forum_id
            FROM " . DB_PRIVATE_FORUM_LIST . "
-          WHERE u_id = '$in[select]' ";
+          WHERE u_id = '{$in['select']}' ";
       $result = db_query($q);
       while($row = db_fetch_array($result)) {
          $has_access[$row['forum_id']] = 1;

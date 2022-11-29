@@ -148,8 +148,8 @@ function edit_poll() {
 
       $q = "SELECT *
               FROM " . DB_POLL_CHOICES . "
-             WHERE forum_id = '$in[forum]'
-               AND topic_id = '$in[topic_id]' ";
+             WHERE forum_id = '{$in['forum']}'
+               AND topic_id = '{$in['topic_id']}' ";
 
       $result = db_query($q);
       $row = db_fetch_array($result);

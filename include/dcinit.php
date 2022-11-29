@@ -424,7 +424,7 @@ function get_session_info($session_key, $session_id)
     $q = "SELECT id,
                 time_mark
            FROM " . DB_SESSION . "
-          WHERE u_id = '$row[id]'
+          WHERE u_id = '{$row['id']}'
        ORDER BY last_date DESC LIMIT 1 ";
 
     $result = db_query($q);
@@ -436,7 +436,7 @@ function get_session_info($session_key, $session_id)
         $row['time_mark'] = $row_2['time_mark'];
         $q = "UPDATE " . DB_SESSION . "
                SET last_date = NOW(),
-                   time_mark = '$row[time_mark]'
+                   time_mark = '{$row['time_mark']}'
              WHERE id = '$session_key' ";
     } else {
         $q = "UPDATE " . DB_SESSION . "

@@ -304,7 +304,7 @@ function list_ratings() {
 
          $qq = "SELECT SUM(score) as score, count(u_id) as votes
                   FROM " . DB_USER_RATING . "
-                 WHERE u_id = '$row[id]'
+                 WHERE u_id = '{$row['id']}'
                 GROUP BY u_id ";
         
          $qq_result = db_query($qq);
@@ -359,7 +359,7 @@ function index_menu() {
            FROM " . DB_USER_RATING ;
    $result = db_query($q);
    while($row = db_fetch_array($result)) {
-       $in_list[] = "'$row[u_id]'";
+       $in_list[] = "'{$row['u_id']}'";
    }
    db_free($result);
 

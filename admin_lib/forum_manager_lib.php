@@ -118,7 +118,7 @@ function remove_forum_stuff($forum_id) {
 
    while($row = db_fetch_array($result)) {
       $qq = "DELETE FROM " . DB_POLL_VOTES . "
-                  WHERE poll_id = '$row[id]' ";
+                  WHERE poll_id = '{$row['id']}' ";
       db_query($qq);
    }
    db_free($result);
@@ -225,11 +225,11 @@ function update_forum ($in) {
                 name = '$forum_name',
                 description = '$forum_desc',
                 last_date = last_date,
-                mode = '$in[mode]',
+                mode = '{$in['mode']}',
                 status = '$status',
                 top_template = '$top_template',
                 bottom_template = '$bottom_template'
-          WHERE id = '$in[id]' ";
+          WHERE id = '{$in['id']}' ";
    db_query($q);
 
    // if not conferencem, then update moderator list
@@ -319,7 +319,7 @@ function update_subscription_list($id,$forum_type) {
                     WHERE g_id > 1 ";
          $q_result = db_query($q_sub);
          while($row=db_fetch_array($q_result)) {
-             $members[] = "'$row[id]'";
+             $members[] = "'{$row['id']}'";
          }
          db_free($q_result);
          $members = implode(',',$members);

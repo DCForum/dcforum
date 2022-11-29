@@ -60,7 +60,7 @@ function general_manage_user_files() {
             $this = explode('.',$filename);
             $q = "DELETE 
                     FROM " . DB_UPLOAD . "
-                   WHERE id = '$this[0]' ";
+                   WHERE id = '{$this['0']}' ";
             db_query($q);
             if (file_exists(USER_DIR . "/$filename")) {
                unlink(USER_DIR . "/$filename");
@@ -118,7 +118,7 @@ function display_file_list() {
    $q = "SELECT *,
                 UNIX_TIMESTAMP(date) AS date
            FROM " . DB_UPLOAD . "
-          WHERE u_id = '$in[u_id]' ";
+          WHERE u_id = '{$in['u_id']}' ";
 
    $result = db_query($q);
 

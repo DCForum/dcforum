@@ -108,7 +108,7 @@ function message_manager() {
       $q = "UPDATE " . DB_NOTICE . "
               SET var_subject = '$subject',
                   var_message = '$message'
-             WHERE id = '$in[id]' ";
+             WHERE id = '{$in['id']}' ";
 
       db_query($q);
 
@@ -123,7 +123,7 @@ function message_manager() {
 
       $q = "SELECT id, var_subject, var_message
               FROM " . DB_NOTICE . "
-             WHERE var_key = '$in[saz]' ";
+             WHERE var_key = '{$in['saz']}' ";
 
       $result = db_query($q);
       $row = db_fetch_array($result);

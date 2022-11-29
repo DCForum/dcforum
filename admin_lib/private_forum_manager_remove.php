@@ -58,12 +58,12 @@ function private_forum_manager_remove() {
    if ($in['ssaz'] == 'update') {
 
       $q = "DELETE FROM " . DB_PRIVATE_FORUM_LIST . "
-                  WHERE forum_id = '$in[forum]' ";
+                  WHERE forum_id = '{$in['forum']}' ";
       db_query($q);
 
       foreach ($in['select'] as $u_id) {
          $q = "INSERT INTO " . DB_PRIVATE_FORUM_LIST . "
-                VALUES('','$u_id','$in[forum]') ";
+                VALUES('','$u_id','{$in['forum']}') ";
          db_query($q);
       }
 

@@ -119,10 +119,10 @@ function upgrade_manager_import_misc_user_info() {
 
    while($row = db_fetch_array($result)) {
       $qq = "UPDATE " . DB_USER . "
-                SET points = '$row[score]',
-                    num_votes = '$row[count]',
+                SET points = '{$row['score']}',
+                    num_votes = '{$row['count']}',
                     reg_date = reg_date
-              WHERE id = '$row[u_id]' ";
+              WHERE id = '{$row['u_id']}' ";
       db_query($qq);
 
    }

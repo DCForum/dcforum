@@ -423,7 +423,7 @@ function get_num_replies() {
    $mesg_table = mesg_table_name($in['forum']);
    $q = "SELECT replies
            FROM $mesg_table
-          WHERE id = '$in[topic_id]' ";
+          WHERE id = '{$in['topic_id']}' ";
    $result = db_query($q);
    $row = db_fetch_array($result);
    db_free($result);

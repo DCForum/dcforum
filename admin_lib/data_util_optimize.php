@@ -28,47 +28,49 @@
 //
 ///////////////////////////////////////////////////////////////
 
-function data_util_optimize() {
+function data_util_optimize()
+{
 
-   // global variables
-   global $in;
+    // global variables
+    global $in;
 
-   include_once(ADMIN_LIB_DIR . '/menu.php');
+    include_once(ADMIN_LIB_DIR . '/menu.php');
 
-   $sub_cat = $cat[$in['az']]['sub_cat'];
-   $title = $sub_cat[$in['saz']]['title'];
-   $desc = $sub_cat[$in['saz']]['desc'];
+    $sub_cat = $cat[$in['az']]['sub_cat'];
+    $title = $sub_cat[$in['saz']]['title'];
+    $desc = $sub_cat[$in['saz']]['desc'];
 
-   begin_table(array(
-         'border'=>'0',
-         'cellspacing' => '1',
-         'cellpadding' => '5',
-         'class'=>'') );
+    begin_table([
+        'border'      => '0',
+        'cellspacing' => '1',
+        'cellpadding' => '5',
+        'class'       => '',
+    ]);
 
-   // Title component
-   print "<tr class=\"dcheading\"><td 
+    // Title component
+    print "<tr class=\"dcheading\"><td 
               class=\"dcheading\"><strong>$title</strong>
               <br />$desc</td></tr>\n";
 
-   print "<tr class=\"dclite\"><td 
+    print "<tr class=\"dclite\"><td 
               class=\"dclite\">\n";
 
-   $database = DB_NAME;
+    $database = DB_NAME;
 
-   $q = "show table status";
-   $result = db_query($q);
+    $q = "show table status";
+    $result = db_query($q);
 
-   while($row = db_fetch_array($result)) {
-         $table_name = $row[Name];
-         $qq = "OPTIMIZE TABLE " . $table_name;
-         db_query($qq);
-         print "<li> optimized $table_name </li>\n";
-   }
-   db_free($result);
+    while ($row = db_fetch_array($result)) {
+        $table_name = $row['Name'];
+        $qq = "OPTIMIZE TABLE " . $table_name;
+        db_query($qq);
+        print "<li> optimized $table_name </li>\n";
+    }
+    db_free($result);
 
 
-   print "</td></tr>";
-   end_table();
+    print "</td></tr>";
+    end_table();
 
 }
 
